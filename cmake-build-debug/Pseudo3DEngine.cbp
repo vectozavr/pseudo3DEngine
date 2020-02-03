@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Pseudo3DEngine"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\Libraries\;CMake Files\..\..\..\..\..\Libraries\SFML\;CMake Files\..\..\..\..\..\Libraries\SFML\lib\;CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\;CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Pseudo3DEngine">
+				<Option output="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Pseudo3DEngine.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DSFML_STATIC"/>
+					<Add directory="D:/Libraries/SFML/include"/>
+					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 Pseudo3DEngine"/>
+					<CompileFile command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Pseudo3DEngine/fast">
+				<Option output="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Pseudo3DEngine.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DSFML_STATIC"/>
+					<Add directory="D:/Libraries/SFML/include"/>
+					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 Pseudo3DEngine/fast"/>
+					<CompileFile command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Camera.cpp">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Camera.h">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Circle2D.cpp">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Level1.cpp">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Level1.h">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Menu.cpp">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Menu.h">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Object2D.cpp">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Object2D.h">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.cpp">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Window.cpp">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Window.h">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/World.cpp">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/World.h">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/main.cpp">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/settings.h">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/../../../../../Libraries/SFML/lib/cmake/SFML/SFMLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/../../../../../Libraries/SFML/lib/cmake/SFML/SFMLConfigDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/../../../../../Libraries/SFML/lib/cmake/SFML/SFMLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/../../../../../Libraries/SFML/lib/cmake/SFML/SFMLStaticTargets-debug.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/../../../../../Libraries/SFML/lib/cmake/SFML/SFMLStaticTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/../../../../../Libraries/SFML/lib/cmake/SFML/SFMLStaticTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
