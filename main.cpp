@@ -110,6 +110,7 @@ int main()
 
         window.clear();     // отчистка
         if(!menu.isPaused()) {
+            window.setMouseCursorVisible(false);
             camera.updateDistances(world);
             camera.drawCameraView(window);
             world.draw(window);
@@ -117,6 +118,7 @@ int main()
                 menu.setPause();
             };
         } else {
+            window.setMouseCursorVisible(true);
             if(menu.isTextures() != camera.isTextures())
                 camera.switchTextures();
 

@@ -5,6 +5,7 @@
 #ifndef PSEUDO3DENGINE_CAMERA_H
 #define PSEUDO3DENGINE_CAMERA_H
 
+#include <chrono>
 #include "Object2D.h"
 #include "World.h"
 #include "settings.h"
@@ -37,6 +38,7 @@ private:
 
     sf::Sprite S_aim;
     sf::Texture T_aim;
+
 public:
     Weapon(int amount) : i_amount(amount) { };
 
@@ -63,6 +65,7 @@ public:
 
     bool fire() {
         if(i_amount > 0) {
+
             --i_amount;
             return true;
         }
@@ -73,8 +76,15 @@ public:
     }
 
     void draw(sf::RenderWindow& window) override {
+        auto tp = std::chrono::system_clock::now();
+        std::chrono::duration <double> elapsedTime = tp.time_since_epoch();
+        double d_elapsedTime = elapsedTime.count();
+
+        double shift = 15*(1 + cos(3*d_elapsedTime));
+
+        // RUN HERE
         S_weapon.setTexture(T_weapon);
-        S_weapon.setPosition(sf::Vector2f(SCREEN_WIDTH - S_weapon.getTextureRect().width, SCREEN_HEIGHT - S_weapon.getTextureRect().height)); // абсолютная позиция
+        S_weapon.setPosition(sf::Vector2f(SCREEN_WIDTH - S_weapon.getTextureRect().width + shift, SCREEN_HEIGHT - S_weapon.getTextureRect().height + shift)); // абсолютная позиция
         window.draw(S_weapon);
 
         S_aim.setTexture(T_aim);

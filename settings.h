@@ -87,7 +87,7 @@
 
 // WEAPONS
 
-#define SHOTGUN_TEXTURE "texture/weapons/shotgun.png"
+#define SHOTGUN_TEXTURE "texture/weapons/shotgun1.png"
 #define AIM_TEXTURE "texture/weapons/aim.png"
 
 #endif //PSEUDO3DENGINE_SETTINGS_H
