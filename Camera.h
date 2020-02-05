@@ -105,6 +105,9 @@ private:
     double d_fieldOfView;
     double d_depth;
 
+    Point2D P_shiftDirection;
+    int i_shiftDirection;
+
     double d_walkSpeed;
     double d_viewSpeed;
 

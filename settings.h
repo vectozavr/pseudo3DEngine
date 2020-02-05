@@ -27,6 +27,7 @@
 #define RADIUS_CAMERA SCALE/10
 #define CONVEX_NUMBER 100
 #define FILED_OF_VEW_COLOR {255, 67, 67, 0}
+#define RED_COLOR {255, 0, 0}
 
 #define COLLISION_DISTANCE 0.1
 
@@ -40,7 +41,7 @@
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 
-#define DISTANCES_SEGMENTS 1280 // How much vertical sectors we use in ray cast
+#define DISTANCES_SEGMENTS 640 // How much vertical sectors we use in ray cast
 
 //BACKGROUND
 #define OUTLINE_BACK_THICKNESS 5

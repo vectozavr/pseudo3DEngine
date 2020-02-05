@@ -850,47 +850,37 @@ SFML/Config.hpp
 
 D:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.cpp
+D:/ivan/cplusplus/pseudo3DEngine/Camera.cpp
 cmath
 -
 windows.h
 -
 Camera.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
+D:/ivan/cplusplus/pseudo3DEngine/Camera.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
+D:/ivan/cplusplus/pseudo3DEngine/Camera.h
 chrono
 -
 Object2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+D:/ivan/cplusplus/pseudo3DEngine/Object2D.h
 World.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
+D:/ivan/cplusplus/pseudo3DEngine/World.h
 settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+D:/ivan/cplusplus/pseudo3DEngine/settings.h
 Menu.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
+D:/ivan/cplusplus/pseudo3DEngine/Menu.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.cpp
-Circle2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
-settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
-
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
+D:/ivan/cplusplus/pseudo3DEngine/Circle2D.h
 Object2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+D:/ivan/cplusplus/pseudo3DEngine/Object2D.h
 settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+D:/ivan/cplusplus/pseudo3DEngine/settings.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
+D:/ivan/cplusplus/pseudo3DEngine/Idrawable.h
 SFML/Graphics.hpp
 -
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.cpp
-Menu.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
-
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
+D:/ivan/cplusplus/pseudo3DEngine/Menu.h
 SFML/Audio.hpp
 -
 SFML/Graphics.hpp
@@ -902,23 +892,17 @@ iostream
 chrono
 -
 settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+D:/ivan/cplusplus/pseudo3DEngine/settings.h
 Poligon2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
+D:/ivan/cplusplus/pseudo3DEngine/Poligon2D.h
 Circle2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
+D:/ivan/cplusplus/pseudo3DEngine/Circle2D.h
 Object2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+D:/ivan/cplusplus/pseudo3DEngine/Object2D.h
 Camera.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
+D:/ivan/cplusplus/pseudo3DEngine/Camera.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.cpp
-Object2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
-settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
-
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+D:/ivan/cplusplus/pseudo3DEngine/Object2D.h
 utility
 -
 vector
@@ -926,71 +910,23 @@ vector
 cmath
 -
 Idrawable.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
+D:/ivan/cplusplus/pseudo3DEngine/Idrawable.h
 settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+D:/ivan/cplusplus/pseudo3DEngine/settings.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.cpp
-Poligon2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
-settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
-
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
+D:/ivan/cplusplus/pseudo3DEngine/Poligon2D.h
 Object2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+D:/ivan/cplusplus/pseudo3DEngine/Object2D.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Window.cpp
-Window.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Window.h
-
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Window.h
-SFML/Graphics.hpp
--
-settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
-
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.cpp
-World.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
-settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
-
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
+D:/ivan/cplusplus/pseudo3DEngine/World.h
 Object2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+D:/ivan/cplusplus/pseudo3DEngine/Object2D.h
 string
 -
 map
 -
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/main.cpp
-SFML/Audio.hpp
--
-SFML/Graphics.hpp
--
-map
--
-iostream
--
-chrono
--
-settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
-Poligon2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
-Circle2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
-Object2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
-World.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
-Camera.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
-Menu.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
-
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+D:/ivan/cplusplus/pseudo3DEngine/settings.h
 SFML/Graphics.hpp
 -
 

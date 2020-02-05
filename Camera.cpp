@@ -12,12 +12,23 @@ using namespace std;
 void Camera::updateDistances(World& world) {
     v_distances.clear();
     std::string obj;
+
+    double maxScalarSum = 0;
+    int directionMaxScalarSum = 0;
+
     for(int i = 0; i < 2*PI/d_fieldOfView*DISTANCES_SEGMENTS; i++) {
         double left = d_direction - d_fieldOfView/2;
         double right = d_direction + d_fieldOfView/2;
         // find distance to near object in that direction
         double direction = d_direction + ((double)i/DISTANCES_SEGMENTS - 0.5)*d_fieldOfView;
         double progress = 0;
+
+        double direction1 = d_direction + ((double)(i+1)/DISTANCES_SEGMENTS - 0.5)*d_fieldOfView;
+        double scalarSum = P_shiftDirection.x*(cos(direction) + cos(direction1)) + P_shiftDirection.y*(sin(direction) + sin(direction1));
+        if(scalarSum > maxScalarSum) {
+            maxScalarSum = scalarSum;
+            directionMaxScalarSum = i;
+        }
 
         pair<Point2D, Point2D> segment1 = {{x(), y()}, {x() + d_depth*cos(direction), y() + d_depth*sin(direction)}};
 
@@ -52,14 +63,8 @@ void Camera::updateDistances(World& world) {
             }
         }
         v_distances.push_back({(position()-nearCross).abs(), len, obj});
-        //if(segments_crossing())
-        /*
-        for(int y = 0; y < SCREEN_HEIGHT; y++) {
-
-        }
-        */
     }
-    checkCollisions();
+    i_shiftDirection = directionMaxScalarSum;
 }
 
 void Camera::draw(sf::RenderWindow& window) {
@@ -88,7 +93,22 @@ void Camera::draw(sf::RenderWindow& window) {
     triangle.setOutlineThickness(OUTLINE_CAMERA_THICKNESS);
     triangle.setPosition((float)x()*SCALE, (float)y()*SCALE);
 
+    /*
+    sf::ConvexShape trianglePath;
+    trianglePath.setPointCount(5);
+    double direction1 = d_direction + ((double)i_shiftDirection/DISTANCES_SEGMENTS - 0.5)*d_fieldOfView;
+    double direction2 = d_direction + ((double)(i_shiftDirection+1)/DISTANCES_SEGMENTS - 0.5)*d_fieldOfView;
+    trianglePath.setPoint(0, sf::Vector2f(0, 0));
+    trianglePath.setPoint(1, sf::Vector2f(v_distances[i_shiftDirection].distance*SCALE*cos(direction1), v_distances[i_shiftDirection].distance*SCALE*sin(direction1)));
+    trianglePath.setPoint(2, sf::Vector2f(v_distances[i_shiftDirection+1].distance*SCALE*cos(direction2), v_distances[i_shiftDirection+1].distance*SCALE*sin(direction2)));
+    trianglePath.setPoint(3, sf::Vector2f(0, 0));
+    trianglePath.setOutlineColor(OUTLINE_CAMERA_COLOR);
+    trianglePath.setFillColor(RED_COLOR);
+    trianglePath.setOutlineThickness(OUTLINE_CAMERA_THICKNESS);
+    trianglePath.setPosition((float)x()*SCALE, (float)y()*SCALE);
+    */
     window.draw(triangle);
+    //window.draw(trianglePath);
     window.draw(circle);
 }
 
@@ -133,6 +153,10 @@ bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
         localMousePosition = sf::Mouse::getPosition(window);
         d_direction += d_viewSpeed * difference;
     }
+    P_shiftDirection.x = dx;
+    P_shiftDirection.y = dy;
+    P_shiftDirection = P_shiftDirection.normalize();
+
     shiftPrecise({dx, dy});
     return true;
     //shift({dx, dy});
@@ -186,7 +210,7 @@ void Camera::drawCameraView(sf::RenderWindow& window) {
         polygon.setPoint(2, sf::Vector2f(SCREEN_WIDTH/DISTANCES_SEGMENTS, h2));
         polygon.setPoint(3, sf::Vector2f(SCREEN_WIDTH/DISTANCES_SEGMENTS, h1));
 
-        int alpha = 255*(1 - v_distances[i].distance/d_depth);
+        int alpha = 255*(1 - (int)v_distances[i].distance/d_depth);
         if(alpha > 255)
             alpha = 255;
         if(alpha < 0)
@@ -217,24 +241,10 @@ void Camera::drawCameraView(sf::RenderWindow& window) {
     weapons[selectedWeapon].draw(window);
 }
 
-void Camera::checkCollisions() {
-    int howMuchCollisions = allCollisions.size();
-    if(b_collision) {
-        for(int i = howMuchCollisions-1; i >=0; i--) {
-            Point2D vector = allCollisions[i].edge.first - allCollisions[i].edge.second;
-            Point2D normalVector = {-vector.y, vector.x};
-            normalVector = normalVector.normalize();
-            Point2D shiftVector = normalVector*COLLISION_DISTANCE;
-            Point2D resultPosition = allCollisions[i].collisionPoint + shiftVector;
-            //shift(shiftVector);
-            setPosition(resultPosition);
-            allCollisions.pop_back();
-        }
-    }
-}
-
 void Camera::shiftPrecise(Point2D vector) {
-    shift(vector);
 
-    //p_position += vector;
+    bool collision = v_distances[i_shiftDirection].distance > vector.abs();
+
+    if(collision)
+        shift(vector);
 }
