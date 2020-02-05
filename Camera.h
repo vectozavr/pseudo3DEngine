@@ -105,9 +105,6 @@ private:
     double d_fieldOfView;
     double d_depth;
 
-    Point2D P_shiftDirection;
-    int i_shiftDirection;
-
     double d_walkSpeed;
     double d_viewSpeed;
 
@@ -119,8 +116,6 @@ private:
 
     bool b_textures = true;
     bool smooth = false;
-
-    void checkCollisions();
 
     std::vector<Weapon> weapons;
     int selectedWeapon = 0;

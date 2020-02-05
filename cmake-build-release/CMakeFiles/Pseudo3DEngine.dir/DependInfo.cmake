@@ -4,15 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/ivan/cplusplus/pseudo3DEngine/Camera.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/Camera.cpp.obj"
-  "D:/ivan/cplusplus/pseudo3DEngine/Circle2D.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/Circle2D.cpp.obj"
-  "D:/ivan/cplusplus/pseudo3DEngine/Level1.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.obj"
-  "D:/ivan/cplusplus/pseudo3DEngine/Menu.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.obj"
-  "D:/ivan/cplusplus/pseudo3DEngine/Object2D.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/Object2D.cpp.obj"
-  "D:/ivan/cplusplus/pseudo3DEngine/Poligon2D.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.obj"
-  "D:/ivan/cplusplus/pseudo3DEngine/Window.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/Window.cpp.obj"
-  "D:/ivan/cplusplus/pseudo3DEngine/World.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/World.cpp.obj"
-  "D:/ivan/cplusplus/pseudo3DEngine/main.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/main.cpp.obj"
+  "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.cpp" "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/Camera.cpp.obj"
+  "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.cpp" "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/Circle2D.cpp.obj"
+  "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Level1.cpp" "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.obj"
+  "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.cpp" "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.obj"
+  "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.cpp" "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/Object2D.cpp.obj"
+  "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.cpp" "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.obj"
+  "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Window.cpp" "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/Window.cpp.obj"
+  "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.cpp" "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/World.cpp.obj"
+  "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/main.cpp" "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-release/CMakeFiles/Pseudo3DEngine.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
