@@ -111,7 +111,7 @@ public:
 
 
         if(fireShift > 0)
-            fireShift -= 4*d_amplitude*diff/d_speed;
+            fireShift -= 2*d_amplitude*diff/d_speed;
         else
             fireShift = 0;
         double shift = 15*(1 + cos(3*d_elapsedTime)); // Motion of the weapon
@@ -132,8 +132,8 @@ public:
 
         // All about weapon
 
-        double d_armShift = 50*sin(PI*4*d_lastFireTime/(3*d_speed));
-        if(d_lastFireTime <= 0 || d_lastFireTime > 3*d_speed/4)
+        double d_armShift = 50*sin(PI*2*d_lastFireTime/d_speed);
+        if(d_lastFireTime <= 0 || d_lastFireTime > d_speed/2)
             d_armShift = 0;
 
         S_weapon_arm.setTexture(T_weapon_arm);
