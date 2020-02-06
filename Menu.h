@@ -62,7 +62,7 @@ private:
 
     bool b_textures = true;
     bool smooth = false;
-    bool b_collision = false;
+    bool b_collision = true;
     double lastTime = 0;
 public:
     Menu();

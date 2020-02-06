@@ -121,6 +121,8 @@ int main()
             window.setMouseCursorVisible(true);
             if(menu.isTextures() != camera.isTextures())
                 camera.switchTextures();
+            if(menu.isCollision() != camera.isCollision())
+                camera.switchCollision();
 
             menu.drawMenu(window, d_elapsedTime);
         }

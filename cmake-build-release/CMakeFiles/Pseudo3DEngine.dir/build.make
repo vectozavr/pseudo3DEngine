@@ -154,34 +154,6 @@ CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.s"
 	D:\MinGW\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\ivan\cplusplus\pseudo3DEngine\Menu.cpp -o CMakeFiles\Pseudo3DEngine.dir\Menu.cpp.s
 
-CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.obj: CMakeFiles/Pseudo3DEngine.dir/flags.make
-CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.obj: CMakeFiles/Pseudo3DEngine.dir/includes_CXX.rsp
-CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.obj: ../Level1.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ivan\cplusplus\pseudo3DEngine\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.obj"
-	D:\MinGW\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Pseudo3DEngine.dir\Level1.cpp.obj -c D:\ivan\cplusplus\pseudo3DEngine\Level1.cpp
-
-CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.i"
-	D:\MinGW\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\ivan\cplusplus\pseudo3DEngine\Level1.cpp > CMakeFiles\Pseudo3DEngine.dir\Level1.cpp.i
-
-CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.s"
-	D:\MinGW\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\ivan\cplusplus\pseudo3DEngine\Level1.cpp -o CMakeFiles\Pseudo3DEngine.dir\Level1.cpp.s
-
-CMakeFiles/Pseudo3DEngine.dir/Window.cpp.obj: CMakeFiles/Pseudo3DEngine.dir/flags.make
-CMakeFiles/Pseudo3DEngine.dir/Window.cpp.obj: CMakeFiles/Pseudo3DEngine.dir/includes_CXX.rsp
-CMakeFiles/Pseudo3DEngine.dir/Window.cpp.obj: ../Window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ivan\cplusplus\pseudo3DEngine\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Pseudo3DEngine.dir/Window.cpp.obj"
-	D:\MinGW\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Pseudo3DEngine.dir\Window.cpp.obj -c D:\ivan\cplusplus\pseudo3DEngine\Window.cpp
-
-CMakeFiles/Pseudo3DEngine.dir/Window.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Pseudo3DEngine.dir/Window.cpp.i"
-	D:\MinGW\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\ivan\cplusplus\pseudo3DEngine\Window.cpp > CMakeFiles\Pseudo3DEngine.dir\Window.cpp.i
-
-CMakeFiles/Pseudo3DEngine.dir/Window.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Pseudo3DEngine.dir/Window.cpp.s"
-	D:\MinGW\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\ivan\cplusplus\pseudo3DEngine\Window.cpp -o CMakeFiles\Pseudo3DEngine.dir\Window.cpp.s
-
 # Object files for target Pseudo3DEngine
 Pseudo3DEngine_OBJECTS = \
 "CMakeFiles/Pseudo3DEngine.dir/main.cpp.obj" \
@@ -190,9 +162,7 @@ Pseudo3DEngine_OBJECTS = \
 "CMakeFiles/Pseudo3DEngine.dir/Camera.cpp.obj" \
 "CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.obj" \
 "CMakeFiles/Pseudo3DEngine.dir/Circle2D.cpp.obj" \
-"CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.obj" \
-"CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.obj" \
-"CMakeFiles/Pseudo3DEngine.dir/Window.cpp.obj"
+"CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.obj"
 
 # External object files for target Pseudo3DEngine
 Pseudo3DEngine_EXTERNAL_OBJECTS =
@@ -204,8 +174,6 @@ Pseudo3DEngine.exe: CMakeFiles/Pseudo3DEngine.dir/Camera.cpp.obj
 Pseudo3DEngine.exe: CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.obj
 Pseudo3DEngine.exe: CMakeFiles/Pseudo3DEngine.dir/Circle2D.cpp.obj
 Pseudo3DEngine.exe: CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.obj
-Pseudo3DEngine.exe: CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.obj
-Pseudo3DEngine.exe: CMakeFiles/Pseudo3DEngine.dir/Window.cpp.obj
 Pseudo3DEngine.exe: CMakeFiles/Pseudo3DEngine.dir/build.make
 Pseudo3DEngine.exe: D:/Libraries/SFML/lib/libsfml-audio-s.a
 Pseudo3DEngine.exe: D:/Libraries/SFML/lib/libsfml-network-s.a
@@ -222,7 +190,7 @@ Pseudo3DEngine.exe: D:/Libraries/SFML/lib/libfreetype.a
 Pseudo3DEngine.exe: CMakeFiles/Pseudo3DEngine.dir/linklibs.rsp
 Pseudo3DEngine.exe: CMakeFiles/Pseudo3DEngine.dir/objects1.rsp
 Pseudo3DEngine.exe: CMakeFiles/Pseudo3DEngine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\ivan\cplusplus\pseudo3DEngine\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Pseudo3DEngine.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\ivan\cplusplus\pseudo3DEngine\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Pseudo3DEngine.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Pseudo3DEngine.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

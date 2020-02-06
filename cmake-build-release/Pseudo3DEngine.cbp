@@ -99,12 +99,6 @@
 		<Unit filename="D:/ivan/cplusplus/pseudo3DEngine/Idrawable.h">
 			<Option target="Pseudo3DEngine"/>
 		</Unit>
-		<Unit filename="D:/ivan/cplusplus/pseudo3DEngine/Level1.cpp">
-			<Option target="Pseudo3DEngine"/>
-		</Unit>
-		<Unit filename="D:/ivan/cplusplus/pseudo3DEngine/Level1.h">
-			<Option target="Pseudo3DEngine"/>
-		</Unit>
 		<Unit filename="D:/ivan/cplusplus/pseudo3DEngine/Menu.cpp">
 			<Option target="Pseudo3DEngine"/>
 		</Unit>
@@ -121,12 +115,6 @@
 			<Option target="Pseudo3DEngine"/>
 		</Unit>
 		<Unit filename="D:/ivan/cplusplus/pseudo3DEngine/Poligon2D.h">
-			<Option target="Pseudo3DEngine"/>
-		</Unit>
-		<Unit filename="D:/ivan/cplusplus/pseudo3DEngine/Window.cpp">
-			<Option target="Pseudo3DEngine"/>
-		</Unit>
-		<Unit filename="D:/ivan/cplusplus/pseudo3DEngine/Window.h">
 			<Option target="Pseudo3DEngine"/>
 		</Unit>
 		<Unit filename="D:/ivan/cplusplus/pseudo3DEngine/World.cpp">

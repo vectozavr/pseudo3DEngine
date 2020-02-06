@@ -182,9 +182,6 @@ CMakeFiles/Pseudo3DEngine.dir/Circle2D.cpp.obj
  D:/ivan/cplusplus/pseudo3DEngine/Idrawable.h
  D:/ivan/cplusplus/pseudo3DEngine/Object2D.h
  D:/ivan/cplusplus/pseudo3DEngine/settings.h
-CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.obj
- D:/ivan/cplusplus/pseudo3DEngine/Level1.cpp
- D:/ivan/cplusplus/pseudo3DEngine/Level1.h
 CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.obj
  D:/Libraries/SFML/include/SFML/Audio.hpp
  D:/Libraries/SFML/include/SFML/Audio/AlResource.hpp
@@ -444,84 +441,6 @@ CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.obj
  D:/ivan/cplusplus/pseudo3DEngine/Object2D.h
  D:/ivan/cplusplus/pseudo3DEngine/Poligon2D.cpp
  D:/ivan/cplusplus/pseudo3DEngine/Poligon2D.h
- D:/ivan/cplusplus/pseudo3DEngine/settings.h
-CMakeFiles/Pseudo3DEngine.dir/Window.cpp.obj
- D:/Libraries/SFML/include/SFML/Config.hpp
- D:/Libraries/SFML/include/SFML/Graphics.hpp
- D:/Libraries/SFML/include/SFML/Graphics/BlendMode.hpp
- D:/Libraries/SFML/include/SFML/Graphics/CircleShape.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Color.hpp
- D:/Libraries/SFML/include/SFML/Graphics/ConvexShape.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Drawable.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Export.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Font.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Glsl.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Glsl.inl
- D:/Libraries/SFML/include/SFML/Graphics/Glyph.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Image.hpp
- D:/Libraries/SFML/include/SFML/Graphics/PrimitiveType.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Rect.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Rect.inl
- D:/Libraries/SFML/include/SFML/Graphics/RectangleShape.hpp
- D:/Libraries/SFML/include/SFML/Graphics/RenderStates.hpp
- D:/Libraries/SFML/include/SFML/Graphics/RenderTarget.hpp
- D:/Libraries/SFML/include/SFML/Graphics/RenderTexture.hpp
- D:/Libraries/SFML/include/SFML/Graphics/RenderWindow.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Shader.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Shape.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Sprite.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Text.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Texture.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Transform.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Transformable.hpp
- D:/Libraries/SFML/include/SFML/Graphics/Vertex.hpp
- D:/Libraries/SFML/include/SFML/Graphics/VertexArray.hpp
- D:/Libraries/SFML/include/SFML/Graphics/VertexBuffer.hpp
- D:/Libraries/SFML/include/SFML/Graphics/View.hpp
- D:/Libraries/SFML/include/SFML/System.hpp
- D:/Libraries/SFML/include/SFML/System/Clock.hpp
- D:/Libraries/SFML/include/SFML/System/Err.hpp
- D:/Libraries/SFML/include/SFML/System/Export.hpp
- D:/Libraries/SFML/include/SFML/System/FileInputStream.hpp
- D:/Libraries/SFML/include/SFML/System/InputStream.hpp
- D:/Libraries/SFML/include/SFML/System/Lock.hpp
- D:/Libraries/SFML/include/SFML/System/MemoryInputStream.hpp
- D:/Libraries/SFML/include/SFML/System/Mutex.hpp
- D:/Libraries/SFML/include/SFML/System/NonCopyable.hpp
- D:/Libraries/SFML/include/SFML/System/Sleep.hpp
- D:/Libraries/SFML/include/SFML/System/String.hpp
- D:/Libraries/SFML/include/SFML/System/String.inl
- D:/Libraries/SFML/include/SFML/System/Thread.hpp
- D:/Libraries/SFML/include/SFML/System/Thread.inl
- D:/Libraries/SFML/include/SFML/System/ThreadLocal.hpp
- D:/Libraries/SFML/include/SFML/System/ThreadLocalPtr.hpp
- D:/Libraries/SFML/include/SFML/System/ThreadLocalPtr.inl
- D:/Libraries/SFML/include/SFML/System/Time.hpp
- D:/Libraries/SFML/include/SFML/System/Utf.hpp
- D:/Libraries/SFML/include/SFML/System/Utf.inl
- D:/Libraries/SFML/include/SFML/System/Vector2.hpp
- D:/Libraries/SFML/include/SFML/System/Vector2.inl
- D:/Libraries/SFML/include/SFML/System/Vector3.hpp
- D:/Libraries/SFML/include/SFML/System/Vector3.inl
- D:/Libraries/SFML/include/SFML/Window.hpp
- D:/Libraries/SFML/include/SFML/Window/Clipboard.hpp
- D:/Libraries/SFML/include/SFML/Window/Context.hpp
- D:/Libraries/SFML/include/SFML/Window/ContextSettings.hpp
- D:/Libraries/SFML/include/SFML/Window/Cursor.hpp
- D:/Libraries/SFML/include/SFML/Window/Event.hpp
- D:/Libraries/SFML/include/SFML/Window/Export.hpp
- D:/Libraries/SFML/include/SFML/Window/GlResource.hpp
- D:/Libraries/SFML/include/SFML/Window/Joystick.hpp
- D:/Libraries/SFML/include/SFML/Window/Keyboard.hpp
- D:/Libraries/SFML/include/SFML/Window/Mouse.hpp
- D:/Libraries/SFML/include/SFML/Window/Sensor.hpp
- D:/Libraries/SFML/include/SFML/Window/Touch.hpp
- D:/Libraries/SFML/include/SFML/Window/VideoMode.hpp
- D:/Libraries/SFML/include/SFML/Window/Window.hpp
- D:/Libraries/SFML/include/SFML/Window/WindowHandle.hpp
- D:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp
- D:/ivan/cplusplus/pseudo3DEngine/Window.cpp
- D:/ivan/cplusplus/pseudo3DEngine/Window.h
  D:/ivan/cplusplus/pseudo3DEngine/settings.h
 CMakeFiles/Pseudo3DEngine.dir/World.cpp.obj
  D:/Libraries/SFML/include/SFML/Config.hpp

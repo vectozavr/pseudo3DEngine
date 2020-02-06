@@ -1,11 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Pseudo3DEngine.dir/Camera.cpp.obj"
   "CMakeFiles/Pseudo3DEngine.dir/Circle2D.cpp.obj"
-  "CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.obj"
   "CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.obj"
   "CMakeFiles/Pseudo3DEngine.dir/Object2D.cpp.obj"
   "CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.obj"
-  "CMakeFiles/Pseudo3DEngine.dir/Window.cpp.obj"
   "CMakeFiles/Pseudo3DEngine.dir/World.cpp.obj"
   "CMakeFiles/Pseudo3DEngine.dir/main.cpp.obj"
   "Pseudo3DEngine.exe"

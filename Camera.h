@@ -43,7 +43,9 @@ private:
     int i_amount = 0;
 
     double fireShift = 0;
-    double d_fireTime = 0;
+    double d_fireAnimTime = 0;
+
+    double d_lastFireTime = 0;
 public:
     Weapon(int amount) : i_amount(amount) { };
 
@@ -72,8 +74,9 @@ public:
     }
 
     bool fire() {
-        if(i_amount > 0) {
-            d_fireTime = .1;
+        if((i_amount > 0) && (d_lastFireTime == 0)) {
+            d_lastFireTime = d_speed;
+            d_fireAnimTime = .1;
             --i_amount;
             fireShift = 100;
             return true;
@@ -92,14 +95,18 @@ public:
 
 
         if(fireShift > 0)
-            fireShift -= 10;
+            fireShift -= 130*diff;
         else
             fireShift = 0;
         double shift = 15*(1 + cos(3*d_elapsedTime)); // Motion of the weapon
 
         // WEAPON AND FIRE HERE
-        d_fireTime -= diff;
-        if(d_fireTime > 0) {
+        d_lastFireTime -= diff; // Time when you can't fire
+        if(d_lastFireTime < 0)
+            d_lastFireTime = 0;
+
+        d_fireAnimTime -= diff;
+        if(d_fireAnimTime > 0) {
             S_fire.setTexture(T_fire);
             S_fire.setPosition(sf::Vector2f(SCREEN_WIDTH - 490 + shift + fireShift - S_weapon.getTextureRect().width,
                                             SCREEN_HEIGHT - 792 + shift + fireShift -
@@ -131,7 +138,7 @@ private:
     double d_walkSpeed;
     double d_viewSpeed;
 
-    bool b_collision = false;
+    bool b_collision = true;
 
     World& W_world;
 

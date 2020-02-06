@@ -176,33 +176,6 @@ Circle2D.cpp.s:
 	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/Circle2D.cpp.s
 .PHONY : Circle2D.cpp.s
 
-Level1.obj: Level1.cpp.obj
-
-.PHONY : Level1.obj
-
-# target to build an object file
-Level1.cpp.obj:
-	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.obj
-.PHONY : Level1.cpp.obj
-
-Level1.i: Level1.cpp.i
-
-.PHONY : Level1.i
-
-# target to preprocess a source file
-Level1.cpp.i:
-	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.i
-.PHONY : Level1.cpp.i
-
-Level1.s: Level1.cpp.s
-
-.PHONY : Level1.s
-
-# target to generate assembly for a file
-Level1.cpp.s:
-	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.s
-.PHONY : Level1.cpp.s
-
 Menu.obj: Menu.cpp.obj
 
 .PHONY : Menu.obj
@@ -284,33 +257,6 @@ Poligon2D.cpp.s:
 	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.s
 .PHONY : Poligon2D.cpp.s
 
-Window.obj: Window.cpp.obj
-
-.PHONY : Window.obj
-
-# target to build an object file
-Window.cpp.obj:
-	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/Window.cpp.obj
-.PHONY : Window.cpp.obj
-
-Window.i: Window.cpp.i
-
-.PHONY : Window.i
-
-# target to preprocess a source file
-Window.cpp.i:
-	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/Window.cpp.i
-.PHONY : Window.cpp.i
-
-Window.s: Window.cpp.s
-
-.PHONY : Window.s
-
-# target to generate assembly for a file
-Window.cpp.s:
-	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/Window.cpp.s
-.PHONY : Window.cpp.s
-
 World.obj: World.cpp.obj
 
 .PHONY : World.obj
@@ -380,9 +326,6 @@ help:
 	@echo ... Circle2D.obj
 	@echo ... Circle2D.i
 	@echo ... Circle2D.s
-	@echo ... Level1.obj
-	@echo ... Level1.i
-	@echo ... Level1.s
 	@echo ... Menu.obj
 	@echo ... Menu.i
 	@echo ... Menu.s
@@ -392,9 +335,6 @@ help:
 	@echo ... Poligon2D.obj
 	@echo ... Poligon2D.i
 	@echo ... Poligon2D.s
-	@echo ... Window.obj
-	@echo ... Window.i
-	@echo ... Window.s
 	@echo ... World.obj
 	@echo ... World.i
 	@echo ... World.s

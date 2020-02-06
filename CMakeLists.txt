@@ -6,7 +6,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -static")
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(SOURCE_FILES main.cpp settings.h World.cpp World.h Object2D.cpp Object2D.h Camera.cpp Camera.h Idrawable.h Idrawable.h Idrawable.h Poligon2D.cpp Poligon2D.h Circle2D.cpp Circle2D.h Menu.cpp Menu.h Level1.cpp Level1.h Window.cpp Window.h)
+set(SOURCE_FILES main.cpp settings.h World.cpp World.h Object2D.cpp Object2D.h Camera.cpp Camera.h Idrawable.h Poligon2D.cpp Poligon2D.h Circle2D.cpp Circle2D.h Menu.cpp Menu.h)
 
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
     add_executable(${PROJECT_NAME} WIN32 ${SOURCE_FILES})

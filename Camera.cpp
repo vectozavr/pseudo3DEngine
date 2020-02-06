@@ -216,6 +216,11 @@ void Camera::drawCameraView(sf::RenderWindow& window) {
 
 void Camera::shiftPrecise(Point2D vector) {
 
+    if(!b_collision) {
+        shift(vector);
+        return;
+    }
+
     for(auto c : allCollisions) {
         Point2D edgeVector = c.edge.second - c.edge.first;
         Point2D normal = {edgeVector.y, -edgeVector.x};

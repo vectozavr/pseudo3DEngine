@@ -6,11 +6,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "D:/ivan/cplusplus/pseudo3DEngine/Camera.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Camera.cpp.obj"
   "D:/ivan/cplusplus/pseudo3DEngine/Circle2D.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Circle2D.cpp.obj"
-  "D:/ivan/cplusplus/pseudo3DEngine/Level1.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Level1.cpp.obj"
   "D:/ivan/cplusplus/pseudo3DEngine/Menu.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.obj"
   "D:/ivan/cplusplus/pseudo3DEngine/Object2D.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Object2D.cpp.obj"
   "D:/ivan/cplusplus/pseudo3DEngine/Poligon2D.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.obj"
-  "D:/ivan/cplusplus/pseudo3DEngine/Window.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Window.cpp.obj"
   "D:/ivan/cplusplus/pseudo3DEngine/World.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/World.cpp.obj"
   "D:/ivan/cplusplus/pseudo3DEngine/main.cpp" "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/main.cpp.obj"
   )
