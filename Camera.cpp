@@ -15,9 +15,6 @@ void Camera::updateDistances(World& world) {
 
     std::string obj;
 
-    double maxScalarSum = 0;
-    int directionMaxScalarSum = 0;
-
     for(int i = 0; i < 2*PI/d_fieldOfView*DISTANCES_SEGMENTS; i++) {
         double left = d_direction - d_fieldOfView/2;
         double right = d_direction + d_fieldOfView/2;
@@ -126,6 +123,7 @@ bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
         // левая кнопка мыши нажата, стреляем!
+        weapons[selectedWeapon].fire();
     }
     if(sf::Mouse::getPosition(window).x != localMousePosition.x) {
         double difference = sf::Mouse::getPosition(window).x - localMousePosition.x;
@@ -185,7 +183,7 @@ void Camera::drawCameraView(sf::RenderWindow& window) {
         polygon.setPoint(2, sf::Vector2f(SCREEN_WIDTH/DISTANCES_SEGMENTS, h2));
         polygon.setPoint(3, sf::Vector2f(SCREEN_WIDTH/DISTANCES_SEGMENTS, h1));
 
-        int alpha = 255*(1 - (int)v_distances[i].distance/d_depth);
+        int alpha = 255*(1 - v_distances[i].distance/d_depth);
         if(alpha > 255)
             alpha = 255;
         if(alpha < 0)

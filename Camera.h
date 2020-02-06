@@ -31,14 +31,19 @@ struct CollisionInformation {
 
 class Weapon : virtual public Idrawable {
 private:
+    double d_elapsedTime;
+
     sf::Texture T_weapon;
     sf::Sprite S_weapon;
+    sf::Sprite S_aim;
+    sf::Texture T_aim;
+    sf::Sprite S_fire;
+    sf::Texture T_fire;
     double d_speed = 1;
     int i_amount = 0;
 
-    sf::Sprite S_aim;
-    sf::Texture T_aim;
-
+    double fireShift = 0;
+    double d_fireTime = 0;
 public:
     Weapon(int amount) : i_amount(amount) { };
 
@@ -47,8 +52,10 @@ public:
         this->d_speed = weapon.d_speed;
         this->S_weapon = weapon.S_weapon;
         this->T_weapon = weapon.T_weapon;
-        this->T_aim = weapon.T_aim;
         this->S_aim = weapon.S_aim;
+        this->T_aim = weapon.T_aim;
+        this->S_fire = weapon.S_fire;
+        this->T_fire = weapon.T_fire;
 
         S_weapon.setTexture(T_weapon);
         S_weapon.setPosition(sf::Vector2f(SCREEN_WIDTH - S_weapon.getTextureRect().width,SCREEN_HEIGHT - S_weapon.getTextureRect().height)); // абсолютная позиция
@@ -58,6 +65,7 @@ public:
         if(name == "shotgun") {
             T_weapon.loadFromFile(SHOTGUN_TEXTURE);
             T_aim.loadFromFile(AIM_TEXTURE);
+            T_fire.loadFromFile(FIRE_SHOTGUN_TEXTURE);
             d_speed = 1;
             S_aim.scale(.1, .1);
         }
@@ -65,8 +73,9 @@ public:
 
     bool fire() {
         if(i_amount > 0) {
-
+            d_fireTime = .1;
             --i_amount;
+            fireShift = 100;
             return true;
         }
         return false;
@@ -78,13 +87,28 @@ public:
     void draw(sf::RenderWindow& window) override {
         auto tp = std::chrono::system_clock::now();
         std::chrono::duration <double> elapsedTime = tp.time_since_epoch();
-        double d_elapsedTime = elapsedTime.count();
+        double diff = elapsedTime.count() - d_elapsedTime;
+        d_elapsedTime = elapsedTime.count();
 
-        double shift = 15*(1 + cos(3*d_elapsedTime));
 
-        // RUN HERE
+        if(fireShift > 0)
+            fireShift -= 10;
+        else
+            fireShift = 0;
+        double shift = 15*(1 + cos(3*d_elapsedTime)); // Motion of the weapon
+
+        // WEAPON AND FIRE HERE
+        d_fireTime -= diff;
+        if(d_fireTime > 0) {
+            S_fire.setTexture(T_fire);
+            S_fire.setPosition(sf::Vector2f(SCREEN_WIDTH - 490 + shift + fireShift - S_weapon.getTextureRect().width,
+                                            SCREEN_HEIGHT - 792 + shift + fireShift -
+                                            S_weapon.getTextureRect().height)); // абсолютная позиция
+            window.draw(S_fire);
+        }
+
         S_weapon.setTexture(T_weapon);
-        S_weapon.setPosition(sf::Vector2f(SCREEN_WIDTH - S_weapon.getTextureRect().width + shift, SCREEN_HEIGHT - S_weapon.getTextureRect().height + shift)); // абсолютная позиция
+        S_weapon.setPosition(sf::Vector2f(SCREEN_WIDTH - S_weapon.getTextureRect().width + shift + fireShift, SCREEN_HEIGHT - S_weapon.getTextureRect().height + shift + fireShift)); // абсолютная позиция
         window.draw(S_weapon);
 
         S_aim.setTexture(T_aim);
@@ -92,7 +116,6 @@ public:
         window.draw(S_aim);
     }
 };
-
 
 class Camera : public Object2D {
 private:
