@@ -43,7 +43,7 @@
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 
-#define DISTANCES_SEGMENTS 320 // How much vertical sectors we use in ray cast
+#define DISTANCES_SEGMENTS 640 // How much vertical sectors we use in ray cast
 
 //BACKGROUND
 #define OUTLINE_BACK_THICKNESS 5
@@ -90,7 +90,11 @@
 
 // WEAPONS
 
-#define SHOTGUN_TEXTURE "texture/weapons/shotgun1.png"
+#define SHOTGUN_TEXTURE "texture/weapons/shotgun.png"
+#define SHOTGUN_ARM_TEXTURE "texture/weapons/shotgun_arm.png"
+#define SHOTGUN_HANDLE_TEXTURE "texture/weapons/shotgun_handle.png"
+#define SHOTGUN_TRUNK_TEXTURE "texture/weapons/shotgun_trunk.png"
+
 #define AIM_TEXTURE "texture/weapons/aim.png"
 #define FIRE_SHOTGUN_TEXTURE "texture/weapons/gunBlast.png"
 

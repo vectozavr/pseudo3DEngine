@@ -1,4 +1,4 @@
-# Install script for directory: D:/ivan/cplusplus/pseudo3DEngine
+# Install script for directory: D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/ivan/cplusplus/pseudo3DEngine/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
