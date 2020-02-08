@@ -28,6 +28,7 @@
 #define CONVEX_NUMBER 100
 #define FILED_OF_VEW_COLOR {255, 67, 67, 0}
 #define RED_COLOR {255, 0, 0}
+#define SKIN "texture/hero.png"
 
 // FOR COLLISION DETECTION
 #define COLLISION_DISTANCE 0.1
@@ -62,7 +63,7 @@
 #define WHITE_TEXTURE "texture/white.jpg"
 #define BLACK_TEXTURE "texture/black.jpg"
 
-#define SKY_TEXTURE "texture/sky.jpg"
+#define SKY_TEXTURE "texture/back.jpg"
 #define FLOOR_TEXTURE "texture/floor.jpg"
 
 #define PLAYGAME_PRESSED_TEXTURE "texture/buttons/playGameSelected.jpg"

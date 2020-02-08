@@ -54,16 +54,16 @@ int main()
     // objects
     Poligon2D wall1({{0, 0}, {0, .1}, {5, .1}, {5, 0}}, {0, 0});
     Poligon2D wall2({{0, 0}, {.1, 0}, {.1, 5}, {0, 5}}, {0, 0});
-    Poligon2D wall3({{0, 0}, {0, .1}, {5, .1}, {5, 0}}, {0, 5});
-    Poligon2D wall4({{0, 0}, {.1, 0}, {.1, 5}, {0, 5}}, {5, 0}, 1, BLACK_TEXTURE);
-    wall4.makeMirror();
-    //wall2.makeMirror();
+    Poligon2D wall3({{5, 0}, {5, .1}, {0, .1}, {0, 0}}, {0, 5});
+    Poligon2D wall4({{0, 0}, {.1, 0}, {.1, 5}, {0, 5}}, {5, 0});
+    //wall4.makeMirror();
+    wall3.makeMirror();
+    wall2.makeMirror();
 
-    Circle2D sphere1(.5, {0, 0}, 1, BLACK_TEXTURE);
+    Circle2D sphere1(.5, {0, 0}, 1, COLUMN_TEXTURE);
     Circle2D sphere2(.5, {5, 0}, 1, COLUMN_TEXTURE);
     Circle2D sphere3(.5, {5, 5}, 1, COLUMN_TEXTURE);
     Circle2D sphere4(.5, {0, 5}, 1, COLUMN_TEXTURE);
-    sphere1.makeMirror();
 
     Poligon2D object1({{1, 1}, {2.05, 1}, {2, 2}}, {1, .1}, 1, INSTRUCTION_TEXTURE);
     Poligon2D object2({{0, 0}, {1, 0}, {1, 1}, {0, 1}}, {.3, 3}, 1, FROZEN_TEXTURE);
@@ -71,6 +71,7 @@ int main()
     Poligon2D object4({{0, 0}, {.1, 0}, {.1, .1}, {0, .1}}, {3.5, 1});
     Poligon2D object5({{0, 0}, {.3, 0}, {.3, .3}, {0, .3}}, {4, 3});
     Poligon2D object6({{0, 0}, {.3, 0}, {.3, .3}, {0, .3}}, {3, 4}, 0);
+    Poligon2D object7({{0, 0}, {.1, 0}, {.1, .1}, {0, .1}}, {1, 2}, 0);
     //cameraw
     world.addObject2D(camera, "camera");
 
@@ -90,6 +91,7 @@ int main()
     world.addObject2D(object4, "object4");
     world.addObject2D(object5, "object5");
     world.addObject2D(object6, "object6");
+    world.addObject2D(object7, "object7");
 
     Menu menu;
 
@@ -102,7 +104,7 @@ int main()
         chrono::duration <double> elapsedTime = tp2 - tp1;
         tp1 = tp2;
         double d_elapsedTime = elapsedTime.count();
-        std::string title = "Pseudo3DEngine " + std::to_string((double)1/elapsedTime.count()) + "fps";
+        std::string title = "Pseudo3DEngine " + std::to_string((double)1/elapsedTime.count()) + "fps. x:" + std::to_string(camera.x()) + ", y:" + std::to_string(camera.y());
         window.setTitle(title);
         sf::Event event;
         while (window.pollEvent(event))

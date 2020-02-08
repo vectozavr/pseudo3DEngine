@@ -9,6 +9,13 @@
 
 using namespace std;
 
+void Camera::recursiveIncreaseDistance(std::vector<RayCastStructure>& v_RayCastStructure, double distance) {
+    for(auto& rcs : v_RayCastStructure) {
+        rcs.distance += distance;
+        recursiveIncreaseDistance(rcs.v_mirrorRayCast, distance);
+    }
+}
+
 void Camera::objectsRayCrossed(pair<Point2D, Point2D> ray, std::vector<RayCastStructure> &v_rayCastStruct, World &world, std::string name) {
     std::string obj;
     double len = 0;
@@ -43,7 +50,9 @@ void Camera::objectsRayCrossed(pair<Point2D, Point2D> ray, std::vector<RayCastSt
                         Point2D twistedRayVector = {rayVector.x*cos(twistAngle) + rayVector.y*sin(twistAngle), -rayVector.x*sin(twistAngle) + rayVector.y*cos(twistAngle)};
                         pair<Point2D, Point2D> newRay = {crossPoint, crossPoint + twistedRayVector};
 
+                        //if(v_rayCastStruct.)
                         objectsRayCrossed(newRay, v_reflectedRayCastStructure, world, object.first);
+                        recursiveIncreaseDistance(v_reflectedRayCastStructure, (ray.first-nearCross).abs());
                     }
                 }
             } else {
@@ -167,11 +176,11 @@ pair<double, double> heightInPixels(double distance, double height) {
 }
 
 
-void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure& obj, double distance, int shift, double s) {
+void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure& obj, int shift, double s) {
     sf::ConvexShape polygon;
     polygon.setPointCount(4);
 
-    pair<double, double> height_now = heightInPixels(distance, obj.height);
+    pair<double, double> height_now = heightInPixels(obj.distance, obj.height);
 
     int h1 = height_now.first + s;
     int h2 = height_now.second - s;
@@ -181,7 +190,7 @@ void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure&
     polygon.setPoint(2, sf::Vector2f(SCREEN_WIDTH / DISTANCES_SEGMENTS, h2));
     polygon.setPoint(3, sf::Vector2f(SCREEN_WIDTH / DISTANCES_SEGMENTS, h1));
 
-    int alpha = 255 * (1 - distance / d_depth);
+    int alpha = 255 * (1 - obj.distance / d_depth);
     if (alpha > 255)
         alpha = 255;
     if (alpha < 0)
@@ -194,14 +203,22 @@ void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure&
 
     polygon.setOutlineThickness(0); // we can make non zero thickness for debug
     polygon.setPosition(shift * SCREEN_WIDTH / DISTANCES_SEGMENTS, 0);
-    if (abs(distance - d_depth) > 0.001)
+    if (abs(obj.distance - d_depth) > 0.001)
         window.draw(polygon);
 
     double scaleFactor = (double) (h2 - h1) / SCREEN_HEIGHT;
     sf::Sprite sprite;
     if (obj.object != "" && b_textures) {
-        sprite.setTexture(W_world[obj.object].loadTexture());
-        sprite.setTextureRect(sf::IntRect(obj.progress * SCREEN_WIDTH, 0, SCREEN_WIDTH / DISTANCES_SEGMENTS, SCREEN_HEIGHT));
+        int left = obj.progress * SCREEN_WIDTH;
+        int top = 0;
+        if(W_world[obj.object].isMirror()) { // In case of mirror
+            sprite.setTexture(W_world.skyTexture());
+            left = (d_direction/10) * SCREEN_WIDTH;
+            top = sprite.getTextureRect().height/2-SCREEN_HEIGHT/2;
+        } else {
+            sprite.setTexture(W_world[obj.object].loadTexture());
+        }
+        sprite.setTextureRect(sf::IntRect(left, top, SCREEN_WIDTH / DISTANCES_SEGMENTS, SCREEN_HEIGHT));
         sprite.setPosition(sf::Vector2f(shift * SCREEN_WIDTH / DISTANCES_SEGMENTS, h1)); // абсолютная позиция
         sprite.scale(1, scaleFactor);
         sprite.setColor({255, 255, 255, static_cast<sf::Uint8>(alpha)});
@@ -209,12 +226,12 @@ void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure&
     }
 }
 
-void Camera::recursiveDrawing(sf::RenderWindow& window, const std::vector<RayCastStructure>& v_RayCastStructure, double distance, int shift) {
+void Camera::recursiveDrawing(sf::RenderWindow& window, const std::vector<RayCastStructure>& v_RayCastStructure, int shift) {
     for(int k = 0; k < v_RayCastStructure.size(); k++) {
-        drawVerticalStrip(window, v_RayCastStructure[k], v_RayCastStructure[k].distance + distance, shift, 0);
+        drawVerticalStrip(window, v_RayCastStructure[k], shift, 0);
         if(!v_RayCastStructure[k].v_mirrorRayCast.empty()) {
             //drawVerticalStrip(window, v_distances[shift][k].v_mirrorRayCast[v_distances[shift][k].v_mirrorRayCast.size()-1], v_distances[shift][k].v_mirrorRayCast[v_distances[shift][k].v_mirrorRayCast.size()-1].distance + v_distances[shift][k].distance, shift, 0);
-            recursiveDrawing(window, v_RayCastStructure[k].v_mirrorRayCast, v_RayCastStructure[k].distance, shift);
+            recursiveDrawing(window, v_RayCastStructure[k].v_mirrorRayCast, shift);
         }
     }
 }
@@ -227,12 +244,12 @@ void Camera::drawCameraView(sf::RenderWindow& window) {
     if(b_textures) {
         sf::Sprite sprite_sky;
         sprite_sky.setTexture(W_world.skyTexture());
-        sprite_sky.setTextureRect(sf::IntRect(d_direction * SCREEN_WIDTH/2, 1080-SCREEN_HEIGHT, SCREEN_WIDTH, 1080));
+        sprite_sky.setTextureRect(sf::IntRect(d_direction * SCREEN_WIDTH/2, sprite_sky.getTextureRect().height/2-SCREEN_HEIGHT/2, SCREEN_WIDTH, 1080));
         sprite_sky.setPosition(sf::Vector2f(0,0)); // абсолютная позиция
         //sprite_sky.scale(1, (double)SCREEN_HEIGHT/2/1080);
-        //sprite_sky.setColor({255, 255, 255, static_cast<sf::Uint8>(alpha)});
         window.draw(sprite_sky);
 
+        /*
         sf::Sprite sprite_floor;
         sprite_floor.setTexture(W_world.floorTexture());
         sprite_floor.setTextureRect(sf::IntRect(0, 0, SCREEN_WIDTH, 1080));
@@ -240,18 +257,12 @@ void Camera::drawCameraView(sf::RenderWindow& window) {
         sprite_floor.scale(1, (double)1/2);
         //sprite_sky.setColor({255, 255, 255, static_cast<sf::Uint8>(alpha)});
         window.draw(sprite_floor);
+         */
     }
 
 
-    for(int i = 0; i < DISTANCES_SEGMENTS-1; i++) {
-        recursiveDrawing(window, v_distances[i], 0, i);
-        //for(int k = 0; k < v_distances[i].size(); k++) {
-        //    drawVerticalStrip(window, v_distances[i][k], v_distances[i][k].distance, i, 0);
-        //    if(!v_distances[i][k].v_mirrorRayCast.empty()) {
-        //        drawVerticalStrip(window, v_distances[i][k].v_mirrorRayCast[v_distances[i][k].v_mirrorRayCast.size()-1], v_distances[i][k].v_mirrorRayCast[v_distances[i][k].v_mirrorRayCast.size()-1].distance + v_distances[i][k].distance, i, 0);
-        //    }
-        //}
-    }
+    for(int i = 0; i < DISTANCES_SEGMENTS-1; i++)
+        recursiveDrawing(window, v_distances[i], i);
 
     weapons[selectedWeapon].draw(window);
 }
