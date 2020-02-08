@@ -117,6 +117,12 @@
 		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h">
 			<Option target="Pseudo3DEngine"/>
 		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Weapon.cpp">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
+		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/Weapon.h">
+			<Option target="Pseudo3DEngine"/>
+		</Unit>
 		<Unit filename="D:/ivan/Study/C &amp; C++/problems3_laptop2/Pseudo3DEngine/World.cpp">
 			<Option target="Pseudo3DEngine"/>
 		</Unit>

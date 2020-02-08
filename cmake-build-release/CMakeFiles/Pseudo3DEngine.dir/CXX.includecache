@@ -859,7 +859,7 @@ Camera.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
 
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
-chrono
+algorithm
 -
 Object2D.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
@@ -869,6 +869,8 @@ settings.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
 Menu.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
+Weapon.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
 
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.cpp
 Circle2D.h
@@ -937,6 +939,18 @@ settings.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
 
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
+Object2D.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.cpp
+Weapon.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
+
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
+chrono
+-
+settings.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
 Object2D.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
 

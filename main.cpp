@@ -55,20 +55,23 @@ int main()
     Poligon2D wall1({{0, 0}, {0, .1}, {5, .1}, {5, 0}}, {0, 0});
     Poligon2D wall2({{0, 0}, {.1, 0}, {.1, 5}, {0, 5}}, {0, 0});
     Poligon2D wall3({{0, 0}, {0, .1}, {5, .1}, {5, 0}}, {0, 5});
-    Poligon2D wall4({{0, 0}, {.1, 0}, {.1, 5}, {0, 5}}, {5, 0});
+    Poligon2D wall4({{0, 0}, {.1, 0}, {.1, 5}, {0, 5}}, {5, 0}, 1, BLACK_TEXTURE);
+    wall4.makeMirror();
+    //wall2.makeMirror();
 
-    Circle2D sphere1(.5, {0, 0}, COLUMN_TEXTURE);
-    Circle2D sphere2(.5, {5, 0}, COLUMN_TEXTURE);
-    Circle2D sphere3(.5, {5, 5}, COLUMN_TEXTURE);
-    Circle2D sphere4(.5, {0, 5}, COLUMN_TEXTURE);
+    Circle2D sphere1(.5, {0, 0}, 1, BLACK_TEXTURE);
+    Circle2D sphere2(.5, {5, 0}, 1, COLUMN_TEXTURE);
+    Circle2D sphere3(.5, {5, 5}, 1, COLUMN_TEXTURE);
+    Circle2D sphere4(.5, {0, 5}, 1, COLUMN_TEXTURE);
+    sphere1.makeMirror();
 
-    Poligon2D object1({{1, 1}, {2.05, 1}, {2, 2}}, {1, .1}, INSTRUCTION_TEXTURE);
-    Poligon2D object2({{0, 0}, {1, 0}, {1, 1}, {0, 1}}, {.3, 3}, DOG_TEXTURE);
+    Poligon2D object1({{1, 1}, {2.05, 1}, {2, 2}}, {1, .1}, 1, INSTRUCTION_TEXTURE);
+    Poligon2D object2({{0, 0}, {1, 0}, {1, 1}, {0, 1}}, {.3, 3}, 1, FROZEN_TEXTURE);
     Poligon2D object3({{1, 1}, {2, 2}, {1, 3}, {1, 2}}, {1, 1});
     Poligon2D object4({{0, 0}, {.1, 0}, {.1, .1}, {0, .1}}, {3.5, 1});
     Poligon2D object5({{0, 0}, {.3, 0}, {.3, .3}, {0, .3}}, {4, 3});
-    Poligon2D object6({{0, 0}, {.3, 0}, {.3, .3}, {0, .3}}, {3, 4});
-    //camera
+    Poligon2D object6({{0, 0}, {.3, 0}, {.3, .3}, {0, .3}}, {3, 4}, 0);
+    //cameraw
     world.addObject2D(camera, "camera");
 
     //world.addObject2D(wall1, "wall1");

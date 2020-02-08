@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.obj"
   "CMakeFiles/Pseudo3DEngine.dir/Circle2D.cpp.obj"
   "CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.obj"
+  "CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj"
   "Pseudo3DEngine.pdb"
   "Pseudo3DEngine.exe"
   "Pseudo3DEngine.exe.manifest"

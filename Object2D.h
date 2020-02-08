@@ -33,13 +33,15 @@ private:
     Point2D p_velocity;
 
     std::string s_name;
+    double d_height = 1;
+    bool b_isMirror = false;
 
     sf::Texture T_texture;
     std::string s_texture;
     bool texture_loaded = false;
 public:
-    Object2D(Point2D position = {0, 0}, std::vector<Point2D> points = {}, std::string texture = WALL_TEXTURE, Point2D velocity = {0, 0})
-    : p_position(position), v_points2D(points), p_velocity(velocity),  s_texture(std::move(texture)) {}
+    Object2D(Point2D position = {0, 0}, std::vector<Point2D> points = {}, double height = 1, std::string texture = WALL_TEXTURE, Point2D velocity = {0, 0})
+    : p_position(position), v_points2D(points), p_velocity(velocity),  s_texture(std::move(texture)), d_height(height) {}
 
     const double x() { return p_position.x; }
     const double y() { return p_position.y; }
@@ -57,7 +59,13 @@ public:
 
     const Point2D position() { return p_position; }
 
+    bool isMirror () const { return b_isMirror; }
+    void makeMirror() { b_isMirror = true; }
+    void makeItNotMirror() {b_isMirror = false; }
+
     void draw(sf::RenderWindow& window) override;
+
+    double height() const { return d_height; }
 
     sf::Texture& loadTexture() {
         if(texture_loaded) return T_texture;

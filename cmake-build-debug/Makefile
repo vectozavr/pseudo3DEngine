@@ -257,6 +257,33 @@ Poligon2D.cpp.s:
 	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.s
 .PHONY : Poligon2D.cpp.s
 
+Weapon.obj: Weapon.cpp.obj
+
+.PHONY : Weapon.obj
+
+# target to build an object file
+Weapon.cpp.obj:
+	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj
+.PHONY : Weapon.cpp.obj
+
+Weapon.i: Weapon.cpp.i
+
+.PHONY : Weapon.i
+
+# target to preprocess a source file
+Weapon.cpp.i:
+	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.i
+.PHONY : Weapon.cpp.i
+
+Weapon.s: Weapon.cpp.s
+
+.PHONY : Weapon.s
+
+# target to generate assembly for a file
+Weapon.cpp.s:
+	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.s
+.PHONY : Weapon.cpp.s
+
 World.obj: World.cpp.obj
 
 .PHONY : World.obj
@@ -335,6 +362,9 @@ help:
 	@echo ... Poligon2D.obj
 	@echo ... Poligon2D.i
 	@echo ... Poligon2D.s
+	@echo ... Weapon.obj
+	@echo ... Weapon.i
+	@echo ... Weapon.s
 	@echo ... World.obj
 	@echo ... World.i
 	@echo ... World.s

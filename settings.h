@@ -43,7 +43,7 @@
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 
-#define DISTANCES_SEGMENTS 640 // How much vertical sectors we use in ray cast
+#define DISTANCES_SEGMENTS 1280 // How much vertical sectors we use in ray cast
 
 //BACKGROUND
 #define OUTLINE_BACK_THICKNESS 5
@@ -58,6 +58,9 @@
 #define VOLODYA_TEXTURE "texture/volodya.jpg"
 #define FROZEN_TEXTURE "texture/frozen.jpg"
 #define DOG_TEXTURE "texture/dog.jpg"
+#define DINOZAVR_TEXTURE "texture/dinozavr.png"
+#define WHITE_TEXTURE "texture/white.jpg"
+#define BLACK_TEXTURE "texture/black.jpg"
 
 #define SKY_TEXTURE "texture/sky.jpg"
 #define FLOOR_TEXTURE "texture/floor.jpg"

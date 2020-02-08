@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.cpp" "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.obj"
   "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.cpp" "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Object2D.cpp.obj"
   "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.cpp" "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.obj"
+  "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.cpp" "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj"
   "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.cpp" "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/World.cpp.obj"
   "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/main.cpp" "D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/main.cpp.obj"
   )

@@ -12,7 +12,7 @@ class Circle2D : public Object2D{
 private:
     double d_radius = 0;
 public:
-    explicit Circle2D(double radius = 0, Point2D position = {0, 0}, std::string texture = WALL_TEXTURE) : Object2D(position, {}, texture), d_radius(radius) {
+    explicit Circle2D(double radius = 0, Point2D position = {0, 0}, double height = 1, std::string texture = WALL_TEXTURE) : Object2D(position, {}, height, texture), d_radius(radius) {
         for(int i = 0; i < CIRCLE_CONVEX_NUMBER; i++) {
             double _x = d_radius * cos((double)i / CIRCLE_CONVEX_NUMBER * 2 * PI);
             double _y = d_radius * sin((double)i / CIRCLE_CONVEX_NUMBER * 2 * PI);
