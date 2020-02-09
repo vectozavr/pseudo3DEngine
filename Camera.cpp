@@ -16,7 +16,7 @@ void Camera::recursiveIncreaseDistance(std::vector<RayCastStructure>& v_RayCastS
     }
 }
 
-void Camera::objectsRayCrossed(pair<Point2D, Point2D> ray, std::vector<RayCastStructure> &v_rayCastStruct, World &world, std::string name) {
+void Camera::objectsRayCrossed(pair<Point2D, Point2D> ray, std::vector<RayCastStructure> &v_rayCastStruct, World &world, const std::string& name, int reflections) {
     std::string obj;
     double len = 0;
     double progress = 0;
@@ -50,9 +50,10 @@ void Camera::objectsRayCrossed(pair<Point2D, Point2D> ray, std::vector<RayCastSt
                         Point2D twistedRayVector = {rayVector.x*cos(twistAngle) + rayVector.y*sin(twistAngle), -rayVector.x*sin(twistAngle) + rayVector.y*cos(twistAngle)};
                         pair<Point2D, Point2D> newRay = {crossPoint, crossPoint + twistedRayVector};
 
-                        //if(v_rayCastStruct.)
-                        objectsRayCrossed(newRay, v_reflectedRayCastStructure, world, object.first);
-                        recursiveIncreaseDistance(v_reflectedRayCastStructure, (ray.first-nearCross).abs());
+                        if(reflections < 40) {
+                            objectsRayCrossed(newRay, v_reflectedRayCastStructure, world, object.first,reflections + 1);
+                            recursiveIncreaseDistance(v_reflectedRayCastStructure, (ray.first - nearCross).abs());
+                        }
                     }
                 }
             } else {
@@ -162,6 +163,13 @@ bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
         double difference = sf::Mouse::getPosition(window).x - localMousePosition.x;
         localMousePosition = sf::Mouse::getPosition(window);
         d_direction += d_viewSpeed * difference;
+    }
+
+    if((dx*dx + dy*dy) > d_walkSpeed * elapsedTime * d_walkSpeed * elapsedTime / 10) {
+       if(walkSound.getStatus() != sf::Sound::Status::Playing)
+           walkSound.play();
+    } else {
+        walkSound.pause();
     }
 
     shiftPrecise({dx, dy});

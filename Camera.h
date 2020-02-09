@@ -59,18 +59,26 @@ private:
     std::vector<Weapon> weapons;
     int selectedWeapon = 0;
 
-    void objectsRayCrossed(std::pair<Point2D, Point2D> ray, std::vector<RayCastStructure>& v_rayCastStruct, World& world, std::string name);
+    sf::SoundBuffer walkSoundBuffer;
+    sf::Sound walkSound;
+
+    void objectsRayCrossed(std::pair<Point2D, Point2D> ray, std::vector<RayCastStructure>& v_rayCastStruct, World& world, const std::string& name, int reflections = 0);
     void drawVerticalStrip(sf::RenderWindow& window, const RayCastStructure& obj, int shift, double s);
     void recursiveDrawing(sf::RenderWindow& window, const std::vector<RayCastStructure>& v_RayCastStructure, int shift);
     void recursiveIncreaseDistance(std::vector<RayCastStructure>& v_RayCastStructure, double distance);
 
     static double scalarWithNormal(Point2D edge, Point2D vector);
 public:
-    explicit Camera(World& world, Point2D position, double direction = 0, double fieldOfView = PI/2, double depth = 14, double walkSpeed = 1.5, double viewSpeed = .01)
-    : W_world(world), Circle2D(COLLISION_DISTANCE, position, 0.5, SKIN, 4), d_direction(direction), d_fieldOfView(fieldOfView), d_depth(depth), d_walkSpeed(walkSpeed), d_viewSpeed(viewSpeed) {
+    explicit Camera(World& world, Point2D position, double direction = 0, std::string texture = SKIN, double fieldOfView = PI/2, double depth = 14, double walkSpeed = 1.5, double viewSpeed = .01)
+    : W_world(world), Circle2D(COLLISION_DISTANCE, position, 0.5, texture, 4), d_direction(direction), d_fieldOfView(fieldOfView), d_depth(depth), d_walkSpeed(walkSpeed), d_viewSpeed(viewSpeed) {
         Weapon weapon1(100);
         weapon1.choiceWeapon("shotgun");
         weapons.push_back(weapon1);
+
+        walkSoundBuffer.loadFromFile(WALK_SOUND);
+        walkSound.setBuffer(walkSoundBuffer);
+        walkSound.setLoop(true);
+        walkSound.setVolume(50.f);
     }
 
     void updateDistances(World& world);

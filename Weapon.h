@@ -4,7 +4,7 @@
 
 #ifndef PSEUDO3DENGINE_WEAPON_H
 #define PSEUDO3DENGINE_WEAPON_H
-
+#include <SFML/Audio.hpp>
 #include <chrono>
 #include "settings.h"
 #include "Object2D.h"
@@ -24,6 +24,10 @@ private:
     sf::Texture T_aim;
     sf::Sprite S_fire;
     sf::Texture T_fire;
+
+    sf::SoundBuffer fireSoundBuffer;
+    sf::Sound fireSound;
+
     double d_speed = 1;
     int i_amount = 0;
 

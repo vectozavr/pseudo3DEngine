@@ -15,6 +15,7 @@ else ()
 endif ()
 
 set(SFML_DIR "D:/Libraries/SFML/lib/cmake/SFML")
+#set(OPENAL_DIR "D:/Libraries/OpenAL/lib/cmake/SFML")
 
 set(SFML_STATIC_LIBRARIES TRUE)
 

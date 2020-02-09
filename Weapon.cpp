@@ -20,6 +20,10 @@ Weapon::Weapon(const Weapon &weapon) {
     this->S_fire = weapon.S_fire;
     this->T_fire = weapon.T_fire;
 
+    this->fireSoundBuffer = weapon.fireSoundBuffer;
+    this->fireSound = weapon.fireSound;
+    this->fireSound.setBuffer(this->fireSoundBuffer);
+
     this->d_amplitude = weapon.d_amplitude;
 
     S_weapon_handle.setTexture(T_weapon_handle);
@@ -33,8 +37,12 @@ void Weapon::choiceWeapon(std::string name) {
 
         T_aim.loadFromFile(AIM_TEXTURE);
         T_fire.loadFromFile(FIRE_SHOTGUN_TEXTURE);
-        d_speed = 1;
+        d_speed = 0.8;
         S_aim.scale(.1, .1);
+
+        fireSoundBuffer.loadFromFile(GUN_SHOT_SOUND);
+        fireSound.setBuffer(fireSoundBuffer);
+        fireSound.setVolume(10.f);
     }
 }
 
@@ -44,6 +52,7 @@ bool Weapon::fire() {
         d_fireAnimTime = .1;
         --i_amount;
         fireShift = d_amplitude;
+        fireSound.play();
         return true;
     }
     return false;

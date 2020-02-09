@@ -444,6 +444,23 @@ CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.obj: ../Poligon2D.cpp
 CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.obj: ../Poligon2D.h
 CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.obj: ../settings.h
 
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio.hpp
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/AlResource.hpp
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/Export.hpp
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/InputSoundFile.hpp
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/Listener.hpp
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/Music.hpp
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/OutputSoundFile.hpp
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/Sound.hpp
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/SoundBuffer.hpp
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/SoundBufferRecorder.hpp
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/SoundFileFactory.hpp
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/SoundFileFactory.inl
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/SoundFileReader.hpp
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/SoundFileWriter.hpp
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/SoundRecorder.hpp
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/SoundSource.hpp
+CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Audio/SoundStream.hpp
 CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Config.hpp
 CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Graphics.hpp
 CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj: D:/Libraries/SFML/include/SFML/Graphics/BlendMode.hpp

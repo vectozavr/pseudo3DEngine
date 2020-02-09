@@ -872,6 +872,12 @@ D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
 Weapon.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
 
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.cpp
+Circle2D.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
+settings.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
 Object2D.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
@@ -908,6 +914,12 @@ D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
 Camera.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
 
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.cpp
+Object2D.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+settings.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
 utility
 -
@@ -920,17 +932,35 @@ D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
 settings.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
 
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.cpp
+Poligon2D.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
+settings.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
 Object2D.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
 
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.cpp
+Weapon.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
+
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
+SFML/Audio.hpp
+-
 chrono
 -
 settings.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
 Object2D.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.cpp
+World.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
+settings.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
 
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
 Object2D.h
