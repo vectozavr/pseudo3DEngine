@@ -13,27 +13,20 @@
 #include "Menu.h"
 
 using namespace std;
-/*
-class Ismth {
-    virtual void draw() = 0;
-};
 
-class Weapon : public Ismth{
-public:
-    Weapon() = default;
-
-    void draw() override {};
-};
-
-class Shotgun : public Weapon {
-public:
-    Shotgun() = default;
-
-    void draw() override {};
-};
-*/
 int main()
 {
+    sf::Music music;
+    music.openFromFile("sounds/unrealSuperHero3.ogg");
+    music.setVolume(10);
+    music.setLoop(true);
+    music.play();
+
+    sf::Music backSounds;
+    backSounds.openFromFile("sounds/backSounds.ogg");
+    backSounds.setVolume(20);
+    backSounds.pause();
+
     //vector<Weapon> weapons;
     //Shotgun weapon1;
     //weapons.push_back(weapon1);
@@ -57,8 +50,6 @@ int main()
     Poligon2D wall3({{5, 0}, {5, .1}, {0, .1}, {0, 0}}, {0, 5});
     Poligon2D wall4({{0, 0}, {.1, 0}, {.1, 5}, {0, 5}}, {5, 0});
     //wall4.makeMirror();
-    wall3.makeMirror();
-    wall2.makeMirror();
 
     Circle2D sphere1(.5, {0, 0}, 1, COLUMN_TEXTURE);
     Circle2D sphere2(.5, {5, 0}, 1, COLUMN_TEXTURE);
@@ -72,6 +63,10 @@ int main()
     Poligon2D object5({{0, 0}, {.3, 0}, {.3, .3}, {0, .3}}, {4, 3});
     Poligon2D object6({{0, 0}, {.3, 0}, {.3, .3}, {0, .3}}, {3, 4}, 0);
     Poligon2D object7({{0, 0}, {.1, 0}, {.1, .1}, {0, .1}}, {1, 2}, 0);
+
+    //object2.makeMirror();
+    object3.makeMirror();
+
     //cameraw
     world.addObject2D(camera, "camera");
 
@@ -121,6 +116,8 @@ int main()
             world.draw(window);
             if(!camera.keyboardControl(d_elapsedTime, window)) {
                 menu.setPause();
+                music.play();
+                backSounds.pause();
             };
         } else {
             window.setMouseCursorVisible(true);
@@ -130,6 +127,11 @@ int main()
                 camera.switchCollision();
 
             menu.drawMenu(window, d_elapsedTime);
+            //FOR MUSICS
+            if(!menu.isPaused()) {
+                backSounds.play();
+                music.pause();
+            }
         }
         window.display();   // отображение
     }
