@@ -26,6 +26,8 @@ Weapon::Weapon(const Weapon &weapon) {
 
     this->d_amplitude = weapon.d_amplitude;
 
+    this->i_damage = weapon.i_damage;
+
     S_weapon_handle.setTexture(T_weapon_handle);
 }
 
@@ -38,11 +40,12 @@ void Weapon::choiceWeapon(std::string name) {
         T_aim.loadFromFile(AIM_TEXTURE);
         T_fire.loadFromFile(FIRE_SHOTGUN_TEXTURE);
         d_speed = 0.8;
-        S_aim.scale(.1, .1);
+        S_aim.scale(.05, .05);
 
         fireSoundBuffer.loadFromFile(GUN_SHOT_SOUND);
         fireSound.setBuffer(fireSoundBuffer);
         fireSound.setVolume(10.f);
+        i_damage = 100;
     }
 }
 
@@ -105,6 +108,6 @@ void Weapon::draw(sf::RenderWindow &window) {
     //
 
     S_aim.setTexture(T_aim);
-    S_aim.setPosition(sf::Vector2f(SCREEN_WIDTH/2 - S_aim.getTextureRect().width/20, SCREEN_HEIGHT/2 - S_aim.getTextureRect().height/20)); // абсолютная позиция
+    S_aim.setPosition(sf::Vector2f(SCREEN_WIDTH/2 - S_aim.getTextureRect().width/50, SCREEN_HEIGHT/2 - S_aim.getTextureRect().height/50)); // абсолютная позиция
     window.draw(S_aim);
 }

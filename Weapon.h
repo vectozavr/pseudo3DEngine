@@ -30,6 +30,7 @@ private:
 
     double d_speed = 1;
     int i_amount = 0;
+    int i_damage = 0;
 
     double fireShift = 0;
     double d_amplitude = 100;
@@ -48,6 +49,8 @@ public:
     double speed() const { return d_speed; }
 
     void draw(sf::RenderWindow& window) override;
+
+    int damage() const { return i_damage; }
 };
 
 #endif //PSEUDO3DENGINE_WEAPON_H

@@ -43,6 +43,7 @@ int main()
 
     World world(100, 100);
     Camera camera(world, {2.5, 0});
+    Camera enemy(world, {1.4, 2.5});
 
     // objects
     Poligon2D wall1({{0, 0}, {0, .1}, {5, .1}, {5, 0}}, {0, 0});
@@ -64,11 +65,12 @@ int main()
     Poligon2D object6({{0, 0}, {.3, 0}, {.3, .3}, {0, .3}}, {3, 4}, 0);
     Poligon2D object7({{0, 0}, {.1, 0}, {.1, .1}, {0, .1}}, {1, 2}, 0);
 
-    //object2.makeMirror();
+    object2.makeMirror();
     object3.makeMirror();
 
     //cameraw
     world.addObject2D(camera, "camera");
+    world.addObject2D(enemy, "enemy");
 
     //world.addObject2D(wall1, "wall1");
     world.addObject2D(wall2, "wall2");

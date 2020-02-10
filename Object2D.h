@@ -76,6 +76,8 @@ public:
         T_texture.setRepeated(true);
         return T_texture;
     }
+
+    virtual int type() { return 0; }
 };
 
 

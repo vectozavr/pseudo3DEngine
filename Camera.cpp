@@ -16,11 +16,11 @@ void Camera::recursiveIncreaseDistance(std::vector<RayCastStructure>& v_RayCastS
     }
 }
 
-void Camera::objectsRayCrossed(pair<Point2D, Point2D> ray, std::vector<RayCastStructure> &v_rayCastStruct, World &world, const std::string& name, int reflections) {
+void Camera::objectsRayCrossed(pair<Point2D, Point2D> ray, std::vector<RayCastStructure> &v_rayCastStruct, const std::string& name, int reflections) {
     std::string obj;
     double len = 0;
     double progress = 0;
-    for(auto object : world.objects()) {
+    for(auto object : W_world.objects()) {
         Point2D crossPoint = {0, 0};
         obj = "";
         Point2D nearCross = ray.second;
@@ -51,7 +51,7 @@ void Camera::objectsRayCrossed(pair<Point2D, Point2D> ray, std::vector<RayCastSt
                         pair<Point2D, Point2D> newRay = {crossPoint, crossPoint + twistedRayVector};
 
                         if(reflections < 40) {
-                            objectsRayCrossed(newRay, v_reflectedRayCastStructure, world, object.first,reflections + 1);
+                            objectsRayCrossed(newRay, v_reflectedRayCastStructure, object.first,reflections + 1);
                             recursiveIncreaseDistance(v_reflectedRayCastStructure, (ray.first - nearCross).abs());
                         }
                     }
@@ -68,9 +68,11 @@ void Camera::objectsRayCrossed(pair<Point2D, Point2D> ray, std::vector<RayCastSt
     sort(v_rayCastStruct.begin(), v_rayCastStruct.end(), [](const RayCastStructure& lh, const RayCastStructure& rh) { return lh.distance > rh.distance; });
 }
 
-void Camera::updateDistances(World& world) {
+void Camera::updateDistances(const World& world) {
     v_distances.clear();
     allCollisions.clear();
+    if(i_health <= 0)
+        return;
 
     for(int i = 0; i < 2*PI/d_fieldOfView*DISTANCES_SEGMENTS; i++) {
         double left = d_direction - d_fieldOfView/2;
@@ -82,7 +84,7 @@ void Camera::updateDistances(World& world) {
 
         std::vector<RayCastStructure> v_rayCastStructure;
 
-        objectsRayCrossed(segment1, v_rayCastStructure, world, getName());
+        objectsRayCrossed(segment1, v_rayCastStructure, getName());
 
         if(!v_rayCastStructure.empty())
             v_distances.push_back(v_rayCastStructure);
@@ -93,8 +95,8 @@ void Camera::updateDistances(World& world) {
 
 void Camera::draw(sf::RenderWindow& window) {
 
-    if(v_distances.size() == 0)
-        updateDistances(W_world);
+    if(v_distances.empty() || i_health <= 0)
+        return;
 
     sf::CircleShape circle;
     circle.setRadius(COLLISION_DISTANCE*SCALE);
@@ -122,9 +124,43 @@ void Camera::draw(sf::RenderWindow& window) {
     window.draw(circle);
 }
 
+std::pair<std::string, double> Camera::cameraRayCheck(RayCastStructure &structure) {
+    std::pair<std::string, double> result = {"", 1};
+    if(W_world[structure.object].type() == 1) {
+        result.first = structure.object;
+        result.second = structure.distance;
+    }
+    else if(!structure.v_mirrorRayCast.empty()) {
+        return cameraRayCheck(structure.v_mirrorRayCast[structure.v_mirrorRayCast.size()-1]);
+    }
+    return result;
+}
+
+void Camera::fire() {
+    pair<Point2D, Point2D> segment1 = {{x(), y()}, {x() + d_depth*cos(d_direction), y() + d_depth*sin(d_direction)}};
+    std::vector<RayCastStructure> v_rayCastStructure;
+    objectsRayCrossed(segment1, v_rayCastStructure, getName());
+
+    if(!v_rayCastStructure.empty()) {
+        std::pair<std::string, double> hitted = cameraRayCheck(v_rayCastStructure[v_rayCastStructure.size()-1]);
+        //W_world.removeObject2D(hitted.first);
+        if(hitted.first == "") return;
+
+        dynamic_cast<Camera&>(W_world[hitted.first]).updateDistances(W_world);
+        double dir = 2*PI * rand() / RAND_MAX;
+        dynamic_cast<Camera&>(W_world[hitted.first]).shiftPrecise({0.05*cos(dir), 0.05*sin(dir)});
+
+        if(dynamic_cast<Camera&>(W_world[hitted.first]).reduceHealth(static_cast<int>(weapons[selectedWeapon].damage()/hitted.second))) {
+            W_world.removeObject2D(hitted.first);
+        }
+    }
+}
+
 bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
     double dx = 0;
     double dy = 0;
+    if(i_health <= 0)
+        return false;
 
     // left and right
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
@@ -157,7 +193,10 @@ bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
         // левая кнопка мыши нажата, стреляем!
-        weapons[selectedWeapon].fire();
+        if(weapons[selectedWeapon].fire()) {
+            //
+            fire();
+        }
     }
     if(sf::Mouse::getPosition(window).x != localMousePosition.x) {
         double difference = sf::Mouse::getPosition(window).x - localMousePosition.x;
@@ -246,8 +285,8 @@ void Camera::recursiveDrawing(sf::RenderWindow& window, const std::vector<RayCas
 
 void Camera::drawCameraView(sf::RenderWindow& window) {
 
-    if(v_distances.size() == 0)
-        updateDistances(W_world);
+    if(v_distances.empty() || i_health <= 0)
+        return;
     //SKY AND FLOOR
     if(b_textures) {
         sf::Sprite sprite_sky;
@@ -317,4 +356,9 @@ void Camera::nextWeapon() {
         selectedWeapon++;
     else
         selectedWeapon = 0;
+}
+
+bool Camera::reduceHealth(int damage) {
+    i_health -= damage;
+    return i_health < 0;
 }
