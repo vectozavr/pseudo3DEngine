@@ -257,6 +257,33 @@ Poligon2D.cpp.s:
 	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.s
 .PHONY : Poligon2D.cpp.s
 
+UDPSocketConnection.obj: UDPSocketConnection.cpp.obj
+
+.PHONY : UDPSocketConnection.obj
+
+# target to build an object file
+UDPSocketConnection.cpp.obj:
+	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/UDPSocketConnection.cpp.obj
+.PHONY : UDPSocketConnection.cpp.obj
+
+UDPSocketConnection.i: UDPSocketConnection.cpp.i
+
+.PHONY : UDPSocketConnection.i
+
+# target to preprocess a source file
+UDPSocketConnection.cpp.i:
+	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/UDPSocketConnection.cpp.i
+.PHONY : UDPSocketConnection.cpp.i
+
+UDPSocketConnection.s: UDPSocketConnection.cpp.s
+
+.PHONY : UDPSocketConnection.s
+
+# target to generate assembly for a file
+UDPSocketConnection.cpp.s:
+	$(MAKE) -f CMakeFiles\Pseudo3DEngine.dir\build.make CMakeFiles/Pseudo3DEngine.dir/UDPSocketConnection.cpp.s
+.PHONY : UDPSocketConnection.cpp.s
+
 Weapon.obj: Weapon.cpp.obj
 
 .PHONY : Weapon.obj
@@ -362,6 +389,9 @@ help:
 	@echo ... Poligon2D.obj
 	@echo ... Poligon2D.i
 	@echo ... Poligon2D.s
+	@echo ... UDPSocketConnection.obj
+	@echo ... UDPSocketConnection.i
+	@echo ... UDPSocketConnection.s
 	@echo ... Weapon.obj
 	@echo ... Weapon.i
 	@echo ... Weapon.s

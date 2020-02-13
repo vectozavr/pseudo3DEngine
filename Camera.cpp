@@ -150,8 +150,10 @@ void Camera::fire() {
         double dir = 2*PI * rand() / RAND_MAX;
         dynamic_cast<Camera&>(W_world[hitted.first]).shiftPrecise({0.05*cos(dir), 0.05*sin(dir)});
 
-        if(dynamic_cast<Camera&>(W_world[hitted.first]).reduceHealth(static_cast<int>(weapons[selectedWeapon].damage()/hitted.second))) {
+        if(dynamic_cast<Camera&>(W_world[hitted.first]).reduceHealth(static_cast<int>(v_weapons[i_selectedWeapon].damage() / hitted.second))) {
             W_world.removeObject2D(hitted.first);
+            W_world[hitted.first].setPosition({2.5, 0});
+            s_lastKill = hitted.first;
         }
     }
 }
@@ -159,8 +161,6 @@ void Camera::fire() {
 bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
     double dx = 0;
     double dy = 0;
-    if(i_health <= 0)
-        return false;
 
     // left and right
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
@@ -193,7 +193,7 @@ bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
         // левая кнопка мыши нажата, стреляем!
-        if(weapons[selectedWeapon].fire()) {
+        if(v_weapons[i_selectedWeapon].fire()) {
             //
             fire();
         }
@@ -210,6 +210,9 @@ bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
     } else {
         walkSound.pause();
     }
+
+    if(i_health <= 0)
+        return false;
 
     shiftPrecise({dx, dy});
     return true;
@@ -276,10 +279,8 @@ void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure&
 void Camera::recursiveDrawing(sf::RenderWindow& window, const std::vector<RayCastStructure>& v_RayCastStructure, int shift) {
     for(int k = 0; k < v_RayCastStructure.size(); k++) {
         drawVerticalStrip(window, v_RayCastStructure[k], shift, 0);
-        if(!v_RayCastStructure[k].v_mirrorRayCast.empty()) {
-            //drawVerticalStrip(window, v_distances[shift][k].v_mirrorRayCast[v_distances[shift][k].v_mirrorRayCast.size()-1], v_distances[shift][k].v_mirrorRayCast[v_distances[shift][k].v_mirrorRayCast.size()-1].distance + v_distances[shift][k].distance, shift, 0);
+        if(!v_RayCastStructure[k].v_mirrorRayCast.empty())
             recursiveDrawing(window, v_RayCastStructure[k].v_mirrorRayCast, shift);
-        }
     }
 }
 
@@ -293,25 +294,13 @@ void Camera::drawCameraView(sf::RenderWindow& window) {
         sprite_sky.setTexture(W_world.skyTexture());
         sprite_sky.setTextureRect(sf::IntRect(d_direction * SCREEN_WIDTH/2, sprite_sky.getTextureRect().height/2-SCREEN_HEIGHT/2, SCREEN_WIDTH, 1080));
         sprite_sky.setPosition(sf::Vector2f(0,0)); // абсолютная позиция
-        //sprite_sky.scale(1, (double)SCREEN_HEIGHT/2/1080);
         window.draw(sprite_sky);
-
-        /*
-        sf::Sprite sprite_floor;
-        sprite_floor.setTexture(W_world.floorTexture());
-        sprite_floor.setTextureRect(sf::IntRect(0, 0, SCREEN_WIDTH, 1080));
-        sprite_floor.setPosition(sf::Vector2f(0,SCREEN_HEIGHT/2)); // абсолютная позиция
-        sprite_floor.scale(1, (double)1/2);
-        //sprite_sky.setColor({255, 255, 255, static_cast<sf::Uint8>(alpha)});
-        window.draw(sprite_floor);
-         */
     }
-
 
     for(int i = 0; i < DISTANCES_SEGMENTS-1; i++)
         recursiveDrawing(window, v_distances[i], i);
 
-    weapons[selectedWeapon].draw(window);
+    v_weapons[i_selectedWeapon].draw(window);
 }
 
 double Camera::scalarWithNormal(Point2D edge, Point2D vector) {
@@ -345,17 +334,17 @@ void Camera::shiftPrecise(Point2D vector) {
 }
 
 void Camera::previousWeapon() {
-    if(selectedWeapon > 0)
-        selectedWeapon--;
+    if(i_selectedWeapon > 0)
+        i_selectedWeapon--;
     else
-        selectedWeapon = weapons.size()-1;
+        i_selectedWeapon = v_weapons.size() - 1;
 }
 
 void Camera::nextWeapon() {
-    if(selectedWeapon < weapons.size()-1)
-        selectedWeapon++;
+    if(i_selectedWeapon < v_weapons.size() - 1)
+        i_selectedWeapon++;
     else
-        selectedWeapon = 0;
+        i_selectedWeapon = 0;
 }
 
 bool Camera::reduceHealth(int damage) {

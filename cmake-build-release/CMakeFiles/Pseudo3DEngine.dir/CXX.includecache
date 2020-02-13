@@ -520,6 +520,132 @@ SFML/Graphics/Transform.hpp
 SFML/System/Vector2.hpp
 -
 
+D:/Libraries/SFML/include/SFML/Network.hpp
+SFML/System.hpp
+-
+SFML/Network/Ftp.hpp
+-
+SFML/Network/Http.hpp
+-
+SFML/Network/IpAddress.hpp
+-
+SFML/Network/Packet.hpp
+-
+SFML/Network/Socket.hpp
+-
+SFML/Network/SocketHandle.hpp
+-
+SFML/Network/SocketSelector.hpp
+-
+SFML/Network/TcpListener.hpp
+-
+SFML/Network/TcpSocket.hpp
+-
+SFML/Network/UdpSocket.hpp
+-
+
+D:/Libraries/SFML/include/SFML/Network/Export.hpp
+SFML/Config.hpp
+-
+
+D:/Libraries/SFML/include/SFML/Network/Ftp.hpp
+SFML/Network/Export.hpp
+-
+SFML/Network/TcpSocket.hpp
+-
+SFML/System/NonCopyable.hpp
+-
+SFML/System/Time.hpp
+-
+string
+-
+vector
+-
+
+D:/Libraries/SFML/include/SFML/Network/Http.hpp
+SFML/Network/Export.hpp
+-
+SFML/Network/IpAddress.hpp
+-
+SFML/Network/TcpSocket.hpp
+-
+SFML/System/NonCopyable.hpp
+-
+SFML/System/Time.hpp
+-
+map
+-
+string
+-
+
+D:/Libraries/SFML/include/SFML/Network/IpAddress.hpp
+SFML/Network/Export.hpp
+-
+SFML/System/Time.hpp
+-
+istream
+-
+ostream
+-
+string
+-
+
+D:/Libraries/SFML/include/SFML/Network/Packet.hpp
+SFML/Network/Export.hpp
+-
+string
+-
+vector
+-
+
+D:/Libraries/SFML/include/SFML/Network/Socket.hpp
+SFML/Network/Export.hpp
+-
+SFML/Network/SocketHandle.hpp
+-
+SFML/System/NonCopyable.hpp
+-
+vector
+-
+
+D:/Libraries/SFML/include/SFML/Network/SocketHandle.hpp
+SFML/Config.hpp
+-
+basetsd.h
+-
+
+D:/Libraries/SFML/include/SFML/Network/SocketSelector.hpp
+SFML/Network/Export.hpp
+-
+SFML/System/Time.hpp
+-
+
+D:/Libraries/SFML/include/SFML/Network/TcpListener.hpp
+SFML/Network/Export.hpp
+-
+SFML/Network/Socket.hpp
+-
+SFML/Network/IpAddress.hpp
+-
+
+D:/Libraries/SFML/include/SFML/Network/TcpSocket.hpp
+SFML/Network/Export.hpp
+-
+SFML/Network/Socket.hpp
+-
+SFML/System/Time.hpp
+-
+
+D:/Libraries/SFML/include/SFML/Network/UdpSocket.hpp
+SFML/Network/Export.hpp
+-
+SFML/Network/Socket.hpp
+-
+SFML/Network/IpAddress.hpp
+-
+vector
+-
+
 D:/Libraries/SFML/include/SFML/System.hpp
 SFML/Config.hpp
 -
@@ -850,9 +976,51 @@ SFML/Config.hpp
 
 D:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp
 
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
+algorithm
+-
+Object2D.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+World.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
+settings.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+Menu.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
+Weapon.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
+
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
+Object2D.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+settings.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
 SFML/Graphics.hpp
 -
+
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
+SFML/Audio.hpp
+-
+SFML/Graphics.hpp
+-
+map
+-
+iostream
+-
+chrono
+-
+settings.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+Poligon2D.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
+Circle2D.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
+Object2D.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+Camera.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
 
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
 utility
@@ -866,9 +1034,17 @@ D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
 settings.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.cpp
-Weapon.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
+Object2D.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/UDPSocketConnection.h
+SFML/Network.hpp
+-
+World.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
+Camera.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
 
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
 SFML/Audio.hpp
@@ -879,6 +1055,42 @@ settings.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
 Object2D.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
+Object2D.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+string
+-
+map
+-
+
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/main.cpp
+SFML/Audio.hpp
+-
+SFML/Graphics.hpp
+-
+map
+-
+iostream
+-
+chrono
+-
+settings.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+Poligon2D.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
+Circle2D.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
+Object2D.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+World.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
+Camera.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
+Menu.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
+UDPSocketConnection.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/UDPSocketConnection.h
 
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
 SFML/Graphics.hpp

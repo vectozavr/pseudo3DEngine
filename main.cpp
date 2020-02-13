@@ -11,6 +11,7 @@
 #include "World.h"
 #include "Camera.h"
 #include "Menu.h"
+#include "UDPSocketConnection.h"
 
 using namespace std;
 
@@ -43,7 +44,11 @@ int main()
 
     World world(100, 100);
     Camera camera(world, {2.5, 0});
-    Camera enemy(world, {1.4, 2.5});
+    //Camera enemy(world, {1.4, 2.5});
+
+    UDPSocketConnection udpSocketConnection(world, camera);
+    udpSocketConnection.bind(55001);
+    udpSocketConnection.update();
 
     // objects
     Poligon2D wall1({{0, 0}, {0, .1}, {5, .1}, {5, 0}}, {0, 0});
@@ -69,8 +74,11 @@ int main()
     object3.makeMirror();
 
     //cameraw
-    world.addObject2D(camera, "camera");
-    world.addObject2D(enemy, "enemy");
+    world.addObject2D(camera, "camera1");
+    //world.addObject2D(enemy, "enemy");
+
+    bool res1 = world.isExist("vova");
+    bool res2 = world.isExist("camera");
 
     //world.addObject2D(wall1, "wall1");
     world.addObject2D(wall2, "wall2");
@@ -97,6 +105,7 @@ int main()
 
     while (window.isOpen())
     {
+        udpSocketConnection.update();
         tp2 = chrono::system_clock::now();
         chrono::duration <double> elapsedTime = tp2 - tp1;
         tp1 = tp2;

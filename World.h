@@ -31,6 +31,7 @@ public:
     }
     Object2D& findObject2D(std::string name) { return map_objects.at(name); }
     Object2D& findObject2D(std::string name) const { return map_objects.at(name); }
+    bool isExist(std::string name) const {return map_objects.count(name) != 0; }
 
     bool removeObject2D(std::string name) { return map_objects.erase(name) > 0; }
 

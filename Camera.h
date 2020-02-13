@@ -56,13 +56,15 @@ private:
     sf::Vector2i localMousePosition;
 
     bool b_textures = true;
-    bool smooth = false;
+    bool b_smooth = false;
 
-    std::vector<Weapon> weapons;
-    int selectedWeapon = 0;
+    std::vector<Weapon> v_weapons;
+    int i_selectedWeapon = 0;
 
     sf::SoundBuffer walkSoundBuffer;
     sf::Sound walkSound;
+
+    std::string s_lastKill;
 
     void objectsRayCrossed(std::pair<Point2D, Point2D> ray, std::vector<RayCastStructure>& v_rayCastStruct, const std::string& name, int reflections = 0);
     void drawVerticalStrip(sf::RenderWindow& window, const RayCastStructure& obj, int shift, double s);
@@ -78,12 +80,31 @@ public:
     : W_world(world), Circle2D(COLLISION_DISTANCE, position, 0.5, texture, 4), d_direction(direction), d_fieldOfView(fieldOfView), d_depth(depth), d_walkSpeed(walkSpeed), d_viewSpeed(viewSpeed), i_health(health) {
         Weapon weapon1(100);
         weapon1.choiceWeapon("shotgun");
-        weapons.push_back(weapon1);
+        v_weapons.push_back(weapon1);
 
         walkSoundBuffer.loadFromFile(WALK_SOUND);
         walkSound.setBuffer(walkSoundBuffer);
         walkSound.setLoop(true);
         walkSound.setVolume(50.f);
+    }
+
+    Camera(const Camera& camera) : W_world(camera.W_world) { // copy constructor
+        v_distances = camera.v_distances;
+        allCollisions = camera.allCollisions;
+        d_direction = camera.d_direction;
+        d_depth = camera.d_depth;
+        d_fieldOfView = d_fieldOfView;
+        d_walkSpeed = camera.d_walkSpeed;
+        d_viewSpeed = camera.d_viewSpeed;
+        i_health = camera.i_health;
+        b_collision = camera.b_collision;
+        b_textures = camera.b_textures;
+        b_smooth = camera.b_smooth;
+        localMousePosition = camera.localMousePosition;
+        v_weapons = camera.v_weapons;
+        i_selectedWeapon = camera.i_selectedWeapon;
+        walkSoundBuffer = camera.walkSoundBuffer;
+        walkSound = camera.walkSound;
     }
 
     void updateDistances(const World& world);
@@ -95,8 +116,8 @@ public:
 
     void shiftPrecise(Point2D vector);
 
-    bool isSmooth() { return smooth; }
-    void switchSmooth() { smooth = !smooth; }
+    bool isSmooth() { return b_smooth; }
+    void switchSmooth() { b_smooth = !b_smooth; }
     bool isCollision() { return b_collision; }
     void switchCollision() { b_collision = !b_collision; }
     bool isTextures() { return b_textures; }
@@ -105,9 +126,12 @@ public:
     void previousWeapon();
     void nextWeapon();
 
+    int health(){ return i_health; }
     bool reduceHealth(int damage = 0);
+    void fullHealth () { i_health = 100; }
 
     int type() override { return 1; }
+    std::string lastKill(){ return s_lastKill;}
 };
 
 
