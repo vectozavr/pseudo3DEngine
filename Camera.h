@@ -131,7 +131,8 @@ public:
     void fullHealth () { i_health = 100; }
 
     int type() override { return 1; }
-    std::string lastKill(){ return s_lastKill;}
+    std::string lastKill() { return s_lastKill;}
+    void cleanLastKill(){s_lastKill = "";}
 };
 
 

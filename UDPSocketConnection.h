@@ -5,6 +5,7 @@
 #ifndef PSEUDO3DENGINE_UDPSOCKETCONNECTION_H
 #define PSEUDO3DENGINE_UDPSOCKETCONNECTION_H
 
+#include <iostream>
 #include <SFML/Network.hpp>
 #include "World.h"
 #include "Camera.h"
@@ -33,14 +34,23 @@ public:
 
         sf::Packet packet;
         sf::IpAddress sender;
+
+        bool ack1 = false;
+        bool ack2 = false;
+
         short unsigned int port;
         while(socket.receive(packet, sender, port) == sf::Socket::Status::Done)
-            packet >> x >> y >> senderName >> killedName;
+            packet >> x >> y >> senderName >> ack2;
+
+        if(ack2)
+            C_camera.cleanLastKill();
 
         if(killedName == C_camera.getName()) {
             C_camera.setPosition({2.5, 0});
             C_camera.fullHealth();
+            ack1 = true;
         }
+        std::cout << senderName << " " << port << std::endl;
         if(W_world.isExist(senderName)) {
             W_world[senderName].setPosition({x, y});
         } else {
@@ -51,8 +61,8 @@ public:
         }
 
         sf::Packet packetSend;
-        packetSend << C_camera.x() << C_camera.y() << C_camera.getName() << C_camera.lastKill();
-        socket.send(packetSend, "192.168.1.255", port);
+        packetSend << C_camera.x() << C_camera.y() << C_camera.getName() << C_camera.lastKill() << ack1;
+        socket.send(packetSend, "192.168.1.255", 54334);
     }
 };
 

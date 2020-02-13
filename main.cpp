@@ -44,10 +44,10 @@ int main()
 
     World world(100, 100);
     Camera camera(world, {2.5, 0});
-    //Camera enemy(world, {1.4, 2.5});
+    Camera enemy(world, {1.4, 2.5});
 
     UDPSocketConnection udpSocketConnection(world, camera);
-    udpSocketConnection.bind(55001);
+    udpSocketConnection.bind(54333);
     udpSocketConnection.update();
 
     // objects
@@ -74,8 +74,8 @@ int main()
     object3.makeMirror();
 
     //cameraw
-    world.addObject2D(camera, "camera1");
-    //world.addObject2D(enemy, "enemy");
+    world.addObject2D(camera, "camera2");
+    world.addObject2D(enemy, "camera1");
 
     bool res1 = world.isExist("vova");
     bool res2 = world.isExist("camera");

@@ -151,7 +151,7 @@ void Camera::fire() {
         dynamic_cast<Camera&>(W_world[hitted.first]).shiftPrecise({0.05*cos(dir), 0.05*sin(dir)});
 
         if(dynamic_cast<Camera&>(W_world[hitted.first]).reduceHealth(static_cast<int>(v_weapons[i_selectedWeapon].damage() / hitted.second))) {
-            W_world.removeObject2D(hitted.first);
+            //W_world.removeObject2D(hitted.first);
             W_world[hitted.first].setPosition({2.5, 0});
             s_lastKill = hitted.first;
         }
