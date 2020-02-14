@@ -43,6 +43,7 @@ public:
 
         while(socket.receive(packet, sender, port) == sf::Socket::Status::Done)
             packet >> x >> y >> killedName >> ack2;
+        port = 1;
 
         if(ack2)
             C_camera.cleanLastKill();

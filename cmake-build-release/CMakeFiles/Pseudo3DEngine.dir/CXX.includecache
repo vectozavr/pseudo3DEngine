@@ -976,6 +976,14 @@ SFML/Config.hpp
 
 D:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp
 
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.cpp
+cmath
+-
+windows.h
+-
+Camera.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
+
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
 algorithm
 -
@@ -999,6 +1007,10 @@ D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
 SFML/Graphics.hpp
 -
+
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.cpp
+Menu.h
+D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
 
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
 SFML/Audio.hpp
@@ -1046,6 +1058,8 @@ D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/UDPSocketConnection.h
 iostream
 -
 SFML/Network.hpp
+-
+utility
 -
 World.h
 D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h

@@ -26,7 +26,7 @@ struct Point2D {
 };
 
 class Object2D : virtual public Idrawable {
-private:
+protected:
     std::vector<Point2D> v_points2D;
 
     Point2D p_position;

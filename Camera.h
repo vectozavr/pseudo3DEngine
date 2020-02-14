@@ -89,11 +89,15 @@ public:
     }
 
     Camera(const Camera& camera) : W_world(camera.W_world) { // copy constructor
+        v_points2D = camera.v_points2D;
+        T_texture = camera.T_texture;
+        s_texture = camera.s_texture;
+        p_position = camera.p_position;
         v_distances = camera.v_distances;
         allCollisions = camera.allCollisions;
         d_direction = camera.d_direction;
         d_depth = camera.d_depth;
-        d_fieldOfView = d_fieldOfView;
+        d_fieldOfView = camera.d_fieldOfView;
         d_walkSpeed = camera.d_walkSpeed;
         d_viewSpeed = camera.d_viewSpeed;
         i_health = camera.i_health;

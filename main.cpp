@@ -44,6 +44,7 @@ int main()
 
     World world(100, 100);
     Camera camera(world, {2.5, 0});
+    camera.setName("54001");
     Camera enemy(world, {1.4, 2.5});
 
     UDPSocketConnection udpSocketConnection(world, camera);
@@ -73,8 +74,8 @@ int main()
     object3.makeMirror();
 
     //cameraw
-    world.addObject2D(camera, "54001");
-    world.addObject2D(enemy, "54002");
+    world.addObject2D(camera, camera.getName());
+    //world.addObject2D(enemy, "54002");
 
     udpSocketConnection.update();
 
