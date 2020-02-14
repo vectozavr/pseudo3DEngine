@@ -105,6 +105,7 @@ public:
         i_selectedWeapon = camera.i_selectedWeapon;
         walkSoundBuffer = camera.walkSoundBuffer;
         walkSound = camera.walkSound;
+        setName(camera.getName());
     }
 
     void updateDistances(const World& world);

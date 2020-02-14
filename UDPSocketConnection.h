@@ -63,7 +63,7 @@ public:
         }
 
         sf::Packet packetSend;
-        packetSend << C_camera.x() << C_camera.y() << socket.getLocalPort() << C_camera.lastKill() << ack1;
+        packetSend << C_camera.x() << C_camera.y() << C_camera.lastKill() << ack1;
         for(int i = 54000; i < 54010; i++)
             socket.send(packetSend, s_ipAdress, i);
     }

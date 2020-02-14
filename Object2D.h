@@ -67,7 +67,7 @@ public:
     static bool segments_crossing(std::pair<Point2D, Point2D> segment1, std::pair<Point2D, Point2D> segment2, Point2D& point);
 
     void setName(std::string name) {s_name = name;}
-    std::string getName() { return s_name; }
+    std::string getName() const { return s_name; }
 
     const Point2D position() { return p_position; }
 
