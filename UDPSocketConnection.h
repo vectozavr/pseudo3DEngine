@@ -16,7 +16,7 @@ private:
     Camera& C_camera;
     sf::UdpSocket socket;
 
-    std::map<std::string, Camera> m_cameras;
+    std::map<short unsigned, Camera> m_cameras;
 public:
     UDPSocketConnection(World& world, Camera& camera) : W_world(world), C_camera(camera) {}
 
@@ -28,19 +28,18 @@ public:
     void update() {
         double x;
         double y;
-        std::string senderName;
         int health;
         std::string killedName;
 
         sf::Packet packet;
         sf::IpAddress sender;
+        short unsigned int port;
 
         bool ack1 = false;
-        bool ack2 = false;
+        bool ack2;
 
-        short unsigned int port;
         while(socket.receive(packet, sender, port) == sf::Socket::Status::Done)
-            packet >> x >> y >> senderName >> ack2;
+            packet >> x >> y >> killedName >> ack2;
 
         if(ack2)
             C_camera.cleanLastKill();
@@ -50,19 +49,20 @@ public:
             C_camera.fullHealth();
             ack1 = true;
         }
-        std::cout << senderName << " " << port << std::endl;
-        if(W_world.isExist(senderName)) {
-            W_world[senderName].setPosition({x, y});
+
+        if(W_world.isExist(std::to_string(port))) {
+            W_world[std::to_string(port)].setPosition({x, y});
         } else {
-            Camera camera(W_world, {0, 0});
-            camera.setName(senderName);
-            m_cameras.insert({senderName, camera});
-            W_world.addObject2D(m_cameras.at(senderName), senderName);
+            Camera camera(W_world, {2.5, 0});
+            camera.setName(std::to_string(port));
+            m_cameras.insert({port, camera});
+            W_world.addObject2D(m_cameras.at(port), std::to_string(port));
         }
 
         sf::Packet packetSend;
-        packetSend << C_camera.x() << C_camera.y() << C_camera.getName() << C_camera.lastKill() << ack1;
-        socket.send(packetSend, "192.168.1.255", 54334);
+        packetSend << C_camera.x() << C_camera.y() << socket.getLocalPort() << C_camera.lastKill() << ack1;
+        for(auto p : m_cameras)
+            socket.send(packetSend, "192.168.137.255", p.first);
     }
 };
 

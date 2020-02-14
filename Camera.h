@@ -78,7 +78,7 @@ private:
 public:
     explicit Camera(World& world, Point2D position, double direction = 0, std::string texture = SKIN, int health = 100, double fieldOfView = PI/2, double depth = 14, double walkSpeed = 1.5, double viewSpeed = .01)
     : W_world(world), Circle2D(COLLISION_DISTANCE, position, 0.5, texture, 4), d_direction(direction), d_fieldOfView(fieldOfView), d_depth(depth), d_walkSpeed(walkSpeed), d_viewSpeed(viewSpeed), i_health(health) {
-        Weapon weapon1(100);
+        Weapon weapon1(1000);
         weapon1.choiceWeapon("shotgun");
         v_weapons.push_back(weapon1);
 

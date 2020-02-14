@@ -47,7 +47,7 @@ int main()
     Camera enemy(world, {1.4, 2.5});
 
     UDPSocketConnection udpSocketConnection(world, camera);
-    udpSocketConnection.bind(54333);
+    udpSocketConnection.bind(54334);
     udpSocketConnection.update();
 
     // objects
@@ -70,12 +70,12 @@ int main()
     Poligon2D object6({{0, 0}, {.3, 0}, {.3, .3}, {0, .3}}, {3, 4}, 0);
     Poligon2D object7({{0, 0}, {.1, 0}, {.1, .1}, {0, .1}}, {1, 2}, 0);
 
-    object2.makeMirror();
+    //object2.makeMirror();
     object3.makeMirror();
 
     //cameraw
-    world.addObject2D(camera, "camera2");
-    world.addObject2D(enemy, "camera1");
+    world.addObject2D(camera, "camera1");
+    world.addObject2D(enemy, "camera2");
 
     bool res1 = world.isExist("vova");
     bool res2 = world.isExist("camera");
