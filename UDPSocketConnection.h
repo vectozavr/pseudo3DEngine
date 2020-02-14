@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <SFML/Network.hpp>
+#include <utility>
 #include "World.h"
 #include "Camera.h"
 
@@ -17,10 +18,12 @@ private:
     sf::UdpSocket socket;
 
     std::map<short unsigned, Camera> m_cameras;
+    std::string s_ipAdress;
 public:
     UDPSocketConnection(World& world, Camera& camera) : W_world(world), C_camera(camera) {}
 
-    void bind(short unsigned port) {
+    void bind(std::string ip, short unsigned port) {
+        s_ipAdress = std::move(ip);
         socket.bind(port);
         socket.setBlocking(false);
     }
@@ -62,7 +65,7 @@ public:
         sf::Packet packetSend;
         packetSend << C_camera.x() << C_camera.y() << socket.getLocalPort() << C_camera.lastKill() << ack1;
         for(auto p : m_cameras)
-            socket.send(packetSend, "192.168.137.255", p.first);
+            socket.send(packetSend, s_ipAdress, p.first);
     }
 };
 

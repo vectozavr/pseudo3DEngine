@@ -47,7 +47,7 @@ int main()
     Camera enemy(world, {1.4, 2.5});
 
     UDPSocketConnection udpSocketConnection(world, camera);
-    udpSocketConnection.bind(54334);
+    udpSocketConnection.bind("", 54334);
     udpSocketConnection.update();
 
     // objects
