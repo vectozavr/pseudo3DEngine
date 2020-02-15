@@ -19,6 +19,7 @@ private:
 
     std::map<short unsigned, Camera> m_cameras;
     std::string s_ipAdress;
+    short unsigned i_myPort;
 public:
     UDPSocketConnection(World& world, Camera& camera) : W_world(world), C_camera(camera) {}
 
@@ -26,6 +27,7 @@ public:
         s_ipAdress = std::move(ip);
         socket.bind(port);
         socket.setBlocking(false);
+        i_myPort = port;
     }
 
     void update() {
@@ -36,14 +38,17 @@ public:
 
         sf::Packet packet;
         sf::IpAddress sender;
-        short unsigned int port;
+        short unsigned int senderPort = 0;
+        short unsigned int port = 0;
 
         bool ack1 = false;
-        bool ack2;
+        bool ack2 = false;
 
-        while(socket.receive(packet, sender, port) == sf::Socket::Status::Done)
+
+        while((socket.receive(packet, sender, port) == sf::Socket::Status::Done) && (port >= 54000) && (port <= 54010)) {
             packet >> x >> y >> killedName >> ack2;
-        port = 1;
+            senderPort = port;
+        }
 
         if(ack2)
             C_camera.cleanLastKill();
@@ -54,19 +59,21 @@ public:
             ack1 = true;
         }
 
-        if(W_world.isExist(std::to_string(port))) {
-            W_world[std::to_string(port)].setPosition({x, y});
-        } else {
+        if(W_world.isExist(std::to_string(senderPort))) {
+            m_cameras.at(senderPort).setPosition({x, y});
+        } else if ((senderPort >= 54000) && (senderPort <= 54010)){
             Camera camera(W_world, {2.5, 0});
-            camera.setName(std::to_string(port));
-            m_cameras.insert({port, camera});
-            W_world.addObject2D(m_cameras.at(port), std::to_string(port));
+            camera.setName(std::to_string(senderPort));
+            m_cameras.insert({senderPort, camera});
+            W_world.addObject2D(m_cameras.at(senderPort), std::to_string(senderPort));
         }
 
         sf::Packet packetSend;
         packetSend << C_camera.x() << C_camera.y() << C_camera.lastKill() << ack1;
+
         for(int i = 54000; i < 54010; i++)
-            socket.send(packetSend, s_ipAdress, i);
+            if(i != i_myPort)
+                socket.send(packetSend, s_ipAdress, i);
     }
 };
 

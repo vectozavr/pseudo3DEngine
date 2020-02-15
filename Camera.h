@@ -89,6 +89,7 @@ public:
     }
 
     Camera(const Camera& camera) : W_world(camera.W_world) { // copy constructor
+        d_height = camera.d_height;
         v_points2D = camera.v_points2D;
         T_texture = camera.T_texture;
         s_texture = camera.s_texture;

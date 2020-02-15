@@ -45,7 +45,6 @@ int main()
     World world(100, 100);
     Camera camera(world, {2.5, 0});
     camera.setName("54001");
-    Camera enemy(world, {1.4, 2.5});
 
     UDPSocketConnection udpSocketConnection(world, camera);
     udpSocketConnection.bind("192.168.137.255", 54001);
@@ -75,7 +74,6 @@ int main()
 
     //cameraw
     world.addObject2D(camera, camera.getName());
-    //world.addObject2D(enemy, "54002");
 
     udpSocketConnection.update();
 
@@ -107,7 +105,6 @@ int main()
 
     while (window.isOpen())
     {
-        udpSocketConnection.update();
         tp2 = chrono::system_clock::now();
         chrono::duration <double> elapsedTime = tp2 - tp1;
         tp1 = tp2;
@@ -123,6 +120,7 @@ int main()
 
         window.clear();     // отчистка
         if(!menu.isPaused()) {
+            udpSocketConnection.update();
             window.setMouseCursorVisible(false);
             camera.updateDistances(world);
             camera.drawCameraView(window);
