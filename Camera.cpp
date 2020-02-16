@@ -71,8 +71,6 @@ void Camera::objectsRayCrossed(pair<Point2D, Point2D> ray, std::vector<RayCastSt
 void Camera::updateDistances(const World& world) {
     v_distances.clear();
     allCollisions.clear();
-    if(i_health <= 0)
-        return;
 
     for(int i = 0; i < 2*PI/d_fieldOfView*DISTANCES_SEGMENTS; i++) {
         double left = d_direction - d_fieldOfView/2;
@@ -85,6 +83,10 @@ void Camera::updateDistances(const World& world) {
         std::vector<RayCastStructure> v_rayCastStructure;
 
         objectsRayCrossed(segment1, v_rayCastStructure, getName());
+
+        for(const auto& rcs : v_rayCastStructure)
+            if((m_playersOnTheScreen.count(rcs.object) == 0) && (W_world[rcs.object].type() == 1))
+                m_playersOnTheScreen.insert({rcs.object, dynamic_cast<Camera&>(W_world[rcs.object])});
 
         if(!v_rayCastStructure.empty())
             v_distances.push_back(v_rayCastStructure);
@@ -154,6 +156,7 @@ void Camera::fire() {
             //W_world.removeObject2D(hitted.first);
             W_world[hitted.first].setPosition({2.5, 0});
             s_lastKill = hitted.first;
+            dynamic_cast<Camera&>(W_world[hitted.first]).setHealth(100);
         }
     }
 }
@@ -210,9 +213,6 @@ bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
     } else {
         walkSound.pause();
     }
-
-    if(i_health <= 0)
-        return false;
 
     shiftPrecise({dx, dy});
     return true;
@@ -277,16 +277,40 @@ void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure&
 }
 
 void Camera::recursiveDrawing(sf::RenderWindow& window, const std::vector<RayCastStructure>& v_RayCastStructure, int shift) {
-    for(int k = 0; k < v_RayCastStructure.size(); k++) {
-        drawVerticalStrip(window, v_RayCastStructure[k], shift, 0);
-        if(!v_RayCastStructure[k].v_mirrorRayCast.empty())
-            recursiveDrawing(window, v_RayCastStructure[k].v_mirrorRayCast, shift);
+    for(const auto & k : v_RayCastStructure) {
+        drawVerticalStrip(window, k, shift, 0);
+        if(!k.v_mirrorRayCast.empty())
+            recursiveDrawing(window, k.v_mirrorRayCast, shift);
     }
+}
+
+void Camera::drawHealth(sf::RenderWindow& window, int xPos, int yPos, int width, int healthProgress) {
+    sf::ConvexShape polygon1;
+    polygon1.setPointCount(4);
+    sf::ConvexShape polygon2;
+    polygon2.setPointCount(4);
+
+    polygon1.setPoint(0, sf::Vector2f(xPos, yPos));
+    polygon1.setPoint(1, sf::Vector2f(xPos + width, yPos));
+    polygon1.setPoint(2, sf::Vector2f(xPos + width, yPos + 20));
+    polygon1.setPoint(3, sf::Vector2f(xPos, yPos + 20));
+
+    polygon2.setPoint(0, sf::Vector2f(xPos, yPos));
+    polygon2.setPoint(1, sf::Vector2f(xPos + width*healthProgress/100, yPos));
+    polygon2.setPoint(2, sf::Vector2f(xPos + width*healthProgress/100, yPos + 20));
+    polygon2.setPoint(3, sf::Vector2f(xPos, yPos + 20));
+
+    polygon1.setFillColor({255, 174, 174, 100});
+    polygon2.setFillColor({static_cast<sf::Uint8>((100 - healthProgress)*255), static_cast<sf::Uint8>(healthProgress*255/100), 0, 255});
+
+    polygon1.setOutlineThickness(3); // we can make non zero thickness for debug
+    window.draw(polygon1);
+    window.draw(polygon2);
 }
 
 void Camera::drawCameraView(sf::RenderWindow& window) {
 
-    if(v_distances.empty() || i_health <= 0)
+    if(v_distances.empty())
         return;
     //SKY AND FLOOR
     if(b_textures) {
@@ -300,6 +324,19 @@ void Camera::drawCameraView(sf::RenderWindow& window) {
     for(int i = 0; i < DISTANCES_SEGMENTS-1; i++)
         recursiveDrawing(window, v_distances[i], i);
 
+    //m_playersOnTheScreen
+    for(const auto& player : m_playersOnTheScreen) {
+        Point2D enemyDirection = (player.second.position() - position()).normalize();
+        Point2D cameraLeftDirection = {cos(d_direction - d_fieldOfView/2), sin(d_direction - d_fieldOfView/2)};
+        double angle = acos(enemyDirection*cameraLeftDirection);
+        if((cameraLeftDirection.x*enemyDirection.y - enemyDirection.x*cameraLeftDirection.y) > 0) {
+            int xPos = SCREEN_WIDTH * angle/d_fieldOfView;
+            int yPos = heightInPixels((player.second.position() - position()).abs(), 1).first;
+            auto healthProgress = (double)player.second.health();
+            drawHealth(window, xPos-50, yPos, 100, healthProgress);
+        }
+    }
+    drawHealth(window, 50, SCREEN_HEIGHT - 50, 400, health());
     v_weapons[i_selectedWeapon].draw(window);
 }
 

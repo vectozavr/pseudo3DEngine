@@ -18,6 +18,7 @@ struct Point2D {
     Point2D& operator+=(const Point2D& point2D) { this->x += point2D.x; this->y += point2D.y; }
     Point2D& operator=(const Point2D& point2D) { this->x = point2D.x; this->y = point2D.y; return *this; }
     Point2D& operator*(double number) { this->x *= number; this->y *= number; }
+    double   operator*(const Point2D& point2D) { return x*point2D.x + y*point2D.y; }
     Point2D operator-(const Point2D& point2D) const { return {this->x - point2D.x, this->y - point2D.y}; }
     Point2D operator+(const Point2D& point2D) const { return {this->x + point2D.x, this->y + point2D.y}; }
 
@@ -69,7 +70,7 @@ public:
     void setName(std::string name) {s_name = name;}
     std::string getName() const { return s_name; }
 
-    const Point2D position() { return p_position; }
+    Point2D position() const { return p_position; }
 
     bool isMirror () const { return b_isMirror; }
     void makeMirror() { b_isMirror = true; }

@@ -44,10 +44,9 @@ int main()
 
     World world(100, 100);
     Camera camera(world, {2.5, 0});
-    camera.setName("54001");
 
     UDPSocketConnection udpSocketConnection(world, camera);
-    udpSocketConnection.bind("192.168.137.255", 54001);
+    udpSocketConnection.bind("127.0.0.1", 54002); // 192.168.137.255
 
     // objects
     Poligon2D wall1({{0, 0}, {0, .1}, {5, .1}, {5, 0}}, {0, 0});
@@ -74,8 +73,6 @@ int main()
 
     //cameraw
     world.addObject2D(camera, camera.getName());
-
-    udpSocketConnection.update();
 
     bool res1 = world.isExist("vova");
     bool res2 = world.isExist("camera");

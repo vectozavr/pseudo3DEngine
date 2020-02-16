@@ -28,12 +28,13 @@ public:
         socket.bind(port);
         socket.setBlocking(false);
         i_myPort = port;
+        C_camera.setName(std::to_string(port));
     }
 
     void update() {
-        double x;
-        double y;
-        int health;
+        double x = 0;
+        double y = 0;
+        int health = 100;
         std::string killedName;
 
         sf::Packet packet;
@@ -46,9 +47,10 @@ public:
 
 
         while((socket.receive(packet, sender, port) == sf::Socket::Status::Done) && (port >= 54000) && (port <= 54010)) {
-            packet >> x >> y >> killedName >> ack2;
+            packet >> x >> y >> killedName >> ack2 >> health;
             senderPort = port;
         }
+        while((socket.receive(packet, sender, port) == sf::Socket::Status::Done)) {};
 
         if(ack2)
             C_camera.cleanLastKill();
@@ -61,6 +63,7 @@ public:
 
         if(W_world.isExist(std::to_string(senderPort))) {
             m_cameras.at(senderPort).setPosition({x, y});
+            C_camera.setHealth(health);
         } else if ((senderPort >= 54000) && (senderPort <= 54010)){
             Camera camera(W_world, {2.5, 0});
             camera.setName(std::to_string(senderPort));
@@ -68,12 +71,14 @@ public:
             W_world.addObject2D(m_cameras.at(senderPort), std::to_string(senderPort));
         }
 
-        sf::Packet packetSend;
-        packetSend << C_camera.x() << C_camera.y() << C_camera.lastKill() << ack1;
 
-        for(int i = 54000; i < 54010; i++)
-            if(i != i_myPort)
+        for(int i = 54000; i < 54010; i++) {
+            sf::Packet packetSend;
+            int h = m_cameras.count(i) != 0 ? m_cameras.at(i).health() : 100;
+            packetSend << C_camera.x() << C_camera.y() << C_camera.lastKill() << ack1 << h;
+            if (i != i_myPort)
                 socket.send(packetSend, s_ipAdress, i);
+        }
     }
 };
 

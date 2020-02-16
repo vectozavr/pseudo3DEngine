@@ -75,6 +75,10 @@ private:
 
     void fire();
     std::pair<std::string, double> cameraRayCheck(RayCastStructure& structure);
+
+    std::map<std::string, Camera&> m_playersOnTheScreen;
+
+    static void drawHealth(sf::RenderWindow& window, int x, int y, int width, int health);
 public:
     explicit Camera(World& world, Point2D position, double direction = 0, std::string texture = SKIN, int health = 100, double fieldOfView = PI/2, double depth = 14, double walkSpeed = 1.5, double viewSpeed = .01)
     : W_world(world), Circle2D(COLLISION_DISTANCE, position, 0.5, texture, 4), d_direction(direction), d_fieldOfView(fieldOfView), d_depth(depth), d_walkSpeed(walkSpeed), d_viewSpeed(viewSpeed), i_health(health) {
@@ -132,9 +136,10 @@ public:
     void previousWeapon();
     void nextWeapon();
 
-    int health(){ return i_health; }
+    int health() const { return i_health; }
     bool reduceHealth(int damage = 0);
     void fullHealth () { i_health = 100; }
+    void setHealth(double h) {i_health = h; }
 
     int type() override { return 1; }
     std::string lastKill() { return s_lastKill;}
