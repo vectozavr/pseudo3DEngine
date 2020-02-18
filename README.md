@@ -7,10 +7,10 @@ Some results of texturing:
 Demonstration of how does this engine work:
 ![Иллюстрация к проекту](https://github.com/vectozavr/pseudo3DEngine/blob/master/img/demo2.jpg)
 
-We also can switch the textures off: 
+We also can switch off the textures: 
 ![Иллюстрация к проекту](https://github.com/vectozavr/pseudo3DEngine/blob/master/img/demo3.jpg)
 
-Also this engine can perfom some mirrors. As you can see, we get correct reflection image:
+This engine can perfom some mirrors. As you can see, we get correct reflection image:
 ![Иллюстрация к проекту](https://github.com/vectozavr/pseudo3DEngine/blob/master/img/demo4.jpg)
 
 When we have two mirrirs standing next to each other we can get beautiful results: 
