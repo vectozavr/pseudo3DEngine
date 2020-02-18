@@ -51,7 +51,7 @@ int main()
     }
 
     UDPSocketConnection udpSocketConnection(world, camera);
-    udpSocketConnection.bind("127.0.0.1", 54001); // 192.168.137.255
+    udpSocketConnection.bind("192.168.137.255", 54002); // 192.168.137.255
 
     //wall4.makeMirror();
 

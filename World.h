@@ -25,7 +25,7 @@ private:
 public:
     World(double length, double width, std::string sky_texture = SKY_TEXTURE, std::string floor_texture = FLOOR_TEXTURE) : d_length(length), d_width(width), s_sky_texture(sky_texture), s_floor_texture(floor_texture) {}
 
-    bool addObject2D(Object2D& object, std::string name) {
+    bool addObject2D(Object2D&  object, std::string name) {
         object.setName(name);
         return map_objects.insert({name, object}).second;
     }
