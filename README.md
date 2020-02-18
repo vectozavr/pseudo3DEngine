@@ -6,3 +6,4 @@ Simple pseudo-3d engine implementation. This library allows you to make two dime
 ![Иллюстрация к проекту](https://github.com/vectozavr/pseudo3DEngine/blob/master/img/demo3.jpg)
 ![Иллюстрация к проекту](https://github.com/vectozavr/pseudo3DEngine/blob/master/img/demo4.jpg)
 ![Иллюстрация к проекту](https://github.com/vectozavr/pseudo3DEngine/blob/master/img/demo5.jpg)
+![Иллюстрация к проекту](https://github.com/vectozavr/pseudo3DEngine/blob/master/img/demo6.jpg)
