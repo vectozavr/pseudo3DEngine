@@ -91,6 +91,9 @@ public:
     }
 
     virtual int type() { return 0; }
+    void setPoints2D (std::vector<Point2D> points2D) {
+        v_points2D = std::move(points2D);
+    }
 };
 
 

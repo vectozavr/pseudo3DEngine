@@ -168,24 +168,24 @@ bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
     // left and right
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
-        dx += sin(d_direction) * d_walkSpeed * elapsedTime;
-        dy += -cos(d_direction) * d_walkSpeed * elapsedTime;
+        dx += sin(d_direction);
+        dy += -cos(d_direction);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
-        dx += -sin(d_direction) * d_walkSpeed * elapsedTime;
-        dy += cos(d_direction) * d_walkSpeed * elapsedTime;
+        dx += -sin(d_direction);
+        dy += cos(d_direction);
     }
     // forward and backward
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
-        dx += cos(d_direction) * d_walkSpeed * elapsedTime;
-        dy += sin(d_direction) * d_walkSpeed * elapsedTime;
+        dx += cos(d_direction);
+        dy += sin(d_direction);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
-        dx += -cos(d_direction) * d_walkSpeed * elapsedTime;
-        dy += -sin(d_direction) * d_walkSpeed * elapsedTime;
+        dx += -cos(d_direction);
+        dy += -sin(d_direction);
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
@@ -196,13 +196,12 @@ bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
         // левая кнопка мыши нажата, стреляем!
-        if(v_weapons[i_selectedWeapon].fire()) {
-            //
+        if(v_weapons[i_selectedWeapon].fire())
             fire();
-        }
     }
     if(sf::Mouse::getPosition(window).x != localMousePosition.x) {
         double difference = sf::Mouse::getPosition(window).x - localMousePosition.x;
+        sf::Mouse::setPosition({SCREEN_WIDTH/2, SCREEN_HEIGHT/2});
         localMousePosition = sf::Mouse::getPosition(window);
         d_direction += d_viewSpeed * difference;
     }
@@ -214,7 +213,7 @@ bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
         walkSound.pause();
     }
 
-    shiftPrecise({dx, dy});
+    shiftPrecise({dx * d_walkSpeed * elapsedTime * ((double)i_health/100), dy * d_walkSpeed * elapsedTime * ((double)i_health/100)});
     return true;
 }
 

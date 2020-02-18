@@ -20,6 +20,8 @@ private:
     std::map<short unsigned, Camera> m_cameras;
     std::string s_ipAdress;
     short unsigned i_myPort;
+
+    std::vector<Point2D> v_spawns = {{1.5, 1.5}, {1.5, 13.5}};
 public:
     UDPSocketConnection(World& world, Camera& camera) : W_world(world), C_camera(camera) {}
 
@@ -56,7 +58,7 @@ public:
             C_camera.cleanLastKill();
 
         if(killedName == C_camera.getName()) {
-            C_camera.setPosition({2.5, 0});
+            C_camera.setPosition(v_spawns[i_myPort % v_spawns.size()]);
             C_camera.fullHealth();
             ack1 = true;
         }

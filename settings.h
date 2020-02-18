@@ -18,7 +18,7 @@
 #define OUTLINE_COLOR {0, 0, 0, 100}
 #define FILL_COLOR {255, 174, 174, 255}
 
-#define CIRCLE_CONVEX_NUMBER 20
+#define CIRCLE_CONVEX_NUMBER 10
 
 // CAMERA
 #define OUTLINE_CAMERA_THICKNESS 1
@@ -44,7 +44,7 @@
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 
-#define DISTANCES_SEGMENTS 160 // How much vertical sectors we use in ray cast
+#define DISTANCES_SEGMENTS 640 // How much vertical sectors we use in ray cast
 
 //BACKGROUND
 #define OUTLINE_BACK_THICKNESS 5
@@ -55,7 +55,7 @@
 
 #define WALL_TEXTURE "texture/brickWall.jpg"
 #define WALL_TEXTURE2 "texture/brickWall2.jpg"
-#define COLUMN_TEXTURE "texture/column.jpg"
+#define COLUMN_TEXTURE "texture/column2.jpg"
 #define VOLODYA_TEXTURE "texture/volodya.jpg"
 #define FROZEN_TEXTURE "texture/frozen.jpg"
 #define DOG_TEXTURE "texture/dog.jpg"
