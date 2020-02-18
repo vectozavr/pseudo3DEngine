@@ -34,7 +34,7 @@ int main()
     vector<Circle2D> columns(12);
     vector<Poligon2D> walls (12);
 
-    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Pseudo3DEngine");
+    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Pseudo3DEngine", sf::Style::Fullscreen);
 
     World world(100, 100);
     Camera camera(world, {1.5, 1.5});
@@ -51,7 +51,7 @@ int main()
     }
 
     UDPSocketConnection udpSocketConnection(world, camera);
-    udpSocketConnection.bind("192.168.137.255", 54002); // 192.168.137.255
+    udpSocketConnection.bind("192.168.137.255", 54001); // 192.168.137.255
 
     //wall4.makeMirror();
 

@@ -47,7 +47,7 @@ private:
     double d_walkSpeed;
     double d_viewSpeed;
 
-    int i_health;
+    double i_health;
 
     bool b_collision = true;
 
@@ -80,9 +80,9 @@ private:
 
     static void drawHealth(sf::RenderWindow& window, int x, int y, int width, int health);
 public:
-    explicit Camera(World& world, Point2D position, double direction = 0, std::string texture = SKIN, int health = 100, double fieldOfView = PI/2, double depth = 14, double walkSpeed = 1.5, double viewSpeed = .01)
+    explicit Camera(World& world, Point2D position, double direction = 0, std::string texture = SKIN, int health = 100, double fieldOfView = PI/2, double depth = 14, double walkSpeed = 1.5, double viewSpeed = .005)
     : W_world(world), Circle2D(COLLISION_DISTANCE, position, 0.5, texture, 4), d_direction(direction), d_fieldOfView(fieldOfView), d_depth(depth), d_walkSpeed(walkSpeed), d_viewSpeed(viewSpeed), i_health(health) {
-        Weapon weapon1(1000);
+        Weapon weapon1(100000);
         weapon1.choiceWeapon("shotgun");
         v_weapons.push_back(weapon1);
 
@@ -136,8 +136,8 @@ public:
     void previousWeapon();
     void nextWeapon();
 
-    int health() const { return i_health; }
-    bool reduceHealth(int damage = 0);
+    double health() const { return i_health; }
+    bool reduceHealth(double damage = 0);
     void fullHealth () { i_health = 100; }
     void setHealth(double h) {i_health = h; }
 

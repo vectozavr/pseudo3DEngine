@@ -39,13 +39,13 @@ void Weapon::choiceWeapon(std::string name) {
 
         T_aim.loadFromFile(AIM_TEXTURE);
         T_fire.loadFromFile(FIRE_SHOTGUN_TEXTURE);
-        d_speed = 0.8;
+        d_speed = 0.4;
         S_aim.scale(.05, .05);
 
         fireSoundBuffer.loadFromFile(GUN_SHOT_SOUND);
         fireSound.setBuffer(fireSoundBuffer);
         fireSound.setVolume(10.f);
-        i_damage = 100;
+        i_damage = 50;
     }
 }
 

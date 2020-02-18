@@ -383,7 +383,9 @@ void Camera::nextWeapon() {
         i_selectedWeapon = 0;
 }
 
-bool Camera::reduceHealth(int damage) {
+bool Camera::reduceHealth(double damage) {
+    if(i_health > 100)
+        i_health = 100;
     i_health -= damage;
     return i_health < 0;
 }

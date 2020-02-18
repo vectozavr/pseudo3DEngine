@@ -21,7 +21,7 @@ private:
     std::string s_ipAdress;
     short unsigned i_myPort;
 
-    std::vector<Point2D> v_spawns = {{1.5, 1.5}, {1.5, 13.5}};
+    std::vector<Point2D> v_spawns = {{1.5, 1.5}, {1.5, 9}};
 public:
     UDPSocketConnection(World& world, Camera& camera) : W_world(world), C_camera(camera) {}
 
@@ -66,6 +66,7 @@ public:
         if(W_world.isExist(std::to_string(senderPort))) {
             m_cameras.at(senderPort).setPosition({x, y});
             C_camera.setHealth(health);
+            m_cameras.at(senderPort).reduceHealth(-0.1);
         } else if ((senderPort >= 54000) && (senderPort <= 54010)){
             Camera camera(W_world, {2.5, 0});
             camera.setName(std::to_string(senderPort));
