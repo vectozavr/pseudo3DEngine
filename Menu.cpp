@@ -56,6 +56,9 @@ void Menu::drawMenu(sf::RenderWindow &window, double elapsedTime) {
     back.setFillColor({255, 255, 255});
     window.draw(back);
 
+	if(!sf::Mouse::isButtonPressed(sf::Mouse::Left) && b_pressed)
+		b_pressed = false;
+
     for(int i = 0; i < buttons.size(); i++) {
 
         if(buttons[i].button.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
@@ -78,16 +81,25 @@ void Menu::drawMenu(sf::RenderWindow &window, double elapsedTime) {
                     }
                 } else {
                     if (buttons[i].name == "TEXTURING") {
-                        buttons[i].press();
-                        b_textures = buttons[i].pressed;
+                        if(!b_pressed) {
+							buttons[i].press();
+							b_textures = buttons[i].pressed;
+							b_pressed = true;
+						}
                     }
                     if (buttons[i].name == "SMOOTHING") {
-                        buttons[i].press();
-                        smooth = buttons[i].pressed;
+						if(!b_pressed) {
+							buttons[i].press();
+							smooth = buttons[i].pressed;
+							b_pressed = true;
+						}
                     }
                     if (buttons[i].name == "COLLISION") {
-                        buttons[i].press();
-                        b_collision = buttons[i].pressed;
+                        if(!b_pressed) {
+							buttons[i].press();
+							b_collision = buttons[i].pressed;
+							b_pressed = true;
+						}
                     }
                 }
             }
