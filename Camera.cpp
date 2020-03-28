@@ -3,7 +3,7 @@
 //
 
 #include <cmath>
-#include <windows.h>
+//#include <windows.h>
 #include "Camera.h"
 
 
