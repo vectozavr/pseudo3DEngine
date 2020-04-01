@@ -1,6 +1,9 @@
 # pseudo3DEngine
 Simple pseudo-3d engine implementation. This library allows you to make two dimensional map and draw pseudo 3D image  using Ray-Cast. 
 
+Floor texturing (NEW):
+![Иллюстрация к проекту](https://github.com/vectozavr/pseudo3DEngine/blob/master/img/demo0.jpg)
+
 Some results of texturing:
 ![Иллюстрация к проекту](https://github.com/vectozavr/pseudo3DEngine/blob/master/img/demo1.jpg)
 
