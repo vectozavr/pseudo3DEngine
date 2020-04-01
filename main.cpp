@@ -34,7 +34,7 @@ int main()
     vector<Circle2D> columns(12);
     vector<Poligon2D> walls (12);
 
-    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Pseudo3DEngine", sf::Style::Fullscreen);
+    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Pseudo3DEngine");
 
     World world(100, 100);
     Camera camera(world, {1.5, 1.5});

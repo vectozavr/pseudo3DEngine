@@ -1,5 +1,5 @@
-"D:\programs\CLion\CLion 2019.2.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "D:\ivan\Study\C & C++\problems3_laptop2\Pseudo3DEngine"
+"D:\programs\CLion\CLion 2019.2.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "D:\ivan\Study\C & C++\problems4\peseudo3D"
 -- Found SFML 2.5.1 in D:/Libraries/SFML/lib/cmake/SFML
 -- Configuring done
 -- Generating done
--- Build files have been written to: D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/cmake-build-debug
+-- Build files have been written to: D:/ivan/Study/C & C++/problems4/peseudo3D/cmake-build-debug

@@ -225,14 +225,15 @@ pair<double, double> heightInPixels(double distance, double height) {
 }
 
 
-void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure& obj, int shift, double s) {
+void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure& obj, int shift, int f) {
     sf::ConvexShape polygon;
     polygon.setPointCount(4);
 
-    pair<double, double> height_now = heightInPixels(obj.distance, obj.height);
+    double d_angle = -d_fieldOfView/2 + shift * d_fieldOfView / DISTANCES_SEGMENTS;
+    pair<double, double> height_now = heightInPixels(cos(0)*obj.distance, obj.height);
 
-    int h1 = height_now.first + s;
-    int h2 = height_now.second - s;
+    int h1 = height_now.first;
+    int h2 = height_now.second;
 
     polygon.setPoint(0, sf::Vector2f(0, h1));
     polygon.setPoint(1, sf::Vector2f(0, h2));
@@ -245,15 +246,15 @@ void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure&
     if (alpha < 0)
         alpha = 0;
 
+    alpha = 255 - alpha;
+
     if (!b_textures)
         polygon.setFillColor({255, 174, 174, static_cast<sf::Uint8>(alpha)});
     else
-        polygon.setFillColor({255, 174, 174, 255});
+        polygon.setFillColor({255, 255, 255, static_cast<sf::Uint8>(alpha)});
 
     polygon.setOutlineThickness(0); // we can make non zero thickness for debug
     polygon.setPosition(shift * SCREEN_WIDTH / DISTANCES_SEGMENTS, 0);
-    if (abs(obj.distance - d_depth) > 0.001)
-        window.draw(polygon);
 
     double scaleFactor = (double) (h2 - h1) / SCREEN_HEIGHT;
     sf::Sprite sprite;
@@ -270,16 +271,50 @@ void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure&
         sprite.setTextureRect(sf::IntRect(left, top, SCREEN_WIDTH / DISTANCES_SEGMENTS, SCREEN_HEIGHT));
         sprite.setPosition(sf::Vector2f(shift * SCREEN_WIDTH / DISTANCES_SEGMENTS, h1)); // абсолютная позиция
         sprite.scale(1, scaleFactor);
-        sprite.setColor({255, 255, 255, static_cast<sf::Uint8>(alpha)});
+        //sprite.setColor({static_cast<sf::Uint8>(alpha), static_cast<sf::Uint8>(alpha), static_cast<sf::Uint8>(alpha)});
         window.draw(sprite);
+    }
+
+    if (abs(obj.distance - d_depth) > 0.001)
+        window.draw(polygon);
+
+    int x = shift*SCREEN_WIDTH/DISTANCES_SEGMENTS;
+
+    if((f == 0) || (x % FLOOR_SEGMENT_SIZE != 0)) return;
+    //sf::Sprite floor;
+    //floor.setTexture(W_world.floorTexture());
+    for(int z = h2; z < SCREEN_HEIGHT; z += FLOOR_SEGMENT_SIZE) {
+
+        double l = (double)1/(z - SCREEN_HEIGHT/2);
+
+        // SPRITE
+        if (b_textures) {
+            int left = (280*position().x + 100000*l*cos(d_angle + d_direction));
+            int top  = (-280*position().y - 100000*l*sin(d_angle + d_direction));
+
+            sf::Sprite& floor = W_world.floor();
+
+            floor.setTextureRect(sf::IntRect(left, top, FLOOR_SEGMENT_SIZE, FLOOR_SEGMENT_SIZE));
+            floor.setPosition(sf::Vector2f(x, z)); // абсолютная позиция
+            //sprite.scale(1, scaleFactor);
+            //sprite.setColor({static_cast<sf::Uint8>(alpha), static_cast<sf::Uint8>(alpha), static_cast<sf::Uint8>(alpha)});
+            window.draw(floor);
+        }
+
+        //window.draw(floor);
     }
 }
 
-void Camera::recursiveDrawing(sf::RenderWindow& window, const std::vector<RayCastStructure>& v_RayCastStructure, int shift) {
+void Camera::recursiveDrawing(sf::RenderWindow& window, const std::vector<RayCastStructure>& v_RayCastStructure, int shift, int rec) {
+    int i = 0;
     for(const auto & k : v_RayCastStructure) {
-        drawVerticalStrip(window, k, shift, 0);
+        if(i + 1 != v_RayCastStructure.size() || (rec != 1))
+            drawVerticalStrip(window, k, shift, 0);
+        else
+            drawVerticalStrip(window, k, shift, 1);
+        i++;
         if(!k.v_mirrorRayCast.empty())
-            recursiveDrawing(window, k.v_mirrorRayCast, shift);
+            recursiveDrawing(window, k.v_mirrorRayCast, shift, 2);
     }
 }
 
@@ -300,7 +335,7 @@ void Camera::drawHealth(sf::RenderWindow& window, int xPos, int yPos, int width,
     polygon2.setPoint(3, sf::Vector2f(xPos, yPos + 20));
 
     polygon1.setFillColor({255, 174, 174, 100});
-    polygon2.setFillColor({static_cast<sf::Uint8>((100 - healthProgress)*255), static_cast<sf::Uint8>(healthProgress*255/100), 0, 255});
+    polygon2.setFillColor({static_cast<sf::Uint8>((100 - healthProgress)*255), static_cast<sf::Uint8>(healthProgress*255/100), 0, 100});
 
     polygon1.setOutlineThickness(3); // we can make non zero thickness for debug
     window.draw(polygon1);
@@ -320,7 +355,7 @@ void Camera::drawCameraView(sf::RenderWindow& window) {
         window.draw(sprite_sky);
     }
 
-    for(int i = 0; i < DISTANCES_SEGMENTS-1; i++)
+    for(int i = 0; i < DISTANCES_SEGMENTS; i++)
         recursiveDrawing(window, v_distances[i], i);
 
     //m_playersOnTheScreen

@@ -44,7 +44,8 @@
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 
-#define DISTANCES_SEGMENTS 640 // How much vertical sectors we use in ray cast
+#define DISTANCES_SEGMENTS 1280 // How much vertical sectors we use in ray cast
+#define FLOOR_SEGMENT_SIZE 4
 
 //BACKGROUND
 #define OUTLINE_BACK_THICKNESS 5
@@ -53,9 +54,9 @@
 
 //TEXTURES
 
-#define WALL_TEXTURE "texture/brickWall.jpg"
+#define WALL_TEXTURE "texture/brickWall.png"
 #define WALL_TEXTURE2 "texture/brickWall2.jpg"
-#define COLUMN_TEXTURE "texture/column2.jpg"
+#define COLUMN_TEXTURE "texture/column.png"
 #define VOLODYA_TEXTURE "texture/volodya.jpg"
 #define FROZEN_TEXTURE "texture/frozen.jpg"
 #define DOG_TEXTURE "texture/dog.jpg"
@@ -64,7 +65,7 @@
 #define BLACK_TEXTURE "texture/black.jpg"
 
 #define SKY_TEXTURE "texture/back.jpg"
-#define FLOOR_TEXTURE "texture/floor.jpg"
+#define FLOOR_TEXTURE "texture/brickWall3.jpg"
 
 #define PLAYGAME_PRESSED_TEXTURE "texture/buttons/playGameSelected.jpg"
 #define SETTINGS_PRESSED_TEXTURE "texture/buttons/settingsSelected.jpg"

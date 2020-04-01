@@ -976,31 +976,49 @@ SFML/Config.hpp
 
 D:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Camera.cpp
+cmath
+-
+windows.h
+-
+Camera.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Camera.h
+
+D:/ivan/Study/C & C++/problems4/peseudo3D/Camera.h
 algorithm
 -
 Object2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
 World.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/World.h
 settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
 Menu.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Menu.h
 Weapon.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Weapon.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
-Object2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Circle2D.cpp
+Circle2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Circle2D.h
 settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Circle2D.h
+Object2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
+settings.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
+
+D:/ivan/Study/C & C++/problems4/peseudo3D/Idrawable.h
 SFML/Graphics.hpp
 -
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Menu.cpp
+Menu.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Menu.h
+
+D:/ivan/Study/C & C++/problems4/peseudo3D/Menu.h
 SFML/Audio.hpp
 -
 SFML/Graphics.hpp
@@ -1012,17 +1030,23 @@ iostream
 chrono
 -
 settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
 Poligon2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Poligon2D.h
 Circle2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Circle2D.h
 Object2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
 Camera.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Camera.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.cpp
+Object2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
+settings.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
+
+D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
 utility
 -
 vector
@@ -1030,19 +1054,25 @@ vector
 cmath
 -
 Idrawable.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Idrawable.h
 settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Poligon2D.cpp
+Poligon2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Poligon2D.h
+settings.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
+
+D:/ivan/Study/C & C++/problems4/peseudo3D/Poligon2D.h
 Object2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/UDPSocketConnection.cpp
+D:/ivan/Study/C & C++/problems4/peseudo3D/UDPSocketConnection.cpp
 UDPSocketConnection.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/UDPSocketConnection.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/UDPSocketConnection.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/UDPSocketConnection.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/UDPSocketConnection.h
 iostream
 -
 SFML/Network.hpp
@@ -1050,29 +1080,39 @@ SFML/Network.hpp
 utility
 -
 World.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/World.h
 Camera.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Camera.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Weapon.cpp
+Weapon.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Weapon.h
+
+D:/ivan/Study/C & C++/problems4/peseudo3D/Weapon.h
 SFML/Audio.hpp
 -
 chrono
 -
 settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
 Object2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/World.cpp
+World.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/World.h
+settings.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
+
+D:/ivan/Study/C & C++/problems4/peseudo3D/World.h
 Object2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
 string
 -
 map
 -
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/main.cpp
+D:/ivan/Study/C & C++/problems4/peseudo3D/main.cpp
 SFML/Audio.hpp
 -
 SFML/Graphics.hpp
@@ -1084,23 +1124,23 @@ iostream
 chrono
 -
 settings.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
 Poligon2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Poligon2D.h
 Circle2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Circle2D.h
 Object2D.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
 World.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/World.h
 Camera.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Camera.h
 Menu.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/Menu.h
 UDPSocketConnection.h
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/UDPSocketConnection.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/UDPSocketConnection.h
 
-D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
 SFML/Graphics.hpp
 -
 

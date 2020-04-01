@@ -22,8 +22,17 @@ private:
     mutable bool floor_texture_loaded = false;
     mutable std::string s_sky_texture;
     mutable std::string s_floor_texture;
+    sf::Sprite S_floor;
+
 public:
-    World(double length, double width, std::string sky_texture = SKY_TEXTURE, std::string floor_texture = FLOOR_TEXTURE) : d_length(length), d_width(width), s_sky_texture(sky_texture), s_floor_texture(floor_texture) {}
+    World(double length, double width, std::string sky_texture = SKY_TEXTURE, std::string floor_texture = FLOOR_TEXTURE) : d_length(length), d_width(width), s_sky_texture(sky_texture), s_floor_texture(floor_texture)
+    {
+        S_floor.setTexture(floorTexture());
+    }
+
+    sf::Sprite& floor() {
+        return S_floor;
+    }
 
     bool addObject2D(Object2D&  object, std::string name) {
         object.setName(name);

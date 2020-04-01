@@ -93,16 +93,16 @@ CMakeFiles/Pseudo3DEngine.dir/Camera.cpp.obj
  D:/Libraries/SFML/include/SFML/Window/Window.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowHandle.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.cpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Camera.cpp
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Camera.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Circle2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Idrawable.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Menu.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Poligon2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Weapon.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/World.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
 CMakeFiles/Pseudo3DEngine.dir/Circle2D.cpp.obj
  D:/Libraries/SFML/include/SFML/Config.hpp
  D:/Libraries/SFML/include/SFML/Graphics.hpp
@@ -178,11 +178,11 @@ CMakeFiles/Pseudo3DEngine.dir/Circle2D.cpp.obj
  D:/Libraries/SFML/include/SFML/Window/Window.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowHandle.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.cpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Circle2D.cpp
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Circle2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Idrawable.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
 CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.obj
  D:/Libraries/SFML/include/SFML/Audio.hpp
  D:/Libraries/SFML/include/SFML/Audio/AlResource.hpp
@@ -275,16 +275,16 @@ CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.obj
  D:/Libraries/SFML/include/SFML/Window/Window.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowHandle.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.cpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Camera.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Circle2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Idrawable.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Menu.cpp
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Menu.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Poligon2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Weapon.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/World.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
 CMakeFiles/Pseudo3DEngine.dir/Object2D.cpp.obj
  D:/Libraries/SFML/include/SFML/Config.hpp
  D:/Libraries/SFML/include/SFML/Graphics.hpp
@@ -360,10 +360,10 @@ CMakeFiles/Pseudo3DEngine.dir/Object2D.cpp.obj
  D:/Libraries/SFML/include/SFML/Window/Window.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowHandle.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.cpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Idrawable.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.cpp
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
 CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.obj
  D:/Libraries/SFML/include/SFML/Config.hpp
  D:/Libraries/SFML/include/SFML/Graphics.hpp
@@ -439,11 +439,11 @@ CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.obj
  D:/Libraries/SFML/include/SFML/Window/Window.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowHandle.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.cpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Idrawable.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Poligon2D.cpp
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Poligon2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
 CMakeFiles/Pseudo3DEngine.dir/UDPSocketConnection.cpp.obj
  D:/Libraries/SFML/include/SFML/Audio.hpp
  D:/Libraries/SFML/include/SFML/Audio/AlResource.hpp
@@ -548,17 +548,17 @@ CMakeFiles/Pseudo3DEngine.dir/UDPSocketConnection.cpp.obj
  D:/Libraries/SFML/include/SFML/Window/Window.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowHandle.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/UDPSocketConnection.cpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/UDPSocketConnection.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Camera.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Circle2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Idrawable.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Menu.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Poligon2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/UDPSocketConnection.cpp
+ D:/ivan/Study/C & C++/problems4/peseudo3D/UDPSocketConnection.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Weapon.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/World.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
 CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj
  D:/Libraries/SFML/include/SFML/Audio.hpp
  D:/Libraries/SFML/include/SFML/Audio/AlResource.hpp
@@ -651,11 +651,11 @@ CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj
  D:/Libraries/SFML/include/SFML/Window/Window.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowHandle.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.cpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Idrawable.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Weapon.cpp
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Weapon.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
 CMakeFiles/Pseudo3DEngine.dir/World.cpp.obj
  D:/Libraries/SFML/include/SFML/Config.hpp
  D:/Libraries/SFML/include/SFML/Graphics.hpp
@@ -731,11 +731,11 @@ CMakeFiles/Pseudo3DEngine.dir/World.cpp.obj
  D:/Libraries/SFML/include/SFML/Window/Window.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowHandle.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.cpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Idrawable.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/World.cpp
+ D:/ivan/Study/C & C++/problems4/peseudo3D/World.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h
 CMakeFiles/Pseudo3DEngine.dir/main.cpp.obj
  D:/Libraries/SFML/include/SFML/Audio.hpp
  D:/Libraries/SFML/include/SFML/Audio/AlResource.hpp
@@ -840,14 +840,14 @@ CMakeFiles/Pseudo3DEngine.dir/main.cpp.obj
  D:/Libraries/SFML/include/SFML/Window/Window.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowHandle.hpp
  D:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Camera.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Circle2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Idrawable.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Menu.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Object2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Poligon2D.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/UDPSocketConnection.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/Weapon.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/World.h
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/main.cpp
- D:/ivan/Study/C & C++/problems3_laptop2/Pseudo3DEngine/settings.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Camera.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Circle2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Idrawable.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Menu.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Poligon2D.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/UDPSocketConnection.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/Weapon.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/World.h
+ D:/ivan/Study/C & C++/problems4/peseudo3D/main.cpp
+ D:/ivan/Study/C & C++/problems4/peseudo3D/settings.h

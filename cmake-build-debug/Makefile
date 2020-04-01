@@ -47,10 +47,10 @@ RM = "D:\programs\CLion\CLion 2019.2.2\bin\cmake\win\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "D:\ivan\Study\C & C++\problems3_laptop2\Pseudo3DEngine"
+CMAKE_SOURCE_DIR = "D:\ivan\Study\C & C++\problems4\peseudo3D"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\ivan\Study\C & C++\problems3_laptop2\Pseudo3DEngine\cmake-build-debug"
+CMAKE_BINARY_DIR = "D:\ivan\Study\C & C++\problems4\peseudo3D\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\ivan\Study\C & C++\problems3_laptop2\Pseudo3DEngine\cmake-build-debug\CMakeFiles" "D:\ivan\Study\C & C++\problems3_laptop2\Pseudo3DEngine\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\ivan\Study\C & C++\problems4\peseudo3D\cmake-build-debug\CMakeFiles" "D:\ivan\Study\C & C++\problems4\peseudo3D\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\ivan\Study\C & C++\problems3_laptop2\Pseudo3DEngine\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\ivan\Study\C & C++\problems4\peseudo3D\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
