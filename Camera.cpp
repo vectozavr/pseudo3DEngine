@@ -287,6 +287,8 @@ void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure&
 
         double l = (double)1/(z - SCREEN_HEIGHT/2);
 
+        int alpha2 = 255* 2*(z-SCREEN_HEIGHT/2) / SCREEN_HEIGHT;
+
         // SPRITE
         if (b_textures) {
             int left = (280*position().x + 100000*l*cos(d_angle + d_direction));
@@ -297,7 +299,7 @@ void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure&
             floor.setTextureRect(sf::IntRect(left, top, FLOOR_SEGMENT_SIZE, FLOOR_SEGMENT_SIZE));
             floor.setPosition(sf::Vector2f(x, z)); // абсолютная позиция
             //sprite.scale(1, scaleFactor);
-            //sprite.setColor({static_cast<sf::Uint8>(alpha), static_cast<sf::Uint8>(alpha), static_cast<sf::Uint8>(alpha)});
+            floor.setColor({255, 255, 255, static_cast<sf::Uint8>(alpha2)});
             window.draw(floor);
         }
 
