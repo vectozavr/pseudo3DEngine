@@ -1,3 +1,0 @@
-D:/ivan/Study/C & C++/problems4/peseudo3D/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir
-D:/ivan/Study/C & C++/problems4/peseudo3D/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/ivan/Study/C & C++/problems4/peseudo3D/cmake-build-debug/CMakeFiles/rebuild_cache.dir
