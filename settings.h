@@ -45,7 +45,7 @@
 #define SCREEN_HEIGHT 720
 
 #define DISTANCES_SEGMENTS 1280 // How much vertical sectors we use in ray cast
-#define FLOOR_SEGMENT_SIZE 4
+#define FLOOR_SEGMENT_SIZE 1
 
 //BACKGROUND
 #define OUTLINE_BACK_THICKNESS 5

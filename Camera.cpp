@@ -199,11 +199,16 @@ bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
         if(v_weapons[i_selectedWeapon].fire())
             fire();
     }
-    if(sf::Mouse::getPosition(window).x != localMousePosition.x) {
-        double difference = sf::Mouse::getPosition(window).x - localMousePosition.x;
+    if(sf::Mouse::getPosition(window).x != localMousePosition.x || sf::Mouse::getPosition(window).y != localMousePosition.y) {
+        double differenceX = sf::Mouse::getPosition(window).x - localMousePosition.x;
+        double differenceY = sf::Mouse::getPosition(window).y - localMousePosition.y;
         sf::Mouse::setPosition({SCREEN_WIDTH/2, SCREEN_HEIGHT/2});
         localMousePosition = sf::Mouse::getPosition(window);
-        d_direction += d_viewSpeed * difference;
+        d_direction += d_viewSpeed * differenceX;
+        d_verticalShift -= 200 * d_viewSpeed * differenceY;
+
+        if(d_verticalShift > 250) d_verticalShift = 250;
+        if(d_verticalShift < -250) d_verticalShift = -250;
     }
 
     if((dx*dx + dy*dy) > d_walkSpeed * elapsedTime * d_walkSpeed * elapsedTime / 10) {
@@ -232,8 +237,8 @@ void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure&
     double d_angle = -d_fieldOfView/2 + shift * d_fieldOfView / DISTANCES_SEGMENTS;
     pair<double, double> height_now = heightInPixels(cos(0)*obj.distance, obj.height);
 
-    int h1 = height_now.first;
-    int h2 = height_now.second;
+    int h1 = height_now.first + d_verticalShift;
+    int h2 = height_now.second + d_verticalShift;
 
     polygon.setPoint(0, sf::Vector2f(0, h1));
     polygon.setPoint(1, sf::Vector2f(0, h2));
@@ -264,7 +269,7 @@ void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure&
         if(W_world[obj.object].isMirror()) { // In case of mirror
             sprite.setTexture(W_world.skyTexture());
             left = (d_direction/10) * SCREEN_WIDTH;
-            top = sprite.getTextureRect().height/2-SCREEN_HEIGHT/2;
+            top = sprite.getTextureRect().height/2-SCREEN_HEIGHT/2 + 250;
         } else {
             sprite.setTexture(W_world[obj.object].loadTexture());
         }
@@ -285,9 +290,11 @@ void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure&
     //floor.setTexture(W_world.floorTexture());
     for(int z = h2; z < SCREEN_HEIGHT; z += FLOOR_SEGMENT_SIZE) {
 
-        double l = (double)1/(z - SCREEN_HEIGHT/2);
+        double l = (double)1/(z - SCREEN_HEIGHT/2 - d_verticalShift);
 
-        int alpha2 = 255* 2*(z-SCREEN_HEIGHT/2) / SCREEN_HEIGHT;
+        int alpha2 = 255* 2*(z - SCREEN_HEIGHT/2 - d_verticalShift) / SCREEN_HEIGHT;
+
+        if(alpha2 > 255) alpha2 = 255;
 
         // SPRITE
         if (b_textures) {
@@ -346,6 +353,8 @@ void Camera::drawHealth(sf::RenderWindow& window, int xPos, int yPos, int width,
 
 void Camera::drawCameraView(sf::RenderWindow& window) {
 
+    cout << d_verticalShift << endl;
+
     if(v_distances.empty())
         return;
     //SKY AND FLOOR
@@ -353,7 +362,7 @@ void Camera::drawCameraView(sf::RenderWindow& window) {
         sf::Sprite sprite_sky;
         sprite_sky.setTexture(W_world.skyTexture());
         sprite_sky.setTextureRect(sf::IntRect(d_direction * SCREEN_WIDTH/2, sprite_sky.getTextureRect().height/2-SCREEN_HEIGHT/2, SCREEN_WIDTH, 1080));
-        sprite_sky.setPosition(sf::Vector2f(0,0)); // абсолютная позиция
+        sprite_sky.setPosition(sf::Vector2f(0,d_verticalShift - 250)); // абсолютная позиция
         window.draw(sprite_sky);
     }
 

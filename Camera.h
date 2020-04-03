@@ -54,6 +54,7 @@ private:
     World& W_world;
 
     sf::Vector2i localMousePosition;
+    double d_verticalShift = 0;
 
     bool b_textures = true;
     bool b_smooth = false;
