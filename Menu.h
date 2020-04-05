@@ -64,9 +64,9 @@ private:
     bool smooth = false;
     bool b_collision = true;
     double lastTime = 0;
-	
-	bool b_pressed = false;
-	
+    
+    bool b_pressed = false;
+    
 public:
     Menu();
 
