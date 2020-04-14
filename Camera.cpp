@@ -50,7 +50,7 @@ void Camera::objectsRayCrossed(pair<Point2D, Point2D> ray, std::vector<RayCastSt
                         Point2D twistedRayVector = {rayVector.x*cos(twistAngle) + rayVector.y*sin(twistAngle), -rayVector.x*sin(twistAngle) + rayVector.y*cos(twistAngle)};
                         pair<Point2D, Point2D> newRay = {crossPoint, crossPoint + twistedRayVector};
 
-                        if(reflections < 40) {
+                        if(reflections < 10) {
                             objectsRayCrossed(newRay, v_reflectedRayCastStructure, object.first,reflections + 1);
                             recursiveIncreaseDistance(v_reflectedRayCastStructure, (ray.first - nearCross).abs());
                         }
@@ -187,6 +187,13 @@ bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
         dx += -cos(d_direction);
         dy += -sin(d_direction);
     }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+        if(Vz == 0) {
+            Vz = 800;
+            zPlayer = 1;
+        }
+    }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     {
@@ -212,10 +219,20 @@ bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
     }
 
     if((dx*dx + dy*dy) > d_walkSpeed * elapsedTime * d_walkSpeed * elapsedTime / 10) {
-       if(walkSound.getStatus() != sf::Sound::Status::Playing)
+        isRunning = true;
+        if(walkSound.getStatus() != sf::Sound::Status::Playing)
            walkSound.play();
     } else {
+        isRunning = false;
         walkSound.pause();
+    }
+
+    if(zPlayer <= 0) {
+        Vz = 0;
+        zPlayer = 0;
+    } else {
+        zPlayer += Vz*elapsedTime;
+        Vz -= gravity*elapsedTime;
     }
 
     shiftPrecise({dx * d_walkSpeed * elapsedTime * ((double)i_health/100), dy * d_walkSpeed * elapsedTime * ((double)i_health/100)});
@@ -230,15 +247,18 @@ pair<double, double> heightInPixels(double distance, double height) {
 }
 
 
-void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure& obj, int shift, int f) {
+void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure& obj, int shift, int f, int XRunShift) {
     sf::ConvexShape polygon;
     polygon.setPointCount(4);
 
     double d_angle = -d_fieldOfView/2 + shift * d_fieldOfView / DISTANCES_SEGMENTS;
     pair<double, double> height_now = heightInPixels(cos(0)*obj.distance, obj.height);
+    pair<double, double> height_now2 = heightInPixels(obj.distance, obj.height);
 
     int h1 = height_now.first + d_verticalShift;
     int h2 = height_now.second + d_verticalShift;
+
+    int h22 = height_now2.second + d_verticalShift;
 
     polygon.setPoint(0, sf::Vector2f(0, h1));
     polygon.setPoint(1, sf::Vector2f(0, h2));
@@ -253,13 +273,16 @@ void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure&
 
     alpha = 255 - alpha;
 
+    double zPlayer3D = 1.5*zPlayer*(d_depth - obj.distance)/10;
+    if(zPlayer3D < 0 ) zPlayer3D = 0;
+
     if (!b_textures)
         polygon.setFillColor({255, 174, 174, static_cast<sf::Uint8>(alpha)});
     else
         polygon.setFillColor({255, 255, 255, static_cast<sf::Uint8>(alpha)});
 
     polygon.setOutlineThickness(0); // we can make non zero thickness for debug
-    polygon.setPosition(shift * SCREEN_WIDTH / DISTANCES_SEGMENTS, 0);
+    polygon.setPosition(shift * SCREEN_WIDTH / DISTANCES_SEGMENTS + XRunShift, 0 + XRunShift + zPlayer3D);
 
     double scaleFactor = (double) (h2 - h1) / SCREEN_HEIGHT;
     sf::Sprite sprite;
@@ -274,7 +297,7 @@ void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure&
             sprite.setTexture(W_world[obj.object].loadTexture());
         }
         sprite.setTextureRect(sf::IntRect(left, top, SCREEN_WIDTH / DISTANCES_SEGMENTS, SCREEN_HEIGHT));
-        sprite.setPosition(sf::Vector2f(shift * SCREEN_WIDTH / DISTANCES_SEGMENTS, h1)); // абсолютная позиция
+        sprite.setPosition(sf::Vector2f(shift * SCREEN_WIDTH / DISTANCES_SEGMENTS + XRunShift, h1 + XRunShift + zPlayer3D)); // абсолютная позиция
         sprite.scale(1, scaleFactor);
         //sprite.setColor({static_cast<sf::Uint8>(alpha), static_cast<sf::Uint8>(alpha), static_cast<sf::Uint8>(alpha)});
         window.draw(sprite);
@@ -298,32 +321,29 @@ void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure&
 
         // SPRITE
         if (b_textures) {
-            int left = (280*position().x + 100000*l*cos(d_angle + d_direction));
-            int top  = (-280*position().y - 100000*l*sin(d_angle + d_direction));
+            int left = (int)((280)*position().x + (100000)*(l+zPlayer/50000)*cos(d_angle + d_direction));
+            int top  = (int)((-280)*position().y - (100000)*(l+zPlayer/50000)*sin(d_angle + d_direction));
 
             sf::Sprite& floor = W_world.floor();
 
             floor.setTextureRect(sf::IntRect(left, top, FLOOR_SEGMENT_SIZE, FLOOR_SEGMENT_SIZE));
-            floor.setPosition(sf::Vector2f(x, z)); // абсолютная позиция
-            //sprite.scale(1, scaleFactor);
+            floor.setPosition(sf::Vector2f(x + XRunShift, z + XRunShift + zPlayer)); // абсолютная позиция
             floor.setColor({255, 255, 255, static_cast<sf::Uint8>(alpha2)});
             window.draw(floor);
         }
-
-        //window.draw(floor);
     }
 }
 
-void Camera::recursiveDrawing(sf::RenderWindow& window, const std::vector<RayCastStructure>& v_RayCastStructure, int shift, int rec) {
+void Camera::recursiveDrawing(sf::RenderWindow& window, const std::vector<RayCastStructure>& v_RayCastStructure, int shift, int rec, int XRunShift) {
     int i = 0;
     for(const auto & k : v_RayCastStructure) {
         if(i + 1 != v_RayCastStructure.size() || (rec != 1))
-            drawVerticalStrip(window, k, shift, 0);
+            drawVerticalStrip(window, k, shift, 0, XRunShift);
         else
-            drawVerticalStrip(window, k, shift, 1);
+            drawVerticalStrip(window, k, shift, 1, XRunShift);
         i++;
         if(!k.v_mirrorRayCast.empty())
-            recursiveDrawing(window, k.v_mirrorRayCast, shift, 2);
+            recursiveDrawing(window, k.v_mirrorRayCast, shift, 2, XRunShift);
     }
 }
 
@@ -353,7 +373,18 @@ void Camera::drawHealth(sf::RenderWindow& window, int xPos, int yPos, int width,
 
 void Camera::drawCameraView(sf::RenderWindow& window) {
 
-    cout << d_verticalShift << endl;
+    auto tp = std::chrono::system_clock::now();
+    std::chrono::duration<double> elapsedTime = tp.time_since_epoch();
+    double d_elapsedTime = elapsedTime.count();
+    int XRunShift = 0;
+    if(isRunning) {
+        XRunShift = (int)round(5*cos(9*d_elapsedTime));
+    } else {
+        if(XRunShift > 0)
+            XRunShift--;
+        else if(XRunShift < 0)
+            XRunShift++;
+    }
 
     if(v_distances.empty())
         return;
@@ -367,7 +398,7 @@ void Camera::drawCameraView(sf::RenderWindow& window) {
     }
 
     for(int i = 0; i < DISTANCES_SEGMENTS; i++)
-        recursiveDrawing(window, v_distances[i], i);
+        recursiveDrawing(window, v_distances[i], i, 1, XRunShift);
 
     //m_playersOnTheScreen
     for(const auto& player : m_playersOnTheScreen) {
@@ -383,6 +414,43 @@ void Camera::drawCameraView(sf::RenderWindow& window) {
     }
     drawHealth(window, 50, SCREEN_HEIGHT - 50, 400, health());
     v_weapons[i_selectedWeapon].draw(window);
+
+    if(isRunning) {
+        int t1 = (1 + cos(10*d_elapsedTime))*200/2;
+        int t2 = (1 + cos(10*d_elapsedTime + 1))*200/2;
+        int t3 = (1 + cos(10*d_elapsedTime + 2))*200/2;
+
+        double s1 = 1 + (1 + sin(20*d_elapsedTime))/2;
+        double s2 = 1 + (1 + sin(20*d_elapsedTime + 2))/2;
+        double s3 = 3;
+
+        sf::Sprite sprite1;
+        sf::Sprite sprite2;
+        sf::Sprite sprite3;
+        sprite1.setOrigin(640, 360);
+        sprite2.setOrigin(640, 360);
+        sprite3.setOrigin(640, 360);
+
+        sprite1.setTexture(W_world.RUNTexture1());
+        sprite2.setTexture(W_world.RUNTexture2());
+        sprite3.setTexture(W_world.RUNTexture3());
+
+        sprite1.setPosition(640, 360);
+        sprite2.setPosition(640, 360);
+        sprite3.setPosition(640, 360);
+
+        sprite1.setColor({255, 255, 255, static_cast<sf::Uint8>(t1)});
+        sprite2.setColor({255, 255, 255, static_cast<sf::Uint8>(t2)});
+        sprite3.setColor({255, 255, 255, static_cast<sf::Uint8>(t3)});
+
+        sprite1.scale(s1, s1);
+        sprite2.scale(s2, s2);
+        sprite3.scale(s3, s3);
+
+        window.draw(sprite1);
+        window.draw(sprite2);
+        //window.draw(sprite3);
+    }
 }
 
 double Camera::scalarWithNormal(Point2D edge, Point2D vector) {

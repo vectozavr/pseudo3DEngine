@@ -56,7 +56,7 @@ int main()
     //wall4.makeMirror();
 
     Poligon2D object1({{1, 1}, {2.05, 1}, {2, 2}}, {2.7, 5}, 1, INSTRUCTION_TEXTURE);
-    Poligon2D object2({{0, 0}, {1, 0}, {1, 1}, {0, 1}}, {-1.9, 6.7}, 1, FROZEN_TEXTURE);
+    Poligon2D object2({{0, 0}, {0.5, 0}, {0.5, 0.5}, {0, 0.5}}, {-1.9, 6.7}, 1, FROZEN_TEXTURE);
     Poligon2D object3({{1, 1}, {2, 2}, {1, 2}, {1, 2}}, {-0.79, 3.95});
     Poligon2D object4({{0, 0}, {.1, 0}, {.1, .1}, {0, .1}}, {1.92, 6.18});
     Poligon2D object5({{0, 0}, {.3, 0}, {.3, .3}, {0, .3}}, {1.84, 9});

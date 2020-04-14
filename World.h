@@ -18,6 +18,10 @@ private:
 
     sf::Texture T_sky_texture;
     sf::Texture T_floor_texture;
+    sf::Texture T_RUN_texture1;
+    sf::Texture T_RUN_texture2;
+    sf::Texture T_RUN_texture3;
+
     mutable bool sky_texture_loaded = false;
     mutable bool floor_texture_loaded = false;
     mutable std::string s_sky_texture;
@@ -28,6 +32,9 @@ public:
     World(double length, double width, std::string sky_texture = SKY_TEXTURE, std::string floor_texture = FLOOR_TEXTURE) : d_length(length), d_width(width), s_sky_texture(sky_texture), s_floor_texture(floor_texture)
     {
         S_floor.setTexture(floorTexture());
+        T_RUN_texture1.loadFromFile(RUN_EFFECT1);
+        T_RUN_texture2.loadFromFile(RUN_EFFECT2);
+        T_RUN_texture3.loadFromFile(RUN_EFFECT3);
     }
 
     sf::Sprite& floor() {
@@ -77,6 +84,16 @@ public:
         }
         T_floor_texture.setRepeated(true);
         return T_floor_texture;
+    }
+
+    const sf::Texture& RUNTexture1() {
+        return T_RUN_texture1;
+    }
+    const sf::Texture& RUNTexture2() {
+        return T_RUN_texture2;
+    }
+    const sf::Texture& RUNTexture3() {
+        return T_RUN_texture3;
     }
 };
 

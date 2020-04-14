@@ -15,9 +15,9 @@ struct Point2D {
     double x = 0;
     double y = 0;
 
-    Point2D& operator+=(const Point2D& point2D) { this->x += point2D.x; this->y += point2D.y; }
+    Point2D& operator+=(const Point2D& point2D) { this->x += point2D.x; this->y += point2D.y; return *this; }
     Point2D& operator=(const Point2D& point2D) { this->x = point2D.x; this->y = point2D.y; return *this; }
-    Point2D& operator*(double number) { this->x *= number; this->y *= number; }
+    Point2D& operator*(double number) { this->x *= number; this->y *= number; return *this;}
     double   operator*(const Point2D& point2D) { return x*point2D.x + y*point2D.y; }
     Point2D operator-(const Point2D& point2D) const { return {this->x - point2D.x, this->y - point2D.y}; }
     Point2D operator+(const Point2D& point2D) const { return {this->x + point2D.x, this->y + point2D.y}; }

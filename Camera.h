@@ -40,6 +40,10 @@ private:
     //For collision detection
     std::vector<CollisionInformation> allCollisions;
 
+    double zPlayer = 0;
+    double Vz = 0;
+    double gravity = 2000;
+
     double d_direction;
     double d_fieldOfView;
     double d_depth;
@@ -50,6 +54,7 @@ private:
     double i_health;
 
     bool b_collision = true;
+    bool isRunning = false;
 
     World& W_world;
 
@@ -68,8 +73,8 @@ private:
     std::string s_lastKill;
 
     void objectsRayCrossed(std::pair<Point2D, Point2D> ray, std::vector<RayCastStructure>& v_rayCastStruct, const std::string& name, int reflections = 0);
-    void drawVerticalStrip(sf::RenderWindow& window, const RayCastStructure& obj, int shift, int f);
-    void recursiveDrawing(sf::RenderWindow& window, const std::vector<RayCastStructure>& v_RayCastStructure, int shift, int rec = 1);
+    void drawVerticalStrip(sf::RenderWindow& window, const RayCastStructure& obj, int shift, int f, int XRunShift = 0);
+    void recursiveDrawing(sf::RenderWindow& window, const std::vector<RayCastStructure>& v_RayCastStructure, int shift, int rec = 1, int XRunShift = 0);
     static void recursiveIncreaseDistance(std::vector<RayCastStructure>& v_RayCastStructure, double distance);
 
     static double scalarWithNormal(Point2D edge, Point2D vector);
@@ -81,7 +86,7 @@ private:
 
     static void drawHealth(sf::RenderWindow& window, int x, int y, int width, int health);
 public:
-    explicit Camera(World& world, Point2D position, double direction = 0, std::string texture = SKIN, int health = 100, double fieldOfView = PI/2, double depth = 25, double walkSpeed = 1.7, double viewSpeed = .005)
+    explicit Camera(World& world, Point2D position, double direction = 0, std::string texture = SKIN, int health = 100, double fieldOfView = 2*PI, double depth = 15, double walkSpeed = 2, double viewSpeed = .005)
     : W_world(world), Circle2D(COLLISION_DISTANCE, position, 0.5, texture, 4), d_direction(direction), d_fieldOfView(fieldOfView), d_depth(depth), d_walkSpeed(walkSpeed), d_viewSpeed(viewSpeed), i_health(health) {
         Weapon weapon1(100000);
         weapon1.choiceWeapon("shotgun");
