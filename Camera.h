@@ -86,7 +86,7 @@ private:
 
     static void drawHealth(sf::RenderWindow& window, int x, int y, int width, int health);
 public:
-    explicit Camera(World& world, Point2D position, double direction = 0, std::string texture = SKIN, int health = 100, double fieldOfView = 2*PI, double depth = 15, double walkSpeed = 2, double viewSpeed = .005)
+    explicit Camera(World& world, Point2D position, double direction = 0, std::string texture = SKIN, int health = 100, double fieldOfView = 3*PI/5, double depth = 15, double walkSpeed = 2, double viewSpeed = .005)
     : W_world(world), Circle2D(COLLISION_DISTANCE, position, 0.5, texture, 4), d_direction(direction), d_fieldOfView(fieldOfView), d_depth(depth), d_walkSpeed(walkSpeed), d_viewSpeed(viewSpeed), i_health(health) {
         Weapon weapon1(100000);
         weapon1.choiceWeapon("shotgun");

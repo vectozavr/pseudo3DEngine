@@ -416,9 +416,9 @@ void Camera::drawCameraView(sf::RenderWindow& window) {
     v_weapons[i_selectedWeapon].draw(window);
 
     if(isRunning) {
-        int t1 = (1 + cos(10*d_elapsedTime))*200/2;
-        int t2 = (1 + cos(10*d_elapsedTime + 1))*200/2;
-        int t3 = (1 + cos(10*d_elapsedTime + 2))*200/2;
+        int t1 = (1 + cos(10*d_elapsedTime))*50/2;
+        int t2 = (1 + cos(10*d_elapsedTime + 1))*50/2;
+        int t3 = (1 + cos(10*d_elapsedTime + 2))*50/2;
 
         double s1 = 1 + (1 + sin(20*d_elapsedTime))/2;
         double s2 = 1 + (1 + sin(20*d_elapsedTime + 2))/2;
