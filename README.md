@@ -1,7 +1,7 @@
 # pseudo3DEngine
 Simple pseudo-3d engine implementation. This library allows you to make two dimensional map and draw pseudo 3D image using Ray-Cast.
 
-This is a Vectozavr's pseudo3DEngine fork, but with too many code changes and a bunch of fixes and improvements, such as:
+By Neirokan:
 - The network system is replaced by another, WORKING system
 - Fisheye correction
 - Jumps
@@ -15,25 +15,25 @@ This is a Vectozavr's pseudo3DEngine fork, but with too many code changes and a 
 - Small optimizations
 
 Demonstration of how does this engine work:
-![Project demonstration](demo/demo_engine.jpg)
+![Project demonstration](img/demo_engine.jpg)
 
 Some results of texturing:
-![Project demonstration](demo/demo_just_textures.png)
+![Project demonstration](img/demo_just_textures.png)
 
 We can switch off the textures:
-![Project demonstration](demo/demo_textures_off.png)
+![Project demonstration](img/demo_textures_off.png)
 
 We can smooth floor (performance-heavy):
-![Project demonstration](demo/demo_smooth.png)
+![Project demonstration](img/demo_smooth.png)
 
 This engine can perfom some mirrors. As you can see, we get correct reflection image:
-![Project demonstration](demo/demo_mirror.png)
+![Project demonstration](img/demo_mirror.png)
 
 Reflection loop included:
-![Project demonstration](demo/demo_mirror_loop.png)
+![Project demonstration](img/demo_mirror_loop.png)
 
 Online test:
-![Project demonstration](demo/demo_online.png)
+![Project demonstration](img/demo_online.png)
 
 Jumps (but without camera vertical rotation):
-![Project demonstration](demo/demo_jump.png)
+![Project demonstration](img/demo_jump.png)
