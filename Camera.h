@@ -5,61 +5,61 @@
 #ifndef PSEUDO3DENGINE_CAMERA_H
 #define PSEUDO3DENGINE_CAMERA_H
 
-#include <algorithm>
-#include "Object2D.h"
+#include "Player.h"
 #include "World.h"
 #include "settings.h"
-#include "Menu.h"
 #include "Weapon.h"
 
-struct RGB {
-    int RED = 255;
-    int GREEN = 255;
-    int BLUE = 255;
-};
+class ClientUDP;
 
-struct RayCastStructure {
+struct RayCastStructure
+{
     double distance;    // How far is this texture
     double progress;    // progress defines the point of texture we should load
-    std::string object; // particular object. We need this to show particular texture.
+    Object2D* object;   // hitted object. We need this to get it's texture.
     double height;      // objects has different height
 
     std::vector<RayCastStructure> v_mirrorRayCast; // When we have mirror, we should know about all objects we can see
 };
 
-struct CollisionInformation {
+struct CollisionInformation
+{
     double distance;
     Point2D collisionPoint;
     std::pair<Point2D, Point2D> edge;
 };
 
-class Camera : public Circle2D {
+class Camera : public Player
+{
 private:
+    double mirrorTop = -INFINITY;
+    double mirrorBot = INFINITY;
+    double directionSin = 0;
+    double directionCos = 0;
+    double horizontalCos[DISTANCES_SEGMENTS];
+    double horizontalSin[DISTANCES_SEGMENTS];
+    double verticalTan[SCREEN_HEIGHT];
+
     std::vector<std::vector<RayCastStructure>> v_distances;
-
-    //For collision detection
     std::vector<CollisionInformation> allCollisions;
-
-    double zPlayer = 0;
-    double Vz = 0;
-    double gravity = 2000;
+    std::map<std::string, std::shared_ptr<Player>> m_playersOnTheScreen;
 
     double d_direction;
     double d_fieldOfView;
+    double d_eyesHeight;
     double d_depth;
+    double d_vSpeed = 0;
 
+    double d_jumpSpeed;
     double d_walkSpeed;
     double d_viewSpeed;
 
-    double i_health;
-
     bool b_collision = true;
-    bool isRunning = false;
+    bool b_hadFocus = false;
 
     World& W_world;
 
     sf::Vector2i localMousePosition;
-    double d_verticalShift = 0;
 
     bool b_textures = true;
     bool b_smooth = false;
@@ -67,89 +67,46 @@ private:
     std::vector<Weapon> v_weapons;
     int i_selectedWeapon = 0;
 
-    sf::SoundBuffer walkSoundBuffer;
     sf::Sound walkSound;
 
-    std::string s_lastKill;
-
-    void objectsRayCrossed(std::pair<Point2D, Point2D> ray, std::vector<RayCastStructure>& v_rayCastStruct, const std::string& name, int reflections = 0);
-    void drawVerticalStrip(sf::RenderWindow& window, const RayCastStructure& obj, int shift, int f, int XRunShift = 0);
-    void recursiveDrawing(sf::RenderWindow& window, const std::vector<RayCastStructure>& v_RayCastStructure, int shift, int rec = 1, int XRunShift = 0);
+    void objectsRayCrossed(const std::pair<Point2D, Point2D>& ray, std::vector<RayCastStructure>& v_rayCastStruct, const std::string& name, int reflections = 0);
+    void hiddenObjectsRayCrossed(const std::pair<Point2D, Point2D>& ray, const std::string& name);
+    void drawVerticalStrip(sf::RenderTarget& window, const RayCastStructure& obj, int shift, int f);
+    void recursiveDrawing(sf::RenderTarget& window, const std::vector<RayCastStructure>& v_RayCastStructure, int shift, int rec = 1);
     static void recursiveIncreaseDistance(std::vector<RayCastStructure>& v_RayCastStructure, double distance);
+    std::pair<double, double> heightInPixels(double distance, double height, double vertical);
 
     static double scalarWithNormal(Point2D edge, Point2D vector);
 
     void fire();
-    std::pair<std::string, double> cameraRayCheck(RayCastStructure& structure);
+    std::pair<Object2D*, double> cameraRayCheck(RayCastStructure& structure);
 
-    std::map<std::string, Camera&> m_playersOnTheScreen;
-
-    static void drawHealth(sf::RenderWindow& window, int x, int y, int width, int health);
+    static void drawHealth(sf::RenderTarget& window, int x, int y, int width, int health);
 public:
-    explicit Camera(World& world, Point2D position, double direction = 0, std::string texture = SKIN, int health = 100, double fieldOfView = 3*PI/5, double depth = 15, double walkSpeed = 2, double viewSpeed = .005)
-    : W_world(world), Circle2D(COLLISION_DISTANCE, position, 0.5, texture, 4), d_direction(direction), d_fieldOfView(fieldOfView), d_depth(depth), d_walkSpeed(walkSpeed), d_viewSpeed(viewSpeed), i_health(health) {
-        Weapon weapon1(100000);
-        weapon1.choiceWeapon("shotgun");
-        v_weapons.push_back(weapon1);
+    ClientUDP* client = nullptr;
 
-        walkSoundBuffer.loadFromFile(WALK_SOUND);
-        walkSound.setBuffer(walkSoundBuffer);
-        walkSound.setLoop(true);
-        walkSound.setVolume(50.f);
-    }
+    explicit Camera(World& world, Point2D position, double vPos = 0, double height = 0.6, double direction = 0, double health = 100, std::string texture = SKIN, double fieldOfView = PI / 2, double eyesHeight = 0.5, double depth = 25, double walkSpeed = 1.7, double jumpSpeed = 2.75, double viewSpeed = .005);
+    Camera(const Camera&) = delete;//Camera(const Camera& camera);
 
-    Camera(const Camera& camera) : W_world(camera.W_world) { // copy constructor
-        d_height = camera.d_height;
-        v_points2D = camera.v_points2D;
-        T_texture = camera.T_texture;
-        s_texture = camera.s_texture;
-        p_position = camera.p_position;
-        v_distances = camera.v_distances;
-        allCollisions = camera.allCollisions;
-        d_direction = camera.d_direction;
-        d_depth = camera.d_depth;
-        d_fieldOfView = camera.d_fieldOfView;
-        d_walkSpeed = camera.d_walkSpeed;
-        d_viewSpeed = camera.d_viewSpeed;
-        i_health = camera.i_health;
-        b_collision = camera.b_collision;
-        b_textures = camera.b_textures;
-        b_smooth = camera.b_smooth;
-        localMousePosition = camera.localMousePosition;
-        v_weapons = camera.v_weapons;
-        i_selectedWeapon = camera.i_selectedWeapon;
-        walkSoundBuffer = camera.walkSoundBuffer;
-        walkSound = camera.walkSound;
-        setName(camera.getName());
-    }
+    void addPlayer(std::string name, std::shared_ptr<Player> camera);
+    void removePlayer(const std::string& name);
 
-    void updateDistances(const World& world);
-    void drawCameraView(sf::RenderWindow& window);
-
-    void draw(sf::RenderWindow& window) override;
+    bool isSmooth();
+    void setSmooth(bool active);
+    bool isCollision();
+    void setCollision(bool active);
+    bool isTextures();
+    void setTextures(bool active);
 
     bool keyboardControl(double elapsedTime, sf::RenderWindow& window);
+    void updateDistances(const World& world);
+    void drawCameraView(sf::RenderTarget& window);
+    void draw(sf::RenderTarget& window) override;
 
-    void shiftPrecise(Point2D vector);
-
-    bool isSmooth() { return b_smooth; }
-    void switchSmooth() { b_smooth = !b_smooth; }
-    bool isCollision() { return b_collision; }
-    void switchCollision() { b_collision = !b_collision; }
-    bool isTextures() { return b_textures; }
-    void switchTextures() { b_textures = !b_textures; }
+    void shiftPrecise(Point2D vector, double vertical = 0);
 
     void previousWeapon();
     void nextWeapon();
-
-    double health() const { return i_health; }
-    bool reduceHealth(double damage = 0);
-    void fullHealth () { i_health = 100; }
-    void setHealth(double h) {i_health = h; }
-
-    int type() override { return 1; }
-    std::string lastKill() { return s_lastKill;}
-    void cleanLastKill(){s_lastKill = "";}
 };
 
 

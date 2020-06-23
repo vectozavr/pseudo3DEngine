@@ -8,18 +8,22 @@
 #include "Object2D.h"
 #include "settings.h"
 
-class Circle2D : public Object2D{
+class Circle2D : public Object2D
+{
 private:
     double d_radius = 0;
-public:
-    explicit Circle2D(double radius = 0.5, Point2D position = {0, 0}, double height = 1, std::string texture = COLUMN_TEXTURE, int convexNumber = CIRCLE_CONVEX_NUMBER) : Object2D(position, {}, height, texture), d_radius(radius) {
-        for(int i = 0; i < convexNumber; i++) {
-            double _x = d_radius * cos((double)i / convexNumber * 2 * PI + PI/4);
-            double _y = d_radius * sin((double)i / convexNumber * 2 * PI + PI/4);
 
-            nodes().push_back({_x, _y});
-        }
-    }
+public:
+    explicit Circle2D(double radius = 0.5, Point2D position = { 0, 0 }, double height = 1, const std::string& texture = COLUMN_TEXTURE, int convexNumber = CIRCLE_CONVEX_NUMBER);
+
+    ObjectType type() override;
+
+    // Check the intersection of the ray with this circle.
+    // Returns true if ray intersects with this circle, false otherwise.
+    // wall - hitted wall.
+    // point - hit point.
+    // uv - distance from the beginning of wall to the hit point.
+    bool cross(const std::pair<Point2D, Point2D>& ray, std::pair<Point2D, Point2D>& wall, Point2D& point, double& uv) override;
 };
 
 

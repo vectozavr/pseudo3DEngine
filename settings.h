@@ -13,6 +13,12 @@
 
 #define SCALE_WINDOW 500
 
+// NETWORK
+#define NETWORK_VERSION 1U
+#define TIMEOUT_SECONDS 5
+#define WORLD_UPDATE_RATE 30
+#define RELIABLE_RETRY_TIME (1.0/20)
+
 // OBJECTS
 #define OUTLINE_THICKNESS 3
 #define OUTLINE_COLOR {0, 0, 0, 100}
@@ -31,7 +37,7 @@
 #define SKIN "texture/hero.png"
 
 // FOR COLLISION DETECTION
-#define COLLISION_DISTANCE 0.1
+#define COLLISION_DISTANCE 0.1f
 #define COLLISION_AREA 1
 
 #define OPTICAL_HEIGHT 100
@@ -58,7 +64,7 @@
 #define WALL_TEXTURE2 "texture/brickWall2.jpg"
 #define COLUMN_TEXTURE "texture/column.png"
 #define VOLODYA_TEXTURE "texture/volodya.jpg"
-#define FROZEN_TEXTURE "texture/brickWall_Elsa.png"
+#define FROZEN_TEXTURE "texture/frozen.jpg"
 #define DOG_TEXTURE "texture/dog.jpg"
 #define DINOZAVR_TEXTURE "texture/dinozavr.png"
 #define WHITE_TEXTURE "texture/white.jpg"
@@ -89,10 +95,6 @@
 
 #define INSTRUCTION_TEXTURE "texture/instruction.jpg"
 
-#define RUN_EFFECT1 "texture/p1.png"
-#define RUN_EFFECT2 "texture/p2.png"
-#define RUN_EFFECT3 "texture/p3.png"
-
 // WINDOWS
 
 #define TIMEQUANTA 0.1
@@ -109,5 +111,6 @@
 
 #define GUN_SHOT_SOUND "sounds/gunShot.ogg"
 #define WALK_SOUND "sounds/walkSound.ogg"
+
 
 #endif //PSEUDO3DENGINE_SETTINGS_H

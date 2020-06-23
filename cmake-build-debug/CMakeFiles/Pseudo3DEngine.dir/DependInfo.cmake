@@ -4,26 +4,21 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/ivan/Study/C & C++/problems4/peseudo3D/Camera.cpp" "D:/ivan/Study/C & C++/problems4/peseudo3D/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Camera.cpp.obj"
-  "D:/ivan/Study/C & C++/problems4/peseudo3D/Circle2D.cpp" "D:/ivan/Study/C & C++/problems4/peseudo3D/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Circle2D.cpp.obj"
-  "D:/ivan/Study/C & C++/problems4/peseudo3D/Menu.cpp" "D:/ivan/Study/C & C++/problems4/peseudo3D/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.obj"
-  "D:/ivan/Study/C & C++/problems4/peseudo3D/Object2D.cpp" "D:/ivan/Study/C & C++/problems4/peseudo3D/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Object2D.cpp.obj"
-  "D:/ivan/Study/C & C++/problems4/peseudo3D/Poligon2D.cpp" "D:/ivan/Study/C & C++/problems4/peseudo3D/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.obj"
-  "D:/ivan/Study/C & C++/problems4/peseudo3D/UDPSocketConnection.cpp" "D:/ivan/Study/C & C++/problems4/peseudo3D/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/UDPSocketConnection.cpp.obj"
-  "D:/ivan/Study/C & C++/problems4/peseudo3D/Weapon.cpp" "D:/ivan/Study/C & C++/problems4/peseudo3D/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.obj"
-  "D:/ivan/Study/C & C++/problems4/peseudo3D/World.cpp" "D:/ivan/Study/C & C++/problems4/peseudo3D/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/World.cpp.obj"
-  "D:/ivan/Study/C & C++/problems4/peseudo3D/main.cpp" "D:/ivan/Study/C & C++/problems4/peseudo3D/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/main.cpp.obj"
+  "/Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.cpp" "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Camera.cpp.o"
+  "/Users/ivanilin/CLionProjects/pseudo3DEngine/Circle2D.cpp" "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Circle2D.cpp.o"
+  "/Users/ivanilin/CLionProjects/pseudo3DEngine/Menu.cpp" "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Menu.cpp.o"
+  "/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.cpp" "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Object2D.cpp.o"
+  "/Users/ivanilin/CLionProjects/pseudo3DEngine/Poligon2D.cpp" "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Poligon2D.cpp.o"
+  "/Users/ivanilin/CLionProjects/pseudo3DEngine/UDPSocketConnection.cpp" "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/UDPSocketConnection.cpp.o"
+  "/Users/ivanilin/CLionProjects/pseudo3DEngine/Weapon.cpp" "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/Weapon.cpp.o"
+  "/Users/ivanilin/CLionProjects/pseudo3DEngine/World.cpp" "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/World.cpp.o"
+  "/Users/ivanilin/CLionProjects/pseudo3DEngine/main.cpp" "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/CMakeFiles/Pseudo3DEngine.dir/main.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
-
-# Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_CXX
-  "SFML_STATIC"
-  )
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "D:/Libraries/SFML/include"
+  "/usr/local/include"
   )
 
 # Targets to which this target links.

@@ -6,95 +6,43 @@
 #define PSEUDO3DENGINE_WORLD_H
 
 #include "Object2D.h"
-#include <string>
 #include <map>
 
-class World : virtual public Idrawable {
+class World : virtual public Idrawable
+{
 private:
     mutable std::map<std::string, Object2D&> map_objects;
 
     double d_length = 0;
     double d_width = 0;
 
-    sf::Texture T_sky_texture;
-    sf::Texture T_floor_texture;
-    sf::Texture T_RUN_texture1;
-    sf::Texture T_RUN_texture2;
-    sf::Texture T_RUN_texture3;
-
-    mutable bool sky_texture_loaded = false;
-    mutable bool floor_texture_loaded = false;
-    mutable std::string s_sky_texture;
-    mutable std::string s_floor_texture;
+    sf::Texture& T_sky_texture;
+    sf::Texture& T_floor_texture;
     sf::Sprite S_floor;
 
 public:
-    World(double length, double width, std::string sky_texture = SKY_TEXTURE, std::string floor_texture = FLOOR_TEXTURE) : d_length(length), d_width(width), s_sky_texture(sky_texture), s_floor_texture(floor_texture)
-    {
-        S_floor.setTexture(floorTexture());
-        T_RUN_texture1.loadFromFile(RUN_EFFECT1);
-        T_RUN_texture2.loadFromFile(RUN_EFFECT2);
-        T_RUN_texture3.loadFromFile(RUN_EFFECT3);
-    }
+    World(double length, double width, const std::string& sky_texture = SKY_TEXTURE, const std::string& floor_texture = FLOOR_TEXTURE);
 
-    sf::Sprite& floor() {
-        return S_floor;
-    }
+    void draw(sf::RenderTarget& window) override;
 
-    bool addObject2D(Object2D&  object, std::string name) {
-        object.setName(name);
-        return map_objects.insert({name, object}).second;
-    }
-    Object2D& findObject2D(std::string name) { return map_objects.at(name); }
-    Object2D& findObject2D(std::string name) const { return map_objects.at(name); }
-    bool isExist(std::string name) const {return map_objects.count(name) != 0; }
+    sf::Sprite& floor();
+    const sf::Texture& skyTexture() const;
+    const sf::Texture& floorTexture() const;
 
-    bool removeObject2D(std::string name) { return map_objects.erase(name) > 0; }
+    const std::map<std::string, Object2D&>& objects() const;
 
-    Object2D& operator[](std::string name) {
-        return findObject2D(name);
-    }
+    bool addObject2D(Object2D& object, std::string name);
+    bool removeObject2D(const std::string& name);
 
-    Object2D& operator[](std::string name) const {
-        return findObject2D(name);
-    }
+    bool isExist(const std::string& name) const;
+    Object2D& findObject2D(const std::string& name);
+    const Object2D& findObject2D(const std::string& name) const;
 
-    double width() const { return d_width; }
-    double length() const { return d_length; }
+    Object2D& operator[](const std::string& name);
+    const Object2D& operator[](const std::string& name) const;
 
-    void draw(sf::RenderWindow& window) override;
-
-    const std::map<std::string, Object2D&>& objects() const { return map_objects; }
-
-    const sf::Texture& skyTexture() {
-        if(sky_texture_loaded) return T_sky_texture;
-        sky_texture_loaded = true;
-        if (!T_sky_texture.loadFromFile(s_sky_texture)) {
-            sky_texture_loaded = false;
-        }
-        T_sky_texture.setRepeated(true);
-        return T_sky_texture;
-    }
-
-    const sf::Texture& floorTexture() {
-        if(floor_texture_loaded) return T_floor_texture;
-        floor_texture_loaded = true;
-        if (!T_floor_texture.loadFromFile(s_floor_texture)) {
-            floor_texture_loaded = false;
-        }
-        T_floor_texture.setRepeated(true);
-        return T_floor_texture;
-    }
-
-    const sf::Texture& RUNTexture1() {
-        return T_RUN_texture1;
-    }
-    const sf::Texture& RUNTexture2() {
-        return T_RUN_texture2;
-    }
-    const sf::Texture& RUNTexture3() {
-        return T_RUN_texture3;
-    }
+    double width() const;
+    double length() const;
 };
 
 

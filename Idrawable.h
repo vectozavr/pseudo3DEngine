@@ -7,9 +7,11 @@
 
 #include <SFML/Graphics.hpp>
 
-class Idrawable {
+class Idrawable
+{
 public:
-    virtual void draw(sf::RenderWindow& window) = 0;
+    virtual ~Idrawable() {};
+    virtual void draw(sf::RenderTarget& window) = 0;
 };
 
 

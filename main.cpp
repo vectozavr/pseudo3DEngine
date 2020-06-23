@@ -1,22 +1,66 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-
-#include <map>
-#include <iostream>
-#include <chrono>
+#include <fstream>
 #include "settings.h"
 #include "Poligon2D.h"
-#include "Circle2D.h"
-#include "Object2D.h"
 #include "World.h"
 #include "Camera.h"
 #include "Menu.h"
-#include "UDPSocketConnection.h"
+#include "Time.h"
+#include "ServerUDP.h"
+#include "ClientUDP.h"
+#include "Object2D.h"
 
 using namespace std;
 
+// Read server/client settings and start both.
+// If client doesn't connect to the localhost - server doesn't start.
+void InitNetwork(ServerUDP& server, ClientUDP& client)
+{
+    std::string clientIp;
+    sf::Uint16 clientPort;
+    sf::Uint16 serverPort;
+    std::ifstream connectfile("connect.txt", std::ifstream::in);
+
+    // If failed to read client settings
+    if (!connectfile.is_open() || !(connectfile >> clientIp >> clientPort) || sf::IpAddress(clientIp) == sf::IpAddress::None)
+    {
+        connectfile.close();
+        // Create file and write default settings
+        clientIp = "127.0.0.1";
+        clientPort = 54000;
+        std::ofstream temp("connect.txt", std::ofstream::out);
+        temp << clientIp << std::endl << clientPort;
+        temp.close();
+    }
+    connectfile.close();
+
+    // If failed to read server settings
+    connectfile.open("server.txt", std::ifstream::in);
+    if (!connectfile.is_open() || !(connectfile >> serverPort))
+    {
+        connectfile.close();
+        // Create file and write default settings
+        serverPort = 54000;
+        std::ofstream temp("server.txt", std::ofstream::out);
+        temp << serverPort;
+        temp.close();
+    }
+    connectfile.close();
+    
+    if (clientIp == sf::IpAddress::LocalHost)
+        server.start(serverPort);
+    client.connect(clientIp, clientPort);
+}
+
 int main()
 {
+    // Window should be created first because of drawing context.
+    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Pseudo3DEngine");
+    window.setFramerateLimit(60);
+
+    // Sounds
+
     sf::Music music;
     music.openFromFile("sounds/unrealSuperHero3.ogg");
     music.setVolume(10);
@@ -26,52 +70,45 @@ int main()
     sf::Music backSounds;
     backSounds.openFromFile("sounds/backSounds.ogg");
     backSounds.setVolume(20);
+    backSounds.setLoop(true);
     backSounds.pause();
 
-    // FROM HERE
+    // World Init
 
-    vector<Point2D> columnPositions = {{0,0}, {3,0}, {3,3}, {6,3}, {6,8}, {3,8}, {3,11}, {0,11}, {0,8}, {-3,8}, {-3,3}, {0,3}};
+    vector<Point2D> columnPositions = { {0,0}, {3,0}, {3,3}, {6,3}, {6,8}, {3,8}, {3,11}, {0,11}, {0,8}, {-3,8}, {-3,3}, {0,3} };
     vector<Circle2D> columns(12);
-    vector<Poligon2D> walls (12);
-
-    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Pseudo3DEngine");
+    vector<Poligon2D> walls(12);
 
     World world(100, 100);
-    Camera camera(world, {1.5, 1.5});
+    Camera* camera = nullptr;
 
-    for(int i = 0; i < columns.size(); i++) {
+    for (size_t i = 0; i < columns.size(); i++) {
         columns[i].setPosition(columnPositions[i]);
-        if(i != columns.size()-1)
-            walls[i].setPoints2D({columnPositions[i], columnPositions[i+1]});
+        if (i != columns.size() - 1)
+            walls[i].setPoints2D({ columnPositions[i], columnPositions[i + 1] });
         else
-            walls[i].setPoints2D({columnPositions[i], columnPositions[0]});
+            walls[i].setPoints2D({ columnPositions[i], columnPositions[0] });
 
-        world.addObject2D(walls[i], "wall" + std::to_string(i+1));
-        world.addObject2D(columns[i], "col" + std::to_string(i+1));
+        world.addObject2D(walls[i], "wall" + std::to_string(i + 1));
+        world.addObject2D(columns[i], "col" + std::to_string(i + 1));
     }
+    
+    //walls[9].setMirror();
 
-    UDPSocketConnection udpSocketConnection(world, camera);
-    udpSocketConnection.bind("192.168.137.255", 54001); // 192.168.137.255
+    Poligon2D object1({ {1, 1}, {2.05, 1}, {2, 2} }, { 2.7, 5 }, 1, INSTRUCTION_TEXTURE);
+    Poligon2D object2({ {0, 0}, {1, 0}, {1, 1}, {0, 1} }, { -1.9, 6.7 }, 1, FROZEN_TEXTURE);
+    Poligon2D object3({ {1, 1}, {2, 2}, {1, 2}, {1, 2} }, { -0.79, 3.95 });
+    Poligon2D object4({ {0, 0}, {.1, 0}, {.1, .1}, {0, .1} }, { 1.92, 6.18 });
+    Poligon2D object5({ {0, 0}, {.3, 0}, {.3, .3}, {0, .3} }, { 1.84, 9 });
+    Poligon2D object6({ {0, 0}, {.3, 0}, {.3, .3}, {0, .3} }, { 1.11, 7 }, 0.5);
+    Poligon2D object7({ {0, 0}, {.1, 0}, {.1, .1}, {0, .1} }, { 1, 2 }, 0.5);
 
-    //wall4.makeMirror();
+    Poligon2D object8({ {0, 0}, {.3, 0}, {.3, .3}, {0, .3} }, { 3.6, 4.6 }, 0.9);
+    Poligon2D object9({ {0, 0}, {.3, 0}, {.3, .3}, {0, .3} }, { 1.5, 4.2 }, 0.9);
+    Poligon2D object10({ {0, 0}, {.1, 0}, {.1, .1}, {0, .1} }, { 2.5, 5.2 }, 0.9);
 
-    Poligon2D object1({{1, 1}, {2.05, 1}, {2, 2}}, {2.7, 5}, 1, INSTRUCTION_TEXTURE);
-    Poligon2D object2({{0, 0}, {0.5, 0}, {0.5, 0.5}, {0, 0.5}}, {-1.9, 6.7}, 1, FROZEN_TEXTURE);
-    Poligon2D object3({{1, 1}, {2, 2}, {1, 2}, {1, 2}}, {-0.79, 3.95});
-    Poligon2D object4({{0, 0}, {.1, 0}, {.1, .1}, {0, .1}}, {1.92, 6.18});
-    Poligon2D object5({{0, 0}, {.3, 0}, {.3, .3}, {0, .3}}, {1.84, 9});
-    Poligon2D object6({{0, 0}, {.3, 0}, {.3, .3}, {0, .3}}, {1.11, 7}, 0);
-    Poligon2D object7({{0, 0}, {.1, 0}, {.1, .1}, {0, .1}}, {1, 2}, 0);
-
-    Poligon2D object8({{0, 0}, {.3, 0}, {.3, .3}, {0, .3}}, {3.6, 4.6}, 0.9);
-    Poligon2D object9({{0, 0}, {.3, 0}, {.3, .3}, {0, .3}}, {1.5, 4.2}, 0.9);
-    Poligon2D object10({{0, 0}, {.1, 0}, {.1, .1}, {0, .1}}, {2.5, 5.2}, 0.9);
-
-    //object2.makeMirror();
-    object3.makeMirror();
-
-    //cameraw
-    world.addObject2D(camera, camera.getName());
+    //object2.setMirror();
+    object3.setMirror();
 
     world.addObject2D(object1, "object1");
     world.addObject2D(object2, "object2");
@@ -87,17 +124,26 @@ int main()
 
     Menu menu;
 
-    auto tp1 = chrono::system_clock::now(); // Переменные для подсчета
-    auto tp2 = chrono::system_clock::now(); // пройденного времени
+    ServerUDP server(world);
+    ClientUDP client(world);
+    server.addSpawn({ 1.5, 1.5 });
+    server.addSpawn({ 1.5, 9 });
+
+    // Game loop
 
     while (window.isOpen())
     {
-        tp2 = chrono::system_clock::now();
-        chrono::duration <double> elapsedTime = tp2 - tp1;
-        tp1 = tp2;
-        double d_elapsedTime = elapsedTime.count();
-        std::string title = "Pseudo3DEngine " + std::to_string((double)1/elapsedTime.count()) + "fps. x:" + std::to_string(camera.x()) + ", y:" + std::to_string(camera.y());
+        // Time update
+        Time::update();
+        double d_elapsedTime = Time::deltaTime();
+
+        // Title update
+        std::string title = "Pseudo3DEngine " + std::to_string((double)1 / d_elapsedTime) + "fps.";
+        if (camera != nullptr)
+            title += " x:" + std::to_string(camera->x()) + ", y:" + std::to_string(camera->y());
         window.setTitle(title);
+
+        // Close event search
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -105,34 +151,77 @@ int main()
                 window.close();
         }
 
-        window.clear();     // отчистка
-        if(!menu.isPaused()) {
-            udpSocketConnection.update();
+        // Actually game
+        window.clear();
+        if (!menu.isPaused())
+        {
             window.setMouseCursorVisible(false);
-            camera.updateDistances(world);
-            camera.drawCameraView(window);
-            //world.draw(window);
-            if(!camera.keyboardControl(d_elapsedTime, window)) {
+            camera->updateDistances(world);
+            camera->drawCameraView(window);
+            // world.draw(window); // top-down debug map. To fix exception - look into "Camera::updateDistances"
+
+            // if escape was pressed
+            if (!camera->keyboardControl(d_elapsedTime, window))
+            {
+                client.disconnect();
+                server.stop();
                 menu.setPause();
                 music.play();
                 backSounds.pause();
             };
-        } else {
-            window.setMouseCursorVisible(true);
-            if(menu.isTextures() != camera.isTextures())
-                camera.switchTextures();
-            if(menu.isCollision() != camera.isCollision())
-                camera.switchCollision();
 
+            // Network update (must be after camera use)
+            server.update();
+            client.update();
+
+            // if client timeout or disconnected
+            if (!client.isWorking())
+            {
+                menu.setPause();
+                music.play();
+                backSounds.pause();
+                camera = nullptr;
+            };
+        }
+        // Menu
+        else
+        {
+            window.setMouseCursorVisible(true);
             menu.drawMenu(window, d_elapsedTime);
-            //FOR MUSICS
-            if(!menu.isPaused()) {
-                backSounds.play();
-                music.pause();
+            // if "play game" pressed
+            if (!menu.isPaused()) {
+                window.clear({ 255,255,255 });
+                window.display();
+                InitNetwork(server, client);
+                // Waiting for connect and updating server if it's same window
+                while (client.isWorking() && !client.connected())
+                {
+                    client.update();
+                    server.update();
+                    Time::update();
+                }
+                // If connect fail - return to menu
+                if (!client.isWorking())
+                {
+                    menu.setPause();
+                    server.stop();
+                }
+                // If connect success - init camera and start game
+                else
+                {
+                    camera = client.localPlayer();
+                    camera->client = &client;
+                    camera->setTextures(menu.isTextures());
+                    camera->setSmooth(menu.isSmooth());
+                    camera->setCollision(menu.isCollision());
+                    backSounds.play();
+                    music.pause();
+                }
             }
         }
-        window.display();   // отображение
+        window.display();
     }
 
+    ResourceManager::unloadAllResources();
     return 0;
 }

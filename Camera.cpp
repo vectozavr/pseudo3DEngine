@@ -2,504 +2,714 @@
 // Created by ivan- on 18.01.2020.
 //
 
-#include <cmath>
-#include <windows.h>
 #include "Camera.h"
-
-
+#include <cmath>
+#include "ClientUDP.h"
 using namespace std;
 
-void Camera::recursiveIncreaseDistance(std::vector<RayCastStructure>& v_RayCastStructure, double distance) {
-    for(auto& rcs : v_RayCastStructure) {
+Camera::Camera(World& world, Point2D position, double vPos, double height, double direction, double health, std::string texture, double fieldOfView, double eyesHeight, double depth, double walkSpeed, double jumpSpeed, double viewSpeed)
+    : W_world(world), Player(position, vPos, height, health, texture), d_direction(direction), d_fieldOfView(fieldOfView), d_eyesHeight(eyesHeight), d_depth(depth), d_walkSpeed(walkSpeed), d_jumpSpeed(jumpSpeed), d_viewSpeed(viewSpeed)
+{
+    Weapon weapon1(100000);
+    weapon1.choiceWeapon("shotgun");
+    v_weapons.push_back(weapon1);
+
+    walkSound.setBuffer(*ResourceManager::loadSoundBuffer(WALK_SOUND));
+    walkSound.setLoop(true);
+    walkSound.setVolume(50.f);
+
+    for (int i = 0; i < DISTANCES_SEGMENTS; i++)
+    {
+        double halfWidth = tan(d_fieldOfView / 2) * ((double)SCREEN_WIDTH / SCREEN_HEIGHT);
+        double offset = ((i * 2.0 / (DISTANCES_SEGMENTS - 1.0)) - 1.0) * halfWidth;
+        Point2D dir = { 1, 1 * offset };
+        dir = dir.normalize();
+        double angle = atan2(dir.y, dir.x);
+        horizontalCos[i] = cos(angle);
+        horizontalSin[i] = sin(angle);
+    }
+    for (int i = 0; i < SCREEN_HEIGHT; i++)
+    {
+        double halfWidth = tan(d_fieldOfView / 2);
+        double offset = ((i * 2.0 / (SCREEN_HEIGHT - 1.0)) - 1.0) * halfWidth;
+        Point2D dir = { 1, 1 * offset };
+        dir = dir.normalize();
+        verticalTan[i] = tan(atan2(dir.y, dir.x));
+    }
+}
+
+//Camera::Camera(const Camera& camera) : Player(camera), W_world(camera.W_world)
+//{
+//    v_distances = camera.v_distances;
+//    allCollisions = camera.allCollisions;
+//    d_direction = camera.d_direction;
+//    d_depth = camera.d_depth;
+//    d_fieldOfView = camera.d_fieldOfView;
+//    d_eyesHeight = camera.d_eyesHeight;
+//    d_walkSpeed = camera.d_walkSpeed;
+//    d_viewSpeed = camera.d_viewSpeed;
+//    b_collision = camera.b_collision;
+//    b_textures = camera.b_textures;
+//    b_smooth = camera.b_smooth;
+//    localMousePosition = camera.localMousePosition;
+//    v_weapons = camera.v_weapons;
+//    i_selectedWeapon = camera.i_selectedWeapon;
+//    walkSound = camera.walkSound;
+//}
+
+bool Camera::isSmooth()
+{
+    return b_smooth;
+}
+
+void Camera::setSmooth(bool active)
+{
+    b_smooth = active;
+}
+
+bool Camera::isCollision()
+{
+    return b_collision;
+}
+
+void Camera::setCollision(bool active)
+{
+    b_collision = active;
+}
+
+bool Camera::isTextures()
+{
+    return b_textures;
+}
+
+void Camera::setTextures(bool active)
+{
+    b_textures = active;
+}
+
+// Just increase distance for all collisions in v_RayCastStructure
+void Camera::recursiveIncreaseDistance(std::vector<RayCastStructure>& v_RayCastStructure, double distance)
+{
+    for (auto& rcs : v_RayCastStructure)
+    {
         rcs.distance += distance;
         recursiveIncreaseDistance(rcs.v_mirrorRayCast, distance);
     }
 }
 
-void Camera::objectsRayCrossed(pair<Point2D, Point2D> ray, std::vector<RayCastStructure> &v_rayCastStruct, const std::string& name, int reflections) {
-    std::string obj;
-    double len = 0;
-    double progress = 0;
-    for(auto object : W_world.objects()) {
-        Point2D crossPoint = {0, 0};
-        obj = "";
-        Point2D nearCross = ray.second;
-        std::vector<RayCastStructure> v_reflectedRayCastStructure;
-        if(object.first == name || object.second.nodes().size() < 2)
-            continue;
-        progress = 0;
-        pair<Point2D, Point2D> segment2 = {object.second.position() + object.second.nodes().back(), object.second.position() + object.second.nodes().front() };
-        for(int k = 0; k < object.second.nodes().size(); k++) {
-            if(segments_crossing(ray, segment2, crossPoint)) {
-                if ((nearCross - ray.first).abs() > (crossPoint - ray.first).abs()) {
-                    nearCross = crossPoint;
-                    obj = object.second.getName();
-                    len = 0*progress + (segment2.second - nearCross).abs();
-                    // For collision detection
-                    if(name == getName() && COLLISION_AREA >= (nearCross - position()).abs()) {
-                        CollisionInformation newCollision;
-                        newCollision.distance = (nearCross - position()).abs();
-                        newCollision.edge = segment2;
-                        newCollision.collisionPoint = nearCross;
-                        allCollisions.push_back(newCollision);
-                    }
-                    if(object.second.isMirror() && scalarWithNormal(segment2.second - segment2.first, ray.second - ray.first) < 0) {
-                        Point2D edgeVector = segment2.second - segment2.first;
-                        Point2D rayVector = ray.second - ray.first;
-                        double twistAngle = 2*acos((edgeVector.x*rayVector.x + edgeVector.y*rayVector.y)/(edgeVector.abs()*rayVector.abs()));
-                        Point2D twistedRayVector = {rayVector.x*cos(twistAngle) + rayVector.y*sin(twistAngle), -rayVector.x*sin(twistAngle) + rayVector.y*cos(twistAngle)};
-                        pair<Point2D, Point2D> newRay = {crossPoint, crossPoint + twistedRayVector};
-
-                        if(reflections < 10) {
-                            objectsRayCrossed(newRay, v_reflectedRayCastStructure, object.first,reflections + 1);
-                            recursiveIncreaseDistance(v_reflectedRayCastStructure, (ray.first - nearCross).abs());
-                        }
-                    }
-                }
-            } else {
-                progress += (segment2.second - segment2.first).abs();
-            }
-            if(k+1 < object.second.nodes().size())
-                segment2 = { object.second.position() + object.second.nodes()[k], object.second.position() + object.second.nodes()[k+1] };
-        }
-        if(!obj.empty())
-            v_rayCastStruct.push_back({(ray.first-nearCross).abs(), len, obj, object.second.height(), v_reflectedRayCastStructure});
-    }
-    sort(v_rayCastStruct.begin(), v_rayCastStruct.end(), [](const RayCastStructure& lh, const RayCastStructure& rh) { return lh.distance > rh.distance; });
+// Add player to the list of existing players
+void Camera::addPlayer(std::string name, std::shared_ptr<Player> camera)
+{
+    m_playersOnTheScreen.insert({ name, camera });
 }
 
-void Camera::updateDistances(const World& world) {
+// Remove player from the list of existing players
+void Camera::removePlayer(const std::string& name)
+{
+    m_playersOnTheScreen.erase(name);
+}
+
+// Find all objects hitted by ray, except object with given name.
+// Repeats raycasting if mirror hitted and reflections < 40
+void Camera::objectsRayCrossed(const pair<Point2D, Point2D>& ray, std::vector<RayCastStructure>& v_rayCastStruct, const std::string& name, int reflections)
+{
+    pair<Point2D, Point2D> edge;
+    Point2D nearCross;
+    double len = 0;
+    double closest = d_depth;
+    for (auto object : W_world.objects())
+    {
+        if (object.first == name || object.second.nodes().size() < 2)
+            continue;
+
+        // Check crossing
+
+        Point2D crossPoint = ray.second;
+        std::vector<RayCastStructure> v_reflectedRayCastStructure;
+
+        pair<Point2D, Point2D> wall;
+        // If ray crossed with object
+        if (object.second.cross(ray, wall, crossPoint, len))
+        {
+            // If it was mirror
+            if (object.second.isMirror() && scalarWithNormal(wall.second - wall.first, ray.second - ray.first) < 0 && reflections < 40)
+            {
+                Point2D edgeVector = wall.second - wall.first;
+                Point2D rayVector = ray.second - ray.first;
+                double twistAngle = 2 * acos((edgeVector.x * rayVector.x + edgeVector.y * rayVector.y) / (edgeVector.abs() * rayVector.abs()));
+                Point2D twistedRayVector = { rayVector.x * cos(twistAngle) + rayVector.y * sin(twistAngle), -rayVector.x * sin(twistAngle) + rayVector.y * cos(twistAngle) };
+                pair<Point2D, Point2D> newRay = { crossPoint, crossPoint + twistedRayVector };
+
+                objectsRayCrossed(newRay, v_reflectedRayCastStructure, object.first, reflections + 1);
+                recursiveIncreaseDistance(v_reflectedRayCastStructure, (ray.first - crossPoint).abs());
+            }
+            v_rayCastStruct.push_back({ (ray.first - crossPoint).abs(), len, &object.second, object.second.height(), v_reflectedRayCastStructure });
+            // for collision
+            double dist = (crossPoint - position()).abs();
+            if (dist < closest)
+            {
+                edge = std::move(wall);
+                closest = dist;
+                nearCross = crossPoint;
+            }
+        }
+    }
+    // collision
+    if (b_collision && name == getName() && COLLISION_AREA >= closest)
+    {
+        CollisionInformation newCollision;
+        newCollision.distance = (nearCross - position()).abs();
+        newCollision.edge = std::move(edge);
+        newCollision.collisionPoint = nearCross;
+        allCollisions.push_back(newCollision);
+    }
+    // Sort hits by descending of distance
+    std::sort(v_rayCastStruct.begin(), v_rayCastStruct.end(), [](const RayCastStructure& lh, const RayCastStructure& rh) { return lh.distance > rh.distance; });
+}
+
+// Find objects crossed by ray near enough for collisions.
+// Must be use only on invisible segments.
+void Camera::hiddenObjectsRayCrossed(const pair<Point2D, Point2D>& ray, const std::string& name)
+{
+    Object2D* obj = nullptr;
+    std::pair<Point2D, Point2D> edge;
+    double len = 0;
+    Point2D nearCross = ray.second;
+    for (auto object : W_world.objects())
+    {
+        if (object.first == name || object.second.nodes().size() < 2)
+            continue;
+
+        // Check collision
+
+        Point2D crossPoint = ray.second;
+
+        // If object hitted and near closer than already finded - rember it
+        pair<Point2D, Point2D> wall;
+        if (object.second.cross(ray, wall, crossPoint, len) && (nearCross - ray.first).abs() > (crossPoint - ray.first).abs())
+        {
+            nearCross = std::move(crossPoint);
+            obj = &object.second;
+            edge = std::move(wall);
+        }
+    }
+    // If something was hitted close enough - write it
+    if (obj)
+    {
+        CollisionInformation newCollision;
+        newCollision.distance = (nearCross - position()).abs();
+        newCollision.edge = std::move(edge);
+        newCollision.collisionPoint = nearCross;
+        allCollisions.push_back(newCollision);
+    }
+}
+
+// Check all directions for collisions and walls
+void Camera::updateDistances(const World& world)
+{
     v_distances.clear();
     allCollisions.clear();
 
-    for(int i = 0; i < 2*PI/d_fieldOfView*DISTANCES_SEGMENTS; i++) {
-        double left = d_direction - d_fieldOfView/2;
-        double right = d_direction + d_fieldOfView/2;
-        // find distance to near object in that direction
-        double direction = d_direction + ((double)i/DISTANCES_SEGMENTS - 0.5)*d_fieldOfView;
+    Point2D forward = { cos(d_direction), sin(d_direction) };
+    Point2D left = { -forward.y, forward.x };
+    double halfWidth = tan(d_fieldOfView / 2) * ((double)SCREEN_WIDTH / SCREEN_HEIGHT);
 
-        pair<Point2D, Point2D> segment1 = {{x(), y()}, {x() + d_depth*cos(direction), y() + d_depth*sin(direction)}};
+    int i;
+    int segs = static_cast<int>(2 * PI / d_fieldOfView * DISTANCES_SEGMENTS);
+
+    // Visible for player segments
+    for (i = 0; i < DISTANCES_SEGMENTS; i++) // Need top-down map? Set limit to segs. No need? DISTANCE_SEGMENTS.
+    {
+        pair<Point2D, Point2D> segment1;
+
+        double offset = ((i * 2.0 / (DISTANCES_SEGMENTS - 1.0)) - 1.0) * halfWidth;
+        segment1 = { {x(), y()}, {x() + d_depth * (forward.x + offset * left.x), y() + d_depth * (forward.y + offset * left.y)} };
 
         std::vector<RayCastStructure> v_rayCastStructure;
 
         objectsRayCrossed(segment1, v_rayCastStructure, getName());
 
-        for(const auto& rcs : v_rayCastStructure)
-            if((m_playersOnTheScreen.count(rcs.object) == 0) && (W_world[rcs.object].type() == 1))
-                m_playersOnTheScreen.insert({rcs.object, dynamic_cast<Camera&>(W_world[rcs.object])});
-
-        if(!v_rayCastStructure.empty())
+        if (!v_rayCastStructure.empty())
             v_distances.push_back(v_rayCastStructure);
         else
-            v_distances.push_back({{d_depth, 0, "", 1}});
+            v_distances.push_back({ {d_depth, 0, nullptr, 1} });
+    }
+
+    // Invisible for player segments
+    if (!b_collision)
+        return;
+
+    for (; i < segs; i++)
+    {
+        pair<Point2D, Point2D> segment1;
+        
+        double direction = d_direction + ((double)i / DISTANCES_SEGMENTS - 0.5) * d_fieldOfView;
+        segment1 = { {x(), y()}, {x() + COLLISION_AREA * cos(direction), y() + COLLISION_AREA * sin(direction)} };
+
+        hiddenObjectsRayCrossed(segment1, getName());
     }
 }
 
-void Camera::draw(sf::RenderWindow& window) {
-
-    if(v_distances.empty() || i_health <= 0)
+// Draw camera on 2d map
+void Camera::draw(sf::RenderTarget& window)
+{
+    if (v_distances.empty() || health() <= 0)
         return;
 
     sf::CircleShape circle;
-    circle.setRadius(COLLISION_DISTANCE*SCALE);
+    circle.setRadius(COLLISION_DISTANCE * SCALE);
     circle.setOutlineColor(OUTLINE_CAMERA_COLOR);
     circle.setFillColor(FILL_CAMERA_COLOR);
     circle.setOutlineThickness(OUTLINE_CAMERA_THICKNESS);
-    circle.setPosition((float)x()*SCALE - COLLISION_DISTANCE*SCALE, (float)y()*SCALE - COLLISION_DISTANCE*SCALE);
+    circle.setPosition((float)x() * SCALE - COLLISION_DISTANCE * SCALE, (float)y() * SCALE - COLLISION_DISTANCE * SCALE);
 
-    double left = d_direction - d_fieldOfView/2;
-    double right = d_direction + d_fieldOfView/2;
+    double left = d_direction - d_fieldOfView / 2;
+    double right = d_direction + d_fieldOfView / 2;
 
     sf::ConvexShape triangle;
     triangle.setPointCount(CONVEX_NUMBER + 2);
     triangle.setPoint(0, sf::Vector2f(0, 0));
-    for(int i = 0; i <= CONVEX_NUMBER; i++) {
-        int index = v_distances[(int)i*DISTANCES_SEGMENTS/CONVEX_NUMBER].size() - 1;
-        triangle.setPoint(i+1, sf::Vector2f(v_distances[(int)i*DISTANCES_SEGMENTS/CONVEX_NUMBER][index].distance*cos(left + (right - left)*i/CONVEX_NUMBER)*SCALE, v_distances[(int)i*DISTANCES_SEGMENTS/CONVEX_NUMBER][index].distance*sin(left + (right - left)*i/CONVEX_NUMBER)*SCALE));
+    for (int i = 0; i <= CONVEX_NUMBER; i++)
+    {
+        int index = v_distances[(int)i * DISTANCES_SEGMENTS / CONVEX_NUMBER].size() - 1;
+        triangle.setPoint(i + 1, sf::Vector2f(static_cast<float>(v_distances[i * DISTANCES_SEGMENTS / CONVEX_NUMBER][index].distance * cos(left + (right - left) * i / CONVEX_NUMBER) * SCALE), static_cast<float>(v_distances[i * DISTANCES_SEGMENTS / CONVEX_NUMBER][index].distance * sin(left + (right - left) * i / CONVEX_NUMBER) * SCALE)));
     }
     triangle.setOutlineColor(OUTLINE_CAMERA_COLOR);
     triangle.setFillColor(FILED_OF_VEW_COLOR);
     triangle.setOutlineThickness(OUTLINE_CAMERA_THICKNESS);
-    triangle.setPosition((float)x()*SCALE, (float)y()*SCALE);
+    triangle.setPosition((float)x() * SCALE, (float)y() * SCALE);
 
     window.draw(triangle);
     window.draw(circle);
 }
 
-std::pair<std::string, double> Camera::cameraRayCheck(RayCastStructure &structure) {
-    std::pair<std::string, double> result = {"", 1};
-    if(W_world[structure.object].type() == 1) {
-        result.first = structure.object;
-        result.second = structure.distance;
+// Returns player if ray hits him
+std::pair<Object2D*, double> Camera::cameraRayCheck(RayCastStructure& structure)
+{
+    std::pair<Object2D*, double> result = { nullptr, 1 };
+
+    // If hit player
+    if (structure.object->type() == ObjectType::Player)
+    {
+        auto heights = heightInPixels(structure.distance, structure.object->height(), dynamic_cast<Player*>(structure.object)->vPos());
+        heights.first = std::min(mirrorBot, std::max(mirrorTop, heights.first));
+        heights.second = std::min(mirrorBot, std::max(mirrorTop, heights.second));
+        if (heights.first < SCREEN_HEIGHT / 2 && heights.second > SCREEN_HEIGHT / 2)
+        {
+            result.first = structure.object;
+            result.second = structure.distance;
+        }
     }
-    else if(!structure.v_mirrorRayCast.empty()) {
-        return cameraRayCheck(structure.v_mirrorRayCast[structure.v_mirrorRayCast.size()-1]);
+    // If hit mirror
+    else if (!structure.v_mirrorRayCast.empty())
+    {
+        auto heights = heightInPixels(structure.distance, structure.object->height(), 0);
+        double mirrorTopSave = mirrorTop;
+        double mirrorBotSave = mirrorBot;
+        mirrorTop = std::min(mirrorBotSave, std::max(mirrorTopSave, heights.first));
+        mirrorBot = std::min(mirrorBotSave, std::max(mirrorTopSave, heights.second));
+        result = cameraRayCheck(structure.v_mirrorRayCast[structure.v_mirrorRayCast.size() - 1]);
+        mirrorTop = mirrorTopSave;
+        mirrorBot = mirrorBotSave;
     }
     return result;
 }
 
-void Camera::fire() {
-    pair<Point2D, Point2D> segment1 = {{x(), y()}, {x() + d_depth*cos(d_direction), y() + d_depth*sin(d_direction)}};
+// Fire at the player
+void Camera::fire()
+{
+    pair<Point2D, Point2D> segment1 = { {x(), y()}, {x() + d_depth * cos(d_direction), y() + d_depth * sin(d_direction)} };
     std::vector<RayCastStructure> v_rayCastStructure;
     objectsRayCrossed(segment1, v_rayCastStructure, getName());
 
-    if(!v_rayCastStructure.empty()) {
-        std::pair<std::string, double> hitted = cameraRayCheck(v_rayCastStructure[v_rayCastStructure.size()-1]);
-        //W_world.removeObject2D(hitted.first);
-        if(hitted.first == "") return;
-
-        dynamic_cast<Camera&>(W_world[hitted.first]).updateDistances(W_world);
-        double dir = 2*PI * rand() / RAND_MAX;
-        dynamic_cast<Camera&>(W_world[hitted.first]).shiftPrecise({0.05*cos(dir), 0.05*sin(dir)});
-
-        if(dynamic_cast<Camera&>(W_world[hitted.first]).reduceHealth(static_cast<int>(v_weapons[i_selectedWeapon].damage() / hitted.second))) {
-            //W_world.removeObject2D(hitted.first);
-            W_world[hitted.first].setPosition({2.5, 0});
-            s_lastKill = hitted.first;
-            dynamic_cast<Camera&>(W_world[hitted.first]).setHealth(100);
-        }
+    // if something hitted
+    if (!v_rayCastStructure.empty())
+    {
+        std::pair<Object2D*, double> hitted = cameraRayCheck(v_rayCastStructure[v_rayCastStructure.size() - 1]);
+        if (hitted.first)
+            client->shoot(hitted.first->getName(), v_weapons[i_selectedWeapon].damage(), hitted.second);
     }
 }
 
-bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window) {
+// Read keyboard and mouse input
+bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window)
+{
+    // Prevents control from another window
+    if (!window.hasFocus())
+    {
+        b_hadFocus = false;
+        walkSound.pause();
+        return true;
+    }
+
+    // Exit to menu
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    {
+        b_hadFocus = false;
+        return false;
+    }
+
     double dx = 0;
     double dy = 0;
-
-    // left and right
+    double d_sin = sin(d_direction);
+    double d_cos = cos(d_direction);
+    // Left and right
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
-        dx += sin(d_direction);
-        dy += -cos(d_direction);
+        dx += d_sin;
+        dy -= d_cos;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
-        dx += -sin(d_direction);
-        dy += cos(d_direction);
+        dx -= d_sin;
+        dy += d_cos;
     }
-    // forward and backward
+    // Forward and backward
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
-        dx += cos(d_direction);
-        dy += sin(d_direction);
+        dx += d_cos;
+        dy += d_sin;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
-        dx += -cos(d_direction);
-        dy += -sin(d_direction);
+        dx -= d_cos;
+        dy -= d_sin;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    if (vPos() == 0 && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
     {
-        if(Vz == 0) {
-            Vz = 800;
-            zPlayer = 1;
+        d_vSpeed = d_jumpSpeed * (health() / 1000 * 7 + 0.3); // health modificator from 0.3 to 1 => 0.3 + (health / 100) * 0.7
+    }
+
+    // Fire
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    {
+        if (v_weapons[i_selectedWeapon].fire())
+            fire();
+    }
+    // Mouse movement
+    if (sf::Mouse::getPosition(window).x != localMousePosition.x) {
+        int difference = sf::Mouse::getPosition(window).x - localMousePosition.x;
+        //sf::Mouse::setPosition({ (int)window.getSize().x / 2, (int)window.getSize().y / 2 }, window);
+        localMousePosition = sf::Mouse::getPosition(window);
+        // Ignoring first frame after window focus or game start
+        if (b_hadFocus)
+        {
+            d_direction += d_viewSpeed * difference;
         }
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    // Start/stop walk sound
+    if ((dx * dx + dy * dy) > d_walkSpeed * elapsedTime * d_walkSpeed * elapsedTime / 10 && vPos() <= 0)
     {
-        return false;
+        if (walkSound.getStatus() != sf::Sound::Status::Playing)
+            walkSound.play();
     }
-    // Mouse
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    else
     {
-        // левая кнопка мыши нажата, стреляем!
-        if(v_weapons[i_selectedWeapon].fire())
-            fire();
-    }
-    if(sf::Mouse::getPosition(window).x != localMousePosition.x || sf::Mouse::getPosition(window).y != localMousePosition.y) {
-        double differenceX = sf::Mouse::getPosition(window).x - localMousePosition.x;
-        double differenceY = sf::Mouse::getPosition(window).y - localMousePosition.y;
-        sf::Mouse::setPosition({SCREEN_WIDTH/2, SCREEN_HEIGHT/2});
-        localMousePosition = sf::Mouse::getPosition(window);
-        d_direction += d_viewSpeed * differenceX;
-        d_verticalShift -= 200 * d_viewSpeed * differenceY;
-
-        if(d_verticalShift > 250) d_verticalShift = 250;
-        if(d_verticalShift < -250) d_verticalShift = -250;
-    }
-
-    if((dx*dx + dy*dy) > d_walkSpeed * elapsedTime * d_walkSpeed * elapsedTime / 10) {
-        isRunning = true;
-        if(walkSound.getStatus() != sf::Sound::Status::Playing)
-           walkSound.play();
-    } else {
-        isRunning = false;
         walkSound.pause();
     }
 
-    if(zPlayer <= 0) {
-        Vz = 0;
-        zPlayer = 0;
-    } else {
-        zPlayer += Vz*elapsedTime;
-        Vz -= gravity*elapsedTime;
-    }
+    // Move player
+    shiftPrecise({ dx * d_walkSpeed * elapsedTime * (health() / 100), dy * d_walkSpeed * elapsedTime * (health() / 100) }, d_vSpeed * elapsedTime);
+    d_vSpeed -= 9.8 * elapsedTime;
 
-    shiftPrecise({dx * d_walkSpeed * elapsedTime * ((double)i_health/100), dy * d_walkSpeed * elapsedTime * ((double)i_health/100)});
+    // Remember that we had focus and weren't in menu
+    b_hadFocus = true;
     return true;
 }
 
-pair<double, double> heightInPixels(double distance, double height) {
-    pair<double, double> h = {0, 0};
-    h.first = (1 - height/distance)*SCREEN_HEIGHT/2;
-    h.second = (1 + 1/distance)*SCREEN_HEIGHT/2;
+// Returns position of wall on screen
+pair<double, double> Camera::heightInPixels(double distance, double height, double vertical)
+{
+    pair<double, double> h = { 0, 0 };
+    double mod = tan(d_fieldOfView / 2) * distance;
+    h.first = (1 - (height - d_eyesHeight - vPos() + vertical) / mod) * SCREEN_HEIGHT / 2;
+    h.second = (1 + (d_eyesHeight + vPos() - vertical) / mod) * SCREEN_HEIGHT / 2;
     return h;
 }
 
-
-void Camera::drawVerticalStrip(sf::RenderWindow &window, const RayCastStructure& obj, int shift, int f, int XRunShift) {
-    sf::ConvexShape polygon;
-    polygon.setPointCount(4);
-
-    double d_angle = -d_fieldOfView/2 + shift * d_fieldOfView / DISTANCES_SEGMENTS;
-    pair<double, double> height_now = heightInPixels(cos(0)*obj.distance, obj.height);
-    pair<double, double> height_now2 = heightInPixels(obj.distance, obj.height);
-
-    int h1 = height_now.first + d_verticalShift;
-    int h2 = height_now.second + d_verticalShift;
-
-    int h22 = height_now2.second + d_verticalShift;
-
-    polygon.setPoint(0, sf::Vector2f(0, h1));
-    polygon.setPoint(1, sf::Vector2f(0, h2));
-    polygon.setPoint(2, sf::Vector2f(SCREEN_WIDTH / DISTANCES_SEGMENTS, h2));
-    polygon.setPoint(3, sf::Vector2f(SCREEN_WIDTH / DISTANCES_SEGMENTS, h1));
-
-    int alpha = 255 * (1 - obj.distance / d_depth);
-    if (alpha > 255)
-        alpha = 255;
-    if (alpha < 0)
-        alpha = 0;
-
-    alpha = 255 - alpha;
-
-    double zPlayer3D = 1.5*zPlayer*(d_depth - obj.distance)/10;
-    if(zPlayer3D < 0 ) zPlayer3D = 0;
-
-    if (!b_textures)
-        polygon.setFillColor({255, 174, 174, static_cast<sf::Uint8>(alpha)});
+// Draw 1 pixel column of screen
+void Camera::drawVerticalStrip(sf::RenderTarget& window, const RayCastStructure& obj, int shift, int f)
+{
+    int horIndex = shift / (SCREEN_WIDTH / DISTANCES_SEGMENTS);
+    int h2;
+    if (obj.object == nullptr)
+        h2 = SCREEN_HEIGHT / 2;
     else
-        polygon.setFillColor({255, 255, 255, static_cast<sf::Uint8>(alpha)});
+    {
+        sf::ConvexShape polygon;
+        polygon.setPointCount(4);
 
-    polygon.setOutlineThickness(0); // we can make non zero thickness for debug
-    polygon.setPosition(shift * SCREEN_WIDTH / DISTANCES_SEGMENTS + XRunShift, 0 + XRunShift + zPlayer3D);
+        double vertical = 0;
+        if (obj.object->type() == ObjectType::Player)
+            vertical = dynamic_cast<Player*>(obj.object)->vPos();
+        pair<double, double> height_now = heightInPixels(obj.distance * horizontalCos[horIndex], obj.height, vertical);
 
-    double scaleFactor = (double) (h2 - h1) / SCREEN_HEIGHT;
-    sf::Sprite sprite;
-    if (obj.object != "" && b_textures) {
-        int left = obj.progress * SCREEN_WIDTH;
-        int top = 0;
-        if(W_world[obj.object].isMirror()) { // In case of mirror
-            sprite.setTexture(W_world.skyTexture());
-            left = (d_direction/10) * SCREEN_WIDTH;
-            top = sprite.getTextureRect().height/2-SCREEN_HEIGHT/2 + 250;
-        } else {
-            sprite.setTexture(W_world[obj.object].loadTexture());
-        }
-        sprite.setTextureRect(sf::IntRect(left, top, SCREEN_WIDTH / DISTANCES_SEGMENTS, SCREEN_HEIGHT));
-        sprite.setPosition(sf::Vector2f(shift * SCREEN_WIDTH / DISTANCES_SEGMENTS + XRunShift, h1 + XRunShift + zPlayer3D)); // абсолютная позиция
-        sprite.scale(1, scaleFactor);
-        //sprite.setColor({static_cast<sf::Uint8>(alpha), static_cast<sf::Uint8>(alpha), static_cast<sf::Uint8>(alpha)});
-        window.draw(sprite);
-    }
+        int h1 = (int)std::max(mirrorTop, std::min(mirrorBot, height_now.first));
+        h2 = (int)std::min(mirrorBot, std::max(mirrorTop, height_now.second));
 
-    if (abs(obj.distance - d_depth) > 0.001)
-        window.draw(polygon);
+        polygon.setPoint(0, sf::Vector2f(0, (float)h1));
+        polygon.setPoint(1, sf::Vector2f(0, (float)h2));
+        polygon.setPoint(2, sf::Vector2f((float)SCREEN_WIDTH / DISTANCES_SEGMENTS, (float)h2));
+        polygon.setPoint(3, sf::Vector2f((float)SCREEN_WIDTH / DISTANCES_SEGMENTS, (float)h1));
 
-    int x = shift*SCREEN_WIDTH/DISTANCES_SEGMENTS;
+        int alpha = (int)(255 * (1 - obj.distance / d_depth));
+        if (alpha > 255)
+            alpha = 255;
+        if (alpha < 0)
+            alpha = 0;
 
-    if((f == 0) || (x % FLOOR_SEGMENT_SIZE != 0)) return;
-    //sf::Sprite floor;
-    //floor.setTexture(W_world.floorTexture());
-    for(int z = h2; z < SCREEN_HEIGHT; z += FLOOR_SEGMENT_SIZE) {
+        alpha = 255 - alpha;
 
-        double l = (double)1/(z - SCREEN_HEIGHT/2 - d_verticalShift);
-
-        int alpha2 = 255* 2*(z - SCREEN_HEIGHT/2 - d_verticalShift) / SCREEN_HEIGHT;
-
-        if(alpha2 > 255) alpha2 = 255;
-
-        // SPRITE
-        if (b_textures) {
-            int left = (int)((280)*position().x + (100000)*(l+zPlayer/50000)*cos(d_angle + d_direction));
-            int top  = (int)((-280)*position().y - (100000)*(l+zPlayer/50000)*sin(d_angle + d_direction));
-
-            sf::Sprite& floor = W_world.floor();
-
-            floor.setTextureRect(sf::IntRect(left, top, FLOOR_SEGMENT_SIZE, FLOOR_SEGMENT_SIZE));
-            floor.setPosition(sf::Vector2f(x + XRunShift, z + XRunShift + zPlayer)); // абсолютная позиция
-            floor.setColor({255, 255, 255, static_cast<sf::Uint8>(alpha2)});
-            window.draw(floor);
-        }
-    }
-}
-
-void Camera::recursiveDrawing(sf::RenderWindow& window, const std::vector<RayCastStructure>& v_RayCastStructure, int shift, int rec, int XRunShift) {
-    int i = 0;
-    for(const auto & k : v_RayCastStructure) {
-        if(i + 1 != v_RayCastStructure.size() || (rec != 1))
-            drawVerticalStrip(window, k, shift, 0, XRunShift);
+        if (!b_textures)
+            polygon.setFillColor({ 255, 174, 174, static_cast<sf::Uint8>(alpha) });
         else
-            drawVerticalStrip(window, k, shift, 1, XRunShift);
-        i++;
-        if(!k.v_mirrorRayCast.empty())
-            recursiveDrawing(window, k.v_mirrorRayCast, shift, 2, XRunShift);
+            polygon.setFillColor({ 255, 255, 255, static_cast<sf::Uint8>(alpha) });
+
+        //polygon.setOutlineThickness(0); // we can make non zero thickness for debug
+        polygon.setPosition((float)(shift * SCREEN_WIDTH / DISTANCES_SEGMENTS), 0);
+
+        sf::Sprite sprite;
+        if (obj.object && b_textures)
+        {
+            sprite.setPosition(sf::Vector2f((float)shift * SCREEN_WIDTH / DISTANCES_SEGMENTS, (float)h1)); // absolute position
+            int left;
+            int top, finalTop;
+            int bot, finalBot;
+            if (obj.object->isMirror()) // In case of mirror
+            {
+                sprite.setTexture(W_world.skyTexture());
+                left = (int)(d_direction / 10 * SCREEN_WIDTH);
+                top = height_now.first / SCREEN_HEIGHT * sprite.getTextureRect().height;
+                bot = height_now.second / SCREEN_HEIGHT * sprite.getTextureRect().height;
+                double scaleFactor = (double)SCREEN_HEIGHT / sprite.getTextureRect().height;
+                sprite.scale(1, (float)scaleFactor);
+            }
+            else
+            {
+                sprite.setTexture(obj.object->loadTexture());
+                left = obj.progress * SCREEN_WIDTH;
+                top = 0;
+                bot = SCREEN_HEIGHT;
+                sprite.scale(1, (float)(height_now.second - height_now.first) / SCREEN_HEIGHT);
+            }
+
+            if ((int)height_now.first != h1)
+                finalTop = top + (bot - top) * (h1 - height_now.first) / (height_now.second - height_now.first);
+            else
+                finalTop = top;
+
+            if ((int)height_now.second != h2)
+                finalBot = top + (bot - top) * (h2 - height_now.first) / (height_now.second - height_now.first);
+            else
+                finalBot = bot;
+
+            sprite.setTextureRect(sf::IntRect(left, finalTop, SCREEN_WIDTH / DISTANCES_SEGMENTS, finalBot - finalTop));
+            window.draw(sprite);
+        }
+
+        if (abs(obj.distance - d_depth) > 0.001)
+            window.draw(polygon);
+
+        mirrorTop = h1;
+        mirrorBot = h2;
+    }
+
+    // Floor drawing
+
+    int x = shift * SCREEN_WIDTH / DISTANCES_SEGMENTS;
+
+    if (b_smooth || (f == 0) || (x % FLOOR_SEGMENT_SIZE != 0) || !b_textures) return;
+
+    const int scale = 400;
+    double baseOffset = (d_eyesHeight + vPos()) / horizontalCos[horIndex];
+    double horMod = horizontalCos[horIndex] * directionCos - horizontalSin[horIndex] * directionSin;// cos (horizontalAngles[shift] + d_direction) = cos a * cos b - sin a * sin b
+    double verMod = horizontalSin[horIndex] * directionCos + horizontalCos[horIndex] * directionSin;// sin (horizontalAngles[shift] + d_direction) = sin a * cos b + cos a * sin b
+
+    for (int z = h2; z < SCREEN_HEIGHT; z += FLOOR_SEGMENT_SIZE)
+    {
+        double offset = baseOffset / verticalTan[z];
+        int left = (int)(scale * (position().x + offset * horMod));
+        int top = (int)(scale * (position().y + offset * verMod));
+        int alpha2 = 255 * 2 * (z - SCREEN_HEIGHT / 2) / SCREEN_HEIGHT;
+
+        sf::Sprite& floor = W_world.floor();
+
+        floor.setTextureRect(sf::IntRect(left, top, FLOOR_SEGMENT_SIZE, FLOOR_SEGMENT_SIZE));
+        floor.setPosition(sf::Vector2f((float)x, (float)z)); // absolute position
+        floor.setColor({ 255, 255, 255, static_cast<sf::Uint8>(alpha2) });
+        window.draw(floor);
     }
 }
 
-void Camera::drawHealth(sf::RenderWindow& window, int xPos, int yPos, int width, int healthProgress) {
+void Camera::recursiveDrawing(sf::RenderTarget& window, const std::vector<RayCastStructure>& v_RayCastStructure, int shift, int rec)
+{
+    int i = 0;
+    double mirrorTopSave = mirrorTop;
+    double mirrorBotSave = mirrorBot;
+    for (const auto& k : v_RayCastStructure)
+    {
+        if (i + 1 != v_RayCastStructure.size() || (rec != 1))
+            drawVerticalStrip(window, k, shift, 0);
+        else
+            drawVerticalStrip(window, k, shift, 1);
+        i++;
+        if (!k.v_mirrorRayCast.empty())
+            recursiveDrawing(window, k.v_mirrorRayCast, shift, 2);
+        mirrorTop = mirrorTopSave;
+        mirrorBot = mirrorBotSave;
+    }
+}
+
+void Camera::drawHealth(sf::RenderTarget& window, int xPos, int yPos, int width, int healthProgress)
+{
     sf::ConvexShape polygon1;
     polygon1.setPointCount(4);
     sf::ConvexShape polygon2;
     polygon2.setPointCount(4);
 
-    polygon1.setPoint(0, sf::Vector2f(xPos, yPos));
-    polygon1.setPoint(1, sf::Vector2f(xPos + width, yPos));
-    polygon1.setPoint(2, sf::Vector2f(xPos + width, yPos + 20));
-    polygon1.setPoint(3, sf::Vector2f(xPos, yPos + 20));
+    polygon1.setPoint(0, sf::Vector2f((float)xPos, (float)yPos));
+    polygon1.setPoint(1, sf::Vector2f((float)xPos + width, (float)yPos));
+    polygon1.setPoint(2, sf::Vector2f((float)xPos + width, (float)yPos + 20));
+    polygon1.setPoint(3, sf::Vector2f((float)xPos, (float)yPos + 20));
 
-    polygon2.setPoint(0, sf::Vector2f(xPos, yPos));
-    polygon2.setPoint(1, sf::Vector2f(xPos + width*healthProgress/100, yPos));
-    polygon2.setPoint(2, sf::Vector2f(xPos + width*healthProgress/100, yPos + 20));
-    polygon2.setPoint(3, sf::Vector2f(xPos, yPos + 20));
+    polygon2.setPoint(0, sf::Vector2f((float)xPos, (float)yPos));
+    polygon2.setPoint(1, sf::Vector2f((float)xPos + width * healthProgress / 100, (float)yPos));
+    polygon2.setPoint(2, sf::Vector2f((float)xPos + width * healthProgress / 100, (float)yPos + 20));
+    polygon2.setPoint(3, sf::Vector2f((float)xPos, (float)yPos + 20));
 
-    polygon1.setFillColor({255, 174, 174, 100});
-    polygon2.setFillColor({static_cast<sf::Uint8>((100 - healthProgress)*255), static_cast<sf::Uint8>(healthProgress*255/100), 0, 100});
+    polygon1.setFillColor({ 255, 174, 174, 100 });
+    polygon2.setFillColor({ static_cast<sf::Uint8>((100 - healthProgress) * 255), static_cast<sf::Uint8>(healthProgress * 255 / 100), 0, 100 });
 
     polygon1.setOutlineThickness(3); // we can make non zero thickness for debug
     window.draw(polygon1);
     window.draw(polygon2);
 }
 
-void Camera::drawCameraView(sf::RenderWindow& window) {
-
-    auto tp = std::chrono::system_clock::now();
-    std::chrono::duration<double> elapsedTime = tp.time_since_epoch();
-    double d_elapsedTime = elapsedTime.count();
-    int XRunShift = 0;
-    if(isRunning) {
-        XRunShift = (int)round(5*cos(9*d_elapsedTime));
-    } else {
-        if(XRunShift > 0)
-            XRunShift--;
-        else if(XRunShift < 0)
-            XRunShift++;
-    }
-
-    if(v_distances.empty())
+void Camera::drawCameraView(sf::RenderTarget& window)
+{
+    if (v_distances.empty())
         return;
-    //SKY AND FLOOR
-    if(b_textures) {
+
+    directionSin = sin(d_direction);
+    directionCos = cos(d_direction);
+
+    // Draw sky and rotate floor
+    if (b_textures)
+    {
         sf::Sprite sprite_sky;
         sprite_sky.setTexture(W_world.skyTexture());
-        sprite_sky.setTextureRect(sf::IntRect(d_direction * SCREEN_WIDTH/2, sprite_sky.getTextureRect().height/2-SCREEN_HEIGHT/2, SCREEN_WIDTH, 1080));
-        sprite_sky.setPosition(sf::Vector2f(0,d_verticalShift - 250)); // абсолютная позиция
+        sprite_sky.setTextureRect(sf::IntRect((int)(d_direction * SCREEN_WIDTH / 2), sprite_sky.getTextureRect().height / 2 - SCREEN_HEIGHT / 2, SCREEN_WIDTH, 1080));
+        sprite_sky.setPosition(sf::Vector2f(0, 0)); // absolute position
         window.draw(sprite_sky);
-    }
+        W_world.floor().setRotation(static_cast<float>(-d_direction / PI * 180 - 90));
 
-    for(int i = 0; i < DISTANCES_SEGMENTS; i++)
-        recursiveDrawing(window, v_distances[i], i, 1, XRunShift);
-
-    //m_playersOnTheScreen
-    for(const auto& player : m_playersOnTheScreen) {
-        Point2D enemyDirection = (player.second.position() - position()).normalize();
-        Point2D cameraLeftDirection = {cos(d_direction - d_fieldOfView/2), sin(d_direction - d_fieldOfView/2)};
-        double angle = acos(enemyDirection*cameraLeftDirection);
-        if((cameraLeftDirection.x*enemyDirection.y - enemyDirection.x*cameraLeftDirection.y) > 0) {
-            int xPos = SCREEN_WIDTH * angle/d_fieldOfView;
-            int yPos = heightInPixels((player.second.position() - position()).abs(), 1).first;
-            auto healthProgress = (double)player.second.health();
-            drawHealth(window, xPos-50, yPos, 100, healthProgress);
+        if (b_smooth)
+        {
+            sf::Image floorPrerendered;
+            floorPrerendered.create(SCREEN_WIDTH, SCREEN_HEIGHT, sf::Color(0, 0, 0, 0));
+            sf::Image floorTexture = W_world.floorTexture().copyToImage();
+            const int scale = 400;
+            for (int i = 0; i < SCREEN_WIDTH; i++)
+            {
+                int horIndex = i / (SCREEN_WIDTH / DISTANCES_SEGMENTS);
+                double baseOffset = (d_eyesHeight + vPos()) / horizontalCos[horIndex];
+                double horMod = horizontalCos[horIndex] * directionCos - horizontalSin[horIndex] * directionSin;
+                double verMod = horizontalSin[horIndex] * directionCos + horizontalCos[horIndex] * directionSin;
+                for (int j = SCREEN_HEIGHT / 2; j < SCREEN_HEIGHT; j++)
+                {
+                    double offset = baseOffset / verticalTan[j];
+                    int left = (int)(scale * (position().x + offset * horMod)) % 960;
+                    int top = (int)(scale * (position().y + offset * verMod)) % 960;
+                    left += (left < 0) * 960;
+                    top += (top < 0) * 960;
+                    int alpha2 = 255 * (j * 2 - SCREEN_HEIGHT) / SCREEN_HEIGHT;
+                    sf::Color col = floorTexture.getPixel(left, top);
+                    col.a = alpha2;
+                    floorPrerendered.setPixel(i, j, col);
+                }
+            }
+            sf::Texture floorText;
+            floorText.loadFromImage(floorPrerendered);
+            sf::Sprite floorSprite(floorText);
+            window.draw(floorSprite);
         }
     }
-    drawHealth(window, 50, SCREEN_HEIGHT - 50, 400, health());
-    v_weapons[i_selectedWeapon].draw(window);
 
-    if(isRunning) {
-        int t1 = (1 + cos(10*d_elapsedTime))*50/2;
-        int t2 = (1 + cos(10*d_elapsedTime + 1))*50/2;
-        int t3 = (1 + cos(10*d_elapsedTime + 2))*50/2;
-
-        double s1 = 1 + (1 + sin(20*d_elapsedTime))/2;
-        double s2 = 1 + (1 + sin(20*d_elapsedTime + 2))/2;
-        double s3 = 3;
-
-        sf::Sprite sprite1;
-        sf::Sprite sprite2;
-        sf::Sprite sprite3;
-        sprite1.setOrigin(640, 360);
-        sprite2.setOrigin(640, 360);
-        sprite3.setOrigin(640, 360);
-
-        sprite1.setTexture(W_world.RUNTexture1());
-        sprite2.setTexture(W_world.RUNTexture2());
-        sprite3.setTexture(W_world.RUNTexture3());
-
-        sprite1.setPosition(640, 360);
-        sprite2.setPosition(640, 360);
-        sprite3.setPosition(640, 360);
-
-        sprite1.setColor({255, 255, 255, static_cast<sf::Uint8>(t1)});
-        sprite2.setColor({255, 255, 255, static_cast<sf::Uint8>(t2)});
-        sprite3.setColor({255, 255, 255, static_cast<sf::Uint8>(t3)});
-
-        sprite1.scale(s1, s1);
-        sprite2.scale(s2, s2);
-        sprite3.scale(s3, s3);
-
-        window.draw(sprite1);
-        window.draw(sprite2);
-        //window.draw(sprite3);
+    for (int i = 0; i < DISTANCES_SEGMENTS; i++)
+    {
+        recursiveDrawing(window, v_distances[i], i);
     }
+
+    double halfWidth = tan(d_fieldOfView / 2) * ((double)SCREEN_WIDTH / SCREEN_HEIGHT);
+    //m_playersOnTheScreen
+    for (const auto& player : m_playersOnTheScreen)
+    {
+        Point2D enemyDirection = (player.second->position() - position()).normalize();
+        enemyDirection = { enemyDirection.x * cos(-d_direction) - enemyDirection.y * sin(-d_direction), enemyDirection.x * sin(-d_direction) + enemyDirection.y * cos(-d_direction) };
+        double offset = enemyDirection.y / enemyDirection.x;
+        if (abs(offset) < halfWidth && enemyDirection.x > 0)
+        {
+            int xPos = (int)((enemyDirection.y / enemyDirection.x / halfWidth + 1.0) / 2.0 * (DISTANCES_SEGMENTS - 1.0));
+            int yPos = (int)(heightInPixels((player.second->position() - position()).abs(), player.second->height() + 0.2, player.second->vPos()).first);
+            auto healthProgress = (double)player.second->health();
+            drawHealth(window, xPos - 50, yPos, 100, (int)healthProgress);
+        }
+    }
+    drawHealth(window, 50, SCREEN_HEIGHT - 50, 400, (int)health());
+    v_weapons[i_selectedWeapon].draw(window);
 }
 
-double Camera::scalarWithNormal(Point2D edge, Point2D vector) {
-    Point2D normal = {edge.y, -edge.x};
+double Camera::scalarWithNormal(Point2D edge, Point2D vector)
+{
+    Point2D normal = { edge.y, -edge.x };
     normal = normal.normalize();
-    double scalar = vector.x*normal.x + vector.y*normal.y;
+    double scalar = vector.x * normal.x + vector.y * normal.y;
     return scalar;
 }
 
-void Camera::shiftPrecise(Point2D vector) {
-
-    if(!b_collision) {
+void Camera::shiftPrecise(Point2D vector, double vertical)
+{
+    setVPos(vPos() + vertical);
+    if (vPos() < 0)
+    {
+        d_vSpeed = 0;
+        setVPos(0);
+    }
+    if (!b_collision)
+    {
         shift(vector);
         return;
     }
 
-    for(auto c : allCollisions) {
+    for (auto c : allCollisions)
+    {
         Point2D edgeVector = c.edge.second - c.edge.first;
-        Point2D normal = {edgeVector.y, -edgeVector.x};
+        Point2D normal = { edgeVector.y, -edgeVector.x };
         normal = normal.normalize();
-        double scalar = vector.x*normal.x + vector.y*normal.y;
-        if(scalarWithNormal(edgeVector, vector) < 0) {
-            if(c.distance - abs(scalar) < COLLISION_DISTANCE) {
-                vector.x -= normal.x*scalar;
-                vector.y -= normal.y*scalar;
-            }
+        double scalar = vector.x * normal.x + vector.y * normal.y;
+        if (scalar < 0 && c.distance - abs(scalar) < COLLISION_DISTANCE)
+        {
+            vector.x -= normal.x * scalar;
+            vector.y -= normal.y * scalar;
         }
     }
 
     shift(vector);
 }
 
-void Camera::previousWeapon() {
-    if(i_selectedWeapon > 0)
+void Camera::previousWeapon()
+{
+    if (i_selectedWeapon > 0)
         i_selectedWeapon--;
     else
         i_selectedWeapon = v_weapons.size() - 1;
 }
 
-void Camera::nextWeapon() {
-    if(i_selectedWeapon < v_weapons.size() - 1)
+void Camera::nextWeapon()
+{
+    if (i_selectedWeapon < (int)v_weapons.size() - 1)
         i_selectedWeapon++;
     else
         i_selectedWeapon = 0;
-}
-
-bool Camera::reduceHealth(double damage) {
-    if(i_health > 100)
-        i_health = 100;
-    i_health -= damage;
-    return i_health < 0;
 }
