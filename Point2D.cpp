@@ -60,6 +60,10 @@ Point2D& Point2D::operator/=(double number)
     return *this;
 }
 
+bool Point2D::operator<(const Point2D& point2D) const {
+    return x < point2D.x && y < point2D.y;
+}
+
 bool Point2D::operator==(const Point2D& point2D)
 {
     return this == &point2D || (*this - point2D).sqrAbs() < 0.0000000001;

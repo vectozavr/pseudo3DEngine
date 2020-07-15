@@ -61,7 +61,7 @@ private:
 
     sf::Vector2i localMousePosition;
 
-    bool b_textures = true;
+    bool b_textures = false;
     bool b_smooth = false;
 
     std::vector<Weapon> v_weapons;
@@ -82,10 +82,11 @@ private:
     std::pair<Object2D*, double> cameraRayCheck(RayCastStructure& structure);
 
     static void drawHealth(sf::RenderTarget& window, int x, int y, int width, int health);
+
 public:
     ClientUDP* client = nullptr;
 
-    explicit Camera(World& world, Point2D position, double vPos = 0, double height = 0.6, double direction = 0, double health = 100, std::string texture = SKIN, double fieldOfView = PI / 2, double eyesHeight = 0.5, double depth = 25, double walkSpeed = 1.7, double jumpSpeed = 2.75, double viewSpeed = .005);
+    explicit Camera(World& world, Point2D position, double vPos = 0, double height = 0.6, double direction = PI, double health = 100, std::string texture = SKIN, double fieldOfView = PI / 2, double eyesHeight = 0.5, double depth = 40, double walkSpeed = 5, double jumpSpeed = 2.75, double viewSpeed = .005);
     Camera(const Camera&) = delete;//Camera(const Camera& camera);
 
     void addPlayer(std::string name, std::shared_ptr<Player> camera);

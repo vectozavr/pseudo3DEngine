@@ -76,11 +76,10 @@ void ClientUDP::update()
 
 void ClientUDP::disconnect()
 {
-    for (auto it = _players.begin(); it != _players.end();)
-    {
+    for (auto it = _players.begin(); it != _players.end(); it++)
         _world.removeObject2D(it->second->getName());
-        _players.erase(it++);
-    }
+    _players.clear();
+
     _localPlayer = nullptr;
     sf::Packet packet;
     packet << MsgType::Disconnect << _socket.ownId();
@@ -125,7 +124,7 @@ bool ClientUDP::process()
         packet >> targetId;
         player = new Player({ 2.5, 0 });
         _players.insert({ targetId, std::shared_ptr<Player>(player) });
-        _world.addObject2D(*_players.at(targetId), "Player" + std::to_string(targetId));
+        _world.addObject2D(_players[targetId], "Player" + std::to_string(targetId));
         _localPlayer->addPlayer(_players.at(targetId)->getName(), _players.at(targetId));
         break;
 
@@ -158,7 +157,7 @@ bool ClientUDP::process()
                 player = new Player({ 2.5, 0 });
             }
             _players.insert({ targetId, std::shared_ptr<Player>(player) });
-            _world.addObject2D(*player, "Player" + std::to_string(targetId));
+            _world.addObject2D(std::shared_ptr<Player>(player), "Player" + std::to_string(targetId));
             player->setPosition({ buf[0], buf[1] });
             player->setVPos(buf[2]);
             player->setHealth(buf[3]);

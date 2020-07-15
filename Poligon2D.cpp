@@ -9,3 +9,8 @@ Poligon2D::Poligon2D(std::vector<Point2D> points2D, Point2D position, double hei
 	: Object2D(position, points2D, height, texture)
 {
 }
+
+ObjectType Poligon2D::type()
+{
+    return ObjectType::Object;
+}

@@ -85,7 +85,7 @@ bool Object2D::cross(const std::pair<Point2D, Point2D>& ray, std::pair<Point2D, 
     Point2D crossPoint = { 0, 0 };
     std::pair<Point2D, Point2D> segment2 = { p_position + v_points2D.back(), p_position + v_points2D.front() };
     bool success = false;
-    for (size_t k = 0; k < v_points2D.size() - 1; k++)
+    for (size_t k = 0; k < v_points2D.size(); k++)
     {
         if (segments_crossing(ray, segment2, crossPoint) && (point - ray.first).abs() > (crossPoint - ray.first).abs())
         {
@@ -93,14 +93,24 @@ bool Object2D::cross(const std::pair<Point2D, Point2D>& ray, std::pair<Point2D, 
             point = crossPoint;
             wall = std::move(segment2);
         }
-        segment2 = { p_position + v_points2D[k], p_position + v_points2D[k + 1] };
+        if(k + 1 != v_points2D.size())
+            segment2 = { p_position + v_points2D[k], p_position + v_points2D[k + 1] };
+
+        if(v_points2D.size() == 2)
+            break;
     }
+
+    // ------------
+    /*
     if (segments_crossing(ray, segment2, crossPoint) && (point - ray.first).abs() > (crossPoint - ray.first).abs())
     {
         success = true;
         point = crossPoint;
         wall = std::move(segment2);
     }
+    */
+    // ------------
+
     if (success)
     {
         uv = (wall.second - point).abs();

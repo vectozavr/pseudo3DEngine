@@ -54,6 +54,8 @@ public:
     void shift(Point2D vector);
     void setPosition(Point2D position);
 
+    void setHeight(double h) { d_height = h; };
+
     bool isMirror() const;
     void setMirror(bool mirror = true);
 

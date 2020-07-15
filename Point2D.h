@@ -24,6 +24,7 @@ struct Point2D
 
     bool operator==(const Point2D& point2D);
     bool operator!=(const Point2D& point2D);
+    bool operator<(const Point2D& point2D) const;
 
     // Returns dot product
     double operator*(const Point2D& point2D) const;
@@ -40,6 +41,5 @@ struct Point2D
     // Returns vector length
     double abs();
 };
-
 
 #endif //PSEUDO3DENGINE_POINT2D_H

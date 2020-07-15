@@ -123,6 +123,33 @@ FPSOnline/fast:
 	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/build
 .PHONY : FPSOnline/fast
 
+Bonus.o: Bonus.cpp.o
+
+.PHONY : Bonus.o
+
+# target to build an object file
+Bonus.cpp.o:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/Bonus.cpp.o
+.PHONY : Bonus.cpp.o
+
+Bonus.i: Bonus.cpp.i
+
+.PHONY : Bonus.i
+
+# target to preprocess a source file
+Bonus.cpp.i:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/Bonus.cpp.i
+.PHONY : Bonus.cpp.i
+
+Bonus.s: Bonus.cpp.s
+
+.PHONY : Bonus.s
+
+# target to generate assembly for a file
+Bonus.cpp.s:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/Bonus.cpp.s
+.PHONY : Bonus.cpp.s
+
 Button.o: Button.cpp.o
 
 .PHONY : Button.o
@@ -365,6 +392,33 @@ Point2D.s: Point2D.cpp.s
 Point2D.cpp.s:
 	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/Point2D.cpp.s
 .PHONY : Point2D.cpp.s
+
+Point3D.o: Point3D.cpp.o
+
+.PHONY : Point3D.o
+
+# target to build an object file
+Point3D.cpp.o:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/Point3D.cpp.o
+.PHONY : Point3D.cpp.o
+
+Point3D.i: Point3D.cpp.i
+
+.PHONY : Point3D.i
+
+# target to preprocess a source file
+Point3D.cpp.i:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/Point3D.cpp.i
+.PHONY : Point3D.cpp.i
+
+Point3D.s: Point3D.cpp.s
+
+.PHONY : Point3D.s
+
+# target to generate assembly for a file
+Point3D.cpp.s:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/Point3D.cpp.s
+.PHONY : Point3D.cpp.s
 
 Poligon2D.o: Poligon2D.cpp.o
 
@@ -645,6 +699,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... FPSOnline"
+	@echo "... Bonus.o"
+	@echo "... Bonus.i"
+	@echo "... Bonus.s"
 	@echo "... Button.o"
 	@echo "... Button.i"
 	@echo "... Button.s"
@@ -672,6 +729,9 @@ help:
 	@echo "... Point2D.o"
 	@echo "... Point2D.i"
 	@echo "... Point2D.s"
+	@echo "... Point3D.o"
+	@echo "... Point3D.i"
+	@echo "... Point3D.s"
 	@echo "... Poligon2D.o"
 	@echo "... Poligon2D.i"
 	@echo "... Poligon2D.s"

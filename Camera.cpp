@@ -10,7 +10,7 @@ using namespace std;
 Camera::Camera(World& world, Point2D position, double vPos, double height, double direction, double health, std::string texture, double fieldOfView, double eyesHeight, double depth, double walkSpeed, double jumpSpeed, double viewSpeed)
     : W_world(world), Player(position, vPos, height, health, texture), d_direction(direction), d_fieldOfView(fieldOfView), d_eyesHeight(eyesHeight), d_depth(depth), d_walkSpeed(walkSpeed), d_jumpSpeed(jumpSpeed), d_viewSpeed(viewSpeed)
 {
-    Weapon weapon1(100000);
+    Weapon weapon1(30);
     weapon1.choiceWeapon("shotgun");
     v_weapons.push_back(weapon1);
 
@@ -31,7 +31,7 @@ Camera::Camera(World& world, Point2D position, double vPos, double height, doubl
     for (int i = 0; i < SCREEN_HEIGHT; i++)
     {
         double halfWidth = tan(d_fieldOfView / 2);
-        double offset = ((i * 2.0 / (SCREEN_HEIGHT - 1.0)) - 1.0) * halfWidth;
+        double offset = ((i * 2.0 / SCREEN_HEIGHT) - 1.0) * halfWidth;
         Point2D dir = { 1, 1 * offset };
         dir = dir.normalize();
         verticalTan[i] = tan(atan2(dir.y, dir.x));
@@ -117,9 +117,10 @@ void Camera::objectsRayCrossed(const pair<Point2D, Point2D>& ray, std::vector<Ra
     Point2D nearCross;
     double len = 0;
     double closest = d_depth;
-    for (auto object : W_world.objects())
+    string nearObject;
+    for (auto& object : W_world.objects())
     {
-        if (object.first == name || object.second.nodes().size() < 2)
+        if (object.first == name || object.second.get()->nodes().size() < 2)
             continue;
 
         // Check crossing
@@ -129,10 +130,10 @@ void Camera::objectsRayCrossed(const pair<Point2D, Point2D>& ray, std::vector<Ra
 
         pair<Point2D, Point2D> wall;
         // If ray crossed with object
-        if (object.second.cross(ray, wall, crossPoint, len))
+        if (object.second.get()->cross(ray, wall, crossPoint, len))
         {
             // If it was mirror
-            if (object.second.isMirror() && scalarWithNormal(wall.second - wall.first, ray.second - ray.first) < 0 && reflections < 40)
+            if (object.second.get()->isMirror() && scalarWithNormal(wall.second - wall.first, ray.second - ray.first) < 0 && reflections < 40)
             {
                 Point2D edgeVector = wall.second - wall.first;
                 Point2D rayVector = ray.second - ray.first;
@@ -143,7 +144,7 @@ void Camera::objectsRayCrossed(const pair<Point2D, Point2D>& ray, std::vector<Ra
                 objectsRayCrossed(newRay, v_reflectedRayCastStructure, object.first, reflections + 1);
                 recursiveIncreaseDistance(v_reflectedRayCastStructure, (ray.first - crossPoint).abs());
             }
-            v_rayCastStruct.push_back({ (ray.first - crossPoint).abs(), len, &object.second, object.second.height(), v_reflectedRayCastStructure });
+            v_rayCastStruct.push_back({ (ray.first - crossPoint).abs(), len, object.second.get(), object.second.get()->height(), v_reflectedRayCastStructure });
             // for collision
             double dist = (crossPoint - position()).abs();
             if (dist < closest)
@@ -151,9 +152,14 @@ void Camera::objectsRayCrossed(const pair<Point2D, Point2D>& ray, std::vector<Ra
                 edge = std::move(wall);
                 closest = dist;
                 nearCross = crossPoint;
+
+                nearObject = object.first;
             }
         }
     }
+    // Sort hits by descending of distance
+    std::sort(v_rayCastStruct.begin(), v_rayCastStruct.end(), [](const RayCastStructure& lh, const RayCastStructure& rh) { return lh.distance > rh.distance; });
+
     // collision
     if (b_collision && name == getName() && COLLISION_AREA >= closest)
     {
@@ -163,8 +169,16 @@ void Camera::objectsRayCrossed(const pair<Point2D, Point2D>& ray, std::vector<Ra
         newCollision.collisionPoint = nearCross;
         allCollisions.push_back(newCollision);
     }
-    // Sort hits by descending of distance
-    std::sort(v_rayCastStruct.begin(), v_rayCastStruct.end(), [](const RayCastStructure& lh, const RayCastStructure& rh) { return lh.distance > rh.distance; });
+
+    // Bonus collision
+    if (name == getName() && COLLISION_AREA >= closest && W_world[nearObject].get()->type() == ObjectType::Bonus)
+    {
+        if(reinterpret_cast<Bonus*>(W_world[nearObject].get())->bonusType() == BonusType::TreatmentBonus)
+            reduceHealth(-100);
+        if(reinterpret_cast<Bonus*>(W_world[nearObject].get())->bonusType() == BonusType::AmmunitionBonus)
+            v_weapons[i_selectedWeapon].add(15);
+
+    }
 }
 
 // Find objects crossed by ray near enough for collisions.
@@ -177,7 +191,7 @@ void Camera::hiddenObjectsRayCrossed(const pair<Point2D, Point2D>& ray, const st
     Point2D nearCross = ray.second;
     for (auto object : W_world.objects())
     {
-        if (object.first == name || object.second.nodes().size() < 2)
+        if (object.first == name || object.second.get()->nodes().size() < 2)
             continue;
 
         // Check collision
@@ -186,10 +200,10 @@ void Camera::hiddenObjectsRayCrossed(const pair<Point2D, Point2D>& ray, const st
 
         // If object hitted and near closer than already finded - rember it
         pair<Point2D, Point2D> wall;
-        if (object.second.cross(ray, wall, crossPoint, len) && (nearCross - ray.first).abs() > (crossPoint - ray.first).abs())
+        if (object.second.get()->cross(ray, wall, crossPoint, len) && (nearCross - ray.first).abs() > (crossPoint - ray.first).abs())
         {
             nearCross = std::move(crossPoint);
-            obj = &object.second;
+            obj = object.second.get();
             edge = std::move(wall);
         }
     }
@@ -239,7 +253,7 @@ void Camera::updateDistances(const World& world)
     if (!b_collision)
         return;
 
-    for (; i < segs; i++)
+    for (; i < segs; i += 10)
     {
         pair<Point2D, Point2D> segment1;
         
@@ -445,26 +459,26 @@ void Camera::drawVerticalStrip(sf::RenderTarget& window, const RayCastStructure&
             vertical = dynamic_cast<Player*>(obj.object)->vPos();
         pair<double, double> height_now = heightInPixels(obj.distance * horizontalCos[horIndex], obj.height, vertical);
 
-        int h1 = (int)std::max(mirrorTop, std::min(mirrorBot, height_now.first));
-        h2 = (int)std::min(mirrorBot, std::max(mirrorTop, height_now.second));
+        int h1  = (int)std::max(mirrorTop, std::min(mirrorBot, height_now.first));
+        h2      = (int)std::min(mirrorBot, std::max(mirrorTop, height_now.second));
 
         polygon.setPoint(0, sf::Vector2f(0, (float)h1));
         polygon.setPoint(1, sf::Vector2f(0, (float)h2));
         polygon.setPoint(2, sf::Vector2f((float)SCREEN_WIDTH / DISTANCES_SEGMENTS, (float)h2));
         polygon.setPoint(3, sf::Vector2f((float)SCREEN_WIDTH / DISTANCES_SEGMENTS, (float)h1));
 
-        int alpha = (int)(255 * (1 - obj.distance / d_depth));
+        int alpha = (int)(255 * (1 - obj.distance / d_depth / 2));
         if (alpha > 255)
             alpha = 255;
         if (alpha < 0)
             alpha = 0;
 
-        alpha = 255 - alpha;
+        //alpha = 255 - alpha;
 
         if (!b_textures)
-            polygon.setFillColor({ 255, 174, 174, static_cast<sf::Uint8>(alpha) });
+            polygon.setFillColor({ 255, 174, 174, static_cast<sf::Uint8>(255 - alpha) });
         else
-            polygon.setFillColor({ 255, 255, 255, static_cast<sf::Uint8>(alpha) });
+            polygon.setFillColor({ 255, 255, 255, static_cast<sf::Uint8>(255 - alpha) });
 
         //polygon.setOutlineThickness(0); // we can make non zero thickness for debug
         polygon.setPosition((float)(shift * SCREEN_WIDTH / DISTANCES_SEGMENTS), 0);
@@ -480,15 +494,15 @@ void Camera::drawVerticalStrip(sf::RenderTarget& window, const RayCastStructure&
             {
                 sprite.setTexture(W_world.skyTexture());
                 left = (int)(d_direction / 10 * SCREEN_WIDTH);
-                top = height_now.first / SCREEN_HEIGHT * sprite.getTextureRect().height;
-                bot = height_now.second / SCREEN_HEIGHT * sprite.getTextureRect().height;
-                double scaleFactor = (double)SCREEN_HEIGHT / sprite.getTextureRect().height;
+                top = sprite.getTextureRect().height/2 - SCREEN_HEIGHT/2 + 250;
+                bot = sprite.getTextureRect().height/2 + SCREEN_HEIGHT/2 + 250;
+                double scaleFactor = (double)SCREEN_HEIGHT / (sprite.getTextureRect().height + 540);
                 sprite.scale(1, (float)scaleFactor);
             }
             else
             {
                 sprite.setTexture(obj.object->loadTexture());
-                left = obj.progress * SCREEN_WIDTH;
+                left = 0.2 * obj.progress * SCREEN_WIDTH;
                 top = 0;
                 bot = SCREEN_HEIGHT;
                 sprite.scale(1, (float)(height_now.second - height_now.first) / SCREEN_HEIGHT);
@@ -504,12 +518,14 @@ void Camera::drawVerticalStrip(sf::RenderTarget& window, const RayCastStructure&
             else
                 finalBot = bot;
 
+            sprite.setColor({ static_cast<sf::Uint8>(alpha), static_cast<sf::Uint8>(alpha), static_cast<sf::Uint8>(alpha), 255 });
             sprite.setTextureRect(sf::IntRect(left, finalTop, SCREEN_WIDTH / DISTANCES_SEGMENTS, finalBot - finalTop));
             window.draw(sprite);
         }
 
-        if (abs(obj.distance - d_depth) > 0.001)
-            window.draw(polygon);
+        if(!b_textures)
+            if (abs(obj.distance - d_depth) > 0.001)
+                window.draw(polygon);
 
         mirrorTop = h1;
         mirrorBot = h2;
@@ -531,7 +547,13 @@ void Camera::drawVerticalStrip(sf::RenderTarget& window, const RayCastStructure&
         double offset = baseOffset / verticalTan[z];
         int left = (int)(scale * (position().x + offset * horMod));
         int top = (int)(scale * (position().y + offset * verMod));
-        int alpha2 = 255 * 2 * (z - SCREEN_HEIGHT / 2) / SCREEN_HEIGHT;
+
+        int alpha2 = 255 * 5 * (z - SCREEN_HEIGHT / 5) / SCREEN_HEIGHT / 4;
+        //alpha2 *= 2;
+
+        //if(alpha2 > 255)
+        //    alpha2 = 255;
+
 
         sf::Sprite& floor = W_world.floor();
 
@@ -599,7 +621,7 @@ void Camera::drawCameraView(sf::RenderTarget& window)
     {
         sf::Sprite sprite_sky;
         sprite_sky.setTexture(W_world.skyTexture());
-        sprite_sky.setTextureRect(sf::IntRect((int)(d_direction * SCREEN_WIDTH / 2), sprite_sky.getTextureRect().height / 2 - SCREEN_HEIGHT / 2, SCREEN_WIDTH, 1080));
+        sprite_sky.setTextureRect(sf::IntRect((int)(d_direction * SCREEN_WIDTH / 2), sprite_sky.getTextureRect().height - SCREEN_HEIGHT/2 - 540, SCREEN_WIDTH, SCREEN_HEIGHT));
         sprite_sky.setPosition(sf::Vector2f(0, 0)); // absolute position
         window.draw(sprite_sky);
         W_world.floor().setRotation(static_cast<float>(-d_direction / PI * 180 - 90));
@@ -656,8 +678,36 @@ void Camera::drawCameraView(sf::RenderTarget& window)
             drawHealth(window, xPos - 50, yPos, 100, (int)healthProgress);
         }
     }
-    drawHealth(window, 50, SCREEN_HEIGHT - 50, 400, (int)health());
+    drawHealth(window, 80, SCREEN_HEIGHT - 50, 400, (int)health());
     v_weapons[i_selectedWeapon].draw(window);
+
+    W_world.health().setPosition(sf::Vector2f(-20, SCREEN_HEIGHT - 102)); // absolute position
+    window.draw(W_world.health());
+
+    W_world.shoot().setPosition(sf::Vector2f(SCREEN_WIDTH - 260, SCREEN_HEIGHT - 110)); // absolute position
+    window.draw(W_world.shoot());
+
+    sf::Text Text_health;
+    sf::Text Text_shoots;
+
+    Text_health.setFont(W_world.font());
+    Text_shoots.setFont(W_world.font());
+
+    Text_health.setCharacterSize(20);
+    Text_health.setFillColor(sf::Color::White);
+    Text_health.setStyle(sf::Text::Bold);
+    Text_health.setPosition(270, SCREEN_HEIGHT - 53);
+
+    Text_shoots.setCharacterSize(80);
+    Text_shoots.setFillColor(sf::Color::White);
+    Text_shoots.setStyle(sf::Text::Bold);
+    Text_shoots.setPosition(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 102);
+
+    Text_health.setString(to_string((int)health()));
+    Text_shoots.setString(to_string((int)v_weapons[i_selectedWeapon].balance()));
+
+    window.draw(Text_health);
+    window.draw(Text_shoots);
 }
 
 double Camera::scalarWithNormal(Point2D edge, Point2D vector)
@@ -687,12 +737,19 @@ void Camera::shiftPrecise(Point2D vector, double vertical)
         Point2D edgeVector = c.edge.second - c.edge.first;
         Point2D normal = { edgeVector.y, -edgeVector.x };
         normal = normal.normalize();
-        double scalar = vector.x * normal.x + vector.y * normal.y;
-        if (scalar < 0 && c.distance - abs(scalar) < COLLISION_DISTANCE)
+
+        Point2D toWallVector = c.edge.first + c.edge.second - p_position * 2;
+        if(normal * toWallVector > 0)
+            normal = normal * (-1);
+
+        double scalar = vector * normal;
+
+        if (scalar < 0 && abs(c.distance - abs(scalar)) < COLLISION_DISTANCE)
         {
             vector.x -= normal.x * scalar;
             vector.y -= normal.y * scalar;
         }
+
     }
 
     shift(vector);

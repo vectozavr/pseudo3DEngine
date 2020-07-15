@@ -14,11 +14,13 @@ namespace ResourceManager
     void unloadTextures();
     void unloadSoundBuffers();
     void unloadAllResources();
+    void unloadFonts();
 
     // Try to load texture from file.
     // If success returns pointer to texture.
     // Otherwise returns nullptr.
     sf::Texture* loadTexture(const std::string& filename);
+    sf::Font* loadFont(const std::string& filename);
     sf::SoundBuffer* loadSoundBuffer(const std::string& filename);
 };
 

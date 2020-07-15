@@ -75,6 +75,10 @@ bool Weapon::fire()
     return false;
 }
 
+int Weapon::balance() const {
+    return i_amount;
+}
+
 void Weapon::draw(sf::RenderTarget& window)
 {
     auto tp = std::chrono::system_clock::now();

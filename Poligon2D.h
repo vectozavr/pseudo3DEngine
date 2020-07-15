@@ -13,6 +13,8 @@ private:
 
 public:
     explicit Poligon2D(std::vector<Point2D> points2D = {}, Point2D position = { 0, 0 }, double height = 1, std::string texture = WALL_TEXTURE);
+
+    ObjectType type() override;
 };
 
 

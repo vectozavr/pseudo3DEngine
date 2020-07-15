@@ -42,8 +42,14 @@ public:
     double speed() const;
     int damage() const;
 
+    int balance() const;
+
     void choiceWeapon(std::string name);
     bool fire();
+
+    void add(double d) {
+        i_amount += d;
+    }
 };
 
 

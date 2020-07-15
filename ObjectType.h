@@ -9,7 +9,8 @@ enum class ObjectType
 {
 	Object,
 	Circle,
-	Player
+	Player,
+    Bonus,
 };
 
 

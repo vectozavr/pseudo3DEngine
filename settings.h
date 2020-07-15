@@ -37,7 +37,7 @@
 #define SKIN "texture/hero.png"
 
 // FOR COLLISION DETECTION
-#define COLLISION_DISTANCE 0.1f
+#define COLLISION_DISTANCE 0.1
 #define COLLISION_AREA 1
 
 #define OPTICAL_HEIGHT 100
@@ -60,7 +60,7 @@
 
 //TEXTURES
 
-#define WALL_TEXTURE "texture/brickWall.png"
+#define WALL_TEXTURE "texture/building_texture.png"
 #define WALL_TEXTURE2 "texture/brickWall2.jpg"
 #define COLUMN_TEXTURE "texture/column.png"
 #define VOLODYA_TEXTURE "texture/volodya.jpg"
@@ -71,7 +71,7 @@
 #define BLACK_TEXTURE "texture/black.jpg"
 
 #define SKY_TEXTURE "texture/back.jpg"
-#define FLOOR_TEXTURE "texture/brickWall3.jpg"
+#define FLOOR_TEXTURE "texture/173483.jpg"
 
 #define PLAYGAME_PRESSED_TEXTURE "texture/buttons/playGameSelected.jpg"
 #define SETTINGS_PRESSED_TEXTURE "texture/buttons/settingsSelected.jpg"
@@ -83,7 +83,7 @@
 #define ABOUT_TEXTURE "texture/buttons/about.jpg"
 #define QUIT_TEXTURE "texture/buttons/quit.jpg"
 
-#define ABOUT_INFO "texture/info.jpg"
+#define ABOUT_INFO "texture/instruction.jpg"
 
 #define TEXTURING_SELECT "texture/buttons/texturing.jpg"
 #define SMOOTHING_SELECT "texture/buttons/smoothing.jpg"
@@ -111,6 +111,11 @@
 
 #define GUN_SHOT_SOUND "sounds/gunShot.ogg"
 #define WALK_SOUND "sounds/walkSound.ogg"
+
+#define HEALTH_TEXTURE "texture/health.png"
+#define SHOUT_TEXTURE "texture/shots.png"
+
+#define TEXT_FONT "fonts/19471.ttf"
 
 
 #endif //PSEUDO3DENGINE_SETTINGS_H
