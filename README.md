@@ -14,6 +14,8 @@ By Neirokan:
 - Missing resources fix
 - Small optimizations
 
+
+
 Demonstration of how does this engine work:
 ![Project demonstration](img/demo_engine.jpg)
 
@@ -37,3 +39,6 @@ Online test:
 
 Jumps (but without camera vertical rotation):
 ![Project demonstration](img/demo_jump.png)
+
+Map editor (importing .obj files):
+![Project demonstration](img/map_editor.jpg)
