@@ -189,17 +189,17 @@ bool World::load3DObj(const std::string filename, const std::string texture, dou
 
         bool collision = false;
 
-        Poligon2D wall({{vertices[indices[i].z].x * scale, vertices[indices[i].z].z * scale}, {vertices[indices[i].x].x * scale, vertices[indices[i].x].z * scale}}, position, vertices[indices[i].y].y * scale, texture);
+        Poligon2D* wall = new Poligon2D({{vertices[indices[i].z].x * scale, vertices[indices[i].z].z * scale}, {vertices[indices[i].x].x * scale, vertices[indices[i].x].z * scale}}, position, vertices[indices[i].y].y * scale, texture);
 
         for(auto obj : map_objects)
             for (auto node1 : obj.second.get()->nodes())
-                if (node1 == wall.nodes()[0])
+                if (node1 == wall->nodes()[0])
                     for (auto node2 : obj.second.get()->nodes())
-                        if (node2 == wall.nodes()[1])
+                        if (node2 == wall->nodes()[1])
                             collision = true;
 
         if(!collision)
-            if(!this->addObject2D(std::make_shared<Object2D>(wall), "wall" + std::to_string(i + 1) + "-" + filename + "-" + texture))
+            if(!this->addObject2D(std::make_shared<Object2D>(*wall), "wall" + std::to_string(i + 1) + "-" + filename + "-" + texture))
                 return false;
     }
 

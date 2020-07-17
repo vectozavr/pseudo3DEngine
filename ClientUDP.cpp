@@ -61,7 +61,7 @@ void ClientUDP::update()
 
     // World state broadcast
 
-    if (Time::time() - _lastBroadcast > 1 / WORLD_UPDATE_RATE && connected())
+    if (Time::time() - _lastBroadcast > (double) 1 / WORLD_UPDATE_RATE && connected())
     {
         sf::Packet updatePacket;
         updatePacket << MsgType::PlayerUpdate << _localPlayer->x() << _localPlayer->y() << _localPlayer->vPos();
@@ -76,9 +76,10 @@ void ClientUDP::update()
 
 void ClientUDP::disconnect()
 {
-    for (auto it = _players.begin(); it != _players.end(); it++)
+    for (auto it = _players.begin(); it != _players.end(); it++) {
         _world.removeObject2D(it->second->getName());
-    _players.clear();
+        //_players.erase(it);
+    }
 
     _localPlayer = nullptr;
     sf::Packet packet;
@@ -120,14 +121,16 @@ bool ClientUDP::process()
     switch (type)
     {
 
-    case MsgType::Connect:
+    case MsgType::Connect: {
         packet >> targetId;
-        player = new Player({ 2.5, 0 });
-        _players.insert({ targetId, std::shared_ptr<Player>(player) });
-        _world.addObject2D(_players[targetId], "Player" + std::to_string(targetId));
+
+        std::shared_ptr<Player> pplayer = pplayer = std::make_shared<Player>(Point2D());
+        _players.insert({targetId, pplayer});
+        _world.addObject2D(pplayer, "Player" + std::to_string(targetId));
+
         _localPlayer->addPlayer(_players.at(targetId)->getName(), _players.at(targetId));
         break;
-
+    }
     case MsgType::Disconnect:
         packet >> targetId;
         if (targetId != _socket.ownId() && _players.count(targetId))
