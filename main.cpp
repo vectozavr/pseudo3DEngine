@@ -107,7 +107,7 @@ int main()
         // Title update
         std::string title = "Pseudo3DEngine " + std::to_string((double)1 / d_elapsedTime) + "fps.";
         if (camera != nullptr)
-            title += " x:" + std::to_string(camera->x()) + ", y:" + std::to_string(camera->y());
+            title += " x:" + std::to_string(camera->x()) + ", y:" + std::to_string(camera->y()) + ", health: " + std::to_string(camera->health());
         window.setTitle(title);
 
         // Close event search

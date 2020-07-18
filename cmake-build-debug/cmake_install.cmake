@@ -1,8 +1,8 @@
-# Install script for directory: /Users/ivanilin/CLionProjects/pseudo3DEngine
+# Install script for directory: D:/ivan/Study/C & C++/problems4/pseudo3DEngine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/FPSOnline")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/ivan/Study/C & C++/problems4/pseudo3DEngine/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

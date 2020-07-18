@@ -179,6 +179,7 @@ void Camera::objectsRayCrossed(const pair<Point2D, Point2D>& ray, std::vector<Ra
         newCollision.distance = (nearCross - position()).abs();
         newCollision.edge = std::move(edge);
         newCollision.collisionPoint = nearCross;
+        newCollision.height = W_world[nearObject].get()->height();
         allCollisions.push_back(newCollision);
     }
 
@@ -186,15 +187,18 @@ void Camera::objectsRayCrossed(const pair<Point2D, Point2D>& ray, std::vector<Ra
     if (name == getName() && COLLISION_AREA >= closest && W_world[nearObject].get()->type() == ObjectType::Bonus)
     {
         if(reinterpret_cast<Bonus*>(W_world[nearObject].get())->bonusType() == BonusType::TreatmentBonus)
-            reduceHealth(-100);
+            client->shoot(getName(), -100, 1);
         if(reinterpret_cast<Bonus*>(W_world[nearObject].get())->bonusType() == BonusType::AmmunitionBonus)
             v_weapons[i_selectedWeapon].add(15);
         if(reinterpret_cast<Bonus*>(W_world[nearObject].get())->bonusType() == BonusType::ViewBonus)
             if(d_fieldOfView < PI/2)
                 setFieldOfView(d_fieldOfView + (double)PI/20);
-        if(reinterpret_cast<Bonus*>(W_world[nearObject].get())->bonusType() == BonusType::SpeedBonus)
-            if(d_walkSpeed < 7)
+        if(reinterpret_cast<Bonus*>(W_world[nearObject].get())->bonusType() == BonusType::SpeedBonus) {
+            if (d_walkSpeed < 7)
                 d_walkSpeed += 0.5;
+            if(d_jumpSpeed < 10)
+                d_jumpSpeed++;
+        }
 
         W_world.freeBonusPoint(W_world[nearObject].get()->position());      // free this place for another bonus
         W_world[nearObject]->setPosition(W_world.getBonusPoint(W_world[nearObject].get()->position()));     // change the position of this bonus and mark this
@@ -235,6 +239,7 @@ void Camera::hiddenObjectsRayCrossed(const pair<Point2D, Point2D>& ray, const st
         newCollision.distance = (nearCross - position()).abs();
         newCollision.edge = std::move(edge);
         newCollision.collisionPoint = nearCross;
+        newCollision.height = obj->height();
         allCollisions.push_back(newCollision);
     }
 }
@@ -361,7 +366,7 @@ void Camera::fire()
     if (!v_rayCastStructure.empty())
     {
         std::pair<Object2D*, double> hitted = cameraRayCheck(v_rayCastStructure[v_rayCastStructure.size() - 1]);
-        if (hitted.first)
+        if (hitted.first && abs(reinterpret_cast<Player*>(hitted.first)->vPos() - vPos()) < d_eyesHeight)
             client->shoot(hitted.first->getName(), v_weapons[i_selectedWeapon].damage(), hitted.second);
     }
 }
@@ -752,6 +757,8 @@ void Camera::shiftPrecise(Point2D vector, double vertical)
         return;
     }
 
+    //setVPos(d_eyesHeight - 0.1);
+
     for (auto c : allCollisions)
     {
         Point2D edgeVector = c.edge.second - c.edge.first;
@@ -764,7 +771,7 @@ void Camera::shiftPrecise(Point2D vector, double vertical)
 
         double scalar = vector * normal;
 
-        if (scalar < 0 && abs(c.distance - abs(scalar)) < COLLISION_DISTANCE)
+        if (scalar < 0 && abs(c.distance - abs(scalar)) < COLLISION_DISTANCE && vPos() + d_eyesHeight < c.height)
         {
             vector.x -= normal.x * scalar;
             vector.y -= normal.y * scalar;

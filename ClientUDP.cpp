@@ -158,9 +158,9 @@ bool ClientUDP::process()
             {
                 player = new Player({ 2.5, 0 });
             }
-            std::shared_ptr<Player> pplayer = std::make_shared<Player>(Point2D());
+            std::shared_ptr<Player> pplayer = static_cast<std::shared_ptr<Player>>(player);
             _players.insert({ targetId, pplayer });
-            _world.addObject2D(pplayer, "Player" + std::to_string(targetId));
+            _world.addObject2D(_players[targetId], "Player" + std::to_string(targetId));
             player->setPosition({ buf[0], buf[1] });
             player->setVPos(buf[2]);
             player->setHealth(buf[3]);

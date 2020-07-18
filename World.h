@@ -7,6 +7,7 @@
 
 #include "Object2D.h"
 #include <map>
+#include <memory>
 #include "Bonus.h"
 
 class World : virtual public Idrawable

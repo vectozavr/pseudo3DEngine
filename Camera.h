@@ -27,6 +27,7 @@ struct CollisionInformation
     double distance;
     Point2D collisionPoint;
     std::pair<Point2D, Point2D> edge;
+    double height = 0;
 };
 
 class Camera : public Player

@@ -30,7 +30,7 @@ public:
     double vPos() const;
     void setVPos(double vPos);
 
-    double health() const;
+    [[nodiscard]] double health() const;
     bool reduceHealth(double damage);
     void fullHealth();
     void setHealth(double h);
