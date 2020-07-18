@@ -68,6 +68,8 @@ int main()
     music.setLoop(true);
     music.play();
     */
+
+
     sf::Music backSounds;
     backSounds.openFromFile("sounds/backSounds.ogg");
     backSounds.setVolume(20);
@@ -123,6 +125,7 @@ int main()
             window.setMouseCursorVisible(false);
             camera->updateDistances(world);
             camera->drawCameraView(window);
+            world.rotateAllBonuses(d_elapsedTime);
             // world.draw(window); // top-down debug map. To fix exception - look into "Camera::updateDistances"
 
             // if escape was pressed

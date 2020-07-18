@@ -8,7 +8,7 @@
 using namespace std;
 
 Camera::Camera(World& world, Point2D position, double vPos, double height, double direction, double health, std::string texture, double fieldOfView, double eyesHeight, double depth, double walkSpeed, double jumpSpeed, double viewSpeed)
-    : W_world(world), Player(position, vPos, height, health, texture), d_direction(direction), d_fieldOfView(fieldOfView), d_eyesHeight(eyesHeight), d_depth(depth), d_walkSpeed(walkSpeed), d_jumpSpeed(jumpSpeed), d_viewSpeed(viewSpeed)
+    : W_world(world), Player(position, vPos, height, health, texture), d_direction(direction), d_eyesHeight(eyesHeight), d_depth(depth), d_walkSpeed(walkSpeed), d_jumpSpeed(jumpSpeed), d_viewSpeed(viewSpeed)
 {
     Weapon weapon1(30);
     weapon1.choiceWeapon("shotgun");
@@ -17,6 +17,18 @@ Camera::Camera(World& world, Point2D position, double vPos, double height, doubl
     walkSound.setBuffer(*ResourceManager::loadSoundBuffer(WALK_SOUND));
     walkSound.setLoop(true);
     walkSound.setVolume(50.f);
+
+    setFieldOfView(fieldOfView);
+}
+
+void Camera::setFieldOfView(double angle) {
+
+    if(angle < 0)
+        d_fieldOfView = PI/4;
+    else if(angle >= PI)
+        d_fieldOfView = 4*PI/5;
+    else
+        d_fieldOfView = angle;
 
     for (int i = 0; i < DISTANCES_SEGMENTS; i++)
     {
@@ -177,7 +189,16 @@ void Camera::objectsRayCrossed(const pair<Point2D, Point2D>& ray, std::vector<Ra
             reduceHealth(-100);
         if(reinterpret_cast<Bonus*>(W_world[nearObject].get())->bonusType() == BonusType::AmmunitionBonus)
             v_weapons[i_selectedWeapon].add(15);
+        if(reinterpret_cast<Bonus*>(W_world[nearObject].get())->bonusType() == BonusType::ViewBonus)
+            if(d_fieldOfView < PI/2)
+                setFieldOfView(d_fieldOfView + (double)PI/20);
+        if(reinterpret_cast<Bonus*>(W_world[nearObject].get())->bonusType() == BonusType::SpeedBonus)
+            if(d_walkSpeed < 7)
+                d_walkSpeed += 0.5;
 
+        W_world.freeBonusPoint(W_world[nearObject].get()->position());      // free this place for another bonus
+        W_world[nearObject]->setPosition(W_world.getBonusPoint(W_world[nearObject].get()->position()));     // change the position of this bonus and mark this
+                                                                                // position as busy.
     }
 }
 
@@ -504,8 +525,8 @@ void Camera::drawVerticalStrip(sf::RenderTarget& window, const RayCastStructure&
                 sprite.setTexture(obj.object->loadTexture());
                 left = 0.2 * obj.progress * SCREEN_WIDTH;
                 top = 0;
-                bot = SCREEN_HEIGHT;
-                sprite.scale(1, (float)(height_now.second - height_now.first) / SCREEN_HEIGHT);
+                bot = obj.object->loadTexture().getSize().y;
+                sprite.scale(1, (float)(height_now.second - height_now.first) / obj.object->loadTexture().getSize().y);
             }
 
             if ((int)height_now.first != h1)
@@ -549,7 +570,6 @@ void Camera::drawVerticalStrip(sf::RenderTarget& window, const RayCastStructure&
         int top = (int)(scale * (position().y + offset * verMod));
 
         int alpha2 = 255 * 5 * (z - SCREEN_HEIGHT / 5) / SCREEN_HEIGHT / 4;
-        //alpha2 *= 2;
 
         //if(alpha2 > 255)
         //    alpha2 = 255;

@@ -86,6 +86,12 @@ Button.h
 SFML/Network.hpp
 -
 
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.cpp
+Object2D.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.h
+settings.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
+
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.h
 utility
 -
@@ -111,6 +117,8 @@ Circle2D.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Circle2D.h
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Point2D.h
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Point3D.h
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Poligon2D.h
 Object2D.h
@@ -168,18 +176,6 @@ UDPConnection.h
 MsgType.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/MsgType.h
 
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Weapon.cpp
-cmath
--
-Weapon.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Weapon.h
-ResourceManager.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/ResourceManager.h
-Point2D.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Point2D.h
-chrono
--
-
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Weapon.h
 SFML/Audio.hpp
 -
@@ -187,6 +183,22 @@ Idrawable.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Idrawable.h
 settings.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/World.cpp
+fstream
+-
+sstream
+-
+World.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/World.h
+settings.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
+Point3D.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Point3D.h
+vector
+-
+Poligon2D.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Poligon2D.h
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/World.h
 Object2D.h

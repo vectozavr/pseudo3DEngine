@@ -115,6 +115,11 @@
 #define HEALTH_TEXTURE "texture/health.png"
 #define SHOUT_TEXTURE "texture/shots.png"
 
+#define HEALTH_BONUS_TEXTURE "texture/healBonus.png"
+#define AMMUNATION_BONUS_TEXTURE "texture/ammunBonus.png"
+#define SPEED_BONUS_TEXTURE "texture/speedBonus.png"
+#define VIEW_BONUS_TEXTURE "texture/viewBonus.png"
+
 #define TEXT_FONT "fonts/19471.ttf"
 
 

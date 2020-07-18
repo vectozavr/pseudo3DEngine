@@ -14,7 +14,7 @@ class World : virtual public Idrawable
 private:
     mutable std::map<std::string, std::shared_ptr<Object2D>> map_objects;
 
-    std::map<Point2D, bool> m_bonus_positions; // It is points in the world, where bonuses can be spawned.
+    std::vector<std::pair<Point2D, bool>> v_bonus_positions; // It is points in the world, where bonuses can be spawned.
 
     double d_length = 0;
     double d_width = 0;
@@ -30,6 +30,7 @@ private:
 
     sf::Font F_font;
 
+    std::vector<std::string> v_bonuses;
     bool init_bonuses();
 
 public:
@@ -53,9 +54,8 @@ public:
     bool removeObject2D(const std::string& name);
 
     bool addBonusPoint(Point2D p);
-    Point2D clearBonusPoint();
+    Point2D getBonusPoint(Point2D except);
     void freeBonusPoint(Point2D p);
-    void busyBonusPoint(Point2D p);
 
     bool isExist(const std::string& name) const;
     std::shared_ptr<Object2D> findObject2D(const std::string& name);
@@ -70,6 +70,8 @@ public:
     // NEW
 
     bool load3DObj(std::string filename, std::string texture = FLOOR_TEXTURE, double scale = 1.0, Point2D position = {0, 0});
+
+    void rotateAllBonuses(double angle);
 };
 
 

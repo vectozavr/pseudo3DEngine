@@ -86,7 +86,7 @@ private:
 public:
     ClientUDP* client = nullptr;
 
-    explicit Camera(World& world, Point2D position, double vPos = 0, double height = 0.6, double direction = PI, double health = 100, std::string texture = SKIN, double fieldOfView = PI / 2, double eyesHeight = 0.5, double depth = 40, double walkSpeed = 5, double jumpSpeed = 2.75, double viewSpeed = .005);
+    explicit Camera(World& world, Point2D position, double vPos = 0, double height = 0.6, double direction = PI, double health = 100, std::string texture = SKIN, double fieldOfView = PI/4, double eyesHeight = 0.5, double depth = 40, double walkSpeed = 3, double jumpSpeed = 2.75, double viewSpeed = .005);
     Camera(const Camera&) = delete;//Camera(const Camera& camera);
 
     void addPlayer(std::string name, std::shared_ptr<Player> camera);
@@ -98,6 +98,8 @@ public:
     void setCollision(bool active);
     bool isTextures();
     void setTextures(bool active);
+
+    void setFieldOfView(double angle);
 
     bool keyboardControl(double elapsedTime, sf::RenderWindow& window);
     void updateDistances(const World& world);

@@ -12,6 +12,10 @@ Object2D.h
 settings.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
 
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Button.h
+SFML/Graphics.hpp
+-
+
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.h
 Player.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Player.h
@@ -28,18 +32,6 @@ Object2D.h
 settings.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
 
-/Users/ivanilin/CLionProjects/pseudo3DEngine/ClientUDP.cpp
-ClientUDP.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/ClientUDP.h
-Time.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Time.h
-MsgType.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/MsgType.h
-settings.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
-thread
--
-
 /Users/ivanilin/CLionProjects/pseudo3DEngine/ClientUDP.h
 World.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/World.h
@@ -55,6 +47,16 @@ memory
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Idrawable.h
 SFML/Graphics.hpp
 -
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Menu.h
+SFML/Graphics.hpp
+-
+settings.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
+Camera.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.h
+Button.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Button.h
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/MsgType.h
 SFML/Network.hpp
@@ -86,6 +88,10 @@ Circle2D.h
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Point2D.h
 
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Poligon2D.h
+Object2D.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.h
+
 /Users/ivanilin/CLionProjects/pseudo3DEngine/ReliableMsg.h
 SFML/Network.hpp
 -
@@ -94,6 +100,18 @@ SFML/Network.hpp
 SFML/Graphics.hpp
 -
 SFML/Audio.hpp
+-
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ServerUDP.h
+World.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/World.h
+Camera.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.h
+ReliableMsg.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ReliableMsg.h
+UDPSocket.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/UDPSocket.h
+memory
 -
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Time.h
@@ -131,6 +149,34 @@ map
 -
 Bonus.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Bonus.h
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/main.cpp
+SFML/Audio.hpp
+-
+SFML/Graphics.hpp
+-
+fstream
+-
+settings.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
+Poligon2D.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Poligon2D.h
+World.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/World.h
+Camera.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.h
+Menu.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Menu.h
+Time.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Time.h
+ServerUDP.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ServerUDP.h
+ClientUDP.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ClientUDP.h
+Object2D.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.h
+iostream
+-
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
 SFML/Graphics.hpp

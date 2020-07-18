@@ -185,3 +185,16 @@ void Object2D::setPoints2D(std::vector<Point2D> points2D)
 {
     v_points2D = std::move(points2D);
 }
+
+void Object2D::rotate(double angle) {
+    double cosA = cos(angle);
+    double sinA = sin(angle);
+
+    for(auto& p : v_points2D) {
+        double oldX = p.x;
+        double oldY = p.y;
+
+        p.x = cosA * oldX - sinA * oldY;
+        p.y = sinA * oldX + cosA * oldY;
+    }
+}

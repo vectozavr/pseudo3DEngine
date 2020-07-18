@@ -64,6 +64,8 @@ public:
 
     std::vector<Point2D>& nodes();
     void setPoints2D(std::vector<Point2D> points2D);
+
+    void rotate(double angle);
 };
 
 

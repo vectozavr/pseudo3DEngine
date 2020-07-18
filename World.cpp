@@ -211,38 +211,46 @@ bool World::load3DObj(const std::string filename, const std::string texture, dou
 bool World::init_bonuses() {
 
     vector<Bonus> bonuses;
-    bonuses.push_back(Bonus({0, 0}, BonusType::TreatmentBonus, HEALTH_TEXTURE));       // Ths is temp texture
-    bonuses.push_back(Bonus({0, 1}, BonusType::AmmunitionBonus, SHOUT_TEXTURE));       // Ths is temp texture
-    bonuses.push_back(Bonus({0, 2}, BonusType::SpeedBonus, FIRE_SHOTGUN_TEXTURE));     // Ths is temp texture
-    bonuses.push_back(Bonus({0, 3}, BonusType::ViewBonus, SHOTGUN_HANDLE_TEXTURE));    // Ths is temp texture
+    bonuses.push_back(Bonus({0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
+    bonuses.push_back(Bonus({0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
+    bonuses.push_back(Bonus({0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
+    bonuses.push_back(Bonus({0, 3}, BonusType::ViewBonus, VIEW_BONUS_TEXTURE));
 
     for(int b = 0; b < bonuses.size(); b++)
-        if(!addObject2D(std::make_shared<Bonus>(bonuses[b]), "bonus_" + std::to_string(b)))
+        if(addObject2D(std::make_shared<Bonus>(bonuses[b]), "bonus_" + std::to_string(b)))
+            v_bonuses.push_back("bonus_" + std::to_string(b));
+        else
             return false;
 
     return true;
 }
 
 bool World::addBonusPoint(Point2D p) {
-    for(auto v : m_bonus_positions)
-        if(v.first.x == p.x && v.first.y == p.y)
+    for(auto v : v_bonus_positions)
+        if(v.first == p)
             return false;
 
-    m_bonus_positions.insert({p, false});
-    return true;
+    return v_bonus_positions.emplace_back(std::pair<Point2D, bool>(p, false)).second;
 }
 
-Point2D World::clearBonusPoint() {
-    for(auto m : m_bonus_positions)
-        if(!m.second)
+Point2D World::getBonusPoint(Point2D except) {
+    for(auto& m : v_bonus_positions) {
+        if (!m.second && m.first != except) {
+            m.second = true;
             return m.first;
+        }
+    }
 
-    return m_bonus_positions.begin()->first;
+    return v_bonus_positions.begin()->first;
 }
 
 void World::freeBonusPoint(Point2D p) {
-    m_bonus_positions[p] = false;
+    for(auto& v : v_bonus_positions)
+        if(v.first == p)
+            v.second = false;
 }
-void World::busyBonusPoint(Point2D p) {
-    m_bonus_positions[p] = true;
+
+void World::rotateAllBonuses(double angle) {
+    for(auto& bonus : v_bonuses)
+        map_objects[bonus]->rotate(angle);
 }
