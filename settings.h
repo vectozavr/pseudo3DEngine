@@ -51,7 +51,7 @@
 #define SCREEN_HEIGHT 720
 
 #define DISTANCES_SEGMENTS 1280 // How much vertical sectors we use in ray cast
-#define FLOOR_SEGMENT_SIZE 4
+#define FLOOR_SEGMENT_SIZE 8
 
 //BACKGROUND
 #define OUTLINE_BACK_THICKNESS 5
@@ -59,6 +59,8 @@
 #define FILL_BACK_COLOR {255, 255, 255, 255}
 
 //TEXTURES
+
+#define MY_MAC_PATH "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/"
 
 #define WALL_TEXTURE "texture/building_texture.png"
 #define WALL_TEXTURE2 "texture/brickWall2.jpg"

@@ -4,7 +4,7 @@ set(PROJECT_NAME FPSOnline)
 project(${PROJECT_NAME})
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -static")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -static")
 
 set(SOURCE_FILES settings.h Button.cpp Button.h Camera.cpp Camera.h Circle2D.h Circle2D.cpp ClientUDP.cpp ClientUDP.h Idrawable.h main.cpp Menu.cpp Menu.h MsgType.cpp MsgType.h Object2D.cpp Object2D.h ObjectType.h Player.cpp Player.h Point2D.cpp Point2D.h Poligon2D.cpp Poligon2D.h ReliableMsg.cpp ReliableMsg.h ResourceManager.cpp ResourceManager.h ServerUDP.cpp ServerUDP.h Time.cpp Time.h UDPConnection.cpp UDPConnection.h UDPSocket.cpp UDPSocket.h Weapon.cpp Weapon.h World.cpp World.h Map2D.h Point3D.h Point3D.cpp Bonus.h Bonus.cpp)
 

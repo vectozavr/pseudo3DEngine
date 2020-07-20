@@ -6,7 +6,187 @@
 
 #IncludeRegexTransform: 
 
-D:/Libraries/SFML/include/SFML/Audio.hpp
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Bonus.h
+Object2D.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.h
+settings.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Button.h
+SFML/Graphics.hpp
+-
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.h
+Player.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Player.h
+World.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/World.h
+settings.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
+Weapon.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Weapon.h
+SFML/System.hpp
+-
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Circle2D.h
+Object2D.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.h
+settings.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ClientUDP.h
+World.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/World.h
+Camera.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.h
+ReliableMsg.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ReliableMsg.h
+UDPSocket.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/UDPSocket.h
+memory
+-
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Idrawable.h
+SFML/Graphics.hpp
+-
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Menu.h
+SFML/Graphics.hpp
+-
+settings.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
+Camera.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.h
+Button.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Button.h
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/MsgType.h
+SFML/Network.hpp
+-
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.h
+utility
+-
+vector
+-
+cmath
+-
+ResourceManager.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ResourceManager.h
+Idrawable.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Idrawable.h
+ObjectType.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ObjectType.h
+Point2D.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Point2D.h
+settings.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ObjectType.h
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Player.h
+Circle2D.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Circle2D.h
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Point2D.h
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Poligon2D.h
+Object2D.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.h
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ReliableMsg.h
+SFML/Network.hpp
+-
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ResourceManager.h
+SFML/Graphics.hpp
+-
+SFML/Audio.hpp
+-
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ServerUDP.h
+World.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/World.h
+Camera.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.h
+ReliableMsg.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ReliableMsg.h
+UDPSocket.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/UDPSocket.h
+memory
+-
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Time.h
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/UDPConnection.h
+SFML/Network.hpp
+-
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/UDPSocket.h
+memory
+-
+map
+-
+functional
+-
+ReliableMsg.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ReliableMsg.h
+UDPConnection.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/UDPConnection.h
+MsgType.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/MsgType.h
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Weapon.h
+SFML/Audio.hpp
+-
+Idrawable.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Idrawable.h
+settings.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/World.h
+Object2D.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.h
+map
+-
+memory
+-
+Bonus.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Bonus.h
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/main.cpp
+SFML/Audio.hpp
+-
+SFML/Graphics.hpp
+-
+fstream
+-
+settings.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
+Poligon2D.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Poligon2D.h
+World.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/World.h
+Camera.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.h
+Menu.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Menu.h
+Time.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Time.h
+ServerUDP.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ServerUDP.h
+ClientUDP.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/ClientUDP.h
+Object2D.h
+/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.h
+iostream
+-
+
+/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
+SFML/Graphics.hpp
+-
+
+/usr/local/include/SFML/Audio.hpp
 SFML/System.hpp
 -
 SFML/Audio/InputSoundFile.hpp
@@ -36,15 +216,15 @@ SFML/Audio/SoundSource.hpp
 SFML/Audio/SoundStream.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Audio/AlResource.hpp
+/usr/local/include/SFML/Audio/AlResource.hpp
 SFML/Audio/Export.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Audio/Export.hpp
+/usr/local/include/SFML/Audio/Export.hpp
 SFML/Config.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Audio/InputSoundFile.hpp
+/usr/local/include/SFML/Audio/InputSoundFile.hpp
 SFML/Audio/Export.hpp
 -
 SFML/System/NonCopyable.hpp
@@ -56,13 +236,13 @@ string
 algorithm
 -
 
-D:/Libraries/SFML/include/SFML/Audio/Listener.hpp
+/usr/local/include/SFML/Audio/Listener.hpp
 SFML/Audio/Export.hpp
 -
 SFML/System/Vector3.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Audio/Music.hpp
+/usr/local/include/SFML/Audio/Music.hpp
 SFML/Audio/Export.hpp
 -
 SFML/Audio/SoundStream.hpp
@@ -78,7 +258,7 @@ string
 vector
 -
 
-D:/Libraries/SFML/include/SFML/Audio/OutputSoundFile.hpp
+/usr/local/include/SFML/Audio/OutputSoundFile.hpp
 SFML/Audio/Export.hpp
 -
 SFML/System/NonCopyable.hpp
@@ -86,7 +266,7 @@ SFML/System/NonCopyable.hpp
 string
 -
 
-D:/Libraries/SFML/include/SFML/Audio/Sound.hpp
+/usr/local/include/SFML/Audio/Sound.hpp
 SFML/Audio/Export.hpp
 -
 SFML/Audio/SoundSource.hpp
@@ -96,7 +276,7 @@ SFML/System/Time.hpp
 cstdlib
 -
 
-D:/Libraries/SFML/include/SFML/Audio/SoundBuffer.hpp
+/usr/local/include/SFML/Audio/SoundBuffer.hpp
 SFML/Audio/Export.hpp
 -
 SFML/Audio/AlResource.hpp
@@ -110,7 +290,7 @@ vector
 set
 -
 
-D:/Libraries/SFML/include/SFML/Audio/SoundBufferRecorder.hpp
+/usr/local/include/SFML/Audio/SoundBufferRecorder.hpp
 SFML/Audio/Export.hpp
 -
 SFML/Audio/SoundBuffer.hpp
@@ -120,7 +300,7 @@ SFML/Audio/SoundRecorder.hpp
 vector
 -
 
-D:/Libraries/SFML/include/SFML/Audio/SoundFileFactory.hpp
+/usr/local/include/SFML/Audio/SoundFileFactory.hpp
 SFML/Audio/Export.hpp
 -
 string
@@ -130,21 +310,21 @@ vector
 SFML/Audio/SoundFileFactory.inl
 -
 
-D:/Libraries/SFML/include/SFML/Audio/SoundFileFactory.inl
+/usr/local/include/SFML/Audio/SoundFileFactory.inl
 
-D:/Libraries/SFML/include/SFML/Audio/SoundFileReader.hpp
+/usr/local/include/SFML/Audio/SoundFileReader.hpp
 SFML/Audio/Export.hpp
 -
 string
 -
 
-D:/Libraries/SFML/include/SFML/Audio/SoundFileWriter.hpp
+/usr/local/include/SFML/Audio/SoundFileWriter.hpp
 SFML/Audio/Export.hpp
 -
 string
 -
 
-D:/Libraries/SFML/include/SFML/Audio/SoundRecorder.hpp
+/usr/local/include/SFML/Audio/SoundRecorder.hpp
 SFML/Audio/Export.hpp
 -
 SFML/Audio/AlResource.hpp
@@ -158,7 +338,7 @@ vector
 string
 -
 
-D:/Libraries/SFML/include/SFML/Audio/SoundSource.hpp
+/usr/local/include/SFML/Audio/SoundSource.hpp
 SFML/Audio/Export.hpp
 -
 SFML/Audio/AlResource.hpp
@@ -166,7 +346,7 @@ SFML/Audio/AlResource.hpp
 SFML/System/Vector3.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Audio/SoundStream.hpp
+/usr/local/include/SFML/Audio/SoundStream.hpp
 SFML/Audio/Export.hpp
 -
 SFML/Audio/SoundSource.hpp
@@ -180,11 +360,11 @@ SFML/System/Mutex.hpp
 cstdlib
 -
 
-D:/Libraries/SFML/include/SFML/Config.hpp
+/usr/local/include/SFML/Config.hpp
 TargetConditionals.h
-D:/Libraries/SFML/include/SFML/TargetConditionals.h
+/usr/local/include/SFML/TargetConditionals.h
 
-D:/Libraries/SFML/include/SFML/Graphics.hpp
+/usr/local/include/SFML/Graphics.hpp
 SFML/Window.hpp
 -
 SFML/Graphics/BlendMode.hpp
@@ -240,21 +420,21 @@ SFML/Graphics/VertexBuffer.hpp
 SFML/Graphics/View.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/BlendMode.hpp
+/usr/local/include/SFML/Graphics/BlendMode.hpp
 SFML/Graphics/Export.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/CircleShape.hpp
+/usr/local/include/SFML/Graphics/CircleShape.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Shape.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Color.hpp
+/usr/local/include/SFML/Graphics/Color.hpp
 SFML/Graphics/Export.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/ConvexShape.hpp
+/usr/local/include/SFML/Graphics/ConvexShape.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Shape.hpp
@@ -262,17 +442,17 @@ SFML/Graphics/Shape.hpp
 vector
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Drawable.hpp
+/usr/local/include/SFML/Graphics/Drawable.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/RenderStates.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Export.hpp
+/usr/local/include/SFML/Graphics/Export.hpp
 SFML/Config.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Font.hpp
+/usr/local/include/SFML/Graphics/Font.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Glyph.hpp
@@ -292,7 +472,7 @@ string
 vector
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Glsl.hpp
+/usr/local/include/SFML/Graphics/Glsl.hpp
 SFML/Graphics/Transform.hpp
 -
 SFML/Graphics/Color.hpp
@@ -304,15 +484,15 @@ SFML/System/Vector3.hpp
 SFML/Graphics/Glsl.inl
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Glsl.inl
+/usr/local/include/SFML/Graphics/Glsl.inl
 
-D:/Libraries/SFML/include/SFML/Graphics/Glyph.hpp
+/usr/local/include/SFML/Graphics/Glyph.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Rect.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Image.hpp
+/usr/local/include/SFML/Graphics/Image.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Color.hpp
@@ -324,9 +504,9 @@ string
 vector
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/PrimitiveType.hpp
+/usr/local/include/SFML/Graphics/PrimitiveType.hpp
 
-D:/Libraries/SFML/include/SFML/Graphics/Rect.hpp
+/usr/local/include/SFML/Graphics/Rect.hpp
 SFML/System/Vector2.hpp
 -
 algorithm
@@ -334,15 +514,15 @@ algorithm
 SFML/Graphics/Rect.inl
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Rect.inl
+/usr/local/include/SFML/Graphics/Rect.inl
 
-D:/Libraries/SFML/include/SFML/Graphics/RectangleShape.hpp
+/usr/local/include/SFML/Graphics/RectangleShape.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Shape.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/RenderStates.hpp
+/usr/local/include/SFML/Graphics/RenderStates.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/BlendMode.hpp
@@ -350,7 +530,7 @@ SFML/Graphics/BlendMode.hpp
 SFML/Graphics/Transform.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/RenderTarget.hpp
+/usr/local/include/SFML/Graphics/RenderTarget.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Color.hpp
@@ -372,7 +552,7 @@ SFML/Graphics/Vertex.hpp
 SFML/System/NonCopyable.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/RenderTexture.hpp
+/usr/local/include/SFML/Graphics/RenderTexture.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Texture.hpp
@@ -382,7 +562,7 @@ SFML/Graphics/RenderTarget.hpp
 SFML/Window/ContextSettings.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/RenderWindow.hpp
+/usr/local/include/SFML/Graphics/RenderWindow.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/RenderTarget.hpp
@@ -394,7 +574,7 @@ SFML/Window/Window.hpp
 string
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Shader.hpp
+/usr/local/include/SFML/Graphics/Shader.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Glsl.hpp
@@ -412,7 +592,7 @@ map
 string
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Shape.hpp
+/usr/local/include/SFML/Graphics/Shape.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Drawable.hpp
@@ -424,7 +604,7 @@ SFML/Graphics/VertexArray.hpp
 SFML/System/Vector2.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Sprite.hpp
+/usr/local/include/SFML/Graphics/Sprite.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Drawable.hpp
@@ -436,7 +616,7 @@ SFML/Graphics/Vertex.hpp
 SFML/Graphics/Rect.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Text.hpp
+/usr/local/include/SFML/Graphics/Text.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Drawable.hpp
@@ -456,7 +636,7 @@ string
 vector
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Texture.hpp
+/usr/local/include/SFML/Graphics/Texture.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Image.hpp
@@ -464,7 +644,7 @@ SFML/Graphics/Image.hpp
 SFML/Window/GlResource.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Transform.hpp
+/usr/local/include/SFML/Graphics/Transform.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Rect.hpp
@@ -472,13 +652,13 @@ SFML/Graphics/Rect.hpp
 SFML/System/Vector2.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Transformable.hpp
+/usr/local/include/SFML/Graphics/Transformable.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Transform.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/Vertex.hpp
+/usr/local/include/SFML/Graphics/Vertex.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Color.hpp
@@ -486,7 +666,7 @@ SFML/Graphics/Color.hpp
 SFML/System/Vector2.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/VertexArray.hpp
+/usr/local/include/SFML/Graphics/VertexArray.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Vertex.hpp
@@ -500,7 +680,7 @@ SFML/Graphics/Drawable.hpp
 vector
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/VertexBuffer.hpp
+/usr/local/include/SFML/Graphics/VertexBuffer.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/PrimitiveType.hpp
@@ -510,7 +690,7 @@ SFML/Graphics/Drawable.hpp
 SFML/Window/GlResource.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Graphics/View.hpp
+/usr/local/include/SFML/Graphics/View.hpp
 SFML/Graphics/Export.hpp
 -
 SFML/Graphics/Rect.hpp
@@ -520,7 +700,7 @@ SFML/Graphics/Transform.hpp
 SFML/System/Vector2.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Network.hpp
+/usr/local/include/SFML/Network.hpp
 SFML/System.hpp
 -
 SFML/Network/Ftp.hpp
@@ -544,11 +724,11 @@ SFML/Network/TcpSocket.hpp
 SFML/Network/UdpSocket.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Network/Export.hpp
+/usr/local/include/SFML/Network/Export.hpp
 SFML/Config.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Network/Ftp.hpp
+/usr/local/include/SFML/Network/Ftp.hpp
 SFML/Network/Export.hpp
 -
 SFML/Network/TcpSocket.hpp
@@ -562,7 +742,7 @@ string
 vector
 -
 
-D:/Libraries/SFML/include/SFML/Network/Http.hpp
+/usr/local/include/SFML/Network/Http.hpp
 SFML/Network/Export.hpp
 -
 SFML/Network/IpAddress.hpp
@@ -578,7 +758,7 @@ map
 string
 -
 
-D:/Libraries/SFML/include/SFML/Network/IpAddress.hpp
+/usr/local/include/SFML/Network/IpAddress.hpp
 SFML/Network/Export.hpp
 -
 SFML/System/Time.hpp
@@ -590,7 +770,7 @@ ostream
 string
 -
 
-D:/Libraries/SFML/include/SFML/Network/Packet.hpp
+/usr/local/include/SFML/Network/Packet.hpp
 SFML/Network/Export.hpp
 -
 string
@@ -598,7 +778,7 @@ string
 vector
 -
 
-D:/Libraries/SFML/include/SFML/Network/Socket.hpp
+/usr/local/include/SFML/Network/Socket.hpp
 SFML/Network/Export.hpp
 -
 SFML/Network/SocketHandle.hpp
@@ -608,19 +788,19 @@ SFML/System/NonCopyable.hpp
 vector
 -
 
-D:/Libraries/SFML/include/SFML/Network/SocketHandle.hpp
+/usr/local/include/SFML/Network/SocketHandle.hpp
 SFML/Config.hpp
 -
 basetsd.h
 -
 
-D:/Libraries/SFML/include/SFML/Network/SocketSelector.hpp
+/usr/local/include/SFML/Network/SocketSelector.hpp
 SFML/Network/Export.hpp
 -
 SFML/System/Time.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Network/TcpListener.hpp
+/usr/local/include/SFML/Network/TcpListener.hpp
 SFML/Network/Export.hpp
 -
 SFML/Network/Socket.hpp
@@ -628,7 +808,7 @@ SFML/Network/Socket.hpp
 SFML/Network/IpAddress.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Network/TcpSocket.hpp
+/usr/local/include/SFML/Network/TcpSocket.hpp
 SFML/Network/Export.hpp
 -
 SFML/Network/Socket.hpp
@@ -636,7 +816,7 @@ SFML/Network/Socket.hpp
 SFML/System/Time.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Network/UdpSocket.hpp
+/usr/local/include/SFML/Network/UdpSocket.hpp
 SFML/Network/Export.hpp
 -
 SFML/Network/Socket.hpp
@@ -646,7 +826,7 @@ SFML/Network/IpAddress.hpp
 vector
 -
 
-D:/Libraries/SFML/include/SFML/System.hpp
+/usr/local/include/SFML/System.hpp
 SFML/Config.hpp
 -
 SFML/System/Clock.hpp
@@ -684,23 +864,23 @@ SFML/System/Vector2.hpp
 SFML/System/Vector3.hpp
 -
 
-D:/Libraries/SFML/include/SFML/System/Clock.hpp
+/usr/local/include/SFML/System/Clock.hpp
 SFML/System/Export.hpp
 -
 SFML/System/Time.hpp
 -
 
-D:/Libraries/SFML/include/SFML/System/Err.hpp
+/usr/local/include/SFML/System/Err.hpp
 SFML/System/Export.hpp
 -
 ostream
 -
 
-D:/Libraries/SFML/include/SFML/System/Export.hpp
+/usr/local/include/SFML/System/Export.hpp
 SFML/Config.hpp
 -
 
-D:/Libraries/SFML/include/SFML/System/FileInputStream.hpp
+/usr/local/include/SFML/System/FileInputStream.hpp
 SFML/Config.hpp
 -
 SFML/System/Export.hpp
@@ -714,19 +894,19 @@ cstdio
 string
 -
 
-D:/Libraries/SFML/include/SFML/System/InputStream.hpp
+/usr/local/include/SFML/System/InputStream.hpp
 SFML/Config.hpp
 -
 SFML/System/Export.hpp
 -
 
-D:/Libraries/SFML/include/SFML/System/Lock.hpp
+/usr/local/include/SFML/System/Lock.hpp
 SFML/System/Export.hpp
 -
 SFML/System/NonCopyable.hpp
 -
 
-D:/Libraries/SFML/include/SFML/System/MemoryInputStream.hpp
+/usr/local/include/SFML/System/MemoryInputStream.hpp
 SFML/Config.hpp
 -
 SFML/System/InputStream.hpp
@@ -736,23 +916,23 @@ SFML/System/Export.hpp
 cstdlib
 -
 
-D:/Libraries/SFML/include/SFML/System/Mutex.hpp
+/usr/local/include/SFML/System/Mutex.hpp
 SFML/System/Export.hpp
 -
 SFML/System/NonCopyable.hpp
 -
 
-D:/Libraries/SFML/include/SFML/System/NonCopyable.hpp
+/usr/local/include/SFML/System/NonCopyable.hpp
 SFML/System/Export.hpp
 -
 
-D:/Libraries/SFML/include/SFML/System/Sleep.hpp
+/usr/local/include/SFML/System/Sleep.hpp
 SFML/System/Export.hpp
 -
 SFML/System/Time.hpp
 -
 
-D:/Libraries/SFML/include/SFML/System/String.hpp
+/usr/local/include/SFML/System/String.hpp
 SFML/System/Export.hpp
 -
 SFML/System/Utf.hpp
@@ -766,9 +946,9 @@ string
 SFML/System/String.inl
 -
 
-D:/Libraries/SFML/include/SFML/System/String.inl
+/usr/local/include/SFML/System/String.inl
 
-D:/Libraries/SFML/include/SFML/System/Thread.hpp
+/usr/local/include/SFML/System/Thread.hpp
 SFML/System/Export.hpp
 -
 SFML/System/NonCopyable.hpp
@@ -778,9 +958,9 @@ cstdlib
 SFML/System/Thread.inl
 -
 
-D:/Libraries/SFML/include/SFML/System/Thread.inl
+/usr/local/include/SFML/System/Thread.inl
 
-D:/Libraries/SFML/include/SFML/System/ThreadLocal.hpp
+/usr/local/include/SFML/System/ThreadLocal.hpp
 SFML/System/Export.hpp
 -
 SFML/System/NonCopyable.hpp
@@ -788,19 +968,19 @@ SFML/System/NonCopyable.hpp
 cstdlib
 -
 
-D:/Libraries/SFML/include/SFML/System/ThreadLocalPtr.hpp
+/usr/local/include/SFML/System/ThreadLocalPtr.hpp
 SFML/System/ThreadLocal.hpp
 -
 SFML/System/ThreadLocalPtr.inl
 -
 
-D:/Libraries/SFML/include/SFML/System/ThreadLocalPtr.inl
+/usr/local/include/SFML/System/ThreadLocalPtr.inl
 
-D:/Libraries/SFML/include/SFML/System/Time.hpp
+/usr/local/include/SFML/System/Time.hpp
 SFML/System/Export.hpp
 -
 
-D:/Libraries/SFML/include/SFML/System/Utf.hpp
+/usr/local/include/SFML/System/Utf.hpp
 SFML/Config.hpp
 -
 algorithm
@@ -814,21 +994,21 @@ cstdlib
 SFML/System/Utf.inl
 -
 
-D:/Libraries/SFML/include/SFML/System/Utf.inl
+/usr/local/include/SFML/System/Utf.inl
 
-D:/Libraries/SFML/include/SFML/System/Vector2.hpp
+/usr/local/include/SFML/System/Vector2.hpp
 SFML/System/Vector2.inl
 -
 
-D:/Libraries/SFML/include/SFML/System/Vector2.inl
+/usr/local/include/SFML/System/Vector2.inl
 
-D:/Libraries/SFML/include/SFML/System/Vector3.hpp
+/usr/local/include/SFML/System/Vector3.hpp
 SFML/System/Vector3.inl
 -
 
-D:/Libraries/SFML/include/SFML/System/Vector3.inl
+/usr/local/include/SFML/System/Vector3.inl
 
-D:/Libraries/SFML/include/SFML/Window.hpp
+/usr/local/include/SFML/Window.hpp
 SFML/System.hpp
 -
 SFML/Window/Clipboard.hpp
@@ -860,13 +1040,13 @@ SFML/Window/WindowHandle.hpp
 SFML/Window/WindowStyle.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Window/Clipboard.hpp
+/usr/local/include/SFML/Window/Clipboard.hpp
 SFML/Window/Export.hpp
 -
 SFML/System/String.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Window/Context.hpp
+/usr/local/include/SFML/Window/Context.hpp
 SFML/Window/Export.hpp
 -
 SFML/Window/GlResource.hpp
@@ -876,11 +1056,11 @@ SFML/Window/ContextSettings.hpp
 SFML/System/NonCopyable.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Window/ContextSettings.hpp
+/usr/local/include/SFML/Window/ContextSettings.hpp
 SFML/Config.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Window/Cursor.hpp
+/usr/local/include/SFML/Window/Cursor.hpp
 SFML/Window/Export.hpp
 -
 SFML/System/NonCopyable.hpp
@@ -888,7 +1068,7 @@ SFML/System/NonCopyable.hpp
 SFML/System/Vector2.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Window/Event.hpp
+/usr/local/include/SFML/Window/Event.hpp
 SFML/Config.hpp
 -
 SFML/Window/Joystick.hpp
@@ -900,33 +1080,33 @@ SFML/Window/Mouse.hpp
 SFML/Window/Sensor.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Window/Export.hpp
+/usr/local/include/SFML/Window/Export.hpp
 SFML/Config.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Window/GlResource.hpp
+/usr/local/include/SFML/Window/GlResource.hpp
 SFML/Window/Export.hpp
 -
 SFML/System/NonCopyable.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Window/Joystick.hpp
+/usr/local/include/SFML/Window/Joystick.hpp
 SFML/Window/Export.hpp
 -
 SFML/System/String.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Window/Keyboard.hpp
+/usr/local/include/SFML/Window/Keyboard.hpp
 SFML/Window/Export.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Window/Mouse.hpp
+/usr/local/include/SFML/Window/Mouse.hpp
 SFML/Window/Export.hpp
 -
 SFML/System/Vector2.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Window/Sensor.hpp
+/usr/local/include/SFML/Window/Sensor.hpp
 SFML/Window/Export.hpp
 -
 SFML/System/Vector3.hpp
@@ -934,19 +1114,19 @@ SFML/System/Vector3.hpp
 SFML/System/Time.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Window/Touch.hpp
+/usr/local/include/SFML/Window/Touch.hpp
 SFML/Window/Export.hpp
 -
 SFML/System/Vector2.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Window/VideoMode.hpp
+/usr/local/include/SFML/Window/VideoMode.hpp
 SFML/Window/Export.hpp
 -
 vector
 -
 
-D:/Libraries/SFML/include/SFML/Window/Window.hpp
+/usr/local/include/SFML/Window/Window.hpp
 SFML/Window/ContextSettings.hpp
 -
 SFML/Window/Cursor.hpp
@@ -970,141 +1150,9 @@ SFML/System/String.hpp
 SFML/System/Vector2.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Window/WindowHandle.hpp
+/usr/local/include/SFML/Window/WindowHandle.hpp
 SFML/Config.hpp
 -
 
-D:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Bonus.h
-Object2D.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Object2D.h
-settings.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/settings.h
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Camera.h
-Player.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Player.h
-World.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/World.h
-settings.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/settings.h
-Weapon.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Weapon.h
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Circle2D.h
-Object2D.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Object2D.h
-settings.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/settings.h
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/ClientUDP.cpp
-ClientUDP.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/ClientUDP.h
-Time.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Time.h
-MsgType.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/MsgType.h
-settings.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/settings.h
-thread
--
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/ClientUDP.h
-World.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/World.h
-Camera.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Camera.h
-ReliableMsg.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/ReliableMsg.h
-UDPSocket.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/UDPSocket.h
-memory
--
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Idrawable.h
-SFML/Graphics.hpp
--
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/MsgType.h
-SFML/Network.hpp
--
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Object2D.h
-utility
--
-vector
--
-cmath
--
-ResourceManager.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/ResourceManager.h
-Idrawable.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Idrawable.h
-ObjectType.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/ObjectType.h
-Point2D.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Point2D.h
-settings.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/settings.h
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/ObjectType.h
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Player.h
-Circle2D.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Circle2D.h
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Point2D.h
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/ReliableMsg.h
-SFML/Network.hpp
--
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/ResourceManager.h
-SFML/Graphics.hpp
--
-SFML/Audio.hpp
--
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Time.h
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/UDPConnection.h
-SFML/Network.hpp
--
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/UDPSocket.h
-memory
--
-map
--
-functional
--
-ReliableMsg.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/ReliableMsg.h
-UDPConnection.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/UDPConnection.h
-MsgType.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/MsgType.h
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Weapon.h
-SFML/Audio.hpp
--
-Idrawable.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Idrawable.h
-settings.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/settings.h
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/World.h
-Object2D.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Object2D.h
-map
--
-memory
--
-Bonus.h
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/Bonus.h
-
-D:/ivan/Study/C & C++/problems4/pseudo3DEngine/settings.h
-SFML/Graphics.hpp
--
+/usr/local/include/SFML/Window/WindowStyle.hpp
 

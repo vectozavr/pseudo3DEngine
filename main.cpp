@@ -58,7 +58,7 @@ int main()
 {
     // Window should be created first because of drawing context.
     sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Pseudo3DEngine");
-    window.setFramerateLimit(60);
+    window.setFramerateLimit(140);
 
     // Sounds
     /*
@@ -68,7 +68,6 @@ int main()
     music.setLoop(true);
     music.play();
     */
-
 
     sf::Music backSounds;
     backSounds.openFromFile("sounds/backSounds.ogg");
@@ -185,6 +184,7 @@ int main()
                     backSounds.play();
                     //music.pause();
                 }
+                //camera->updateDistances(world);
             }
         }
         window.display();

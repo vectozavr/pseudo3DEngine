@@ -9,6 +9,7 @@
 #include "World.h"
 #include "settings.h"
 #include "Weapon.h"
+#include <SFML/System.hpp>
 
 class ClientUDP;
 
@@ -83,6 +84,13 @@ private:
     std::pair<Object2D*, double> cameraRayCheck(RayCastStructure& structure);
 
     static void drawHealth(sf::RenderTarget& window, int x, int y, int width, int health);
+
+    void updateDistances_from_to(int from, int to);
+    void updateHiddenDistances_from_to(int from, int to);
+
+    void recursiveDrawing_from_to(sf::RenderTarget* window, int from, int to);
+
+    std::mutex m;
 
 public:
     ClientUDP* client = nullptr;

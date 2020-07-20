@@ -5,240 +5,233 @@
 		<Option title="FPSOnline"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\Libraries\;CMake Files\..\..\..\..\..\Libraries\SFML\;CMake Files\..\..\..\..\..\Libraries\SFML\lib\;CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\;CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\usr\local\lib\cmake\SFML\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug"/>
+				<Option working_dir="/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="FPSOnline">
-				<Option output="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/FPSOnline.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add option="-DSFML_STATIC"/>
-					<Add directory="D:/Libraries/SFML/include"/>
-					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
-					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
-					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
-					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
-					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 FPSOnline"/>
-					<CompileFile command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="FPSOnline/fast">
-				<Option output="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/FPSOnline.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add option="-DSFML_STATIC"/>
-					<Add directory="D:/Libraries/SFML/include"/>
-					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
-					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
-					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
-					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
-					<Add directory="D:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 FPSOnline/fast"/>
-					<CompileFile command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug"/>
+				<Option working_dir="/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/mingw64/bin/mingw32-make.exe -f &quot;D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="FPSOnline">
+				<Option output="/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/FPSOnline" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 FPSOnline"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="FPSOnline/fast">
+				<Option output="/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/FPSOnline" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 FPSOnline/fast"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Bonus.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Bonus.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Bonus.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Bonus.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Button.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Button.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Button.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Button.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Camera.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Camera.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Circle2D.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Circle2D.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Circle2D.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Circle2D.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/ClientUDP.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/ClientUDP.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/ClientUDP.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/ClientUDP.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Idrawable.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Idrawable.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Map2D.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Map2D.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Menu.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Menu.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Menu.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Menu.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/MsgType.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/MsgType.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/MsgType.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/MsgType.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Object2D.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Object2D.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/ObjectType.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/ObjectType.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Player.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Player.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Player.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Player.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Point2D.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Point2D.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Point2D.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Point2D.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Point3D.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Point3D.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Point3D.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Point3D.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Poligon2D.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Poligon2D.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Poligon2D.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Poligon2D.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/ReliableMsg.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/ReliableMsg.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/ReliableMsg.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/ReliableMsg.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/ResourceManager.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/ResourceManager.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/ResourceManager.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/ResourceManager.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/ServerUDP.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/ServerUDP.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/ServerUDP.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/ServerUDP.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Time.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Time.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Time.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Time.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/UDPConnection.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/UDPConnection.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/UDPConnection.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/UDPConnection.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/UDPSocket.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/UDPSocket.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/UDPSocket.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/UDPSocket.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Weapon.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Weapon.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/Weapon.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Weapon.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/World.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/World.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/World.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/World.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/main.cpp">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/main.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/settings.h">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h">
 			<Option target="FPSOnline"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/CMakeLists.txt">
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/../../../../../Libraries/SFML/lib/cmake/SFML/SFMLConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/../../../../usr/local/lib/cmake/SFML/SFMLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/../../../../../Libraries/SFML/lib/cmake/SFML/SFMLConfigDependencies.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/../../../../usr/local/lib/cmake/SFML/SFMLConfigDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/../../../../../Libraries/SFML/lib/cmake/SFML/SFMLConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/../../../../usr/local/lib/cmake/SFML/SFMLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/../../../../../Libraries/SFML/lib/cmake/SFML/SFMLStaticTargets-debug.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/../../../../usr/local/lib/cmake/SFML/SFMLSharedTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/../../../../../Libraries/SFML/lib/cmake/SFML/SFMLStaticTargets-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
-		</Unit>
-		<Unit filename="D:/ivan/Study/C &amp; C++/problems4/pseudo3DEngine/../../../../../Libraries/SFML/lib/cmake/SFML/SFMLStaticTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/../../../../usr/local/lib/cmake/SFML/SFMLSharedTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\SFML\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>
