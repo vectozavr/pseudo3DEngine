@@ -478,12 +478,14 @@ bool Camera::keyboardControl(double elapsedTime, sf::RenderWindow& window)
     }
 
     // Mouse movement
-    int difference = sf::Mouse::getPosition(window).x - (int)window.getSize().x / 2;
+    int differenceX = sf::Mouse::getPosition(window).x - (int)window.getSize().x / 2;
+    int differenceY = sf::Mouse::getPosition(window).y - (int)window.getSize().y / 2;
     sf::Mouse::setPosition({ (int)window.getSize().x / 2, (int)window.getSize().y / 2 }, window);
     // Ignoring first frame after window focus or game start
     if (b_hadFocus)
     {
-        d_direction += d_viewSpeed * difference;
+        d_direction += d_viewSpeed * differenceX;
+        d_verticalShift += 0*d_viewSpeed * differenceY;
     }
 
     // Start/stop walk sound
@@ -555,12 +557,12 @@ void Camera::drawVerticalStrip(sf::RenderTarget& window, const RayCastStructure&
             polygon.setFillColor({ 255, 255, 255, static_cast<sf::Uint8>(255 - alpha) });
 
         //polygon.setOutlineThickness(0); // we can make non zero thickness for debug
-        polygon.setPosition((float)(shift * SCREEN_WIDTH / DISTANCES_SEGMENTS), 0);
+        polygon.setPosition((float)(shift * SCREEN_WIDTH / DISTANCES_SEGMENTS), d_verticalShift);
 
         sf::Sprite sprite;
         if (obj.object && b_textures)
         {
-            sprite.setPosition(sf::Vector2f((float)shift * SCREEN_WIDTH / DISTANCES_SEGMENTS, (float)h1)); // absolute position
+            sprite.setPosition(sf::Vector2f((float)shift * SCREEN_WIDTH / DISTANCES_SEGMENTS, (float)h1 + d_verticalShift)); // absolute position
             int left;
             int top, finalTop;
             int bot, finalBot;
@@ -621,7 +623,7 @@ void Camera::drawVerticalStrip(sf::RenderTarget& window, const RayCastStructure&
     double horMod = horizontalCos[horIndex] * directionCos - horizontalSin[horIndex] * directionSin;// cos (horizontalAngles[shift] + d_direction) = cos a * cos b - sin a * sin b
     double verMod = horizontalSin[horIndex] * directionCos + horizontalCos[horIndex] * directionSin;// sin (horizontalAngles[shift] + d_direction) = sin a * cos b + cos a * sin b
 
-    for (int z = h2; z < SCREEN_HEIGHT; z += FLOOR_SEGMENT_SIZE)
+    for (int z = h2 + d_verticalShift; z < SCREEN_HEIGHT; z += FLOOR_SEGMENT_SIZE)
     {
         double offset = baseOffset / verticalTan[z];
         int left = (int)(scale * (position().x + offset * horMod));
@@ -707,7 +709,7 @@ void Camera::drawCameraView(sf::RenderTarget& window)
         sf::Sprite sprite_sky;
         sprite_sky.setTexture(W_world.skyTexture());
         sprite_sky.setTextureRect(sf::IntRect((int)(d_direction * SCREEN_WIDTH / 2), sprite_sky.getTextureRect().height - SCREEN_HEIGHT/2 - 540, SCREEN_WIDTH, SCREEN_HEIGHT));
-        sprite_sky.setPosition(sf::Vector2f(0, 0)); // absolute position
+        sprite_sky.setPosition(sf::Vector2f(0, d_verticalShift)); // absolute position
         window.draw(sprite_sky);
         W_world.floor().setRotation(static_cast<float>(-d_direction / PI * 180 - 90));
 
