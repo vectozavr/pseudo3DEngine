@@ -23,8 +23,36 @@ Camera::Camera(World& world, Point2D position, double vPos, double height, doubl
 
     setFieldOfView(fieldOfView);
 
-    for(int i = 0; i < DISTANCES_SEGMENTS; i++)
-        v_distances.emplace_back();
+    v_distances.resize(DISTANCES_SEGMENTS);
+#ifdef BACKGROUND_THREADS
+    oldDistances.resize(DISTANCES_SEGMENTS);
+#endif
+
+    int threadCount = thread::hardware_concurrency();
+    threads.resize(threadCount);
+    status.resize(threadCount);
+
+    startM.lock();
+    for(int i = 0; i < threadCount; i++) {
+        status[i] = 0;
+        threads[i] = make_shared<thread>(&Camera::updateThread, this, i, threadCount);
+    }
+    finished = 0;
+    startM.unlock();
+    startCV.notify_all();
+}
+
+Camera::~Camera() {
+    startM.lock();
+    for (auto& s : status)
+        s = -1;
+    startM.unlock();
+
+    startCV.notify_all();
+
+    for (auto t : threads)
+        if (t->joinable())
+            t->join();
 }
 
 void Camera::setFieldOfView(double angle) {
@@ -178,7 +206,6 @@ void Camera::objectsRayCrossed(const pair<Point2D, Point2D>& ray, std::vector<Ra
     // Sort hits by descending of distance
     std::sort(v_rayCastStruct.begin(), v_rayCastStruct.end(), [](const RayCastStructure& lh, const RayCastStructure& rh) { return lh.distance > rh.distance; });
 
-    m.lock();
     // collision
     if (b_collision && name == getName() && COLLISION_AREA >= closest)
     {
@@ -187,11 +214,14 @@ void Camera::objectsRayCrossed(const pair<Point2D, Point2D>& ray, std::vector<Ra
         newCollision.edge = std::move(edge);
         newCollision.collisionPoint = nearCross;
         newCollision.height = W_world[nearObject]->height();
+        collisionM.lock();
         allCollisions.push_back(newCollision);
+        collisionM.unlock();
     }
     // Bonus collision
     if (!nearObject.empty() && name == getName() && (W_world[nearObject]->position() - position()).abs() <= COLLISION_AREA && W_world[nearObject]->type() == ObjectType::Bonus)
     {
+        bonusM.lock();
         if(reinterpret_cast<Bonus*>(W_world[nearObject].get())->bonusType() == BonusType::TreatmentBonus)
             client->shoot(getName(), -100, 1);
         if(reinterpret_cast<Bonus*>(W_world[nearObject].get())->bonusType() == BonusType::AmmunitionBonus)
@@ -209,8 +239,8 @@ void Camera::objectsRayCrossed(const pair<Point2D, Point2D>& ray, std::vector<Ra
         W_world.freeBonusPoint(W_world[nearObject].get()->position());      // free this place for another bonus
         W_world[nearObject]->setPosition(W_world.getBonusPoint(W_world[nearObject].get()->position()));     // change the position of this bonus and mark this
                                                                                 // position as busy.
+        bonusM.unlock();
     }
-    m.unlock();
 }
 
 // Find objects crossed by ray near enough for collisions.
@@ -242,14 +272,14 @@ void Camera::hiddenObjectsRayCrossed(const pair<Point2D, Point2D>& ray, const st
     // If something was hitted close enough - write it
     if (obj)
     {
-        m.lock();
         CollisionInformation newCollision;
         newCollision.distance = (nearCross - position()).abs();
         newCollision.edge = std::move(edge);
         newCollision.collisionPoint = nearCross;
         newCollision.height = obj->height();
+        collisionM.lock();
         allCollisions.push_back(newCollision);
-        m.unlock();
+        collisionM.unlock();
     }
 }
 
@@ -289,61 +319,78 @@ void Camera::updateHiddenDistances_from_to(int from, int to) {
     }
 }
 
+void Camera::updateThread(int i, int n) {
+    int segs = static_cast<int>(2 * PI / d_fieldOfView * DISTANCES_SEGMENTS);
+    int step1 = static_cast<int>(v_distances.size() / n);
+    int step2 = static_cast<int>((segs - DISTANCES_SEGMENTS) / n);
+    
+    int from1 = i * step1;
+    int from2 = DISTANCES_SEGMENTS + i * step2;
+    int to1 = from1 + step1;
+    int to2 = from2 + step2;
+    if (i == n - 1) {
+        int to1 = v_distances.size();
+        int to2 = segs;
+    }
+
+    unique_lock<mutex> lk(startM);
+    while (true) {
+        startCV.wait(lk, [this, i] {return status[i] != 1; });
+        // Camera destructor
+        if (status[i] == -1)
+            return;
+        // Work
+        updateDistances_from_to(from1, to1);
+        updateHiddenDistances_from_to(from2, to2);
+
+        // Notify main thread about finished work
+        endM.lock();
+        status[i] = 1;
+        finished += 1;
+        endM.unlock();
+        endCV.notify_one();
+    }
+}
+
 // Check all directions for collisions and walls
 void Camera::updateDistances(const World& world)
 {
-    //v_distances.clear();
+#ifdef BACKGROUND_THREADS
+    unique_lock<mutex> lk(endM);
+    endCV.wait(lk, [this] {return finished == thread::hardware_concurrency(); });
+
+    startM.lock();
+    oldDistances.swap(v_distances);
+    oldCollisions.clear();
+    oldCollisions.swap(allCollisions);
+
+    for (auto& s : status)
+        s = 0;
+    finished = 0;
+    startM.unlock();
+    startCV.notify_all();
+#else
+    startM.lock();
     allCollisions.clear();
+    finished = 0;
+    for (auto& s : status)
+        s = 0;
+    startM.unlock();
+    startCV.notify_all();
 
-    int segs = static_cast<int>(2 * PI / d_fieldOfView * DISTANCES_SEGMENTS);
-
-    // -----------------------
-
-    vector<shared_ptr<thread>> threads;
-    for(int i = 0; i < thread::hardware_concurrency(); i++) {
-        int step = static_cast<int>(v_distances.size()/thread::hardware_concurrency());
-
-        int from    = i * step;
-        int to      = from + step;
-        if(i == thread::hardware_concurrency() - 1)
-            to      = v_distances.size();
-
-        threads.emplace_back(shared_ptr<thread>(new thread(&Camera::updateDistances_from_to, this, from, to)));
-    }
-
-    for(auto& t : threads)
-        if(t->joinable())
-            t->join();
-
-    threads.clear();
-    // -----------------------
-
-    // Invisible for player segments
-    if (!b_collision)
-        return;
-
-    for(int i = 0; i < thread::hardware_concurrency(); i++) {
-        int step = static_cast<int>((segs - DISTANCES_SEGMENTS)/thread::hardware_concurrency());
-
-        int from    = DISTANCES_SEGMENTS + i * step;
-        int to      = from + step;
-        if(i == thread::hardware_concurrency() - 1)
-            to      = segs;
-
-        threads.emplace_back(shared_ptr<thread>(new thread(&Camera::updateHiddenDistances_from_to, this, from, to)));
-    }
-
-    for(auto& t : threads)
-        if(t->joinable())
-            t->join();
-
-    threads.clear();
+    unique_lock<mutex> lk(endM);
+    endCV.wait(lk, [this] {return finished == thread::hardware_concurrency(); });
+#endif
 }
 
 // Draw camera on 2d map
 void Camera::draw(sf::RenderTarget& window)
 {
+#ifdef BACKGROUND_THREADS
+    if (oldDistances.empty() || health() <= 0)
+#else
     if (v_distances.empty() || health() <= 0)
+#endif
         return;
 
     sf::CircleShape circle;
@@ -361,8 +408,13 @@ void Camera::draw(sf::RenderTarget& window)
     triangle.setPoint(0, sf::Vector2f(0, 0));
     for (int i = 0; i <= CONVEX_NUMBER; i++)
     {
+#ifdef BACKGROUND_THREADS
+        int index = oldDistances[(int)i * DISTANCES_SEGMENTS / CONVEX_NUMBER].size() - 1;
+        triangle.setPoint(i + 1, sf::Vector2f(static_cast<float>(oldDistances[i * DISTANCES_SEGMENTS / CONVEX_NUMBER][index].distance * cos(left + (right - left) * i / CONVEX_NUMBER) * SCALE), static_cast<float>(oldDistances[i * DISTANCES_SEGMENTS / CONVEX_NUMBER][index].distance * sin(left + (right - left) * i / CONVEX_NUMBER) * SCALE)));
+#else
         int index = v_distances[(int)i * DISTANCES_SEGMENTS / CONVEX_NUMBER].size() - 1;
         triangle.setPoint(i + 1, sf::Vector2f(static_cast<float>(v_distances[i * DISTANCES_SEGMENTS / CONVEX_NUMBER][index].distance * cos(left + (right - left) * i / CONVEX_NUMBER) * SCALE), static_cast<float>(v_distances[i * DISTANCES_SEGMENTS / CONVEX_NUMBER][index].distance * sin(left + (right - left) * i / CONVEX_NUMBER) * SCALE)));
+#endif
     }
     triangle.setOutlineColor(OUTLINE_CAMERA_COLOR);
     triangle.setFillColor(FILED_OF_VEW_COLOR);
@@ -596,16 +648,16 @@ void Camera::drawVerticalStrip(sf::RenderTarget& window, const RayCastStructure&
 
             sprite.setColor({ static_cast<sf::Uint8>(alpha), static_cast<sf::Uint8>(alpha), static_cast<sf::Uint8>(alpha), 255 });
             sprite.setTextureRect(sf::IntRect(left, finalTop, SCREEN_WIDTH / DISTANCES_SEGMENTS, finalBot - finalTop));
-            m.lock();
+            renderM.lock();
             window.draw(sprite);
-            m.unlock();
+            renderM.unlock();
         }
 
         if(!b_textures)
             if (abs(obj.distance - d_depth) > 0.001) {
-                m.lock();
+                renderM.lock();
                 window.draw(polygon);
-                m.unlock();
+                renderM.unlock();
             }
 
         mirrorTop = h1;
@@ -640,9 +692,9 @@ void Camera::drawVerticalStrip(sf::RenderTarget& window, const RayCastStructure&
         floor.setTextureRect(sf::IntRect(left, top, FLOOR_SEGMENT_SIZE, FLOOR_SEGMENT_SIZE));
         floor.setPosition(sf::Vector2f((float)x, (float)z)); // absolute position
         floor.setColor({ 255, 255, 255, static_cast<sf::Uint8>(alpha2) });
-        m.lock();
+        renderM.lock();
         window.draw(floor);
-        m.unlock();
+        renderM.unlock();
     }
 }
 
@@ -666,8 +718,12 @@ void Camera::recursiveDrawing(sf::RenderTarget& window, const std::vector<RayCas
 }
 
 void Camera::recursiveDrawing_from_to(sf::RenderTarget* window, int from, int to) {
-    for(int i = from; i < to; i++)
+    for (int i = from; i < to; i++)
+#ifdef BACKGROUND_THREADS
+        recursiveDrawing(*window, oldDistances[i], i);
+#else
         recursiveDrawing(*window, v_distances[i], i);
+#endif
 }
 
 void Camera::drawHealth(sf::RenderTarget& window, int xPos, int yPos, int width, int healthProgress)
@@ -697,7 +753,11 @@ void Camera::drawHealth(sf::RenderTarget& window, int xPos, int yPos, int width,
 
 void Camera::drawCameraView(sf::RenderTarget& window)
 {
+#ifdef BACKGROUND_THREADS
+    if (oldDistances.empty())
+#else
     if (v_distances.empty())
+#endif
         return;
 
     directionSin = sin(d_direction);
@@ -772,7 +832,11 @@ void Camera::drawCameraView(sf::RenderTarget& window)
 
     for (int i = 0; i < DISTANCES_SEGMENTS; i++)
     {
+#ifdef BACKGROUND_THREADS
+        recursiveDrawing(window, oldDistances[i], i);
+#else
         recursiveDrawing(window, v_distances[i], i);
+#endif
     }
 
 
@@ -847,7 +911,11 @@ void Camera::shiftPrecise(Point2D vector, double vertical)
 
     //setVPos(d_eyesHeight - 0.1);
 
+#ifdef BACKGROUND_THREADS
+    for (auto c : oldCollisions)
+#else
     for (auto c : allCollisions)
+#endif
     {
         Point2D edgeVector = c.edge.second - c.edge.first;
         Point2D normal = { edgeVector.y, -edgeVector.x };

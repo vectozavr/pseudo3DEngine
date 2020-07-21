@@ -2,6 +2,11 @@
 // Created by ivan- on 18.01.2020.
 //
 
+// Visual studio sscanf usage
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
 #include <fstream>
 #include <sstream>
 #include "World.h"
@@ -171,8 +176,6 @@ bool World::load3DObj(const std::string filename, const std::string texture, dou
         */
 
         if (type == "f ") {
-            std::stringstream str_stream(str);
-
             int i1 = 0; int i2 = 0; int i3 = 0; int i4 = 0;
             int ti = 0;
             int vi = 0;
@@ -199,7 +202,7 @@ bool World::load3DObj(const std::string filename, const std::string texture, dou
                             collision = true;
 
         if(!collision)
-            if(!this->addObject2D(std::make_shared<Object2D>(*wall), "wall" + std::to_string(i + 1) + "-" + filename + "-" + texture))
+            if(!this->addObject2D(shared_ptr<Object2D>(wall), "wall" + std::to_string(i + 1) + "-" + filename + "-" + texture))
                 return false;
     }
 
