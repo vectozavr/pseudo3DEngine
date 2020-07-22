@@ -10,6 +10,8 @@
 #include "settings.h"
 #include "Weapon.h"
 #include <SFML/System.hpp>
+#include <mutex>
+#define BACKGROUND_THREADS
 
 class ClientUDP;
 
@@ -92,13 +94,35 @@ private:
 
     void recursiveDrawing_from_to(sf::RenderTarget* window, int from, int to);
 
-    std::mutex m;
+    // Multhithreading
+
+    void updateThread(int i, int n);
+
+#ifdef BACKGROUND_THREADS
+    std::vector<std::vector<RayCastStructure>> oldDistances;
+    std::vector<CollisionInformation> oldCollisions;
+#endif // BACKGROUND_THREADS
+
+    std::vector<signed char> status;
+    short finished;
+
+    std::vector<std::shared_ptr<std::thread>> threads;
+
+    std::mutex renderM;
+    std::mutex bonusM;
+    std::mutex collisionM;
+    std::mutex startM;
+    std::mutex endM;
+
+    std::condition_variable startCV;
+    std::condition_variable endCV;
 
 public:
     ClientUDP* client = nullptr;
 
     explicit Camera(World& world, Point2D position, double vPos = 0, double height = 0.6, double direction = PI, double health = 100, std::string texture = SKIN, double fieldOfView = 3*PI/6, double eyesHeight = 0.5, double depth = 40, double walkSpeed = 3, double jumpSpeed = 2.75, double viewSpeed = .005);
     Camera(const Camera&) = delete;//Camera(const Camera& camera);
+    ~Camera(); // needed to finish threads
 
     void addPlayer(std::string name, std::shared_ptr<Player> camera);
     void removePlayer(const std::string& name);
