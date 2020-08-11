@@ -55,7 +55,7 @@ public:
     bool removeObject2D(const std::string& name);
 
     bool addBonusPoint(Point2D p);
-    Point2D getBonusPoint(Point2D except);
+    Point2D getBonusPoint();
     void freeBonusPoint(Point2D p);
 
     bool isExist(const std::string& name) const;
@@ -73,6 +73,9 @@ public:
     bool load3DObj(std::string filename, std::string texture = FLOOR_TEXTURE, double scale = 1.0, Point2D position = {0, 0});
 
     void rotateAllBonuses(double angle);
+    const std::vector<std::string>& bonuses() const {
+        return v_bonuses;
+    }
 };
 
 

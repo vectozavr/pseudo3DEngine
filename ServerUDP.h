@@ -25,6 +25,8 @@ private:
     bool process();
     bool timeout(sf::Uint16 id);
 
+    bool b_newGame = false;
+
 public:
     ServerUDP(World& world);
     bool isWorking() const;
@@ -33,6 +35,13 @@ public:
     void update();
     void addSpawn(Point2D point);
     void clearSpawns();
+    void reInit();
+
+    std::map<sf::Uint16, std::shared_ptr<Player>>& players() {return _players;}
+
+    [[nodiscard]] const std::vector<Point2D>& spawns() const { return _spawns; }
+
+    bool loadObjSpawns(const std::string& filename, double scale = 1);
 };
 
 

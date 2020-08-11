@@ -13,6 +13,9 @@ private:
     double d_health; // player health
     double d_vPos;   // player vertical (height) position
 
+    int i_kills = 0;
+    int i_deaths = 0;
+
 public:
     explicit Player(Point2D position, double vPos = 0, double height = 0.6, double health = 100, std::string texture = SKIN);
     Player(const Player&) = delete;//Player(const Player& player);
@@ -34,6 +37,29 @@ public:
     bool reduceHealth(double damage);
     void fullHealth();
     void setHealth(double h);
+
+    void oneMoreKill() {
+        i_kills++;
+    }
+
+    void oneMoreDeath() {
+        i_deaths++;
+    }
+
+    int kills() const {
+        return i_kills;
+    }
+    int deaths() const {
+        return i_deaths;
+    }
+
+    void setDeaths(int d) {
+        i_deaths = d;
+    }
+
+    void setKills(int k) {
+        i_kills = k;
+    }
 };
 
 

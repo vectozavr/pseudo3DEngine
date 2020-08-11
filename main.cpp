@@ -11,6 +11,9 @@
 #include "ClientUDP.h"
 #include "Object2D.h"
 #include <iostream>
+#include <sstream>
+#include "Enemy.h"
+#include "GeneticAlgorithm.h"
 
 using namespace std;
 
@@ -51,14 +54,17 @@ void InitNetwork(ServerUDP& server, ClientUDP& client)
 
     if (clientIp == sf::IpAddress::LocalHost)
         server.start(serverPort);
+
     client.connect(clientIp, clientPort);
 }
 
 int main()
 {
+    srand(500);
+
     // Window should be created first because of drawing context.
     sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Pseudo3DEngine");
-    window.setFramerateLimit(140);
+    window.setFramerateLimit(600);
 
     // Sounds
     /*
@@ -79,7 +85,7 @@ int main()
     World world;
     Camera* camera = nullptr;
 
-    world.load3DObj("maps/city.obj", WALL_TEXTURE, 0.03, {-1, 1});
+    world.load3DObj("maps/city_big.obj", WALL_TEXTURE, 0.03, {-1, 1});
     world.addBonusPoint({0.5, -0.5});
     world.addBonusPoint({9.5, -4.0});
     world.addBonusPoint({13.0, -15.5});
@@ -87,16 +93,70 @@ int main()
     world.addBonusPoint({6.5, 18.0});
     world.addBonusPoint({9.5, 26.0});
 
+    world.addBonusPoint({42, 37});
+    world.addBonusPoint({42, 34});
+    world.addBonusPoint({42, -6});
+    world.addBonusPoint({40, 1});
+    world.addBonusPoint({45, 12});
+    world.addBonusPoint({52, -10});
 
     Menu menu;
 
+    bool learn = true;
+    bool botView = false;
+
     ServerUDP server(world);
     ClientUDP client(world);
-    server.addSpawn({ 1.5, 1.5 });
-    server.addSpawn({ 1.5, 9 });
+
+    server.loadObjSpawns("maps/spawns_city_big.obj", 0.03);
+
+    //server.addSpawn({ 27.5, -12.5 });
+    //server.addSpawn({ 21.5, -15.0 });
+    //server.addSpawn({ 23.0, 27.0 });
+    //server.addSpawn({9.5, 26.0});
+    //server.addSpawn({0.6, 8.5});
+    //server.addSpawn({15, 8});
+    //server.addSpawn({20, -5});
+    //server.addSpawn({22, 19});
+    //server.addSpawn({13, 20});
+    //server.addSpawn({23, 14});
+    //server.addSpawn({28, 8});
+    //server.addSpawn({20, 20});
+    //server.addSpawn({23, 3});
+    //server.addSpawn({15, 6});
+    //server.addSpawn({20, 14});
+    //server.addSpawn({12, 19});
+
+    //server.addSpawn({12, -15});
+    //server.addSpawn({30, 30});
+    //server.addSpawn({30, 10});
+    //server.addSpawn({6.5, 20});
+    //server.addSpawn({0.5, -0.5});
+    //server.addSpawn({15, 2.3});
+    //server.addSpawn({30, 20});
+    //server.addSpawn({29, 32});
+//
+    //server.addSpawn({53, 30});
+    //server.addSpawn({36, -4});
+    //server.addSpawn({54, -3.5});
+    //server.addSpawn({2, -31});
+    //server.addSpawn({12, -41});
+    //server.addSpawn({28, -42});
+    //server.addSpawn({40, -35});
+    //server.addSpawn({56, -38});
+    //server.addSpawn({78, -23});
+    //server.addSpawn({67, -29});
+    //server.addSpawn({80, -8});
+
+    // generation of AI's
+    GeneticAlgorithm generation(world, server, 63);
+    generation.loadNetwork("bigChange.txt");
+    //generation.saveNetwork("bigChange1.txt");
+
+    double dt = 0.02;
+    int iterations = 0;
 
     // Game loop
-
     while (window.isOpen())
     {
         // Time update
@@ -121,10 +181,12 @@ int main()
         window.clear();
         if (!menu.isPaused())
         {
-            window.setMouseCursorVisible(false);
-            camera->updateDistances(world);
-            camera->drawCameraView(window);
-            world.rotateAllBonuses(d_elapsedTime);
+            if(!learn) {
+                window.setMouseCursorVisible(false);
+                camera->updateDistances();
+                camera->drawCameraView(window);
+                world.rotateAllBonuses(d_elapsedTime);
+            }
             // world.draw(window); // top-down debug map. To fix exception - look into "Camera::updateDistances"
 
             // if escape was pressed
@@ -134,12 +196,27 @@ int main()
                 server.stop();
                 menu.setPause();
                 //music.play();
-                backSounds.pause();
+                //backSounds.pause();
             };
 
             // Network update (must be after camera use)
             server.update();
             client.update();
+            if(learn)
+                generation.update(dt, d_elapsedTime);
+            else
+                generation.update(d_elapsedTime, d_elapsedTime);
+
+            if(iterations != 0 && (iterations % 500) == 0) { // 500 * dt = 10 sec
+                generation.newGeneration();
+                cout << "gen: " << generation.generation() << " : score = \t" << generation.maxScore() <<  endl;
+            }
+            if(iterations != 0 && (iterations % 2000) == 0) {
+                cout << "saved gen: " << generation.generation() << " to file " << endl;
+                generation.saveNetwork("bigChange.txt");
+                generation.logScore("log.txt");
+            }
+            iterations++;
 
             // if client timeout or disconnected
             if (!client.isWorking())
@@ -159,7 +236,9 @@ int main()
             if (!menu.isPaused()) {
                 window.clear({ 255,255,255 });
                 window.display();
+
                 InitNetwork(server, client);
+
                 // Waiting for connect and updating server if it's same window
                 while (client.isWorking() && !client.connected())
                 {
@@ -176,20 +255,47 @@ int main()
                 // If connect success - init camera and start game
                 else
                 {
-                    camera = client.localPlayer();
-                    camera->client = &client;
+                    if(!botView) {
+                        camera = client.localPlayer();
+                        camera->client = &client;
+//////
+                        camera->setTextures(menu.isTextures());
+                        camera->setSmooth(menu.isSmooth());
+                        camera->setCollision(menu.isCollision());
+                    }
+
+                    //backSounds.play();
+                    //music.pause();
+                }
+
+                generation.connect(client);
+
+                if(botView) {
+                    camera = generation.connectToEnemyCamera();
                     camera->setTextures(menu.isTextures());
                     camera->setSmooth(menu.isSmooth());
                     camera->setCollision(menu.isCollision());
-                    backSounds.play();
-                    //music.pause();
+                    //client.localPlayer()->setPosition({250, 0});
                 }
-                //camera->updateDistances(world);
+                //camera = generation.connectToEnemyCamera();
+                //camera->setTextures(menu.isTextures());
+                //camera->setSmooth(menu.isSmooth());
+                //camera->setCollision(menu.isCollision());
+                //client.localPlayer()->setPosition({250, 0});
+
+                if(learn)
+                    camera->setPosition({252, 0});
             }
+            if(learn)
+                window.display();
         }
-        window.display();
+        if(!learn)
+            window.display();
     }
 
+    generation.saveNetwork("bigChange.txt");
+
     ResourceManager::unloadAllResources();
+
     return 0;
 }

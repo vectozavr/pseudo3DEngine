@@ -330,6 +330,58 @@ CMakeFiles/FPSOnline.dir/Bonus.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FPSOnline.dir/Bonus.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ivanilin/CLionProjects/pseudo3DEngine/Bonus.cpp -o CMakeFiles/FPSOnline.dir/Bonus.cpp.s
 
+CMakeFiles/FPSOnline.dir/Enemy.cpp.o: CMakeFiles/FPSOnline.dir/flags.make
+CMakeFiles/FPSOnline.dir/Enemy.cpp.o: ../Enemy.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/FPSOnline.dir/Enemy.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FPSOnline.dir/Enemy.cpp.o -c /Users/ivanilin/CLionProjects/pseudo3DEngine/Enemy.cpp
+
+CMakeFiles/FPSOnline.dir/Enemy.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FPSOnline.dir/Enemy.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ivanilin/CLionProjects/pseudo3DEngine/Enemy.cpp > CMakeFiles/FPSOnline.dir/Enemy.cpp.i
+
+CMakeFiles/FPSOnline.dir/Enemy.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FPSOnline.dir/Enemy.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ivanilin/CLionProjects/pseudo3DEngine/Enemy.cpp -o CMakeFiles/FPSOnline.dir/Enemy.cpp.s
+
+CMakeFiles/FPSOnline.dir/GeneticAlgorithm.cpp.o: CMakeFiles/FPSOnline.dir/flags.make
+CMakeFiles/FPSOnline.dir/GeneticAlgorithm.cpp.o: ../GeneticAlgorithm.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/FPSOnline.dir/GeneticAlgorithm.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FPSOnline.dir/GeneticAlgorithm.cpp.o -c /Users/ivanilin/CLionProjects/pseudo3DEngine/GeneticAlgorithm.cpp
+
+CMakeFiles/FPSOnline.dir/GeneticAlgorithm.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FPSOnline.dir/GeneticAlgorithm.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ivanilin/CLionProjects/pseudo3DEngine/GeneticAlgorithm.cpp > CMakeFiles/FPSOnline.dir/GeneticAlgorithm.cpp.i
+
+CMakeFiles/FPSOnline.dir/GeneticAlgorithm.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FPSOnline.dir/GeneticAlgorithm.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ivanilin/CLionProjects/pseudo3DEngine/GeneticAlgorithm.cpp -o CMakeFiles/FPSOnline.dir/GeneticAlgorithm.cpp.s
+
+CMakeFiles/FPSOnline.dir/NeuralNetwork.cpp.o: CMakeFiles/FPSOnline.dir/flags.make
+CMakeFiles/FPSOnline.dir/NeuralNetwork.cpp.o: ../NeuralNetwork.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/FPSOnline.dir/NeuralNetwork.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FPSOnline.dir/NeuralNetwork.cpp.o -c /Users/ivanilin/CLionProjects/pseudo3DEngine/NeuralNetwork.cpp
+
+CMakeFiles/FPSOnline.dir/NeuralNetwork.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FPSOnline.dir/NeuralNetwork.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ivanilin/CLionProjects/pseudo3DEngine/NeuralNetwork.cpp > CMakeFiles/FPSOnline.dir/NeuralNetwork.cpp.i
+
+CMakeFiles/FPSOnline.dir/NeuralNetwork.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FPSOnline.dir/NeuralNetwork.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ivanilin/CLionProjects/pseudo3DEngine/NeuralNetwork.cpp -o CMakeFiles/FPSOnline.dir/NeuralNetwork.cpp.s
+
+CMakeFiles/FPSOnline.dir/OptimizedBots.cpp.o: CMakeFiles/FPSOnline.dir/flags.make
+CMakeFiles/FPSOnline.dir/OptimizedBots.cpp.o: ../OptimizedBots.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/FPSOnline.dir/OptimizedBots.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FPSOnline.dir/OptimizedBots.cpp.o -c /Users/ivanilin/CLionProjects/pseudo3DEngine/OptimizedBots.cpp
+
+CMakeFiles/FPSOnline.dir/OptimizedBots.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FPSOnline.dir/OptimizedBots.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ivanilin/CLionProjects/pseudo3DEngine/OptimizedBots.cpp > CMakeFiles/FPSOnline.dir/OptimizedBots.cpp.i
+
+CMakeFiles/FPSOnline.dir/OptimizedBots.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FPSOnline.dir/OptimizedBots.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ivanilin/CLionProjects/pseudo3DEngine/OptimizedBots.cpp -o CMakeFiles/FPSOnline.dir/OptimizedBots.cpp.s
+
 # Object files for target FPSOnline
 FPSOnline_OBJECTS = \
 "CMakeFiles/FPSOnline.dir/Button.cpp.o" \
@@ -352,7 +404,11 @@ FPSOnline_OBJECTS = \
 "CMakeFiles/FPSOnline.dir/Weapon.cpp.o" \
 "CMakeFiles/FPSOnline.dir/World.cpp.o" \
 "CMakeFiles/FPSOnline.dir/Point3D.cpp.o" \
-"CMakeFiles/FPSOnline.dir/Bonus.cpp.o"
+"CMakeFiles/FPSOnline.dir/Bonus.cpp.o" \
+"CMakeFiles/FPSOnline.dir/Enemy.cpp.o" \
+"CMakeFiles/FPSOnline.dir/GeneticAlgorithm.cpp.o" \
+"CMakeFiles/FPSOnline.dir/NeuralNetwork.cpp.o" \
+"CMakeFiles/FPSOnline.dir/OptimizedBots.cpp.o"
 
 # External object files for target FPSOnline
 FPSOnline_EXTERNAL_OBJECTS =
@@ -378,6 +434,10 @@ FPSOnline: CMakeFiles/FPSOnline.dir/Weapon.cpp.o
 FPSOnline: CMakeFiles/FPSOnline.dir/World.cpp.o
 FPSOnline: CMakeFiles/FPSOnline.dir/Point3D.cpp.o
 FPSOnline: CMakeFiles/FPSOnline.dir/Bonus.cpp.o
+FPSOnline: CMakeFiles/FPSOnline.dir/Enemy.cpp.o
+FPSOnline: CMakeFiles/FPSOnline.dir/GeneticAlgorithm.cpp.o
+FPSOnline: CMakeFiles/FPSOnline.dir/NeuralNetwork.cpp.o
+FPSOnline: CMakeFiles/FPSOnline.dir/OptimizedBots.cpp.o
 FPSOnline: CMakeFiles/FPSOnline.dir/build.make
 FPSOnline: /usr/local/lib/libsfml-audio.2.5.1.dylib
 FPSOnline: /usr/local/lib/libsfml-network.2.5.1.dylib
@@ -385,7 +445,7 @@ FPSOnline: /usr/local/lib/libsfml-graphics.2.5.1.dylib
 FPSOnline: /usr/local/lib/libsfml-window.2.5.1.dylib
 FPSOnline: /usr/local/lib/libsfml-system.2.5.1.dylib
 FPSOnline: CMakeFiles/FPSOnline.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable FPSOnline"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Linking CXX executable FPSOnline"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FPSOnline.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -110,6 +110,18 @@
 		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/ClientUDP.h">
 			<Option target="FPSOnline"/>
 		</Unit>
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Enemy.cpp">
+			<Option target="FPSOnline"/>
+		</Unit>
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Enemy.h">
+			<Option target="FPSOnline"/>
+		</Unit>
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/GeneticAlgorithm.cpp">
+			<Option target="FPSOnline"/>
+		</Unit>
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/GeneticAlgorithm.h">
+			<Option target="FPSOnline"/>
+		</Unit>
 		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Idrawable.h">
 			<Option target="FPSOnline"/>
 		</Unit>
@@ -128,6 +140,12 @@
 		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/MsgType.h">
 			<Option target="FPSOnline"/>
 		</Unit>
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/NeuralNetwork.cpp">
+			<Option target="FPSOnline"/>
+		</Unit>
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/NeuralNetwork.h">
+			<Option target="FPSOnline"/>
+		</Unit>
 		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.cpp">
 			<Option target="FPSOnline"/>
 		</Unit>
@@ -135,6 +153,12 @@
 			<Option target="FPSOnline"/>
 		</Unit>
 		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/ObjectType.h">
+			<Option target="FPSOnline"/>
+		</Unit>
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/OptimizedBots.cpp">
+			<Option target="FPSOnline"/>
+		</Unit>
+		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/OptimizedBots.h">
 			<Option target="FPSOnline"/>
 		</Unit>
 		<Unit filename="/Users/ivanilin/CLionProjects/pseudo3DEngine/Player.cpp">

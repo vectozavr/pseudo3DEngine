@@ -11,6 +11,7 @@
 #include "Weapon.h"
 #include <SFML/System.hpp>
 #include <mutex>
+#include <thread>
 #define BACKGROUND_THREADS
 
 class ClientUDP;
@@ -48,7 +49,7 @@ private:
     std::vector<CollisionInformation> allCollisions;
     std::map<std::string, std::shared_ptr<Player>> m_playersOnTheScreen;
 
-    double d_direction;
+    double d_direction = 0;
     double d_fieldOfView;
     double d_eyesHeight;
     double d_depth;
@@ -69,6 +70,7 @@ private:
 
     bool b_textures = false;
     bool b_smooth = false;
+    bool b_godMode = false;
 
     std::vector<Weapon> v_weapons;
     int i_selectedWeapon = 0;
@@ -84,7 +86,6 @@ private:
 
     static double scalarWithNormal(Point2D edge, Point2D vector);
 
-    void fire();
     std::pair<Object2D*, double> cameraRayCheck(RayCastStructure& structure);
 
     static void drawHealth(sf::RenderTarget& window, int x, int y, int width, int health);
@@ -120,7 +121,7 @@ private:
 public:
     ClientUDP* client = nullptr;
 
-    explicit Camera(World& world, Point2D position, double vPos = 0, double height = 0.6, double direction = PI, double health = 100, std::string texture = SKIN, double fieldOfView = 3*PI/6, double eyesHeight = 0.5, double depth = 40, double walkSpeed = 3, double jumpSpeed = 2.75, double viewSpeed = .005);
+    explicit Camera(World& world, Point2D position, double vPos = 0, double height = 0.6, double health = 100, std::string texture = SKIN, double fieldOfView = 3*PI/6, double eyesHeight = 0.5, double depth = 120, double walkSpeed = 3, double jumpSpeed = 2.75, double viewSpeed = .005);
     Camera(const Camera&) = delete;//Camera(const Camera& camera);
     ~Camera(); // needed to finish threads
 
@@ -137,14 +138,29 @@ public:
     void setFieldOfView(double angle);
 
     bool keyboardControl(double elapsedTime, sf::RenderWindow& window);
-    void updateDistances(const World& world);
+    void updateDistances();
     void drawCameraView(sf::RenderTarget& window);
     void draw(sf::RenderTarget& window) override;
 
     void shiftPrecise(Point2D vector, double vertical = 0);
+    void fire();
 
     void previousWeapon();
     void nextWeapon();
+
+    [[nodiscard]] const std::map<std::string, std::shared_ptr<Player>>& players() {
+        return m_playersOnTheScreen;
+    }
+
+    void chDir(double d) {
+        d_direction = d;
+    }
+
+    [[nodiscard]] double dir() const { return d_direction; }
+
+    Weapon& weapon() {
+        return v_weapons[i_selectedWeapon];
+    }
 };
 
 

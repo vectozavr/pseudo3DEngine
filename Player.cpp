@@ -7,6 +7,7 @@
 Player::Player(Point2D position, double vPos, double height, double health, std::string texture)
     : Circle2D(COLLISION_DISTANCE, position, height, texture, 4), d_vPos(vPos), d_health(health)
 {
+    d_aspectRatio = 1.0;
 }
 
 //Player::Player(const Player& camera) : Circle2D(camera)

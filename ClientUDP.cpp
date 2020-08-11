@@ -30,6 +30,9 @@ Camera* ClientUDP::localPlayer()
 
 void ClientUDP::shoot(const std::string& name, double damage, double distance)
 {
+    if(name.empty())
+        return;
+
     sf::Packet packet;
     for (auto&& player : _players)
     {
@@ -114,13 +117,13 @@ bool ClientUDP::process()
     sf::Packet extraPacket;
     sf::Uint16 targetId;
     bool revive;
-    double buf[4];
+    double buf[6];
     Player* player;
 
     switch (type)
     {
 
-    case MsgType::Connect: {
+    case MsgType::NewPlayer: {
         packet >> targetId;
 
         std::shared_ptr<Player> pplayer = std::make_shared<Player>(Point2D());
@@ -147,6 +150,7 @@ bool ClientUDP::process()
     case MsgType::WorldInit:
         packet >> targetId;
         _socket.setId(targetId);
+
         while (packet >> targetId >> buf[0] >> buf[1] >> buf[2] >> buf[3])
         {
             if (targetId == _socket.ownId())
@@ -175,8 +179,13 @@ bool ClientUDP::process()
         break;
 
     case MsgType::WorldUpdate:
-        while (packet >> targetId >> buf[0] >> buf[1] >> buf[2] >> buf[3])
+
+        int kills;
+        int deaths;
+
+        while (packet >> targetId >> buf[0] >> buf[1] >> buf[2] >> buf[3] >> kills >> deaths)
         {
+
             if (_players.count(targetId))
             {
                 player = _players.at(targetId).get();
@@ -185,18 +194,31 @@ bool ClientUDP::process()
                     player->setPosition({ buf[0], buf[1] });
                     player->setVPos(buf[2]);
                 }
+
                 player->setHealth(buf[3]);
+                player->setKills(kills);
+                player->setDeaths(deaths);
             }
         }
         break;
 
     case MsgType::Shoot:
         packet >> revive >> buf[0] >> buf[1];
-        if (revive)
-            _localPlayer->setPosition({ buf[0], buf[1] });
+        if (revive) {
+            _localPlayer->setPosition({buf[0], buf[1]});
+        }
         else
             _localPlayer->shiftPrecise({ buf[0], buf[1] });
         break;
+
+    case MsgType::ReInit:
+        packet >> buf[0] >> buf[1];
+        _localPlayer->setPosition({buf[0], buf[1]});
+        _localPlayer->setKills(0);
+        _localPlayer->setDeaths(0);
+        _localPlayer->setHealth(100);
+        break;
     }
+
     return true;
 }

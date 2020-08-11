@@ -14,7 +14,7 @@
 #define SCALE_WINDOW 500
 
 // NETWORK
-#define NETWORK_VERSION 1U
+#define NETWORK_VERSION 2U
 #define TIMEOUT_SECONDS 5
 #define WORLD_UPDATE_RATE 30
 #define RELIABLE_RETRY_TIME (1.0/20)
@@ -50,6 +50,7 @@
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 
+#define DIS_SEG_FOR_BOTS 8 // How much vertical sectors we use in ray cast
 #define DISTANCES_SEGMENTS 1280 // How much vertical sectors we use in ray cast
 #define FLOOR_SEGMENT_SIZE 8
 

@@ -29,17 +29,19 @@ struct Point2D
     // Returns dot product
     double operator*(const Point2D& point2D) const;
     // Returns cross product
-    double cross(const Point2D& point2D) const;
+    [[nodiscard]] double cross(const Point2D& point2D) const;
     // Returns dot product, but static
     static double dot(const Point2D& a, const Point2D& b);
     // Returns cross product, but static
     static double cross(const Point2D& a, const Point2D& b);
     // Returns normalized vector
-    Point2D normalize();
+    [[nodiscard]] Point2D normalize() const;
     // Returns squared vector length
-    double sqrAbs();
+    double sqrAbs() const;
     // Returns vector length
-    double abs();
+    [[nodiscard]] double abs() const;
+
+    [[nodiscard]] double getAngle(const Point2D& b) const;
 };
 
 #endif //PSEUDO3DENGINE_POINT2D_H

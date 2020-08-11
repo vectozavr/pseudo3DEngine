@@ -137,7 +137,8 @@ double Object2D::y() const
 
 Point2D Object2D::position() const
 {
-    return p_position;
+    if(this != nullptr)
+        return p_position;
 }
 
 void Object2D::shift(Point2D vector)

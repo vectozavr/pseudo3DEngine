@@ -94,18 +94,31 @@ double Point2D::cross(const Point2D& a, const Point2D& b)
     return a.x * b.y - a.y * b.x;
 }
 
-Point2D Point2D::normalize()
+Point2D Point2D::normalize() const
 {
     double length = this->abs();
     return Point2D{ this->x / length, this->y / length };
 }
 
-double Point2D::sqrAbs()
+double Point2D::sqrAbs() const
 {
     return x * x + y * y;
 }
 
-double Point2D::abs()
+double Point2D::abs() const
 {
     return sqrt(x * x + y * y);
+}
+
+int signum(double n) {
+    return n >= 0 ? 1 : -1;
+}
+
+double Point2D::getAngle(const Point2D& b) const {
+    Point2D a = normalize();
+    Point2D d = b.normalize();
+
+    double result = asin(a.x*d.y - a.y*d.x);
+
+    return result;
 }

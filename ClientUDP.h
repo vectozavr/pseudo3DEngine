@@ -26,9 +26,9 @@ private:
     bool timeout(sf::Uint16 id);
 
 public:
-    ClientUDP(World& world);
-    bool isWorking() const;
-    bool connected() const;
+    explicit ClientUDP(World& world);
+    [[nodiscard]] bool isWorking() const;
+    [[nodiscard]] bool connected() const;
     Camera* localPlayer();
     void connect(sf::IpAddress ip, sf::Uint16 port);
     void disconnect();

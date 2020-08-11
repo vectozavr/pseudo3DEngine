@@ -27,6 +27,7 @@ protected:
     bool b_isMirror = false;
 
     sf::Texture& T_texture;
+    double d_aspectRatio = 0.2;
 
 public:
     Object2D(Point2D position = { 0, 0 }, std::vector<Point2D> points = {}, double height = 1, std::string texture = WALL_TEXTURE, Point2D velocity = { 0, 0 });
@@ -47,20 +48,27 @@ public:
     sf::Texture& loadTexture();
     virtual ObjectType type();
 
-    double height() const;
-    double x() const;
-    double y() const;
-    Point2D position() const;
+    [[nodiscard]] double height() const;
+    [[nodiscard]] double x() const;
+    [[nodiscard]] double y() const;
+    [[nodiscard]] Point2D position() const;
     void shift(Point2D vector);
     void setPosition(Point2D position);
 
     void setHeight(double h) { d_height = h; };
 
-    bool isMirror() const;
+    [[nodiscard]] bool isMirror() const;
     void setMirror(bool mirror = true);
 
-    std::string getName() const;
+    [[nodiscard]] std::string getName() const;
     void setName(std::string name);
+    [[nodiscard]] double aspect() const {
+        return d_aspectRatio;
+    }
+    double setAspect(double aspect) {
+        d_aspectRatio = aspect;
+        return d_aspectRatio;
+    }
 
     std::vector<Point2D>& nodes();
     void setPoints2D(std::vector<Point2D> points2D);

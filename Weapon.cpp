@@ -6,9 +6,11 @@
 #include "ResourceManager.h"
 #include "Point2D.h"
 #include <chrono>
+#include "Time.h"
 
 Weapon::Weapon(int amount) : i_amount(amount)
 {
+    d_lastFire = Time::time();
 }
 
 Weapon::Weapon(const Weapon& weapon)
@@ -63,13 +65,16 @@ void Weapon::choiceWeapon(std::string name)
 
 bool Weapon::fire()
 {
-    if ((i_amount > 0) && (d_lastFireTime == 0))
+    bool timing = (Time::time() - d_lastFire > d_speed) || 1;
+
+    if ((i_amount > 0) && timing)
     {
+        d_lastFire = Time::time();
         d_lastFireTime = d_speed;
         d_fireAnimTime = .1;
         --i_amount;
         fireShift = d_amplitude;
-        fireSound.play();
+        //fireSound.play();
         return true;
     }
     return false;

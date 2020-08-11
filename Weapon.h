@@ -33,6 +33,8 @@ private:
     double d_fireAnimTime = 0;
 
     double d_lastFireTime = 0;
+
+    double d_lastFire = 0;
 public:
     Weapon(int amount);
     Weapon(const Weapon& weapon);
@@ -50,6 +52,12 @@ public:
     void add(double d) {
         i_amount += d;
     }
+
+    void set(double d) {
+        i_amount = d;
+    }
+
+    void setTimeMult(double t) { d_speed /= t; }
 };
 
 

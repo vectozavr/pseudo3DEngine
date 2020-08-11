@@ -258,6 +258,60 @@ ClientUDP.cpp.s:
 	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/ClientUDP.cpp.s
 .PHONY : ClientUDP.cpp.s
 
+Enemy.o: Enemy.cpp.o
+
+.PHONY : Enemy.o
+
+# target to build an object file
+Enemy.cpp.o:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/Enemy.cpp.o
+.PHONY : Enemy.cpp.o
+
+Enemy.i: Enemy.cpp.i
+
+.PHONY : Enemy.i
+
+# target to preprocess a source file
+Enemy.cpp.i:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/Enemy.cpp.i
+.PHONY : Enemy.cpp.i
+
+Enemy.s: Enemy.cpp.s
+
+.PHONY : Enemy.s
+
+# target to generate assembly for a file
+Enemy.cpp.s:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/Enemy.cpp.s
+.PHONY : Enemy.cpp.s
+
+GeneticAlgorithm.o: GeneticAlgorithm.cpp.o
+
+.PHONY : GeneticAlgorithm.o
+
+# target to build an object file
+GeneticAlgorithm.cpp.o:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/GeneticAlgorithm.cpp.o
+.PHONY : GeneticAlgorithm.cpp.o
+
+GeneticAlgorithm.i: GeneticAlgorithm.cpp.i
+
+.PHONY : GeneticAlgorithm.i
+
+# target to preprocess a source file
+GeneticAlgorithm.cpp.i:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/GeneticAlgorithm.cpp.i
+.PHONY : GeneticAlgorithm.cpp.i
+
+GeneticAlgorithm.s: GeneticAlgorithm.cpp.s
+
+.PHONY : GeneticAlgorithm.s
+
+# target to generate assembly for a file
+GeneticAlgorithm.cpp.s:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/GeneticAlgorithm.cpp.s
+.PHONY : GeneticAlgorithm.cpp.s
+
 Menu.o: Menu.cpp.o
 
 .PHONY : Menu.o
@@ -312,6 +366,33 @@ MsgType.cpp.s:
 	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/MsgType.cpp.s
 .PHONY : MsgType.cpp.s
 
+NeuralNetwork.o: NeuralNetwork.cpp.o
+
+.PHONY : NeuralNetwork.o
+
+# target to build an object file
+NeuralNetwork.cpp.o:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/NeuralNetwork.cpp.o
+.PHONY : NeuralNetwork.cpp.o
+
+NeuralNetwork.i: NeuralNetwork.cpp.i
+
+.PHONY : NeuralNetwork.i
+
+# target to preprocess a source file
+NeuralNetwork.cpp.i:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/NeuralNetwork.cpp.i
+.PHONY : NeuralNetwork.cpp.i
+
+NeuralNetwork.s: NeuralNetwork.cpp.s
+
+.PHONY : NeuralNetwork.s
+
+# target to generate assembly for a file
+NeuralNetwork.cpp.s:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/NeuralNetwork.cpp.s
+.PHONY : NeuralNetwork.cpp.s
+
 Object2D.o: Object2D.cpp.o
 
 .PHONY : Object2D.o
@@ -338,6 +419,33 @@ Object2D.s: Object2D.cpp.s
 Object2D.cpp.s:
 	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/Object2D.cpp.s
 .PHONY : Object2D.cpp.s
+
+OptimizedBots.o: OptimizedBots.cpp.o
+
+.PHONY : OptimizedBots.o
+
+# target to build an object file
+OptimizedBots.cpp.o:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/OptimizedBots.cpp.o
+.PHONY : OptimizedBots.cpp.o
+
+OptimizedBots.i: OptimizedBots.cpp.i
+
+.PHONY : OptimizedBots.i
+
+# target to preprocess a source file
+OptimizedBots.cpp.i:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/OptimizedBots.cpp.i
+.PHONY : OptimizedBots.cpp.i
+
+OptimizedBots.s: OptimizedBots.cpp.s
+
+.PHONY : OptimizedBots.s
+
+# target to generate assembly for a file
+OptimizedBots.cpp.s:
+	$(MAKE) -f CMakeFiles/FPSOnline.dir/build.make CMakeFiles/FPSOnline.dir/OptimizedBots.cpp.s
+.PHONY : OptimizedBots.cpp.s
 
 Player.o: Player.cpp.o
 
@@ -714,15 +822,27 @@ help:
 	@echo "... ClientUDP.o"
 	@echo "... ClientUDP.i"
 	@echo "... ClientUDP.s"
+	@echo "... Enemy.o"
+	@echo "... Enemy.i"
+	@echo "... Enemy.s"
+	@echo "... GeneticAlgorithm.o"
+	@echo "... GeneticAlgorithm.i"
+	@echo "... GeneticAlgorithm.s"
 	@echo "... Menu.o"
 	@echo "... Menu.i"
 	@echo "... Menu.s"
 	@echo "... MsgType.o"
 	@echo "... MsgType.i"
 	@echo "... MsgType.s"
+	@echo "... NeuralNetwork.o"
+	@echo "... NeuralNetwork.i"
+	@echo "... NeuralNetwork.s"
 	@echo "... Object2D.o"
 	@echo "... Object2D.i"
 	@echo "... Object2D.s"
+	@echo "... OptimizedBots.o"
+	@echo "... OptimizedBots.i"
+	@echo "... OptimizedBots.s"
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"

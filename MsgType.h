@@ -18,6 +18,8 @@ enum class MsgType
     WorldUpdate,  // world update from server to client
     PlayerUpdate, // player update from client to server
     Shoot,        // player shooted from client to server
+    NewPlayer,
+    ReInit,       // Reinit Stats
 };
 
 sf::Packet& operator<<(sf::Packet& packet, MsgType type);

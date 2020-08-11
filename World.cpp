@@ -91,6 +91,7 @@ bool World::addObject2D(std::shared_ptr<Object2D> object, std::string name)
 
 bool World::removeObject2D(const std::string& name)
 {
+    if(map_objects[name] == nullptr) return false;
     return map_objects.erase(name) > 0;
 }
 
@@ -217,7 +218,27 @@ bool World::init_bonuses() {
     bonuses.push_back(Bonus({0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
     bonuses.push_back(Bonus({0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
     bonuses.push_back(Bonus({0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
-    bonuses.push_back(Bonus({0, 3}, BonusType::ViewBonus, VIEW_BONUS_TEXTURE));
+
+    bonuses.push_back(Bonus({0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
+    bonuses.push_back(Bonus({0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
+    bonuses.push_back(Bonus({0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
+
+    bonuses.push_back(Bonus({0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
+    bonuses.push_back(Bonus({0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
+    bonuses.push_back(Bonus({0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
+
+    bonuses.push_back(Bonus({0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
+    bonuses.push_back(Bonus({0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
+    bonuses.push_back(Bonus({0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
+
+    bonuses.push_back(Bonus({0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
+    bonuses.push_back(Bonus({0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
+    bonuses.push_back(Bonus({0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
+
+    bonuses.push_back(Bonus({0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
+    bonuses.push_back(Bonus({0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
+    bonuses.push_back(Bonus({0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
+    //bonuses.push_back(Bonus({0, 3}, BonusType::ViewBonus, VIEW_BONUS_TEXTURE));
 
     for(int b = 0; b < bonuses.size(); b++)
         if(addObject2D(std::make_shared<Bonus>(bonuses[b]), "bonus_" + std::to_string(b)))
@@ -236,15 +257,8 @@ bool World::addBonusPoint(Point2D p) {
     return v_bonus_positions.emplace_back(std::pair<Point2D, bool>(p, false)).second;
 }
 
-Point2D World::getBonusPoint(Point2D except) {
-    for(auto& m : v_bonus_positions) {
-        if (!m.second && m.first != except) {
-            m.second = true;
-            return m.first;
-        }
-    }
-
-    return v_bonus_positions.begin()->first;
+Point2D World::getBonusPoint() {
+    return v_bonus_positions[rand() % v_bonus_positions.size()].first;
 }
 
 void World::freeBonusPoint(Point2D p) {
