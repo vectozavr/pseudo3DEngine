@@ -16,6 +16,9 @@ private:
     int i_kills = 0;
     int i_deaths = 0;
 
+    double d_health_reduced = 0;
+    double d_health_lost = 0;
+
 public:
     explicit Player(Point2D position, double vPos = 0, double height = 0.6, double health = 100, std::string texture = SKIN);
     Player(const Player&) = delete;//Player(const Player& player);
@@ -46,11 +49,26 @@ public:
         i_deaths++;
     }
 
-    int kills() const {
+    void reduce(double magnitude) {
+        d_health_reduced += magnitude;
+    }
+
+    void lose(double magnitude) {
+        d_health_lost += magnitude;
+    }
+
+    [[nodiscard]] int kills() const {
         return i_kills;
     }
-    int deaths() const {
+    [[nodiscard]] int deaths() const {
         return i_deaths;
+    }
+
+    [[nodiscard]] double reduced() const {
+        return d_health_reduced;
+    }
+    [[nodiscard]] double lost() const {
+        return d_health_lost;
     }
 
     void setDeaths(int d) {
@@ -59,6 +77,14 @@ public:
 
     void setKills(int k) {
         i_kills = k;
+    }
+
+    void setReduced(double r) {
+        d_health_reduced = r;
+    }
+
+    void setLost(double l) {
+        d_health_lost = l;
     }
 };
 

@@ -60,11 +60,9 @@ void InitNetwork(ServerUDP& server, ClientUDP& client)
 
 int main()
 {
-    srand(500);
-
     // Window should be created first because of drawing context.
     sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Pseudo3DEngine");
-    window.setFramerateLimit(600);
+    window.setFramerateLimit(60);
 
     // Sounds
     /*
@@ -102,51 +100,13 @@ int main()
 
     Menu menu;
 
-    bool learn = true;
+    bool learn = false;
     bool botView = false;
 
     ServerUDP server(world);
     ClientUDP client(world);
 
     server.loadObjSpawns("maps/spawns_city_big.obj", 0.03);
-
-    //server.addSpawn({ 27.5, -12.5 });
-    //server.addSpawn({ 21.5, -15.0 });
-    //server.addSpawn({ 23.0, 27.0 });
-    //server.addSpawn({9.5, 26.0});
-    //server.addSpawn({0.6, 8.5});
-    //server.addSpawn({15, 8});
-    //server.addSpawn({20, -5});
-    //server.addSpawn({22, 19});
-    //server.addSpawn({13, 20});
-    //server.addSpawn({23, 14});
-    //server.addSpawn({28, 8});
-    //server.addSpawn({20, 20});
-    //server.addSpawn({23, 3});
-    //server.addSpawn({15, 6});
-    //server.addSpawn({20, 14});
-    //server.addSpawn({12, 19});
-
-    //server.addSpawn({12, -15});
-    //server.addSpawn({30, 30});
-    //server.addSpawn({30, 10});
-    //server.addSpawn({6.5, 20});
-    //server.addSpawn({0.5, -0.5});
-    //server.addSpawn({15, 2.3});
-    //server.addSpawn({30, 20});
-    //server.addSpawn({29, 32});
-//
-    //server.addSpawn({53, 30});
-    //server.addSpawn({36, -4});
-    //server.addSpawn({54, -3.5});
-    //server.addSpawn({2, -31});
-    //server.addSpawn({12, -41});
-    //server.addSpawn({28, -42});
-    //server.addSpawn({40, -35});
-    //server.addSpawn({56, -38});
-    //server.addSpawn({78, -23});
-    //server.addSpawn({67, -29});
-    //server.addSpawn({80, -8});
 
     // generation of AI's
     GeneticAlgorithm generation(world, server, 63);
@@ -207,11 +167,11 @@ int main()
             else
                 generation.update(d_elapsedTime, d_elapsedTime);
 
-            if(iterations != 0 && (iterations % 500) == 0) { // 500 * dt = 10 sec
+            if(iterations != 0 && ((iterations % 250) == 0) && learn) { // 500 * dt = 10 sec
                 generation.newGeneration();
                 cout << "gen: " << generation.generation() << " : score = \t" << generation.maxScore() <<  endl;
             }
-            if(iterations != 0 && (iterations % 2000) == 0) {
+            if(iterations != 0 && ((iterations % 2000) == 0) && learn) {
                 cout << "saved gen: " << generation.generation() << " to file " << endl;
                 generation.saveNetwork("bigChange.txt");
                 generation.logScore("log.txt");
@@ -277,6 +237,7 @@ int main()
                     camera->setCollision(menu.isCollision());
                     //client.localPlayer()->setPosition({250, 0});
                 }
+
                 //camera = generation.connectToEnemyCamera();
                 //camera->setTextures(menu.isTextures());
                 //camera->setSmooth(menu.isSmooth());
@@ -293,7 +254,8 @@ int main()
             window.display();
     }
 
-    generation.saveNetwork("bigChange.txt");
+    if(learn)
+        generation.saveNetwork("bigChange.txt");
 
     ResourceManager::unloadAllResources();
 

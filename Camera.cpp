@@ -870,7 +870,7 @@ void Camera::drawCameraView(sf::RenderTarget& window)
     //m_playersOnTheScreen
     for (const auto& player : m_playersOnTheScreen)
     {
-        bool canSee = true;
+        bool canSee = false;
         Point2D enemyDirection = (player.second->position() - position()).normalize();
 
         pair<Point2D, Point2D> segment1 = { {x(), y()}, {x() + d_depth*enemyDirection.x, y() + d_depth*enemyDirection.y} };
@@ -882,7 +882,7 @@ void Camera::drawCameraView(sf::RenderTarget& window)
 
         enemyDirection = { enemyDirection.x * cos(-d_direction) - enemyDirection.y * sin(-d_direction), enemyDirection.x * sin(-d_direction) + enemyDirection.y * cos(-d_direction) };
         double offset = enemyDirection.y / enemyDirection.x;
-        if (abs(offset) < halfWidth && enemyDirection.x > 0 && canSee)
+        if (abs(offset) < halfWidth && enemyDirection.x > 0 && canSee || b_godMode)
         {
             int xPos = (int)((enemyDirection.y / enemyDirection.x / halfWidth + 1.0) / 2.0 * (DISTANCES_SEGMENTS - 1.0));
             int yPos = -30 + (int)(heightInPixels((player.second->position() - position()).abs(), player.second->height() + 0.2, player.second->vPos()).first);

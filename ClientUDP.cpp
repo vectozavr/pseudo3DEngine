@@ -183,9 +183,11 @@ bool ClientUDP::process()
         int kills;
         int deaths;
 
-        while (packet >> targetId >> buf[0] >> buf[1] >> buf[2] >> buf[3] >> kills >> deaths)
-        {
+        double reduced;
+        double lost;
 
+        while (packet >> targetId >> buf[0] >> buf[1] >> buf[2] >> buf[3] >> kills >> deaths >> reduced >> lost)
+        {
             if (_players.count(targetId))
             {
                 player = _players.at(targetId).get();
@@ -198,6 +200,8 @@ bool ClientUDP::process()
                 player->setHealth(buf[3]);
                 player->setKills(kills);
                 player->setDeaths(deaths);
+                player->setReduced(reduced);
+                player->setLost(lost);
             }
         }
         break;
@@ -217,6 +221,8 @@ bool ClientUDP::process()
         _localPlayer->setKills(0);
         _localPlayer->setDeaths(0);
         _localPlayer->setHealth(100);
+        _localPlayer->setReduced(0);
+        _localPlayer->setLost(0);
         break;
     }
 

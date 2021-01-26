@@ -45,7 +45,7 @@ void ServerUDP::update()
             Player& camera = *player.second;
             camera.reduceHealth(-1 * (Time::time() - _lastBroadcast));
 
-            updatePacket << player.first << camera.position().x << camera.position().y << camera.vPos() << camera.health() << camera.kills() << camera.deaths();
+            updatePacket << player.first << camera.position().x << camera.position().y << camera.vPos() << camera.health() << camera.kills() << camera.deaths() << camera.reduced() << camera.lost();
         }
 
         for (auto&& player : _players)
@@ -130,69 +130,73 @@ bool ServerUDP::process()
 
     switch (type)
     {
+        case MsgType::Connect:
+            //extraPacket << MsgType::Connect << NETWORK_VERSION << senderId;
+            extraPacket << MsgType::NewPlayer << senderId;
+            sendPacket << MsgType::WorldInit << senderId;
+            _players.insert({ senderId, std::shared_ptr<Player>(new Player(_spawns[senderId % _spawns.size()])) });
+            for (auto&& player : _players)
+            {
+                Player& camera = *player.second;
+                sendPacket << player.first << camera.x() << camera.y() << camera.vPos() << camera.health();
+                if (player.first != senderId)
+                    _socket.sendRely(extraPacket, player.first);
+            }
+            _socket.sendRely(sendPacket, senderId);
 
-    case MsgType::Connect:
-        //extraPacket << MsgType::Connect << NETWORK_VERSION << senderId;
-        extraPacket << MsgType::NewPlayer << senderId;
-        sendPacket << MsgType::WorldInit << senderId;
-        _players.insert({ senderId, std::shared_ptr<Player>(new Player(_spawns[senderId % _spawns.size()])) });
-        for (auto&& player : _players)
-        {
-            Player& camera = *player.second;
-            sendPacket << player.first << camera.x() << camera.y() << camera.vPos() << camera.health();
-            if (player.first != senderId)
-                _socket.sendRely(extraPacket, player.first);
+            break;
+
+        case MsgType::Disconnect:
+            sendPacket << MsgType::Disconnect << senderId;
+            _players.erase(senderId);
+            _socket.removeConnection(senderId);
+            for (auto&& player : _players)
+            {
+                _socket.sendRely(sendPacket, player.first);
+            }
+            break;
+
+        case MsgType::PlayerUpdate:
+            packet >> buf[0] >> buf[1] >> buf[2];
+            _players.at(senderId)->setPosition({ buf[0], buf[1] });
+            _players.at(senderId)->setVPos(buf[2]);
+            break;
+
+        case MsgType::Shoot: {
+            double health_diff = _players.at(targetId)->health();
+
+            packet >> targetId >> buf[0] >> buf[1];
+            sendPacket << MsgType::Shoot;
+
+            if (_players[targetId] == nullptr)
+                return false;
+
+            if (_players.at(targetId)->reduceHealth(buf[0] / buf[1])) {
+                sendPacket << true << _spawns[targetId % _spawns.size()].x << _spawns[targetId % _spawns.size()].y;
+                _players.at(targetId)->setHealth(100);
+                _players.at(targetId)->setPosition(_spawns[targetId % _spawns.size()]);
+
+                _players.at(targetId)->oneMoreDeath();
+                _players.at(senderId)->oneMoreKill();
+            } else {
+                health_diff = health_diff - _players.at(targetId)->health();
+                double dir = 2.0 * PI * rand() / RAND_MAX;
+                sendPacket << false << 0.05 * cos(dir) << 0.05 * sin(dir);
+            }
+            _players.at(targetId)->lose(health_diff);
+            _players.at(senderId)->reduce(health_diff);
+
+            _socket.sendRely(sendPacket, targetId);
+            break;
         }
-        _socket.sendRely(sendPacket, senderId);
 
-        break;
-
-    case MsgType::Disconnect:
-        sendPacket << MsgType::Disconnect << senderId;
-        _players.erase(senderId);
-        _socket.removeConnection(senderId);
-        for (auto&& player : _players)
-        {
-            _socket.sendRely(sendPacket, player.first);
-        }
-        break;
-
-    case MsgType::PlayerUpdate:
-        packet >> buf[0] >> buf[1] >> buf[2];
-        _players.at(senderId)->setPosition({ buf[0], buf[1] });
-        _players.at(senderId)->setVPos(buf[2]);
-        break;
-
-    case MsgType::Shoot:
-        packet >> targetId >> buf[0] >> buf[1];
-        sendPacket << MsgType::Shoot;
-
-        if(_players[targetId] == nullptr)
-            return false;
-
-        if (_players.at(targetId)->reduceHealth(buf[0] / buf[1]))
-        {
-            sendPacket << true << _spawns[targetId % _spawns.size()].x << _spawns[targetId % _spawns.size()].y;
-            _players.at(targetId)->setHealth(100);
-            _players.at(targetId)->setPosition(_spawns[targetId % _spawns.size()]);
-
-            _players.at(targetId)->oneMoreDeath();
-            _players.at(senderId)->oneMoreKill();
-        }
-        else
-        {
-            double dir = 2 * PI * rand() / RAND_MAX;
-            sendPacket << false << 0.05 * cos(dir) << 0.05 * sin(dir);
-        }
-        _socket.sendRely(sendPacket, targetId);
-        break;
-
-    case MsgType::ReInit:
-        for(auto& p : _players) {
-            p.second->setKills(0);
-            p.second->setDeaths(0);
-            p.second->setHealth(100);
-        }
+        case MsgType::ReInit:
+            for(auto& p : _players) {
+                p.second->setKills(0);
+                p.second->setDeaths(0);
+                p.second->setHealth(100);
+            }
+            break;
     }
 
     return true;

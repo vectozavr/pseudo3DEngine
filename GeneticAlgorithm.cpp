@@ -145,16 +145,16 @@ void GeneticAlgorithm::newGeneration() {
     std::vector<std::pair<double, NeuralNetwork>> theBest;
     for(auto& p : v_generation)
         //theBest.emplace_back(p.second->kills(), std::move(p.second->network()));
-        theBest.emplace_back(p.second->kills() * 4 - 1 * p.second->deaths() + p.second->pathLength(), std::move(p.second->network()));
+        theBest.emplace_back(p.second->kills() * 100 - 30 * p.second->deaths() + p.second->reduced() - 0.3 * p.second->lost() + 0.1 * p.second->pathLength(), std::move(p.second->network()));
     std::sort(theBest.begin(), theBest.end(), [](const std::pair<int, NeuralNetwork>& lh, const std::pair<int, NeuralNetwork>& rh) { return lh.first > rh.first; });
 
     d_score = theBest[0].first;
 
     // crossbreed the best networks and share to all AI's
     for(auto& p : v_generation) {
-        int n1 = rand() % 10;
-        int n2 = rand() % 10;
-        p.second->network().crossbreeding(theBest[n1].second, theBest[n2].second);
+        int n1 = rand() % 6;
+        int n2 = rand() % 6;
+        p.second->network().crossbreeding(theBest[n1].second, theBest[n2].second, theBest[n1].first, theBest[n2].first);
     }
 
     // make mutations of all network (10% of all weight and bias we change on +- 10%)

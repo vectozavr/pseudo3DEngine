@@ -53,7 +53,7 @@ void Weapon::choiceWeapon(std::string name)
         S_weapon_trunk.setTexture(*ResourceManager::loadTexture(SHOTGUN_TRUNK_TEXTURE));
         S_aim.setTexture(*ResourceManager::loadTexture(AIM_TEXTURE));
         S_fire.setTexture(*ResourceManager::loadTexture(FIRE_SHOTGUN_TEXTURE));
-        d_speed = 0.4;
+        d_speed = 0.5;
         S_aim.scale(.05f, .05f);
 
         fireSoundBuffer.loadFromFile(GUN_SHOT_SOUND);
@@ -65,7 +65,7 @@ void Weapon::choiceWeapon(std::string name)
 
 bool Weapon::fire()
 {
-    bool timing = (Time::time() - d_lastFire > d_speed) || 1;
+    bool timing = (Time::time() - d_lastFire > d_speed);
 
     if ((i_amount > 0) && timing)
     {
