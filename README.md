@@ -1,5 +1,6 @@
 # pseudo3DEngine
-Simple pseudo-3d engine implementation. This library allows you to make two dimensional map and draw pseudo 3D image using Ray-Cast.
+Simple pseudo-3d shooter implementation. 
+You can make two dimensional map and draw pseudo 3D image using Ray-Cast.
 
 By Neirokan:
 - The network system is replaced by another, WORKING system
