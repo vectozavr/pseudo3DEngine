@@ -86,17 +86,8 @@ int main()
     world.load3DObj("../maps/city.obj", WALL_TEXTURE, 0.03, {-1, 1});
     world.addBonusPoint({0.5, -0.5});
     world.addBonusPoint({9.5, -4.0});
-    world.addBonusPoint({13.0, -15.5});
-    world.addBonusPoint({30.5, 5.5});
     world.addBonusPoint({6.5, 18.0});
     world.addBonusPoint({9.5, 26.0});
-
-    world.addBonusPoint({42, 37});
-    world.addBonusPoint({42, 34});
-    world.addBonusPoint({42, -6});
-    world.addBonusPoint({40, 1});
-    world.addBonusPoint({45, 12});
-    world.addBonusPoint({52, -10});
 
     Menu menu;
 
@@ -106,10 +97,10 @@ int main()
     ServerUDP server(world);
     ClientUDP client(world);
 
-    server.loadObjSpawns("../maps/spawns_city_big.obj", 0.03);
+    server.loadObjSpawns("../maps/spawns_city.obj", 0.03);
 
     // generation of AI's
-    GeneticAlgorithm generation(world, server, 11);
+    GeneticAlgorithm generation(world, server, 5);
     generation.loadNetwork("../neuralNetwork.txt");
     //generation.saveNetwork("../bigChange1.txt");
 
