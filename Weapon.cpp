@@ -74,7 +74,7 @@ bool Weapon::fire()
         d_fireAnimTime = .1;
         --i_amount;
         fireShift = d_amplitude;
-        //fireSound.play();
+        fireSound.play();
         return true;
     }
     return false;

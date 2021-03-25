@@ -34,7 +34,7 @@
 #define CONVEX_NUMBER 100
 #define FILED_OF_VEW_COLOR {255, 67, 67, 0}
 #define RED_COLOR {255, 0, 0}
-#define SKIN "texture/hero.png"
+#define SKIN "../texture/hero.png"
 
 // FOR COLLISION DETECTION
 #define COLLISION_DISTANCE 0.1
@@ -61,42 +61,40 @@
 
 //TEXTURES
 
-#define MY_MAC_PATH "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/"
+#define WALL_TEXTURE "../texture/building_texture.png"
+#define WALL_TEXTURE2 "../texture/brickWall2.jpg"
+#define COLUMN_TEXTURE "../texture/column.png"
+#define VOLODYA_TEXTURE "../texture/volodya.jpg"
+#define FROZEN_TEXTURE "../texture/frozen.jpg"
+#define DOG_TEXTURE "../texture/dog.jpg"
+#define DINOZAVR_TEXTURE "../texture/dinozavr.png"
+#define WHITE_TEXTURE "../texture/white.jpg"
+#define BLACK_TEXTURE "../texture/black.jpg"
 
-#define WALL_TEXTURE "texture/building_texture.png"
-#define WALL_TEXTURE2 "texture/brickWall2.jpg"
-#define COLUMN_TEXTURE "texture/column.png"
-#define VOLODYA_TEXTURE "texture/volodya.jpg"
-#define FROZEN_TEXTURE "texture/frozen.jpg"
-#define DOG_TEXTURE "texture/dog.jpg"
-#define DINOZAVR_TEXTURE "texture/dinozavr.png"
-#define WHITE_TEXTURE "texture/white.jpg"
-#define BLACK_TEXTURE "texture/black.jpg"
+#define SKY_TEXTURE "../texture/back.jpg"
+#define FLOOR_TEXTURE "../texture/173483.jpg"
 
-#define SKY_TEXTURE "texture/back.jpg"
-#define FLOOR_TEXTURE "texture/173483.jpg"
+#define PLAYGAME_PRESSED_TEXTURE "../texture/buttons/playGameSelected.jpg"
+#define SETTINGS_PRESSED_TEXTURE "../texture/buttons/settingsSelected.jpg"
+#define ABOUT_PRESSED_TEXTURE "../texture/buttons/aboutSelected.jpg"
+#define QUIT_PRESSED_TEXTURE "../texture/buttons/quitSelected.jpg"
 
-#define PLAYGAME_PRESSED_TEXTURE "texture/buttons/playGameSelected.jpg"
-#define SETTINGS_PRESSED_TEXTURE "texture/buttons/settingsSelected.jpg"
-#define ABOUT_PRESSED_TEXTURE "texture/buttons/aboutSelected.jpg"
-#define QUIT_PRESSED_TEXTURE "texture/buttons/quitSelected.jpg"
+#define PLAYGAME_TEXTURE "../texture/buttons/playGame.jpg"
+#define SETTINGS_TEXTURE "../texture/buttons/settings.jpg"
+#define ABOUT_TEXTURE "../texture/buttons/about.jpg"
+#define QUIT_TEXTURE "../texture/buttons/quit.jpg"
 
-#define PLAYGAME_TEXTURE "texture/buttons/playGame.jpg"
-#define SETTINGS_TEXTURE "texture/buttons/settings.jpg"
-#define ABOUT_TEXTURE "texture/buttons/about.jpg"
-#define QUIT_TEXTURE "texture/buttons/quit.jpg"
+#define ABOUT_INFO "../texture/instruction.jpg"
 
-#define ABOUT_INFO "texture/instruction.jpg"
+#define TEXTURING_SELECT "../texture/buttons/texturing.jpg"
+#define SMOOTHING_SELECT "../texture/buttons/smoothing.jpg"
+#define COLLISION_SELECT "../texture/buttons/collosion.jpg"
 
-#define TEXTURING_SELECT "texture/buttons/texturing.jpg"
-#define SMOOTHING_SELECT "texture/buttons/smoothing.jpg"
-#define COLLISION_SELECT "texture/buttons/collosion.jpg"
+#define TEXTURING_SELECT_S "../texture/buttons/texturingSelected.jpg"
+#define SMOOTHING_SELECT_S "../texture/buttons/smoothingSelected.jpg"
+#define COLLISION_SELECT_S "../texture/buttons/collosionSelected.jpg"
 
-#define TEXTURING_SELECT_S "texture/buttons/texturingSelected.jpg"
-#define SMOOTHING_SELECT_S "texture/buttons/smoothingSelected.jpg"
-#define COLLISION_SELECT_S "texture/buttons/collosionSelected.jpg"
-
-#define INSTRUCTION_TEXTURE "texture/instruction.jpg"
+#define INSTRUCTION_TEXTURE "../texture/instruction.jpg"
 
 // WINDOWS
 
@@ -104,26 +102,26 @@
 
 // WEAPONS
 
-#define SHOTGUN_TEXTURE "texture/weapons/shotgun.png"
-#define SHOTGUN_ARM_TEXTURE "texture/weapons/shotgun_arm.png"
-#define SHOTGUN_HANDLE_TEXTURE "texture/weapons/shotgun_handle.png"
-#define SHOTGUN_TRUNK_TEXTURE "texture/weapons/shotgun_trunk.png"
+#define SHOTGUN_TEXTURE "../texture/weapons/shotgun.png"
+#define SHOTGUN_ARM_TEXTURE "../texture/weapons/shotgun_arm.png"
+#define SHOTGUN_HANDLE_TEXTURE "../texture/weapons/shotgun_handle.png"
+#define SHOTGUN_TRUNK_TEXTURE "../texture/weapons/shotgun_trunk.png"
 
-#define AIM_TEXTURE "texture/weapons/aim.png"
-#define FIRE_SHOTGUN_TEXTURE "texture/weapons/gunBlast.png"
+#define AIM_TEXTURE "../texture/weapons/aim.png"
+#define FIRE_SHOTGUN_TEXTURE "../texture/weapons/gunBlast.png"
 
-#define GUN_SHOT_SOUND "sounds/gunShot.ogg"
-#define WALK_SOUND "sounds/walkSound.ogg"
+#define GUN_SHOT_SOUND "../sounds/gunShot.ogg"
+#define WALK_SOUND "../sounds/walkSound.ogg"
 
-#define HEALTH_TEXTURE "texture/health.png"
-#define SHOUT_TEXTURE "texture/shots.png"
+#define HEALTH_TEXTURE "../texture/health.png"
+#define SHOUT_TEXTURE "../texture/shots.png"
 
-#define HEALTH_BONUS_TEXTURE "texture/healBonus.png"
-#define AMMUNATION_BONUS_TEXTURE "texture/ammunBonus.png"
-#define SPEED_BONUS_TEXTURE "texture/speedBonus.png"
-#define VIEW_BONUS_TEXTURE "texture/viewBonus.png"
+#define HEALTH_BONUS_TEXTURE "../texture/healBonus.png"
+#define AMMUNATION_BONUS_TEXTURE "../texture/ammunBonus.png"
+#define SPEED_BONUS_TEXTURE "../texture/speedBonus.png"
+#define VIEW_BONUS_TEXTURE "../texture/viewBonus.png"
 
-#define TEXT_FONT "fonts/19471.ttf"
+#define TEXT_FONT "../fonts/19471.ttf"
 
 
 #endif //PSEUDO3DENGINE_SETTINGS_H

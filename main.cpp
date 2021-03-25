@@ -24,7 +24,7 @@ void InitNetwork(ServerUDP& server, ClientUDP& client)
     std::string clientIp;
     sf::Uint16 clientPort;
     sf::Uint16 serverPort;
-    std::ifstream connectfile("connect.txt", std::ifstream::in);
+    std::ifstream connectfile("../connect.txt", std::ifstream::in);
 
     // If failed to read client settings
     if (!connectfile.is_open() || !(connectfile >> clientIp >> clientPort) || sf::IpAddress(clientIp) == sf::IpAddress::None)
@@ -33,20 +33,20 @@ void InitNetwork(ServerUDP& server, ClientUDP& client)
         // Create file and write default settings
         clientIp = "127.0.0.1";
         clientPort = 54000;
-        std::ofstream temp("connect.txt", std::ofstream::out);
+        std::ofstream temp("../connect.txt", std::ofstream::out);
         temp << clientIp << std::endl << clientPort;
         temp.close();
     }
     connectfile.close();
 
     // If failed to read server settings
-    connectfile.open("server.txt", std::ifstream::in);
+    connectfile.open("../server.txt", std::ifstream::in);
     if (!connectfile.is_open() || !(connectfile >> serverPort))
     {
         connectfile.close();
         // Create file and write default settings
         serverPort = 54000;
-        std::ofstream temp("server.txt", std::ofstream::out);
+        std::ofstream temp("../server.txt", std::ofstream::out);
         temp << serverPort;
         temp.close();
     }
@@ -74,7 +74,7 @@ int main()
     */
 
     sf::Music backSounds;
-    backSounds.openFromFile("sounds/backSounds.ogg");
+    backSounds.openFromFile("../sounds/backSounds.ogg");
     backSounds.setVolume(20);
     backSounds.setLoop(true);
     backSounds.pause();
@@ -83,7 +83,7 @@ int main()
     World world;
     Camera* camera = nullptr;
 
-    world.load3DObj("maps/city_big.obj", WALL_TEXTURE, 0.03, {-1, 1});
+    world.load3DObj("../maps/city.obj", WALL_TEXTURE, 0.03, {-1, 1});
     world.addBonusPoint({0.5, -0.5});
     world.addBonusPoint({9.5, -4.0});
     world.addBonusPoint({13.0, -15.5});
@@ -106,12 +106,12 @@ int main()
     ServerUDP server(world);
     ClientUDP client(world);
 
-    server.loadObjSpawns("maps/spawns_city_big.obj", 0.03);
+    server.loadObjSpawns("../maps/spawns_city_big.obj", 0.03);
 
     // generation of AI's
-    GeneticAlgorithm generation(world, server, 63);
-    generation.loadNetwork("bigChange.txt");
-    //generation.saveNetwork("bigChange1.txt");
+    GeneticAlgorithm generation(world, server, 11);
+    generation.loadNetwork("../neuralNetwork.txt");
+    //generation.saveNetwork("../bigChange1.txt");
 
     double dt = 0.02;
     int iterations = 0;
@@ -173,8 +173,8 @@ int main()
             }
             if(iterations != 0 && ((iterations % 2000) == 0) && learn) {
                 cout << "saved gen: " << generation.generation() << " to file " << endl;
-                generation.saveNetwork("bigChange.txt");
-                generation.logScore("log.txt");
+                generation.saveNetwork("../neuralNetwork.txt");
+                generation.logScore("../log.txt");
             }
             iterations++;
 
@@ -218,10 +218,12 @@ int main()
                     if(!botView) {
                         camera = client.localPlayer();
                         camera->client = &client;
-//////
+
                         camera->setTextures(menu.isTextures());
                         camera->setSmooth(menu.isSmooth());
                         camera->setCollision(menu.isCollision());
+
+                        camera->setPosition({0, 0});
                     }
 
                     //backSounds.play();
@@ -255,7 +257,7 @@ int main()
     }
 
     if(learn)
-        generation.saveNetwork("bigChange.txt");
+        generation.saveNetwork("../neuralNetwork.txt");
 
     ResourceManager::unloadAllResources();
 

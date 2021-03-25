@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Bonus.cpp
-Bonus.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Bonus.h
-
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Bonus.h
 Object2D.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.h
@@ -18,18 +14,6 @@ settings.h
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Button.h
 SFML/Graphics.hpp
--
-
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.cpp
-Camera.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.h
-cmath
--
-ClientUDP.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/ClientUDP.h
-thread
--
-mutex
 -
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.h
@@ -48,29 +32,11 @@ mutex
 thread
 -
 
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Circle2D.cpp
-Circle2D.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Circle2D.h
-settings.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
-
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Circle2D.h
 Object2D.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.h
 settings.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
-
-/Users/ivanilin/CLionProjects/pseudo3DEngine/ClientUDP.cpp
-ClientUDP.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/ClientUDP.h
-Time.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Time.h
-MsgType.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/MsgType.h
-settings.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
-thread
--
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/ClientUDP.h
 World.h
@@ -84,20 +50,6 @@ UDPSocket.h
 memory
 -
 
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Enemy.cpp
-Enemy.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Enemy.h
-utility
--
-Time.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Time.h
-iostream
--
-fstream
--
-sstream
--
-
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Enemy.h
 Camera.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Camera.h
@@ -108,26 +60,6 @@ ServerUDP.h
 NeuralNetwork.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/NeuralNetwork.h
 
-/Users/ivanilin/CLionProjects/pseudo3DEngine/GeneticAlgorithm.cpp
-GeneticAlgorithm.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/GeneticAlgorithm.h
-Time.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Time.h
-thread
--
-iostream
--
-fstream
--
-Point3D.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Point3D.h
-Point2D.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Point2D.h
-sstream
--
-thread
--
-
 /Users/ivanilin/CLionProjects/pseudo3DEngine/GeneticAlgorithm.h
 World.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/World.h
@@ -137,10 +69,6 @@ Enemy.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Idrawable.h
 SFML/Graphics.hpp
 -
-
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Menu.cpp
-Menu.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Menu.h
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Menu.h
 SFML/Graphics.hpp
@@ -156,27 +84,9 @@ Button.h
 SFML/Network.hpp
 -
 
-/Users/ivanilin/CLionProjects/pseudo3DEngine/NeuralNetwork.cpp
-string
--
-fstream
--
-sstream
--
-cmath
--
-NeuralNetwork.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/NeuralNetwork.h
-
 /Users/ivanilin/CLionProjects/pseudo3DEngine/NeuralNetwork.h
 vector
 -
-settings.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
-
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.cpp
-Object2D.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.h
 settings.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
 
@@ -200,49 +110,15 @@ settings.h
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/ObjectType.h
 
-/Users/ivanilin/CLionProjects/pseudo3DEngine/OptimizedBots.cpp
-OptimizedBots.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/OptimizedBots.h
-
-/Users/ivanilin/CLionProjects/pseudo3DEngine/OptimizedBots.h
-string
--
-World.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/World.h
-Enemy.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Enemy.h
-
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Player.cpp
-Player.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Player.h
-
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Player.h
 Circle2D.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Circle2D.h
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Point2D.h
 
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Point3D.h
-
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Poligon2D.cpp
-Poligon2D.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Poligon2D.h
-settings.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
-
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Poligon2D.h
 Object2D.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Object2D.h
-
-/Users/ivanilin/CLionProjects/pseudo3DEngine/ReliableMsg.cpp
-cmath
--
-ReliableMsg.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/ReliableMsg.h
-Time.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Time.h
-settings.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/ReliableMsg.h
 SFML/Network.hpp
@@ -253,24 +129,6 @@ SFML/Graphics.hpp
 -
 SFML/Audio.hpp
 -
-
-/Users/ivanilin/CLionProjects/pseudo3DEngine/ServerUDP.cpp
-fstream
--
-sstream
--
-ServerUDP.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/ServerUDP.h
-Time.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Time.h
-MsgType.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/MsgType.h
-settings.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
-Point2D.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Point2D.h
-Point3D.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Point3D.h
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/ServerUDP.h
 World.h
@@ -286,26 +144,8 @@ memory
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Time.h
 
-/Users/ivanilin/CLionProjects/pseudo3DEngine/UDPConnection.cpp
-UDPConnection.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/UDPConnection.h
-Time.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Time.h
-settings.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
-
 /Users/ivanilin/CLionProjects/pseudo3DEngine/UDPConnection.h
 SFML/Network.hpp
--
-
-/Users/ivanilin/CLionProjects/pseudo3DEngine/UDPSocket.cpp
-UDPSocket.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/UDPSocket.h
-Time.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Time.h
-settings.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
-algorithm
 -
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/UDPSocket.h
@@ -322,20 +162,6 @@ UDPConnection.h
 MsgType.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/MsgType.h
 
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Weapon.cpp
-cmath
--
-Weapon.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Weapon.h
-ResourceManager.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/ResourceManager.h
-Point2D.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Point2D.h
-chrono
--
-Time.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Time.h
-
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Weapon.h
 SFML/Audio.hpp
 -
@@ -343,22 +169,6 @@ Idrawable.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/Idrawable.h
 settings.h
 /Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
-
-/Users/ivanilin/CLionProjects/pseudo3DEngine/World.cpp
-fstream
--
-sstream
--
-World.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/World.h
-settings.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/settings.h
-Point3D.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Point3D.h
-vector
--
-Poligon2D.h
-/Users/ivanilin/CLionProjects/pseudo3DEngine/Poligon2D.h
 
 /Users/ivanilin/CLionProjects/pseudo3DEngine/World.h
 Object2D.h

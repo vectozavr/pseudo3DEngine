@@ -51,7 +51,7 @@ Camera::~Camera() {
 
     startCV.notify_all();
 
-    for (auto t : threads)
+    for (const auto& t : threads)
         if (t->joinable())
             t->join();
 }
@@ -84,25 +84,6 @@ void Camera::setFieldOfView(double angle) {
         verticalTan[i] = tan(atan2(dir.y, dir.x));
     }
 }
-
-//Camera::Camera(const Camera& camera) : Player(camera), W_world(camera.W_world)
-//{
-//    v_distances = camera.v_distances;
-//    allCollisions = camera.allCollisions;
-//    d_direction = camera.d_direction;
-//    d_depth = camera.d_depth;
-//    d_fieldOfView = camera.d_fieldOfView;
-//    d_eyesHeight = camera.d_eyesHeight;
-//    d_walkSpeed = camera.d_walkSpeed;
-//    d_viewSpeed = camera.d_viewSpeed;
-//    b_collision = camera.b_collision;
-//    b_textures = camera.b_textures;
-//    b_smooth = camera.b_smooth;
-//    localMousePosition = camera.localMousePosition;
-//    v_weapons = camera.v_weapons;
-//    i_selectedWeapon = camera.i_selectedWeapon;
-//    walkSound = camera.walkSound;
-//}
 
 bool Camera::isSmooth()
 {
