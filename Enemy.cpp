@@ -8,11 +8,12 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include "Point2D.h"
 
 using namespace std;
 
 Enemy::Enemy(World& world, Point2D position, double vPos, double height, double health, std::string texture, double fieldOfView, double eyesHeight, double depth, double walkSpeed, double jumpSpeed, double viewSpeed) :
-Player(position, vPos, height, health, std::move(texture)), W_world(world), d_fieldOfView(fieldOfView), d_eyesHeight(eyesHeight), d_jumpSpeed(jumpSpeed), d_walkSpeed(walkSpeed), d_depth(depth)
+        Player(position, vPos, height, health, std::move(texture)), W_world(world), d_fieldOfView(fieldOfView), d_eyesHeight(eyesHeight), d_jumpSpeed(jumpSpeed), d_walkSpeed(walkSpeed), d_depth(depth)
 {
     Weapon weapon1(30);
     weapon1.choiceWeapon("shotgun");
@@ -215,45 +216,55 @@ void Enemy::makeDecision(double elapsedTime) {
 double Enemy::distanceToBonus(BonusType type) {
     double l = d_depth;
 
-    for(auto& b : W_world.bonuses())
-        if(reinterpret_cast<Bonus*>(W_world[b].get())->bonusType() == type)
-            if((position() - W_world[b]->position()).abs() < l)
-                l = (position() - W_world[b]->position()).abs();
+    for (auto& b : W_world.bonuses())
+    {
+        if (b.expired())
+            continue;
+        shared_ptr<Bonus> pb = b.lock();
+        if (pb->bonusType() == type)
+            if ((position() - pb->position()).abs() < l)
+                l = (position() - pb->position()).abs();
+    }
 
     return l;
 }
 
 double Enemy::angleToBonus(BonusType type) {
-    double angle = -d_fieldOfView/2;
+    double angle = -d_fieldOfView / 2;
     double l = d_depth;
 
-    for(auto& b : W_world.bonuses())
-        if(reinterpret_cast<Bonus*>(W_world[b].get())->bonusType() == type)
-            if((position() - W_world[b]->position()).abs() < l) {
-                l = (position() - W_world[b]->position()).abs();
-                angle = (angleBetween(b) + d_fieldOfView/2)/d_fieldOfView;
+    for (auto& b : W_world.bonuses())
+    {
+        if (b.expired())
+            continue;
+        shared_ptr<Bonus> pb = b.lock();
+        if (pb->bonusType() == type)
+            if ((position() - pb->position()).abs() < l) {
+                l = (position() - pb->position()).abs();
+                angle = (angleBetween(pb) + d_fieldOfView / 2) / d_fieldOfView;
             }
+    }
 
     return angle;
 }
 
-double Enemy::angleBetween(std::string obj) const {
+double Enemy::angleBetween(std::shared_ptr<Object2D> obj) const {
 
-    if(W_world[obj] == nullptr)
+    if (obj == nullptr)
         return -d_fieldOfView;
 
-    Point2D viewDir = {cos(d_direction), sin(d_direction)};
-    Point2D objDir  = (W_world[obj]->position() - position()).normalize();
+    Point2D viewDir = { cos(d_direction), sin(d_direction) };
+    Point2D objDir = (obj->position() - position()).normalize();
 
-    if(viewDir*objDir < 0)
-        return -d_fieldOfView/2;
+    if (viewDir * objDir < 0)
+        return -d_fieldOfView / 2;
 
     double angle = viewDir.getAngle(objDir);
 
-    if(angle < -d_fieldOfView/2)
-        angle = -d_fieldOfView/2;
-    if(angle > d_fieldOfView/2)
-        angle = d_fieldOfView/2;
+    if (angle < -d_fieldOfView / 2)
+        angle = -d_fieldOfView / 2;
+    if (angle > d_fieldOfView / 2)
+        angle = d_fieldOfView / 2;
 
     return angle;
 }
@@ -292,8 +303,8 @@ void Enemy::update(double dt, double elapsedTime) {
 
         if(dist < near && canSee) {
             near = dist;
-            //enemyAngle = (angleBetween(p.first) + d_fieldOfView/2)/d_fieldOfView;
-            enemyAngle = angleBetween(p.first);
+            //enemyAngle = (angleBetween(p.second) + d_fieldOfView/2)/d_fieldOfView;
+            enemyAngle = angleBetween(p.second);
         }
         if(enemyAngle == -d_fieldOfView/2 || enemyAngle == d_fieldOfView/2)
             near = d_depth;
@@ -307,14 +318,12 @@ void Enemy::update(double dt, double elapsedTime) {
     N_network.addInput(distanceToBonus(BonusType::SpeedBonus) / d_depth);
     // distance to the health
     N_network.addInput(distanceToBonus(BonusType::TreatmentBonus) / d_depth);
-
     // angle to the ammunition
     N_network.addInput(angleToBonus(BonusType::AmmunitionBonus));
     // angle to the speedBonus
     N_network.addInput(angleToBonus(BonusType::SpeedBonus));
     // angle to the health
     N_network.addInput(angleToBonus(BonusType::TreatmentBonus));
-
     // health
     N_network.addInput((double)client->localPlayer()->health() / 100.0);
     */

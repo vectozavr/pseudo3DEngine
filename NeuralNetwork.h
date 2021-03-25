@@ -43,7 +43,7 @@ public:
     void clearInput();
 
     std::vector<double> getOutput();
-    void crossbreeding(const NeuralNetwork& network1, const NeuralNetwork& network2, double score1, double score2);
+    void crossbreeding(const NeuralNetwork& network1, const NeuralNetwork& network2);
 
     [[nodiscard]] std::vector<std::vector<double>> weight1() const { return v_weight_inLayer; }
     [[nodiscard]] std::vector<std::vector<double>> weight2() const { return v_weight_hiddenLayer_1; }
@@ -61,7 +61,6 @@ public:
     //void setBias3   (const std::vector<double> b) { v_bias_hiddenLayer_2 = b; }
 
     static double sigmoid(double x);
-    static double relu(double x);
 
     [[nodiscard]] bool valid() const { return b_valid; }
     [[nodiscard]] bool equalSize(const NeuralNetwork& network) const;

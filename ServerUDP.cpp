@@ -45,7 +45,7 @@ void ServerUDP::update()
             Player& camera = *player.second;
             camera.reduceHealth(-1 * (Time::time() - _lastBroadcast));
 
-            updatePacket << player.first << camera.position().x << camera.position().y << camera.vPos() << camera.health() << camera.kills() << camera.deaths() << camera.reduced() << camera.lost();
+            updatePacket << player.first << camera.position().x << camera.position().y << camera.vPos() << camera.health() << camera.kills() << camera.deaths();
         }
 
         for (auto&& player : _players)
@@ -130,6 +130,7 @@ bool ServerUDP::process()
 
     switch (type)
     {
+
         case MsgType::Connect:
             //extraPacket << MsgType::Connect << NETWORK_VERSION << senderId;
             extraPacket << MsgType::NewPlayer << senderId;
@@ -162,33 +163,29 @@ bool ServerUDP::process()
             _players.at(senderId)->setVPos(buf[2]);
             break;
 
-        case MsgType::Shoot: {
-            double health_diff = _players.at(targetId)->health();
-
+        case MsgType::Shoot:
             packet >> targetId >> buf[0] >> buf[1];
             sendPacket << MsgType::Shoot;
 
-            if (_players[targetId] == nullptr)
+            if(_players[targetId] == nullptr)
                 return false;
 
-            if (_players.at(targetId)->reduceHealth(buf[0] / buf[1])) {
+            if (_players.at(targetId)->reduceHealth(buf[0] / buf[1]))
+            {
                 sendPacket << true << _spawns[targetId % _spawns.size()].x << _spawns[targetId % _spawns.size()].y;
                 _players.at(targetId)->setHealth(100);
                 _players.at(targetId)->setPosition(_spawns[targetId % _spawns.size()]);
 
                 _players.at(targetId)->oneMoreDeath();
                 _players.at(senderId)->oneMoreKill();
-            } else {
-                health_diff = health_diff - _players.at(targetId)->health();
-                double dir = 2.0 * PI * rand() / RAND_MAX;
+            }
+            else
+            {
+                double dir = 2 * PI * rand() / RAND_MAX;
                 sendPacket << false << 0.05 * cos(dir) << 0.05 * sin(dir);
             }
-            _players.at(targetId)->lose(health_diff);
-            _players.at(senderId)->reduce(health_diff);
-
             _socket.sendRely(sendPacket, targetId);
             break;
-        }
 
         case MsgType::ReInit:
             for(auto& p : _players) {
@@ -196,7 +193,6 @@ bool ServerUDP::process()
                 p.second->setDeaths(0);
                 p.second->setHealth(100);
             }
-            break;
     }
 
     return true;

@@ -81,7 +81,7 @@ public:
     [[nodiscard]] const NeuralNetwork&    network() const { return N_network; }
     [[nodiscard]]       NeuralNetwork&    network()       { return N_network; }
 
-    [[nodiscard]] double angleBetween(std::string obj) const;
+    [[nodiscard]] double angleBetween(std::shared_ptr<Object2D> obj) const;
 
     [[nodiscard]] double fov() const { return d_fieldOfView; }
 };

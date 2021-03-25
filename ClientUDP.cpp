@@ -123,107 +123,101 @@ bool ClientUDP::process()
     switch (type)
     {
 
-    case MsgType::NewPlayer: {
-        packet >> targetId;
+        case MsgType::NewPlayer: {
+            packet >> targetId;
 
-        std::shared_ptr<Player> pplayer = std::make_shared<Player>(Point2D());
-        _players.insert({targetId, pplayer});
-        _world.addObject2D(pplayer, "Player" + std::to_string(targetId));
+            std::shared_ptr<Player> pplayer = std::make_shared<Player>(Point2D());
+            _players.insert({targetId, pplayer});
+            _world.addObject2D(pplayer, "Player" + std::to_string(targetId));
 
-        _localPlayer->addPlayer(_players.at(targetId)->getName(), _players.at(targetId));
-        break;
-    }
-    case MsgType::Disconnect:
-        packet >> targetId;
-        if (targetId != _socket.ownId() && _players.count(targetId))
-        {
-            _world.removeObject2D(_players.at(targetId)->getName());
-            _localPlayer->removePlayer(_players.at(targetId)->getName());
-            _players.erase(targetId);
+            _localPlayer->addPlayer(_players.at(targetId)->getName(), _players.at(targetId));
+            break;
         }
-        else if (targetId == _socket.ownId())
-        {
-            disconnect();
-        }
-        break;
-
-    case MsgType::WorldInit:
-        packet >> targetId;
-        _socket.setId(targetId);
-
-        while (packet >> targetId >> buf[0] >> buf[1] >> buf[2] >> buf[3])
-        {
-            if (targetId == _socket.ownId())
+        case MsgType::Disconnect:
+            packet >> targetId;
+            if (targetId != _socket.ownId() && _players.count(targetId))
             {
-                _localPlayer = new Camera(_world, { 2.5, 0 });
-                player = _localPlayer;
+                _world.removeObject2D(_players.at(targetId)->getName());
+                _localPlayer->removePlayer(_players.at(targetId)->getName());
+                _players.erase(targetId);
+            }
+            else if (targetId == _socket.ownId())
+            {
+                disconnect();
+            }
+            break;
+
+        case MsgType::WorldInit:
+            packet >> targetId;
+            _socket.setId(targetId);
+
+            while (packet >> targetId >> buf[0] >> buf[1] >> buf[2] >> buf[3])
+            {
+                if (targetId == _socket.ownId())
+                {
+                    _localPlayer = new Camera(_world, { 2.5, 0 });
+                    player = _localPlayer;
+                }
+                else
+                {
+                    player = new Player({ 2.5, 0 });
+                }
+                std::shared_ptr<Player> pplayer = static_cast<std::shared_ptr<Player>>(player);
+                _players.insert({ targetId, pplayer });
+                _world.addObject2D(_players[targetId], "Player" + std::to_string(targetId));
+                player->setPosition({ buf[0], buf[1] });
+                player->setVPos(buf[2]);
+                player->setHealth(buf[3]);
+            }
+            for (auto&& player : _players)
+            {
+                if (player.first != _socket.ownId())
+                {
+                    _localPlayer->addPlayer(player.second->getName(), player.second);
+                }
+            }
+            break;
+
+        case MsgType::WorldUpdate:
+
+            int kills;
+            int deaths;
+
+            while (packet >> targetId >> buf[0] >> buf[1] >> buf[2] >> buf[3] >> kills >> deaths)
+            {
+
+                if (_players.count(targetId))
+                {
+                    player = _players.at(targetId).get();
+                    if (targetId != _socket.ownId())
+                    {
+                        player->setPosition({ buf[0], buf[1] });
+                        player->setVPos(buf[2]);
+                    }
+
+                    player->setHealth(buf[3]);
+                    player->setKills(kills);
+                    player->setDeaths(deaths);
+                }
+            }
+            break;
+
+        case MsgType::Shoot:
+            packet >> revive >> buf[0] >> buf[1];
+            if (revive) {
+                _localPlayer->setPosition({buf[0], buf[1]});
             }
             else
-            {
-                player = new Player({ 2.5, 0 });
-            }
-            std::shared_ptr<Player> pplayer = static_cast<std::shared_ptr<Player>>(player);
-            _players.insert({ targetId, pplayer });
-            _world.addObject2D(_players[targetId], "Player" + std::to_string(targetId));
-            player->setPosition({ buf[0], buf[1] });
-            player->setVPos(buf[2]);
-            player->setHealth(buf[3]);
-        }
-        for (auto&& player : _players)
-        {
-            if (player.first != _socket.ownId())
-            {
-                _localPlayer->addPlayer(player.second->getName(), player.second);
-            }
-        }
-        break;
+                _localPlayer->shiftPrecise({ buf[0], buf[1] });
+            break;
 
-    case MsgType::WorldUpdate:
-
-        int kills;
-        int deaths;
-
-        double reduced;
-        double lost;
-
-        while (packet >> targetId >> buf[0] >> buf[1] >> buf[2] >> buf[3] >> kills >> deaths >> reduced >> lost)
-        {
-            if (_players.count(targetId))
-            {
-                player = _players.at(targetId).get();
-                if (targetId != _socket.ownId())
-                {
-                    player->setPosition({ buf[0], buf[1] });
-                    player->setVPos(buf[2]);
-                }
-
-                player->setHealth(buf[3]);
-                player->setKills(kills);
-                player->setDeaths(deaths);
-                player->setReduced(reduced);
-                player->setLost(lost);
-            }
-        }
-        break;
-
-    case MsgType::Shoot:
-        packet >> revive >> buf[0] >> buf[1];
-        if (revive) {
+        case MsgType::ReInit:
+            packet >> buf[0] >> buf[1];
             _localPlayer->setPosition({buf[0], buf[1]});
-        }
-        else
-            _localPlayer->shiftPrecise({ buf[0], buf[1] });
-        break;
-
-    case MsgType::ReInit:
-        packet >> buf[0] >> buf[1];
-        _localPlayer->setPosition({buf[0], buf[1]});
-        _localPlayer->setKills(0);
-        _localPlayer->setDeaths(0);
-        _localPlayer->setHealth(100);
-        _localPlayer->setReduced(0);
-        _localPlayer->setLost(0);
-        break;
+            _localPlayer->setKills(0);
+            _localPlayer->setDeaths(0);
+            _localPlayer->setHealth(100);
+            break;
     }
 
     return true;

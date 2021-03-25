@@ -31,7 +31,7 @@ private:
 
     sf::Font F_font;
 
-    std::vector<std::string> v_bonuses;
+    std::vector<std::weak_ptr<Bonus>> v_bonuses;
     bool init_bonuses();
 
 public:
@@ -73,7 +73,7 @@ public:
     bool load3DObj(std::string filename, std::string texture = FLOOR_TEXTURE, double scale = 1.0, Point2D position = {0, 0});
 
     void rotateAllBonuses(double angle);
-    const std::vector<std::string>& bonuses() const {
+    const std::vector<std::weak_ptr<Bonus>>& bonuses() const {
         return v_bonuses;
     }
 };

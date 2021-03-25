@@ -11,7 +11,10 @@
 #include "Weapon.h"
 #include <SFML/System.hpp>
 #include <mutex>
+#include <atomic>
 #include <thread>
+#include <condition_variable>
+
 //#define BACKGROUND_THREADS
 
 class ClientUDP;
@@ -34,6 +37,26 @@ struct CollisionInformation
     double height = 0;
 };
 
+struct EnemiesRenderInfo
+{
+    Point2D position;
+    double vPos;
+    double height;
+    double health;
+};
+
+// Structure that swaps for multithreading reasons
+struct FrameImportantInfo
+{
+    std::vector<std::vector<RayCastStructure>> distances;
+    std::vector<CollisionInformation> collisions;
+    std::vector<Bonus*> bonuses;
+    std::vector<EnemiesRenderInfo> enemies;
+    Point2D position;
+    double direction;
+    double height;
+};
+
 class Camera : public Player
 {
 private:
@@ -45,8 +68,8 @@ private:
     double horizontalSin[DISTANCES_SEGMENTS];
     double verticalTan[SCREEN_HEIGHT];
 
-    std::vector<std::vector<RayCastStructure>> v_distances;
-    std::vector<CollisionInformation> allCollisions;
+    FrameImportantInfo oldFrame, curFrame;
+
     std::map<std::string, std::shared_ptr<Player>> m_playersOnTheScreen;
 
     double d_direction = 0;
@@ -77,8 +100,8 @@ private:
 
     sf::Sound walkSound;
 
-    void objectsRayCrossed(const std::pair<Point2D, Point2D>& ray, std::vector<RayCastStructure>& v_rayCastStruct, const std::string& name, int reflections = 0);
-    void hiddenObjectsRayCrossed(const std::pair<Point2D, Point2D>& ray, const std::string& name);
+    void objectsRayCrossed(const std::pair<Point2D, Point2D>& ray, std::vector<RayCastStructure>& v_rayCastStruct, const Object2D* name, int reflections = 0);
+    void hiddenObjectsRayCrossed(const std::pair<Point2D, Point2D>& ray, const Object2D* name);
     void drawVerticalStrip(sf::RenderTarget& window, const RayCastStructure& obj, int shift, int f);
     void recursiveDrawing(sf::RenderTarget& window, const std::vector<RayCastStructure>& v_RayCastStructure, int shift, int rec = 1);
     static void recursiveIncreaseDistance(std::vector<RayCastStructure>& v_RayCastStructure, double distance);
@@ -99,16 +122,11 @@ private:
 
     void updateThread(int i, int n);
 
-#ifdef BACKGROUND_THREADS
-    std::vector<std::vector<RayCastStructure>> oldDistances;
-    std::vector<CollisionInformation> oldCollisions;
-#endif // BACKGROUND_THREADS
-
-    std::vector<signed char> status;
-    short finished;
+    short threadCount;
+    std::atomic<short> finished;
+    std::atomic<signed char> work;
 
     std::vector<std::shared_ptr<std::thread>> threads;
-
     std::mutex renderM;
     std::mutex bonusM;
     std::mutex collisionM;
@@ -137,6 +155,8 @@ public:
 
     void setFieldOfView(double angle);
 
+    void startFrameProcessing();
+    void endFrameProcessing();
     bool keyboardControl(double elapsedTime, sf::RenderWindow& window);
     void updateDistances();
     void drawCameraView(sf::RenderTarget& window);

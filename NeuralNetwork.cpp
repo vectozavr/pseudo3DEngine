@@ -66,35 +66,24 @@ void NeuralNetwork::mutateNetwork() {
         return;
 
     double amp = 1;
-    double prop = 0.2;
-
-    double range_random = 100;
-    double prob_random_range = 0.1;
+    double prop = 0.8;
 
     // ----- 3 WEIGHT -----
     for(auto& w1 : v_weight_inLayer) {
         for(auto& w11 : w1) {
             double p = 1.0 * rand() / RAND_MAX;
-            if(p <= prop) { // with probability of prop * 100% we change the weight
+            if(p >= prop) { // with probability of 10% we change the weight
                 double ch = 2 * amp * (0.5 - 1.0 * rand() / RAND_MAX);
                 w11 += ch;
-            }
-            if(p <= prob_random_range) {
-                double newValue = 2 * range_random * (0.5 - 1.0 * rand() / RAND_MAX);
-                w11 = newValue;
             }
         }
     }
     for(auto& w2 : v_weight_hiddenLayer_1) {
         for(auto& w22 : w2) {
             double p = 1.0 * rand() / RAND_MAX;
-            if(p <= prop) { // with probability of prop * 100% we change the weight
+            if(p >= prop) { // with probability of 10% we change the weight
                 double ch = 2 * amp * (0.5 - 1.0 * rand() / RAND_MAX);
                 w22 += ch;
-            }
-            if(p <= prob_random_range) {
-                double newValue = 2 * range_random * (0.5 - 1.0 * rand() / RAND_MAX);
-                w22 = newValue;
             }
         }
     }
@@ -102,13 +91,9 @@ void NeuralNetwork::mutateNetwork() {
     for(auto& w3 : v_weight_hiddenLayer_2) {
         for(auto& w33 : w3) {
             double p = 1.0 * rand() / RAND_MAX;
-            if(p <= prop) { // with probability of prop * 100% we change the weight
+            if(p >= prop) { // with probability of 10% we change the weight
                 double ch = 2 * amp * (0.5 - 1.0 * rand() / RAND_MAX);
                 w33 += ch;
-            }
-            if(p <= prob_random_range) {
-                double newValue = 2 * range_random * (0.5 - 1.0 * rand() / RAND_MAX);
-                w33 = newValue;
             }
         }
     }
@@ -116,36 +101,24 @@ void NeuralNetwork::mutateNetwork() {
     // ----- 3 BIAS -----
     for(auto& b1 : v_bias_inLayer) {
         double p = 1.0 * rand() / RAND_MAX;
-        if(p <= prop) { // with probability of prop * 100% we change the bias
+        if(p >= prop) { // with probability of 10% we change the bias
             double ch = 2 * amp * (0.5 - 1.0 * rand() / RAND_MAX);
             b1 += ch;
-        }
-        if(p <= prob_random_range) {
-            double newValue = 2 * range_random * (0.5 - 1.0 * rand() / RAND_MAX);
-            b1 = newValue;
         }
     }
     for(auto& b2 : v_bias_hiddenLayer_1) {
         double p = 1.0 * rand() / RAND_MAX;
-        if(p <= prop) { // with probability of prop * 100% we change the bias
+        if(p >= prop) { // with probability of 10% we change the bias
             double ch = 2 * amp * (0.5 - 1.0 * rand() / RAND_MAX);
             b2 += ch;
-        }
-        if(p <= prob_random_range) {
-            double newValue = 2 * range_random * (0.5 - 1.0 * rand() / RAND_MAX);
-            b2 = newValue;
         }
     }
 
     for(auto& b3 : v_bias_hiddenLayer_2) {
         double p = 1.0 * rand() / RAND_MAX;
-        if(p <= prop) { // with probability of prop * 100% we change the bias
+        if(p >= prop) { // with probability of 10% we change the bias
             double ch = amp * (0.5 - 1.0 * rand() / RAND_MAX);
             b3 += ch;
-        }
-        if(p <= prob_random_range) {
-            double newValue = 2 * range_random * (0.5 - 1.0 * rand() / RAND_MAX);
-            b3 = newValue;
         }
     }
 
@@ -415,10 +388,6 @@ double NeuralNetwork::sigmoid(double x) {
     return 1.0 / (1.0 + exp(-x));
 }
 
-double NeuralNetwork::relu(double x) {
-    return x > 0 ? x : 0;
-}
-
 [[nodiscard]] bool NeuralNetwork::equalSize(const NeuralNetwork& network) const {
     if(v_weight_inLayer.size() != network.v_weight_inLayer.size())
         return false;
@@ -445,7 +414,7 @@ double NeuralNetwork::relu(double x) {
     return true;
 }
 
-void NeuralNetwork::crossbreeding(const NeuralNetwork& network1, const NeuralNetwork& network2, double score1, double score2) {
+void NeuralNetwork::crossbreeding(const NeuralNetwork& network1, const NeuralNetwork& network2) {
     if(!network1.valid() || !network2.valid() || !network1.equalSize(network2))
         return;
 
@@ -457,13 +426,11 @@ void NeuralNetwork::crossbreeding(const NeuralNetwork& network1, const NeuralNet
     v_bias_hiddenLayer_1.clear();
     v_bias_hiddenLayer_2.clear();
 
-    double p1 = score1/(score1 + score2);
-
     for(int i = 0; i < network1.v_weight_inLayer.size(); i++) {
         v_weight_inLayer.emplace_back();
         for (int j = 0; j < network1.v_weight_inLayer[i].size(); j++) {
-            int s = (double)rand() / RAND_MAX;
-            double w = (s <= p1) ? network1.v_weight_inLayer[i][j] : network2.v_weight_inLayer[i][j];
+            int s = rand() % 2;
+            double w = s == 0 ? network1.v_weight_inLayer[i][j] : network2.v_weight_inLayer[i][j];
             v_weight_inLayer[i].emplace_back(w);
         }
     }
@@ -471,8 +438,8 @@ void NeuralNetwork::crossbreeding(const NeuralNetwork& network1, const NeuralNet
     for(int i = 0; i < network1.v_weight_hiddenLayer_1.size(); i++) {
         v_weight_hiddenLayer_1.emplace_back();
         for (int j = 0; j < network1.v_weight_hiddenLayer_1[i].size(); j++) {
-            int s = (double)rand() / RAND_MAX;
-            double w = (s <= p1) ? network1.v_weight_hiddenLayer_1[i][j] : network2.v_weight_hiddenLayer_1[i][j];
+            int s = rand() % 2;
+            double w = s == 0 ? network1.v_weight_hiddenLayer_1[i][j] : network2.v_weight_hiddenLayer_1[i][j];
             v_weight_hiddenLayer_1[i].emplace_back(w);
         }
     }
@@ -480,25 +447,26 @@ void NeuralNetwork::crossbreeding(const NeuralNetwork& network1, const NeuralNet
     for(int i = 0; i < network1.v_weight_hiddenLayer_2.size(); i++) {
         v_weight_hiddenLayer_2.emplace_back();
         for (int j = 0; j < network1.v_weight_hiddenLayer_2[i].size(); j++) {
-            int s = (double)rand() / RAND_MAX;
-            double w = (s <= p1) ? network1.v_weight_hiddenLayer_2[i][j] : network2.v_weight_hiddenLayer_2[i][j];
+            int s = rand() % 2;
+            double w = s == 0 ? network1.v_weight_hiddenLayer_2[i][j] : network2.v_weight_hiddenLayer_2[i][j];
             v_weight_hiddenLayer_2[i].emplace_back(w);
         }
     }
 
     for (int i = 0; i < network1.v_bias_inLayer.size(); i++) {
-        int s = (double)rand() / RAND_MAX;
-        double w = (s <= p1) ? network1.v_bias_inLayer[i] : network2.v_bias_inLayer[i];
+        int s = rand() % 2;
+        double w = s == 0 ? network1.v_bias_inLayer[i] : network2.v_bias_inLayer[i];
         v_bias_inLayer.emplace_back(w);
     }
     for (int i = 0; i < network1.v_bias_hiddenLayer_1.size(); i++) {
-        int s = (double)rand() / RAND_MAX;
-        double w = (s <= p1) ? network1.v_bias_hiddenLayer_1[i] : network2.v_bias_hiddenLayer_1[i];
+        int s = rand() % 2;
+        double w = s == 0 ? network1.v_bias_hiddenLayer_1[i] : network2.v_bias_hiddenLayer_1[i];
         v_bias_hiddenLayer_1.emplace_back(w);
     }
+
     for (int i = 0; i < network1.v_bias_hiddenLayer_2.size(); i++) {
-        int s = (double)rand() / RAND_MAX;
-        double w = (s <= p1) ? network1.v_bias_hiddenLayer_2[i] : network2.v_bias_hiddenLayer_2[i];
+        int s = rand() % 2;
+        double w = s == 0 ? network1.v_bias_hiddenLayer_2[i] : network2.v_bias_hiddenLayer_2[i];
         v_bias_hiddenLayer_2.emplace_back(w);
     }
 

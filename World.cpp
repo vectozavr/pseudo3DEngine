@@ -12,15 +12,16 @@
 #include "World.h"
 #include "settings.h"
 #include "Point3D.h"
+#include "Point2D.h"
 #include <vector>
 #include "Poligon2D.h"
 
 using namespace std;
 
 World::World(double length, double width, const std::string& sky_texture, const std::string& floor_texture)
-    : d_length(length), d_width(width), T_floor_texture(*ResourceManager::loadTexture(floor_texture)), T_sky_texture(*ResourceManager::loadTexture(sky_texture)),
-      T_health_texture(*ResourceManager::loadTexture(HEALTH_TEXTURE)), T_shoot_texture(*ResourceManager::loadTexture(SHOUT_TEXTURE)),
-      F_font(*ResourceManager::loadFont(TEXT_FONT))
+        : d_length(length), d_width(width), T_floor_texture(*ResourceManager::loadTexture(floor_texture)), T_sky_texture(*ResourceManager::loadTexture(sky_texture)),
+          T_health_texture(*ResourceManager::loadTexture(HEALTH_TEXTURE)), T_shoot_texture(*ResourceManager::loadTexture(SHOUT_TEXTURE)),
+          F_font(*ResourceManager::loadFont(TEXT_FONT))
 {
     S_floor.setTexture(floorTexture());
     S_health_sprite.setTexture(T_health_texture);
@@ -212,37 +213,31 @@ bool World::load3DObj(const std::string filename, const std::string texture, dou
     return !indices.empty();
 }
 
-bool World::init_bonuses() {
+bool World::init_bonuses()
+{
+    vector<shared_ptr<Bonus>> bonuses;
+    //bonuses.push_back(make_shared<Bonus>(Point2D(0, 0), BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
+    //bonuses.push_back(make_shared<Bonus>(Point2D(0, 1), BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
+    //bonuses.push_back(make_shared<Bonus>(Point2D(0, 2), BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
+    //bonuses.push_back(make_shared<Bonus>(Point2D(0, 3), BonusType::ViewBonus, VIEW_BONUS_TEXTURE));
 
-    vector<Bonus> bonuses;
-    bonuses.push_back(Bonus({0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
-    bonuses.push_back(Bonus({0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
-    bonuses.push_back(Bonus({0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
+    bonuses.push_back(make_shared<Bonus>(Point2D{0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
+    bonuses.push_back(make_shared<Bonus>(Point2D{0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
+    bonuses.push_back(make_shared<Bonus>(Point2D{0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
 
-    bonuses.push_back(Bonus({0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
-    bonuses.push_back(Bonus({0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
-    bonuses.push_back(Bonus({0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
+    bonuses.push_back(make_shared<Bonus>(Point2D{0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
+    bonuses.push_back(make_shared<Bonus>(Point2D{0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
+    bonuses.push_back(make_shared<Bonus>(Point2D{0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
 
-    bonuses.push_back(Bonus({0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
-    bonuses.push_back(Bonus({0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
-    bonuses.push_back(Bonus({0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
+    bonuses.push_back(make_shared<Bonus>(Point2D{0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
+    bonuses.push_back(make_shared<Bonus>(Point2D{0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
+    bonuses.push_back(make_shared<Bonus>(Point2D{0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
 
-    bonuses.push_back(Bonus({0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
-    bonuses.push_back(Bonus({0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
-    bonuses.push_back(Bonus({0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
-
-    bonuses.push_back(Bonus({0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
-    bonuses.push_back(Bonus({0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
-    bonuses.push_back(Bonus({0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
-
-    bonuses.push_back(Bonus({0, 0}, BonusType::TreatmentBonus, HEALTH_BONUS_TEXTURE));
-    bonuses.push_back(Bonus({0, 1}, BonusType::AmmunitionBonus, AMMUNATION_BONUS_TEXTURE));
-    bonuses.push_back(Bonus({0, 2}, BonusType::SpeedBonus, SPEED_BONUS_TEXTURE));
-    //bonuses.push_back(Bonus({0, 3}, BonusType::ViewBonus, VIEW_BONUS_TEXTURE));
+    //bonuses.push_back(make_shared<Bonus>(Point2D(0, 3), BonusType::ViewBonus, VIEW_BONUS_TEXTURE));
 
     for(int b = 0; b < bonuses.size(); b++)
-        if(addObject2D(std::make_shared<Bonus>(bonuses[b]), "bonus_" + std::to_string(b)))
-            v_bonuses.push_back("bonus_" + std::to_string(b));
+        if(addObject2D(bonuses[b], "bonus_" + std::to_string(b)))
+            v_bonuses.push_back(bonuses[b]);
         else
             return false;
 
@@ -268,6 +263,11 @@ void World::freeBonusPoint(Point2D p) {
 }
 
 void World::rotateAllBonuses(double angle) {
-    for(auto& bonus : v_bonuses)
-        map_objects[bonus]->rotate(angle);
+    for (auto it = v_bonuses.begin(); it != v_bonuses.end();)
+    {
+        if (auto bonus = it->lock())
+            bonus->rotate(angle), it++;
+        else
+            it = v_bonuses.erase(it);
+    }
 }
