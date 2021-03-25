@@ -64,7 +64,7 @@ int main()
 
     // Window should be created first because of drawing context.
     sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Pseudo3DEngine");
-    window.setFramerateLimit(600);
+    window.setFramerateLimit(60);
 
     // Sounds
     /*
@@ -149,7 +149,7 @@ int main()
     //server.addSpawn({80, -8});
 
     // generation of AI's
-    GeneticAlgorithm generation(world, server, 63);
+    GeneticAlgorithm generation(world, server, 10);
     generation.loadNetwork("../neuralNetwork.txt");
 
     double dt = 0.02;
