@@ -111,8 +111,8 @@ int main()
     server.loadObjSpawns("../maps/spawns_city.obj", 0.03);
 
     // generation of AI's
-    GeneticAlgorithm generation(world, server, 10);
-    generation.loadNetwork("../neuralNetwork.txt");
+    //GeneticAlgorithm generation(world, server, 10);
+    //generation.loadNetwork("../neuralNetwork.txt");
 
     double dt = 0.02;
     int iterations = 0;
@@ -165,23 +165,23 @@ int main()
             // Network update (must be after camera use)
             server.update();
             client.update();
-            if (learn)
-                generation.update(dt, d_elapsedTime);
-            else
-                generation.update(d_elapsedTime, d_elapsedTime);
+            //if (learn)
+            //    generation.update(dt, d_elapsedTime);
+            //else
+            //    generation.update(d_elapsedTime, d_elapsedTime);
 
-            if(learn) {
-                if (iterations != 0 && (iterations % 500) == 0) { // 500 * dt = 10 sec
-                    generation.newGeneration();
-                    cout << "gen: " << generation.generation() << " : score = \t" << generation.maxScore() << endl;
-                }
-                if (iterations != 0 && (iterations % 2000) == 0) {
-                    cout << "saved gen: " << generation.generation() << " to file " << endl;
-                    generation.saveNetwork("../neuralNetwork.txt");
-                    generation.logScore("../log.txt");
-                }
-                iterations++;
-            }
+            //if(learn) {
+            //    if (iterations != 0 && (iterations % 500) == 0) { // 500 * dt = 10 sec
+            //        generation.newGeneration();
+            //        cout << "gen: " << generation.generation() << " : score = \t" << generation.maxScore() << endl;
+            //    }
+            //    if (iterations != 0 && (iterations % 2000) == 0) {
+            //        cout << "saved gen: " << generation.generation() << " to file " << endl;
+            //        generation.saveNetwork("../neuralNetwork.txt");
+            //        generation.logScore("../log.txt");
+            //    }
+            //    iterations++;
+            //}
 
             // if client timeout or disconnected
             if (!client.isWorking())
@@ -235,15 +235,15 @@ int main()
                     //music.pause();
                 }
 
-                generation.connect(client);
+                //generation.connect(client);
 
-                if (botView) {
-                    camera = generation.connectToEnemyCamera();
-                    camera->setTextures(menu.isTextures());
-                    camera->setSmooth(menu.isSmooth());
-                    camera->setCollision(menu.isCollision());
-                    //client.localPlayer()->setPosition({250, 0});
-                }
+                //if (botView) {
+                //    camera = generation.connectToEnemyCamera();
+                //    camera->setTextures(menu.isTextures());
+                //    camera->setSmooth(menu.isSmooth());
+                //    camera->setCollision(menu.isCollision());
+                //    //client.localPlayer()->setPosition({250, 0});
+                //}
                 //camera = generation.connectToEnemyCamera();
                 //camera->setTextures(menu.isTextures());
                 //camera->setSmooth(menu.isSmooth());
@@ -260,7 +260,7 @@ int main()
             window.display();
     }
 
-    generation.saveNetwork("../neuralNetwork.txt");
+    //generation.saveNetwork("../neuralNetwork.txt");
 
     ResourceManager::unloadAllResources();
 

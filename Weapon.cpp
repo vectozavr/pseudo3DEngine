@@ -58,7 +58,7 @@ void Weapon::choiceWeapon(std::string name)
 
         fireSoundBuffer.loadFromFile(GUN_SHOT_SOUND);
         fireSound.setBuffer(fireSoundBuffer);
-        fireSound.setVolume(10.f);
+        fireSound.setVolume(0.f);
         i_damage = 50;
     }
 }
