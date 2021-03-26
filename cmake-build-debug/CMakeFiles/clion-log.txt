@@ -1,5 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/ivanilin/CLionProjects/pseudo3DEngine
--- Found SFML 2.5.1 in /usr/local/lib/cmake/SFML
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-debug

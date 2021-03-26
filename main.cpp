@@ -110,44 +110,6 @@ int main()
 
     server.loadObjSpawns("../maps/spawns_city.obj", 0.03);
 
-    //server.addSpawn({ 27.5, -12.5 });
-    //server.addSpawn({ 21.5, -15.0 });
-    //server.addSpawn({ 23.0, 27.0 });
-    //server.addSpawn({9.5, 26.0});
-    //server.addSpawn({0.6, 8.5});
-    //server.addSpawn({15, 8});
-    //server.addSpawn({20, -5});
-    //server.addSpawn({22, 19});
-    //server.addSpawn({13, 20});
-    //server.addSpawn({23, 14});
-    //server.addSpawn({28, 8});
-    //server.addSpawn({20, 20});
-    //server.addSpawn({23, 3});
-    //server.addSpawn({15, 6});
-    //server.addSpawn({20, 14});
-    //server.addSpawn({12, 19});
-
-    //server.addSpawn({12, -15});
-    //server.addSpawn({30, 30});
-    //server.addSpawn({30, 10});
-    //server.addSpawn({6.5, 20});
-    //server.addSpawn({0.5, -0.5});
-    //server.addSpawn({15, 2.3});
-    //server.addSpawn({30, 20});
-    //server.addSpawn({29, 32});
-//
-    //server.addSpawn({53, 30});
-    //server.addSpawn({36, -4});
-    //server.addSpawn({54, -3.5});
-    //server.addSpawn({2, -31});
-    //server.addSpawn({12, -41});
-    //server.addSpawn({28, -42});
-    //server.addSpawn({40, -35});
-    //server.addSpawn({56, -38});
-    //server.addSpawn({78, -23});
-    //server.addSpawn({67, -29});
-    //server.addSpawn({80, -8});
-
     // generation of AI's
     GeneticAlgorithm generation(world, server, 10);
     generation.loadNetwork("../neuralNetwork.txt");
@@ -208,16 +170,18 @@ int main()
             else
                 generation.update(d_elapsedTime, d_elapsedTime);
 
-            if (iterations != 0 && (iterations % 500) == 0) { // 500 * dt = 10 sec
-                generation.newGeneration();
-                cout << "gen: " << generation.generation() << " : score = \t" << generation.maxScore() << endl;
+            if(learn) {
+                if (iterations != 0 && (iterations % 500) == 0) { // 500 * dt = 10 sec
+                    generation.newGeneration();
+                    cout << "gen: " << generation.generation() << " : score = \t" << generation.maxScore() << endl;
+                }
+                if (iterations != 0 && (iterations % 2000) == 0) {
+                    cout << "saved gen: " << generation.generation() << " to file " << endl;
+                    generation.saveNetwork("../neuralNetwork.txt");
+                    generation.logScore("../log.txt");
+                }
+                iterations++;
             }
-            if (iterations != 0 && (iterations % 2000) == 0) {
-                cout << "saved gen: " << generation.generation() << " to file " << endl;
-                generation.saveNetwork("../neuralNetwork.txt");
-                generation.logScore("../log.txt");
-            }
-            iterations++;
 
             // if client timeout or disconnected
             if (!client.isWorking())
@@ -263,6 +227,8 @@ int main()
                         camera->setTextures(menu.isTextures());
                         camera->setSmooth(menu.isSmooth());
                         camera->setCollision(menu.isCollision());
+
+                        camera->setPosition({ 0, 3 });
                     }
 
                     //backSounds.play();
