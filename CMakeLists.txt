@@ -8,7 +8,7 @@ add_executable(FPSOnline settings.h Button.cpp Button.h Camera.cpp Camera.h Circ
 if(${APPLE})
     include_directories(/usr/local/include)
 else()
-    set(SFML_DIR "C:/Libraries/SFML/lib/cmake/SFML")
+    set(SFML_DIR "D:/Libraries/SFML/lib/cmake/SFML")
     set(SFML_STATIC_LIBRARIES TRUE)
 endif()
 
