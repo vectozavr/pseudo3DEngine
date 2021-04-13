@@ -1,5 +1,19 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - Unix Makefiles" /Users/ivanilin/CLionProjects/pseudo3DEngine
--- Found SFML 2.5.1 in /usr/local/lib/cmake/SFML
+"C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - MinGW Makefiles" C:\CLionProjects\pseudo3DEngine
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: C:/mingw64/bin/gcc.exe
+-- Check for working C compiler: C:/mingw64/bin/gcc.exe - works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: C:/mingw64/bin/g++.exe
+-- Check for working CXX compiler: C:/mingw64/bin/g++.exe - works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found SFML 2.5.1 in C:/Libraries/SFML/lib/cmake/SFML
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release
+-- Build files have been written to: C:/CLionProjects/pseudo3DEngine/cmake-build-release

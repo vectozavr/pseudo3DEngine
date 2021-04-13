@@ -149,8 +149,8 @@ int main()
     //server.addSpawn({80, -8});
 
     // generation of AI's
-    GeneticAlgorithm generation(world, server, 10);
-    generation.loadNetwork("../neuralNetwork.txt");
+    //GeneticAlgorithm generation(world, server, 10);
+    //generation.loadNetwork("../neuralNetwork.txt");
 
     double dt = 0.02;
     int iterations = 0;
@@ -203,6 +203,7 @@ int main()
             // Network update (must be after camera use)
             server.update();
             client.update();
+            /*
             if (learn)
                 generation.update(dt, d_elapsedTime);
             else
@@ -218,7 +219,7 @@ int main()
                 generation.logScore("../log.txt");
             }
             iterations++;
-
+            */
             // if client timeout or disconnected
             if (!client.isWorking())
             {
@@ -269,6 +270,7 @@ int main()
                     //music.pause();
                 }
 
+                /*
                 generation.connect(client);
 
                 if (botView) {
@@ -278,6 +280,7 @@ int main()
                     camera->setCollision(menu.isCollision());
                     //client.localPlayer()->setPosition({250, 0});
                 }
+                 */
                 //camera = generation.connectToEnemyCamera();
                 //camera->setTextures(menu.isTextures());
                 //camera->setSmooth(menu.isSmooth());
@@ -294,7 +297,7 @@ int main()
             window.display();
     }
 
-    generation.saveNetwork("../neuralNetwork.txt");
+    //generation.saveNetwork("../neuralNetwork.txt");
 
     ResourceManager::unloadAllResources();
 

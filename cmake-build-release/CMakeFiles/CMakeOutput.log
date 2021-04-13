@@ -1,6 +1,6 @@
-The system is: Darwin - 19.6.0 - x86_64
+The system is: Windows - 10.0.18363 - AMD64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler: /Library/Developer/CommandLineTools/usr/bin/cc 
+Compiler: C:/mingw64/bin/gcc.exe 
 Build flags: 
 Id flags:  
 
@@ -8,12 +8,12 @@ The output was:
 0
 
 
-Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
 
-The C compiler identification is AppleClang, found in "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/3.16.5/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/3.17.5/CompilerIdC/a.exe"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler: /Library/Developer/CommandLineTools/usr/bin/c++ 
+Compiler: C:/mingw64/bin/g++.exe 
 Build flags: 
 Id flags:  
 
@@ -21,850 +21,510 @@ The output was:
 0
 
 
-Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
 
-The CXX compiler identification is AppleClang, found in "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/3.16.5/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/3.17.5/CompilerIdCXX/a.exe"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
+Change Dir: C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_4159e/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_4159e.dir/build.make CMakeFiles/cmTC_4159e.dir/build
-Building C object CMakeFiles/cmTC_4159e.dir/testCCompiler.c.o
-/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_4159e.dir/testCCompiler.c.o   -c /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_4159e
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4159e.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_4159e.dir/testCCompiler.c.o  -o cmTC_4159e 
+Run Build Command(s):C:/mingw64/bin/mingw32-make.exe cmTC_aa31d/fast && C:/mingw64/bin/mingw32-make.exe  -f CMakeFiles\cmTC_aa31d.dir\build.make CMakeFiles/cmTC_aa31d.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_aa31d.dir/testCCompiler.c.obj
+C:\mingw64\bin\gcc.exe    -o CMakeFiles\cmTC_aa31d.dir\testCCompiler.c.obj   -c C:\CLionProjects\pseudo3DEngine\cmake-build-release\CMakeFiles\CMakeTmp\testCCompiler.c
+Linking C executable cmTC_aa31d.exe
+"C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_aa31d.dir\link.txt --verbose=1
+"C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_aa31d.dir/objects.a
+C:\mingw64\bin\ar.exe cr CMakeFiles\cmTC_aa31d.dir/objects.a @CMakeFiles\cmTC_aa31d.dir\objects1.rsp
+C:\mingw64\bin\gcc.exe      -Wl,--whole-archive CMakeFiles\cmTC_aa31d.dir/objects.a -Wl,--no-whole-archive  -o cmTC_aa31d.exe -Wl,--out-implib,libcmTC_aa31d.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_aa31d.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp'
 
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
+Change Dir: C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_aab36/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_aab36.dir/build.make CMakeFiles/cmTC_aab36.dir/build
-Building C object CMakeFiles/cmTC_aab36.dir/CMakeCCompilerABI.c.o
-/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -v -Wl,-v -o CMakeFiles/cmTC_aab36.dir/CMakeCCompilerABI.c.o   -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCCompilerABI.c
-Apple clang version 11.0.3 (clang-1103.0.32.62)
-Target: x86_64-apple-darwin19.6.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
-clang: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
- "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_aab36.dir/CMakeCCompilerABI.c.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdebug-compilation-dir /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fmax-type-align=16 -fdiagnostics-show-option -o CMakeFiles/cmTC_aab36.dir/CMakeCCompilerABI.c.o -x c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCCompilerABI.c
-clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
-ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
-ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
- /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
- /Library/Developer/CommandLineTools/usr/include
- /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking C executable cmTC_aab36
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aab36.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_aab36.dir/CMakeCCompilerABI.c.o  -o cmTC_aab36 
-Apple clang version 11.0.3 (clang-1103.0.32.62)
-Target: x86_64-apple-darwin19.6.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
- "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 10.15.0 10.15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o cmTC_aab36 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_aab36.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-556.6
-BUILD 17:57:49 Apr 24 2020
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/
+Run Build Command(s):C:/mingw64/bin/mingw32-make.exe cmTC_e291b/fast && C:/mingw64/bin/mingw32-make.exe  -f CMakeFiles\cmTC_e291b.dir\build.make CMakeFiles/cmTC_e291b.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e291b.dir/CMakeCCompilerABI.c.obj
+C:\mingw64\bin\gcc.exe   -v -o CMakeFiles\cmTC_e291b.dir\CMakeCCompilerABI.c.obj   -c "C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\share\cmake-3.17\Modules\CMakeCCompilerABI.c"
+Using built-in specs.
+COLLECT_GCC=C:\mingw64\bin\gcc.exe
+Target: x86_64-w64-mingw32
+Configured with: ../../../src/gcc-7.3.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/lib -L/c/mingw730/prerequisites/x86_64-zlib-static/lib -L/c/mingw730/prerequisites/x86_64-w64-mingw32-static/lib '
+Thread model: posix
+gcc version 7.3.0 (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_e291b.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona'
+ C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/cc1.exe -quiet -v -iprefix C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/ -D_REENTRANT C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\share\cmake-3.17\Modules\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=core2 -march=nocona -auxbase-strip CMakeFiles\cmTC_e291b.dir\CMakeCCompilerABI.c.obj -version -o C:\Users\ivan-\AppData\Local\Temp\ccmKGibb.s
+GNU C11 (x86_64-posix-seh-rev0, Built by MinGW-W64 project) version 7.3.0 (x86_64-w64-mingw32)
+	compiled by GNU C version 7.3.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/include"
+ignoring nonexistent directory "C:/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64C:/msys64-2/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../include"
+ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"
+ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"
+ignoring nonexistent directory "C:/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/mingw/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include
+ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed
+ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include
+End of search list.
+GNU C11 (x86_64-posix-seh-rev0, Built by MinGW-W64 project) version 7.3.0 (x86_64-w64-mingw32)
+	compiled by GNU C version 7.3.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: afb3948cd5c0c8f535365414e7310436
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_e291b.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona'
+ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\cmTC_e291b.dir\CMakeCCompilerABI.c.obj C:\Users\ivan-\AppData\Local\Temp\ccmKGibb.s
+GNU assembler version 2.30 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.30
+COMPILER_PATH=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/;C:/mingw64/bin/../libexec/gcc/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/bin/
+LIBRARY_PATH=C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/;C:/mingw64/bin/../lib/gcc/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_e291b.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona'
+Linking C executable cmTC_e291b.exe
+"C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_e291b.dir\link.txt --verbose=1
+"C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_e291b.dir/objects.a
+C:\mingw64\bin\ar.exe cr CMakeFiles\cmTC_e291b.dir/objects.a @CMakeFiles\cmTC_e291b.dir\objects1.rsp
+C:\mingw64\bin\gcc.exe     -v -Wl,--whole-archive CMakeFiles\cmTC_e291b.dir/objects.a -Wl,--no-whole-archive  -o cmTC_e291b.exe -Wl,--out-implib,libcmTC_e291b.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Using built-in specs.
+COLLECT_GCC=C:\mingw64\bin\gcc.exe
+COLLECT_LTO_WRAPPER=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/lto-wrapper.exe
+Target: x86_64-w64-mingw32
+Configured with: ../../../src/gcc-7.3.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/lib -L/c/mingw730/prerequisites/x86_64-zlib-static/lib -L/c/mingw730/prerequisites/x86_64-w64-mingw32-static/lib '
+Thread model: posix
+gcc version 7.3.0 (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 
+COMPILER_PATH=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/;C:/mingw64/bin/../libexec/gcc/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/bin/
+LIBRARY_PATH=C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/;C:/mingw64/bin/../lib/gcc/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e291b.exe' '-mtune=core2' '-march=nocona'
+ C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/collect2.exe -plugin C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/liblto_plugin-0.dll -plugin-opt=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\ivan-\AppData\Local\Temp\ccNPrt8b.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_e291b.exe C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/crtbegin.o -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0 -LC:/mingw64/bin/../lib/gcc -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../.. --whole-archive CMakeFiles\cmTC_e291b.dir/objects.a --no-whole-archive --out-implib libcmTC_e291b.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/crtend.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e291b.exe' '-mtune=core2' '-march=nocona'
+mingw32-make.exe[1]: Leaving directory 'C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp'
 
 
 
 Parsed C implicit include dir info from above output: rv=done
   found start of include info
   found start of implicit include info
-    add: [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include]
-    add: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-    add: [/Library/Developer/CommandLineTools/usr/include]
+    add: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include]
+    add: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed]
+    add: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include]
   end of search list found
-  collapse include dir [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include] ==> [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include]
-  collapse include dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-  collapse include dir [/Library/Developer/CommandLineTools/usr/include] ==> [/Library/Developer/CommandLineTools/usr/include]
-  implicit include dirs: [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include;/Library/Developer/CommandLineTools/usr/include]
+  collapse include dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include]
+  collapse include dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed]
+  collapse include dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include] ==> [C:/mingw64/x86_64-w64-mingw32/include]
+  implicit include dirs: [C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include;C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed;C:/mingw64/x86_64-w64-mingw32/include]
 
 
 Parsed C implicit link information from above output:
-  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp]
+  link line regex: [^( *|.*[/\])(ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make cmTC_aab36/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_aab36.dir/build.make CMakeFiles/cmTC_aab36.dir/build]
-  ignore line: [Building C object CMakeFiles/cmTC_aab36.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -v -Wl -v -o CMakeFiles/cmTC_aab36.dir/CMakeCCompilerABI.c.o   -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
-  ignore line: [Apple clang version 11.0.3 (clang-1103.0.32.62)]
-  ignore line: [Target: x86_64-apple-darwin19.6.0]
+  ignore line: [Run Build Command(s):C:/mingw64/bin/mingw32-make.exe cmTC_e291b/fast && C:/mingw64/bin/mingw32-make.exe  -f CMakeFiles\cmTC_e291b.dir\build.make CMakeFiles/cmTC_e291b.dir/build]
+  ignore line: [mingw32-make.exe[1]: Entering directory 'C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_e291b.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [C:\mingw64\bin\gcc.exe   -v -o CMakeFiles\cmTC_e291b.dir\CMakeCCompilerABI.c.obj   -c "C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\share\cmake-3.17\Modules\CMakeCCompilerABI.c"]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=C:\mingw64\bin\gcc.exe]
+  ignore line: [Target: x86_64-w64-mingw32]
+  ignore line: [Configured with: ../../../src/gcc-7.3.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/lib -L/c/mingw730/prerequisites/x86_64-zlib-static/lib -L/c/mingw730/prerequisites/x86_64-w64-mingw32-static/lib ']
   ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-  ignore line: [clang: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
-  ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_aab36.dir/CMakeCCompilerABI.c.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdebug-compilation-dir /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fmax-type-align=16 -fdiagnostics-show-option -o CMakeFiles/cmTC_aab36.dir/CMakeCCompilerABI.c.o -x c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
-  ignore line: [clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0]
-  ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"]
-  ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"]
+  ignore line: [gcc version 7.3.0 (x86_64-posix-seh-rev0  Built by MinGW-W64 project) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_e291b.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona']
+  ignore line: [ C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/cc1.exe -quiet -v -iprefix C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/ -D_REENTRANT C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\share\cmake-3.17\Modules\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=core2 -march=nocona -auxbase-strip CMakeFiles\cmTC_e291b.dir\CMakeCCompilerABI.c.obj -version -o C:\Users\ivan-\AppData\Local\Temp\ccmKGibb.s]
+  ignore line: [GNU C11 (x86_64-posix-seh-rev0  Built by MinGW-W64 project) version 7.3.0 (x86_64-w64-mingw32)]
+  ignore line: [	compiled by GNU C version 7.3.0  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/include"]
+  ignore line: [ignoring nonexistent directory "C:/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64C:/msys64-2/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../include"]
+  ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"]
+  ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"]
+  ignore line: [ignoring nonexistent directory "C:/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/mingw/include"]
   ignore line: [#include "..." search starts here:]
   ignore line: [#include <...> search starts here:]
-  ignore line: [ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include]
-  ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-  ignore line: [ /Library/Developer/CommandLineTools/usr/include]
-  ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)]
+  ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include]
+  ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed]
+  ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include]
   ignore line: [End of search list.]
-  ignore line: [Linking C executable cmTC_aab36]
-  ignore line: [/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aab36.dir/link.txt --verbose=1]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl -search_paths_first -Wl -headerpad_max_install_names  -v -Wl -v CMakeFiles/cmTC_aab36.dir/CMakeCCompilerABI.c.o  -o cmTC_aab36 ]
-  ignore line: [Apple clang version 11.0.3 (clang-1103.0.32.62)]
-  ignore line: [Target: x86_64-apple-darwin19.6.0]
+  ignore line: [GNU C11 (x86_64-posix-seh-rev0  Built by MinGW-W64 project) version 7.3.0 (x86_64-w64-mingw32)]
+  ignore line: [	compiled by GNU C version 7.3.0  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: afb3948cd5c0c8f535365414e7310436]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_e291b.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona']
+  ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\cmTC_e291b.dir\CMakeCCompilerABI.c.obj C:\Users\ivan-\AppData\Local\Temp\ccmKGibb.s]
+  ignore line: [GNU assembler version 2.30 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.30]
+  ignore line: [COMPILER_PATH=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/]
+  ignore line: [C:/mingw64/bin/../libexec/gcc/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/bin/]
+  ignore line: [LIBRARY_PATH=C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_e291b.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona']
+  ignore line: [Linking C executable cmTC_e291b.exe]
+  ignore line: ["C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_e291b.dir\link.txt --verbose=1]
+  ignore line: ["C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_e291b.dir/objects.a]
+  ignore line: [C:\mingw64\bin\ar.exe cr CMakeFiles\cmTC_e291b.dir/objects.a @CMakeFiles\cmTC_e291b.dir\objects1.rsp]
+  ignore line: [C:\mingw64\bin\gcc.exe     -v -Wl --whole-archive CMakeFiles\cmTC_e291b.dir/objects.a -Wl --no-whole-archive  -o cmTC_e291b.exe -Wl --out-implib libcmTC_e291b.dll.a -Wl --major-image-version 0 --minor-image-version 0 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=C:\mingw64\bin\gcc.exe]
+  ignore line: [COLLECT_LTO_WRAPPER=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/lto-wrapper.exe]
+  ignore line: [Target: x86_64-w64-mingw32]
+  ignore line: [Configured with: ../../../src/gcc-7.3.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/lib -L/c/mingw730/prerequisites/x86_64-zlib-static/lib -L/c/mingw730/prerequisites/x86_64-w64-mingw32-static/lib ']
   ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-  link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 10.15.0 10.15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o cmTC_aab36 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_aab36.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a]
-    arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
-    arg [-demangle] ==> ignore
-    arg [-lto_library] ==> ignore, skip following value
-    arg [/Library/Developer/CommandLineTools/usr/lib/libLTO.dylib] ==> skip value of -lto_library
-    arg [-dynamic] ==> ignore
-    arg [-arch] ==> ignore
-    arg [x86_64] ==> ignore
-    arg [-platform_version] ==> ignore
-    arg [macos] ==> ignore
-    arg [10.15.0] ==> ignore
-    arg [10.15.4] ==> ignore
-    arg [-syslibroot] ==> ignore
-    arg [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk] ==> ignore
+  ignore line: [gcc version 7.3.0 (x86_64-posix-seh-rev0  Built by MinGW-W64 project) ]
+  ignore line: [COMPILER_PATH=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/]
+  ignore line: [C:/mingw64/bin/../libexec/gcc/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/bin/]
+  ignore line: [LIBRARY_PATH=C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e291b.exe' '-mtune=core2' '-march=nocona']
+  link line: [ C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/collect2.exe -plugin C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/liblto_plugin-0.dll -plugin-opt=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\ivan-\AppData\Local\Temp\ccNPrt8b.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_e291b.exe C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/crtbegin.o -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0 -LC:/mingw64/bin/../lib/gcc -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../.. --whole-archive CMakeFiles\cmTC_e291b.dir/objects.a --no-whole-archive --out-implib libcmTC_e291b.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/crtend.o]
+    arg [C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/collect2.exe] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/liblto_plugin-0.dll] ==> ignore
+    arg [-plugin-opt=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=C:\Users\ivan-\AppData\Local\Temp\ccNPrt8b.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_eh] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+    arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+    arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+    arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+    arg [-plugin-opt=-pass-through=-liconv] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_eh] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+    arg [--sysroot=C:/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64] ==> ignore
+    arg [-m] ==> ignore
+    arg [i386pep] ==> ignore
+    arg [-Bdynamic] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_aab36] ==> ignore
-    arg [-search_paths_first] ==> ignore
-    arg [-headerpad_max_install_names] ==> ignore
-    arg [-v] ==> ignore
-    arg [CMakeFiles/cmTC_aab36.dir/CMakeCCompilerABI.c.o] ==> ignore
-    arg [-lSystem] ==> lib [System]
-    arg [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a]
-  Library search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  Framework search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/]
-  remove lib [System]
-  remove lib [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a]
-  collapse library dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  collapse framework dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
-  implicit libs: []
-  implicit dirs: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  implicit fwks: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
+    arg [cmTC_e291b.exe] ==> ignore
+    arg [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> ignore
+    arg [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/crtbegin.o] ==> ignore
+    arg [-LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0] ==> dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0]
+    arg [-LC:/mingw64/bin/../lib/gcc] ==> dir [C:/mingw64/bin/../lib/gcc]
+    arg [-LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib]
+    arg [-LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib] ==> dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib]
+    arg [-LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib] ==> dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib]
+    arg [-LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../..] ==> dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../..]
+    arg [--whole-archive] ==> ignore
+    arg [CMakeFiles\cmTC_e291b.dir/objects.a] ==> ignore
+    arg [--no-whole-archive] ==> ignore
+    arg [--out-implib] ==> ignore
+    arg [libcmTC_e291b.dll.a] ==> ignore
+    arg [--major-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [--minor-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lgcc_eh] ==> lib [gcc_eh]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [-lpthread] ==> lib [pthread]
+    arg [-ladvapi32] ==> lib [advapi32]
+    arg [-lshell32] ==> lib [shell32]
+    arg [-luser32] ==> lib [user32]
+    arg [-lkernel32] ==> lib [kernel32]
+    arg [-liconv] ==> lib [iconv]
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lgcc_eh] ==> lib [gcc_eh]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/crtend.o] ==> ignore
+  remove lib [gcc_eh]
+  remove lib [msvcrt]
+  remove lib [gcc_eh]
+  remove lib [msvcrt]
+  collapse library dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0]
+  collapse library dir [C:/mingw64/bin/../lib/gcc] ==> [C:/mingw64/lib/gcc]
+  collapse library dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> [C:/mingw64/x86_64-w64-mingw32/lib]
+  collapse library dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib] ==> [C:/mingw64/lib]
+  collapse library dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib] ==> [C:/mingw64/x86_64-w64-mingw32/lib]
+  collapse library dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../..] ==> [C:/mingw64/lib]
+  implicit libs: [mingw32;gcc;moldname;mingwex;pthread;advapi32;shell32;user32;kernel32;iconv;mingw32;gcc;moldname;mingwex]
+  implicit dirs: [C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0;C:/mingw64/lib/gcc;C:/mingw64/x86_64-w64-mingw32/lib;C:/mingw64/lib]
+  implicit fwks: []
 
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
+Change Dir: C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_a8ca2/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_a8ca2.dir/build.make CMakeFiles/cmTC_a8ca2.dir/build
-Building CXX object CMakeFiles/cmTC_a8ca2.dir/testCXXCompiler.cxx.o
-/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_a8ca2.dir/testCXXCompiler.cxx.o -c /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_a8ca2
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a8ca2.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_a8ca2.dir/testCXXCompiler.cxx.o  -o cmTC_a8ca2 
+Run Build Command(s):C:/mingw64/bin/mingw32-make.exe cmTC_c568d/fast && C:/mingw64/bin/mingw32-make.exe  -f CMakeFiles\cmTC_c568d.dir\build.make CMakeFiles/cmTC_c568d.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c568d.dir/testCXXCompiler.cxx.obj
+C:\mingw64\bin\g++.exe     -o CMakeFiles\cmTC_c568d.dir\testCXXCompiler.cxx.obj -c C:\CLionProjects\pseudo3DEngine\cmake-build-release\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+Linking CXX executable cmTC_c568d.exe
+"C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_c568d.dir\link.txt --verbose=1
+"C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_c568d.dir/objects.a
+C:\mingw64\bin\ar.exe cr CMakeFiles\cmTC_c568d.dir/objects.a @CMakeFiles\cmTC_c568d.dir\objects1.rsp
+C:\mingw64\bin\g++.exe      -Wl,--whole-archive CMakeFiles\cmTC_c568d.dir/objects.a -Wl,--no-whole-archive  -o cmTC_c568d.exe -Wl,--out-implib,libcmTC_c568d.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_c568d.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp'
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
+Change Dir: C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_7f046/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_7f046.dir/build.make CMakeFiles/cmTC_7f046.dir/build
-Building CXX object CMakeFiles/cmTC_7f046.dir/CMakeCXXCompilerABI.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -v -Wl,-v -o CMakeFiles/cmTC_7f046.dir/CMakeCXXCompilerABI.cpp.o -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
-Apple clang version 11.0.3 (clang-1103.0.32.62)
-Target: x86_64-apple-darwin19.6.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
-clang: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
- "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_7f046.dir/CMakeCXXCompilerABI.cpp.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdeprecated-macro -fdebug-compilation-dir /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fdiagnostics-show-option -o CMakeFiles/cmTC_7f046.dir/CMakeCXXCompilerABI.cpp.o -x c++ /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
-clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
-ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1"
-ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
-ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1
- /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
- /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
- /Library/Developer/CommandLineTools/usr/include
- /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking CXX executable cmTC_7f046
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7f046.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_7f046.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_7f046 
-Apple clang version 11.0.3 (clang-1103.0.32.62)
-Target: x86_64-apple-darwin19.6.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
- "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 10.15.0 10.15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o cmTC_7f046 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_7f046.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-556.6
-BUILD 17:57:49 Apr 24 2020
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/
+Run Build Command(s):C:/mingw64/bin/mingw32-make.exe cmTC_fdd99/fast && C:/mingw64/bin/mingw32-make.exe  -f CMakeFiles\cmTC_fdd99.dir\build.make CMakeFiles/cmTC_fdd99.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fdd99.dir/CMakeCXXCompilerABI.cpp.obj
+C:\mingw64\bin\g++.exe    -v -o CMakeFiles\cmTC_fdd99.dir\CMakeCXXCompilerABI.cpp.obj -c "C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\share\cmake-3.17\Modules\CMakeCXXCompilerABI.cpp"
+Using built-in specs.
+COLLECT_GCC=C:\mingw64\bin\g++.exe
+Target: x86_64-w64-mingw32
+Configured with: ../../../src/gcc-7.3.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/lib -L/c/mingw730/prerequisites/x86_64-zlib-static/lib -L/c/mingw730/prerequisites/x86_64-w64-mingw32-static/lib '
+Thread model: posix
+gcc version 7.3.0 (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_fdd99.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona'
+ C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/cc1plus.exe -quiet -v -iprefix C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/ -D_REENTRANT C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\share\cmake-3.17\Modules\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=core2 -march=nocona -auxbase-strip CMakeFiles\cmTC_fdd99.dir\CMakeCXXCompilerABI.cpp.obj -version -o C:\Users\ivan-\AppData\Local\Temp\ccrCauJ3.s
+GNU C++14 (x86_64-posix-seh-rev0, Built by MinGW-W64 project) version 7.3.0 (x86_64-w64-mingw32)
+	compiled by GNU C version 7.3.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"
+ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"
+ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"
+ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/include"
+ignoring nonexistent directory "C:/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64C:/msys64-2/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../include"
+ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"
+ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"
+ignoring nonexistent directory "C:/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/mingw/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++
+ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32
+ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward
+ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include
+ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed
+ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include
+End of search list.
+GNU C++14 (x86_64-posix-seh-rev0, Built by MinGW-W64 project) version 7.3.0 (x86_64-w64-mingw32)
+	compiled by GNU C version 7.3.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 86cf749bb84a0f12f1d61bff4e68fffd
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_fdd99.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona'
+ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\cmTC_fdd99.dir\CMakeCXXCompilerABI.cpp.obj C:\Users\ivan-\AppData\Local\Temp\ccrCauJ3.s
+GNU assembler version 2.30 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.30
+COMPILER_PATH=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/;C:/mingw64/bin/../libexec/gcc/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/bin/
+LIBRARY_PATH=C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/;C:/mingw64/bin/../lib/gcc/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_fdd99.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona'
+Linking CXX executable cmTC_fdd99.exe
+"C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_fdd99.dir\link.txt --verbose=1
+"C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_fdd99.dir/objects.a
+C:\mingw64\bin\ar.exe cr CMakeFiles\cmTC_fdd99.dir/objects.a @CMakeFiles\cmTC_fdd99.dir\objects1.rsp
+C:\mingw64\bin\g++.exe     -v -Wl,--whole-archive CMakeFiles\cmTC_fdd99.dir/objects.a -Wl,--no-whole-archive  -o cmTC_fdd99.exe -Wl,--out-implib,libcmTC_fdd99.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Using built-in specs.
+COLLECT_GCC=C:\mingw64\bin\g++.exe
+COLLECT_LTO_WRAPPER=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/lto-wrapper.exe
+Target: x86_64-w64-mingw32
+Configured with: ../../../src/gcc-7.3.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/lib -L/c/mingw730/prerequisites/x86_64-zlib-static/lib -L/c/mingw730/prerequisites/x86_64-w64-mingw32-static/lib '
+Thread model: posix
+gcc version 7.3.0 (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 
+COMPILER_PATH=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/;C:/mingw64/bin/../libexec/gcc/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/bin/
+LIBRARY_PATH=C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/;C:/mingw64/bin/../lib/gcc/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_fdd99.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona'
+ C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/collect2.exe -plugin C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/liblto_plugin-0.dll -plugin-opt=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\ivan-\AppData\Local\Temp\ccvstjmc.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_fdd99.exe C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/crtbegin.o -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0 -LC:/mingw64/bin/../lib/gcc -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../.. --whole-archive CMakeFiles\cmTC_fdd99.dir/objects.a --no-whole-archive --out-implib libcmTC_fdd99.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/crtend.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_fdd99.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona'
+mingw32-make.exe[1]: Leaving directory 'C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp'
 
 
 
 Parsed CXX implicit include dir info from above output: rv=done
   found start of include info
   found start of implicit include info
-    add: [/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1]
-    add: [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include]
-    add: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-    add: [/Library/Developer/CommandLineTools/usr/include]
+    add: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++]
+    add: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32]
+    add: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward]
+    add: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include]
+    add: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed]
+    add: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include]
   end of search list found
-  collapse include dir [/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1] ==> [/Library/Developer/CommandLineTools/usr/include/c++/v1]
-  collapse include dir [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include] ==> [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include]
-  collapse include dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-  collapse include dir [/Library/Developer/CommandLineTools/usr/include] ==> [/Library/Developer/CommandLineTools/usr/include]
-  implicit include dirs: [/Library/Developer/CommandLineTools/usr/include/c++/v1;/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include;/Library/Developer/CommandLineTools/usr/include]
+  collapse include dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++]
+  collapse include dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32]
+  collapse include dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward]
+  collapse include dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include]
+  collapse include dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed]
+  collapse include dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include] ==> [C:/mingw64/x86_64-w64-mingw32/include]
+  implicit include dirs: [C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++;C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32;C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward;C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include;C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed;C:/mingw64/x86_64-w64-mingw32/include]
 
 
 Parsed CXX implicit link information from above output:
-  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp]
+  link line regex: [^( *|.*[/\])(ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make cmTC_7f046/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_7f046.dir/build.make CMakeFiles/cmTC_7f046.dir/build]
-  ignore line: [Building CXX object CMakeFiles/cmTC_7f046.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -v -Wl -v -o CMakeFiles/cmTC_7f046.dir/CMakeCXXCompilerABI.cpp.o -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Apple clang version 11.0.3 (clang-1103.0.32.62)]
-  ignore line: [Target: x86_64-apple-darwin19.6.0]
+  ignore line: [Run Build Command(s):C:/mingw64/bin/mingw32-make.exe cmTC_fdd99/fast && C:/mingw64/bin/mingw32-make.exe  -f CMakeFiles\cmTC_fdd99.dir\build.make CMakeFiles/cmTC_fdd99.dir/build]
+  ignore line: [mingw32-make.exe[1]: Entering directory 'C:/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_fdd99.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [C:\mingw64\bin\g++.exe    -v -o CMakeFiles\cmTC_fdd99.dir\CMakeCXXCompilerABI.cpp.obj -c "C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\share\cmake-3.17\Modules\CMakeCXXCompilerABI.cpp"]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=C:\mingw64\bin\g++.exe]
+  ignore line: [Target: x86_64-w64-mingw32]
+  ignore line: [Configured with: ../../../src/gcc-7.3.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/lib -L/c/mingw730/prerequisites/x86_64-zlib-static/lib -L/c/mingw730/prerequisites/x86_64-w64-mingw32-static/lib ']
   ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-  ignore line: [clang: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
-  ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_7f046.dir/CMakeCXXCompilerABI.cpp.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdeprecated-macro -fdebug-compilation-dir /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fdiagnostics-show-option -o CMakeFiles/cmTC_7f046.dir/CMakeCXXCompilerABI.cpp.o -x c++ /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0]
-  ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1"]
-  ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"]
-  ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"]
+  ignore line: [gcc version 7.3.0 (x86_64-posix-seh-rev0  Built by MinGW-W64 project) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_fdd99.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona']
+  ignore line: [ C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/cc1plus.exe -quiet -v -iprefix C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/ -D_REENTRANT C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\share\cmake-3.17\Modules\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=core2 -march=nocona -auxbase-strip CMakeFiles\cmTC_fdd99.dir\CMakeCXXCompilerABI.cpp.obj -version -o C:\Users\ivan-\AppData\Local\Temp\ccrCauJ3.s]
+  ignore line: [GNU C++14 (x86_64-posix-seh-rev0  Built by MinGW-W64 project) version 7.3.0 (x86_64-w64-mingw32)]
+  ignore line: [	compiled by GNU C version 7.3.0  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"]
+  ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"]
+  ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"]
+  ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/include"]
+  ignore line: [ignoring nonexistent directory "C:/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64C:/msys64-2/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../include"]
+  ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"]
+  ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"]
+  ignore line: [ignoring nonexistent directory "C:/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/mingw/include"]
   ignore line: [#include "..." search starts here:]
   ignore line: [#include <...> search starts here:]
-  ignore line: [ /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1]
-  ignore line: [ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include]
-  ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-  ignore line: [ /Library/Developer/CommandLineTools/usr/include]
-  ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)]
+  ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++]
+  ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32]
+  ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward]
+  ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include]
+  ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed]
+  ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include]
   ignore line: [End of search list.]
-  ignore line: [Linking CXX executable cmTC_7f046]
-  ignore line: [/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7f046.dir/link.txt --verbose=1]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl -search_paths_first -Wl -headerpad_max_install_names  -v -Wl -v CMakeFiles/cmTC_7f046.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_7f046 ]
-  ignore line: [Apple clang version 11.0.3 (clang-1103.0.32.62)]
-  ignore line: [Target: x86_64-apple-darwin19.6.0]
-  ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-  link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 10.15.0 10.15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o cmTC_7f046 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_7f046.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a]
-    arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
-    arg [-demangle] ==> ignore
-    arg [-lto_library] ==> ignore, skip following value
-    arg [/Library/Developer/CommandLineTools/usr/lib/libLTO.dylib] ==> skip value of -lto_library
-    arg [-dynamic] ==> ignore
-    arg [-arch] ==> ignore
-    arg [x86_64] ==> ignore
-    arg [-platform_version] ==> ignore
-    arg [macos] ==> ignore
-    arg [10.15.0] ==> ignore
-    arg [10.15.4] ==> ignore
-    arg [-syslibroot] ==> ignore
-    arg [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk] ==> ignore
-    arg [-o] ==> ignore
-    arg [cmTC_7f046] ==> ignore
-    arg [-search_paths_first] ==> ignore
-    arg [-headerpad_max_install_names] ==> ignore
-    arg [-v] ==> ignore
-    arg [CMakeFiles/cmTC_7f046.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
-    arg [-lc++] ==> lib [c++]
-    arg [-lSystem] ==> lib [System]
-    arg [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a]
-  Library search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  Framework search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/]
-  remove lib [System]
-  remove lib [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a]
-  collapse library dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  collapse framework dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
-  implicit libs: [c++]
-  implicit dirs: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  implicit fwks: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
-
-
-The system is: Darwin - 19.6.0 - x86_64
-Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler: /Library/Developer/CommandLineTools/usr/bin/cc 
-Build flags: 
-Id flags:  
-
-The output was:
-0
-
-
-Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
-
-The C compiler identification is AppleClang, found in "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/3.16.5/CompilerIdC/a.out"
-
-Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler: /Library/Developer/CommandLineTools/usr/bin/c++ 
-Build flags: 
-Id flags:  
-
-The output was:
-0
-
-
-Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
-
-The CXX compiler identification is AppleClang, found in "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/3.16.5/CompilerIdCXX/a.out"
-
-Determining if the C compiler works passed with the following output:
-Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_6343c/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_6343c.dir/build.make CMakeFiles/cmTC_6343c.dir/build
-Building C object CMakeFiles/cmTC_6343c.dir/testCCompiler.c.o
-/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_6343c.dir/testCCompiler.c.o   -c /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_6343c
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6343c.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_6343c.dir/testCCompiler.c.o  -o cmTC_6343c 
-
-
-
-Detecting C compiler ABI info compiled with the following output:
-Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_fb830/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_fb830.dir/build.make CMakeFiles/cmTC_fb830.dir/build
-Building C object CMakeFiles/cmTC_fb830.dir/CMakeCCompilerABI.c.o
-/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -v -Wl,-v -o CMakeFiles/cmTC_fb830.dir/CMakeCCompilerABI.c.o   -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCCompilerABI.c
-Apple clang version 11.0.3 (clang-1103.0.32.62)
-Target: x86_64-apple-darwin19.6.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
-clang: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
- "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_fb830.dir/CMakeCCompilerABI.c.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdebug-compilation-dir /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fmax-type-align=16 -fdiagnostics-show-option -o CMakeFiles/cmTC_fb830.dir/CMakeCCompilerABI.c.o -x c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCCompilerABI.c
-clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
-ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
-ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
- /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
- /Library/Developer/CommandLineTools/usr/include
- /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking C executable cmTC_fb830
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fb830.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_fb830.dir/CMakeCCompilerABI.c.o  -o cmTC_fb830 
-Apple clang version 11.0.3 (clang-1103.0.32.62)
-Target: x86_64-apple-darwin19.6.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
- "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 10.15.0 10.15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o cmTC_fb830 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_fb830.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-556.6
-BUILD 17:57:49 Apr 24 2020
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/
-
-
-
-Parsed C implicit include dir info from above output: rv=done
-  found start of include info
-  found start of implicit include info
-    add: [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include]
-    add: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-    add: [/Library/Developer/CommandLineTools/usr/include]
-  end of search list found
-  collapse include dir [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include] ==> [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include]
-  collapse include dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-  collapse include dir [/Library/Developer/CommandLineTools/usr/include] ==> [/Library/Developer/CommandLineTools/usr/include]
-  implicit include dirs: [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include;/Library/Developer/CommandLineTools/usr/include]
-
-
-Parsed C implicit link information from above output:
-  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp]
+  ignore line: [GNU C++14 (x86_64-posix-seh-rev0  Built by MinGW-W64 project) version 7.3.0 (x86_64-w64-mingw32)]
+  ignore line: [	compiled by GNU C version 7.3.0  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.18-GMP]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make cmTC_fb830/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_fb830.dir/build.make CMakeFiles/cmTC_fb830.dir/build]
-  ignore line: [Building C object CMakeFiles/cmTC_fb830.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -v -Wl -v -o CMakeFiles/cmTC_fb830.dir/CMakeCCompilerABI.c.o   -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
-  ignore line: [Apple clang version 11.0.3 (clang-1103.0.32.62)]
-  ignore line: [Target: x86_64-apple-darwin19.6.0]
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 86cf749bb84a0f12f1d61bff4e68fffd]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_fdd99.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona']
+  ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\cmTC_fdd99.dir\CMakeCXXCompilerABI.cpp.obj C:\Users\ivan-\AppData\Local\Temp\ccrCauJ3.s]
+  ignore line: [GNU assembler version 2.30 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.30]
+  ignore line: [COMPILER_PATH=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/]
+  ignore line: [C:/mingw64/bin/../libexec/gcc/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/bin/]
+  ignore line: [LIBRARY_PATH=C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_fdd99.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona']
+  ignore line: [Linking CXX executable cmTC_fdd99.exe]
+  ignore line: ["C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_fdd99.dir\link.txt --verbose=1]
+  ignore line: ["C:\Program Files\JetBrains\CLion 2020.3.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_fdd99.dir/objects.a]
+  ignore line: [C:\mingw64\bin\ar.exe cr CMakeFiles\cmTC_fdd99.dir/objects.a @CMakeFiles\cmTC_fdd99.dir\objects1.rsp]
+  ignore line: [C:\mingw64\bin\g++.exe     -v -Wl --whole-archive CMakeFiles\cmTC_fdd99.dir/objects.a -Wl --no-whole-archive  -o cmTC_fdd99.exe -Wl --out-implib libcmTC_fdd99.dll.a -Wl --major-image-version 0 --minor-image-version 0 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=C:\mingw64\bin\g++.exe]
+  ignore line: [COLLECT_LTO_WRAPPER=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/lto-wrapper.exe]
+  ignore line: [Target: x86_64-w64-mingw32]
+  ignore line: [Configured with: ../../../src/gcc-7.3.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw730/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/include -I/c/mingw730/prerequisites/x86_64-zlib-static/include -I/c/mingw730/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64/opt/lib -L/c/mingw730/prerequisites/x86_64-zlib-static/lib -L/c/mingw730/prerequisites/x86_64-w64-mingw32-static/lib ']
   ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-  ignore line: [clang: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
-  ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_fb830.dir/CMakeCCompilerABI.c.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdebug-compilation-dir /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fmax-type-align=16 -fdiagnostics-show-option -o CMakeFiles/cmTC_fb830.dir/CMakeCCompilerABI.c.o -x c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
-  ignore line: [clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0]
-  ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"]
-  ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"]
-  ignore line: [#include "..." search starts here:]
-  ignore line: [#include <...> search starts here:]
-  ignore line: [ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include]
-  ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-  ignore line: [ /Library/Developer/CommandLineTools/usr/include]
-  ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)]
-  ignore line: [End of search list.]
-  ignore line: [Linking C executable cmTC_fb830]
-  ignore line: [/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fb830.dir/link.txt --verbose=1]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl -search_paths_first -Wl -headerpad_max_install_names  -v -Wl -v CMakeFiles/cmTC_fb830.dir/CMakeCCompilerABI.c.o  -o cmTC_fb830 ]
-  ignore line: [Apple clang version 11.0.3 (clang-1103.0.32.62)]
-  ignore line: [Target: x86_64-apple-darwin19.6.0]
-  ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-  link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 10.15.0 10.15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o cmTC_fb830 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_fb830.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a]
-    arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
-    arg [-demangle] ==> ignore
-    arg [-lto_library] ==> ignore, skip following value
-    arg [/Library/Developer/CommandLineTools/usr/lib/libLTO.dylib] ==> skip value of -lto_library
-    arg [-dynamic] ==> ignore
-    arg [-arch] ==> ignore
-    arg [x86_64] ==> ignore
-    arg [-platform_version] ==> ignore
-    arg [macos] ==> ignore
-    arg [10.15.0] ==> ignore
-    arg [10.15.4] ==> ignore
-    arg [-syslibroot] ==> ignore
-    arg [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk] ==> ignore
+  ignore line: [gcc version 7.3.0 (x86_64-posix-seh-rev0  Built by MinGW-W64 project) ]
+  ignore line: [COMPILER_PATH=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/]
+  ignore line: [C:/mingw64/bin/../libexec/gcc/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/bin/]
+  ignore line: [LIBRARY_PATH=C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/]
+  ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_fdd99.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona']
+  link line: [ C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/collect2.exe -plugin C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/liblto_plugin-0.dll -plugin-opt=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\ivan-\AppData\Local\Temp\ccvstjmc.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_fdd99.exe C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/crtbegin.o -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0 -LC:/mingw64/bin/../lib/gcc -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../.. --whole-archive CMakeFiles\cmTC_fdd99.dir/objects.a --no-whole-archive --out-implib libcmTC_fdd99.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/crtend.o]
+    arg [C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/collect2.exe] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/liblto_plugin-0.dll] ==> ignore
+    arg [-plugin-opt=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/7.3.0/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=C:\Users\ivan-\AppData\Local\Temp\ccvstjmc.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+    arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+    arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+    arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+    arg [-plugin-opt=-pass-through=-liconv] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+    arg [--sysroot=C:/mingw730/x86_64-730-posix-seh-rt_v5-rev0/mingw64] ==> ignore
+    arg [-m] ==> ignore
+    arg [i386pep] ==> ignore
+    arg [-Bdynamic] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_fb830] ==> ignore
-    arg [-search_paths_first] ==> ignore
-    arg [-headerpad_max_install_names] ==> ignore
-    arg [-v] ==> ignore
-    arg [CMakeFiles/cmTC_fb830.dir/CMakeCCompilerABI.c.o] ==> ignore
-    arg [-lSystem] ==> lib [System]
-    arg [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a]
-  Library search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  Framework search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/]
-  remove lib [System]
-  remove lib [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a]
-  collapse library dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  collapse framework dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
-  implicit libs: []
-  implicit dirs: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  implicit fwks: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
-
-
-Determining if the CXX compiler works passed with the following output:
-Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_ae4b2/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_ae4b2.dir/build.make CMakeFiles/cmTC_ae4b2.dir/build
-Building CXX object CMakeFiles/cmTC_ae4b2.dir/testCXXCompiler.cxx.o
-/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_ae4b2.dir/testCXXCompiler.cxx.o -c /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_ae4b2
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae4b2.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_ae4b2.dir/testCXXCompiler.cxx.o  -o cmTC_ae4b2 
-
-
-
-Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_741a9/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_741a9.dir/build.make CMakeFiles/cmTC_741a9.dir/build
-Building CXX object CMakeFiles/cmTC_741a9.dir/CMakeCXXCompilerABI.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -v -Wl,-v -o CMakeFiles/cmTC_741a9.dir/CMakeCXXCompilerABI.cpp.o -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
-Apple clang version 11.0.3 (clang-1103.0.32.62)
-Target: x86_64-apple-darwin19.6.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
-clang: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
- "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_741a9.dir/CMakeCXXCompilerABI.cpp.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdeprecated-macro -fdebug-compilation-dir /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fdiagnostics-show-option -o CMakeFiles/cmTC_741a9.dir/CMakeCXXCompilerABI.cpp.o -x c++ /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
-clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
-ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1"
-ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
-ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1
- /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
- /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
- /Library/Developer/CommandLineTools/usr/include
- /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking CXX executable cmTC_741a9
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_741a9.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_741a9.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_741a9 
-Apple clang version 11.0.3 (clang-1103.0.32.62)
-Target: x86_64-apple-darwin19.6.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
- "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 10.15.0 10.15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o cmTC_741a9 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_741a9.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-556.6
-BUILD 17:57:49 Apr 24 2020
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/
-
-
-
-Parsed CXX implicit include dir info from above output: rv=done
-  found start of include info
-  found start of implicit include info
-    add: [/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1]
-    add: [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include]
-    add: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-    add: [/Library/Developer/CommandLineTools/usr/include]
-  end of search list found
-  collapse include dir [/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1] ==> [/Library/Developer/CommandLineTools/usr/include/c++/v1]
-  collapse include dir [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include] ==> [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include]
-  collapse include dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-  collapse include dir [/Library/Developer/CommandLineTools/usr/include] ==> [/Library/Developer/CommandLineTools/usr/include]
-  implicit include dirs: [/Library/Developer/CommandLineTools/usr/include/c++/v1;/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include;/Library/Developer/CommandLineTools/usr/include]
-
-
-Parsed CXX implicit link information from above output:
-  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp]
-  ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make cmTC_741a9/fast && /Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_741a9.dir/build.make CMakeFiles/cmTC_741a9.dir/build]
-  ignore line: [Building CXX object CMakeFiles/cmTC_741a9.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -v -Wl -v -o CMakeFiles/cmTC_741a9.dir/CMakeCXXCompilerABI.cpp.o -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Apple clang version 11.0.3 (clang-1103.0.32.62)]
-  ignore line: [Target: x86_64-apple-darwin19.6.0]
-  ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-  ignore line: [clang: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
-  ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_741a9.dir/CMakeCXXCompilerABI.cpp.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdeprecated-macro -fdebug-compilation-dir /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fdiagnostics-show-option -o CMakeFiles/cmTC_741a9.dir/CMakeCXXCompilerABI.cpp.o -x c++ /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0]
-  ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1"]
-  ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"]
-  ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"]
-  ignore line: [#include "..." search starts here:]
-  ignore line: [#include <...> search starts here:]
-  ignore line: [ /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1]
-  ignore line: [ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include]
-  ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-  ignore line: [ /Library/Developer/CommandLineTools/usr/include]
-  ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)]
-  ignore line: [End of search list.]
-  ignore line: [Linking CXX executable cmTC_741a9]
-  ignore line: [/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_741a9.dir/link.txt --verbose=1]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl -search_paths_first -Wl -headerpad_max_install_names  -v -Wl -v CMakeFiles/cmTC_741a9.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_741a9 ]
-  ignore line: [Apple clang version 11.0.3 (clang-1103.0.32.62)]
-  ignore line: [Target: x86_64-apple-darwin19.6.0]
-  ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-  link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 10.15.0 10.15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o cmTC_741a9 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_741a9.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a]
-    arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
-    arg [-demangle] ==> ignore
-    arg [-lto_library] ==> ignore, skip following value
-    arg [/Library/Developer/CommandLineTools/usr/lib/libLTO.dylib] ==> skip value of -lto_library
-    arg [-dynamic] ==> ignore
-    arg [-arch] ==> ignore
-    arg [x86_64] ==> ignore
-    arg [-platform_version] ==> ignore
-    arg [macos] ==> ignore
-    arg [10.15.0] ==> ignore
-    arg [10.15.4] ==> ignore
-    arg [-syslibroot] ==> ignore
-    arg [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk] ==> ignore
-    arg [-o] ==> ignore
-    arg [cmTC_741a9] ==> ignore
-    arg [-search_paths_first] ==> ignore
-    arg [-headerpad_max_install_names] ==> ignore
-    arg [-v] ==> ignore
-    arg [CMakeFiles/cmTC_741a9.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
-    arg [-lc++] ==> lib [c++]
-    arg [-lSystem] ==> lib [System]
-    arg [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a]
-  Library search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  Framework search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/]
-  remove lib [System]
-  remove lib [/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/lib/darwin/libclang_rt.osx.a]
-  collapse library dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  collapse framework dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
-  implicit libs: [c++]
-  implicit dirs: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  implicit fwks: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
-
-
-The system is: Darwin - 20.2.0 - x86_64
-Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler: /Library/Developer/CommandLineTools/usr/bin/cc 
-Build flags: 
-Id flags: -c 
-
-The output was:
-0
-
-
-Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
-
-The C compiler identification is AppleClang, found in "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/3.17.3/CompilerIdC/CMakeCCompilerId.o"
-
-Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler: /Library/Developer/CommandLineTools/usr/bin/c++ 
-Build flags: 
-Id flags: -c 
-
-The output was:
-0
-
-
-Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
-
-The CXX compiler identification is AppleClang, found in "/Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/3.17.3/CompilerIdCXX/CMakeCXXCompilerId.o"
-
-Determining if the C compiler works passed with the following output:
-Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_77fb3/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_77fb3.dir/build.make CMakeFiles/cmTC_77fb3.dir/build
-Building C object CMakeFiles/cmTC_77fb3.dir/testCCompiler.c.o
-/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_77fb3.dir/testCCompiler.c.o   -c /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_77fb3
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_77fb3.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_77fb3.dir/testCCompiler.c.o  -o cmTC_77fb3 
-
-
-
-Detecting C compiler ABI info compiled with the following output:
-Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_598a1/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_598a1.dir/build.make CMakeFiles/cmTC_598a1.dir/build
-Building C object CMakeFiles/cmTC_598a1.dir/CMakeCCompilerABI.c.o
-/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -v -Wl,-v -o CMakeFiles/cmTC_598a1.dir/CMakeCCompilerABI.c.o   -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.17/Modules/CMakeCCompilerABI.c
-Apple clang version 12.0.0 (clang-1200.0.31.1)
-Target: x86_64-apple-darwin20.2.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
-clang: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
- "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.6 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.6 -fcompatibility-qualified-id-block-type-checking -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 609 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -fdebug-compilation-dir /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fobjc-runtime=macosx-10.15.6 -fmax-type-align=16 -fdiagnostics-show-option -o CMakeFiles/cmTC_598a1.dir/CMakeCCompilerABI.c.o -x c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.17/Modules/CMakeCCompilerABI.c
-clang -cc1 version 12.0.0 (clang-1200.0.31.1) default target x86_64-apple-darwin20.2.0
-ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
-ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include
- /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
- /Library/Developer/CommandLineTools/usr/include
- /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking C executable cmTC_598a1
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_598a1.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_598a1.dir/CMakeCCompilerABI.c.o  -o cmTC_598a1 
-Apple clang version 12.0.0 (clang-1200.0.31.1)
-Target: x86_64-apple-darwin20.2.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
- "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 10.15.6 10.15.6 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o cmTC_598a1 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_598a1.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-609
-BUILD 04:42:03 Aug 10 2020
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/
-
-
-
-Parsed C implicit include dir info from above output: rv=done
-  found start of include info
-  found start of implicit include info
-    add: [/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include]
-    add: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-    add: [/Library/Developer/CommandLineTools/usr/include]
-  end of search list found
-  collapse include dir [/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include] ==> [/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include]
-  collapse include dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-  collapse include dir [/Library/Developer/CommandLineTools/usr/include] ==> [/Library/Developer/CommandLineTools/usr/include]
-  implicit include dirs: [/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include;/Library/Developer/CommandLineTools/usr/include]
-
-
-Parsed C implicit link information from above output:
-  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp]
-  ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make cmTC_598a1/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_598a1.dir/build.make CMakeFiles/cmTC_598a1.dir/build]
-  ignore line: [Building C object CMakeFiles/cmTC_598a1.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -v -Wl -v -o CMakeFiles/cmTC_598a1.dir/CMakeCCompilerABI.c.o   -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.17/Modules/CMakeCCompilerABI.c]
-  ignore line: [Apple clang version 12.0.0 (clang-1200.0.31.1)]
-  ignore line: [Target: x86_64-apple-darwin20.2.0]
-  ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-  ignore line: [clang: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
-  ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.6 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.6 -fcompatibility-qualified-id-block-type-checking -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 609 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -fdebug-compilation-dir /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fobjc-runtime=macosx-10.15.6 -fmax-type-align=16 -fdiagnostics-show-option -o CMakeFiles/cmTC_598a1.dir/CMakeCCompilerABI.c.o -x c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.17/Modules/CMakeCCompilerABI.c]
-  ignore line: [clang -cc1 version 12.0.0 (clang-1200.0.31.1) default target x86_64-apple-darwin20.2.0]
-  ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"]
-  ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"]
-  ignore line: [#include "..." search starts here:]
-  ignore line: [#include <...> search starts here:]
-  ignore line: [ /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include]
-  ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-  ignore line: [ /Library/Developer/CommandLineTools/usr/include]
-  ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)]
-  ignore line: [End of search list.]
-  ignore line: [Linking C executable cmTC_598a1]
-  ignore line: [/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_598a1.dir/link.txt --verbose=1]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/cc   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl -search_paths_first -Wl -headerpad_max_install_names  -v -Wl -v CMakeFiles/cmTC_598a1.dir/CMakeCCompilerABI.c.o  -o cmTC_598a1 ]
-  ignore line: [Apple clang version 12.0.0 (clang-1200.0.31.1)]
-  ignore line: [Target: x86_64-apple-darwin20.2.0]
-  ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-  link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 10.15.6 10.15.6 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o cmTC_598a1 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_598a1.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/lib/darwin/libclang_rt.osx.a]
-    arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
-    arg [-demangle] ==> ignore
-    arg [-lto_library] ==> ignore, skip following value
-    arg [/Library/Developer/CommandLineTools/usr/lib/libLTO.dylib] ==> skip value of -lto_library
-    arg [-dynamic] ==> ignore
-    arg [-arch] ==> ignore
-    arg [x86_64] ==> ignore
-    arg [-platform_version] ==> ignore
-    arg [macos] ==> ignore
-    arg [10.15.6] ==> ignore
-    arg [10.15.6] ==> ignore
-    arg [-syslibroot] ==> ignore
-    arg [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk] ==> ignore
-    arg [-o] ==> ignore
-    arg [cmTC_598a1] ==> ignore
-    arg [-search_paths_first] ==> ignore
-    arg [-headerpad_max_install_names] ==> ignore
-    arg [-v] ==> ignore
-    arg [CMakeFiles/cmTC_598a1.dir/CMakeCCompilerABI.c.o] ==> ignore
-    arg [-lSystem] ==> lib [System]
-    arg [/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/lib/darwin/libclang_rt.osx.a]
-  Library search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  Framework search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/]
-  remove lib [System]
-  remove lib [/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/lib/darwin/libclang_rt.osx.a]
-  collapse library dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  collapse framework dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
-  implicit libs: []
-  implicit dirs: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  implicit fwks: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
-
-
-Determining if the CXX compiler works passed with the following output:
-Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_822f8/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_822f8.dir/build.make CMakeFiles/cmTC_822f8.dir/build
-Building CXX object CMakeFiles/cmTC_822f8.dir/testCXXCompiler.cxx.o
-/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_822f8.dir/testCXXCompiler.cxx.o -c /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_822f8
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_822f8.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_822f8.dir/testCXXCompiler.cxx.o  -o cmTC_822f8 
-
-
-
-Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_4bba1/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_4bba1.dir/build.make CMakeFiles/cmTC_4bba1.dir/build
-Building CXX object CMakeFiles/cmTC_4bba1.dir/CMakeCXXCompilerABI.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -v -Wl,-v -o CMakeFiles/cmTC_4bba1.dir/CMakeCXXCompilerABI.cpp.o -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.17/Modules/CMakeCXXCompilerABI.cpp
-Apple clang version 12.0.0 (clang-1200.0.31.1)
-Target: x86_64-apple-darwin20.2.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
-clang: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
-ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1"
- "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.6 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.6 -fcompatibility-qualified-id-block-type-checking -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 609 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -fdeprecated-macro -fdebug-compilation-dir /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fobjc-runtime=macosx-10.15.6 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fdiagnostics-show-option -o CMakeFiles/cmTC_4bba1.dir/CMakeCXXCompilerABI.cpp.o -x c++ /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.17/Modules/CMakeCXXCompilerABI.cpp
-clang -cc1 version 12.0.0 (clang-1200.0.31.1) default target x86_64-apple-darwin20.2.0
-ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
-ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1
- /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include
- /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
- /Library/Developer/CommandLineTools/usr/include
- /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking CXX executable cmTC_4bba1
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4bba1.dir/link.txt --verbose=1
-/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_4bba1.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_4bba1 
-Apple clang version 12.0.0 (clang-1200.0.31.1)
-Target: x86_64-apple-darwin20.2.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
- "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 10.15.6 10.15.6 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o cmTC_4bba1 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_4bba1.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-609
-BUILD 04:42:03 Aug 10 2020
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/
-
-
-
-Parsed CXX implicit include dir info from above output: rv=done
-  found start of include info
-  found start of implicit include info
-    add: [/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1]
-    add: [/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include]
-    add: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-    add: [/Library/Developer/CommandLineTools/usr/include]
-  end of search list found
-  collapse include dir [/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1] ==> [/Library/Developer/CommandLineTools/usr/include/c++/v1]
-  collapse include dir [/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include] ==> [/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include]
-  collapse include dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-  collapse include dir [/Library/Developer/CommandLineTools/usr/include] ==> [/Library/Developer/CommandLineTools/usr/include]
-  implicit include dirs: [/Library/Developer/CommandLineTools/usr/include/c++/v1;/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include;/Library/Developer/CommandLineTools/usr/include]
-
-
-Parsed CXX implicit link information from above output:
-  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp]
-  ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make cmTC_4bba1/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_4bba1.dir/build.make CMakeFiles/cmTC_4bba1.dir/build]
-  ignore line: [Building CXX object CMakeFiles/cmTC_4bba1.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -v -Wl -v -o CMakeFiles/cmTC_4bba1.dir/CMakeCXXCompilerABI.cpp.o -c /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.17/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Apple clang version 12.0.0 (clang-1200.0.31.1)]
-  ignore line: [Target: x86_64-apple-darwin20.2.0]
-  ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-  ignore line: [clang: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
-  ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1"]
-  ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.6 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.6 -fcompatibility-qualified-id-block-type-checking -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 609 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -fdeprecated-macro -fdebug-compilation-dir /Users/ivanilin/CLionProjects/pseudo3DEngine/cmake-build-release/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fobjc-runtime=macosx-10.15.6 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fdiagnostics-show-option -o CMakeFiles/cmTC_4bba1.dir/CMakeCXXCompilerABI.cpp.o -x c++ /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.17/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [clang -cc1 version 12.0.0 (clang-1200.0.31.1) default target x86_64-apple-darwin20.2.0]
-  ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"]
-  ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"]
-  ignore line: [#include "..." search starts here:]
-  ignore line: [#include <...> search starts here:]
-  ignore line: [ /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1]
-  ignore line: [ /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include]
-  ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include]
-  ignore line: [ /Library/Developer/CommandLineTools/usr/include]
-  ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)]
-  ignore line: [End of search list.]
-  ignore line: [Linking CXX executable cmTC_4bba1]
-  ignore line: [/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4bba1.dir/link.txt --verbose=1]
-  ignore line: [/Library/Developer/CommandLineTools/usr/bin/c++    -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl -search_paths_first -Wl -headerpad_max_install_names  -v -Wl -v CMakeFiles/cmTC_4bba1.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_4bba1 ]
-  ignore line: [Apple clang version 12.0.0 (clang-1200.0.31.1)]
-  ignore line: [Target: x86_64-apple-darwin20.2.0]
-  ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-  link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 10.15.6 10.15.6 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o cmTC_4bba1 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_4bba1.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/lib/darwin/libclang_rt.osx.a]
-    arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
-    arg [-demangle] ==> ignore
-    arg [-lto_library] ==> ignore, skip following value
-    arg [/Library/Developer/CommandLineTools/usr/lib/libLTO.dylib] ==> skip value of -lto_library
-    arg [-dynamic] ==> ignore
-    arg [-arch] ==> ignore
-    arg [x86_64] ==> ignore
-    arg [-platform_version] ==> ignore
-    arg [macos] ==> ignore
-    arg [10.15.6] ==> ignore
-    arg [10.15.6] ==> ignore
-    arg [-syslibroot] ==> ignore
-    arg [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk] ==> ignore
-    arg [-o] ==> ignore
-    arg [cmTC_4bba1] ==> ignore
-    arg [-search_paths_first] ==> ignore
-    arg [-headerpad_max_install_names] ==> ignore
-    arg [-v] ==> ignore
-    arg [CMakeFiles/cmTC_4bba1.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
-    arg [-lc++] ==> lib [c++]
-    arg [-lSystem] ==> lib [System]
-    arg [/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/lib/darwin/libclang_rt.osx.a]
-  Library search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  Framework search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/]
-  remove lib [System]
-  remove lib [/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/lib/darwin/libclang_rt.osx.a]
-  collapse library dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  collapse framework dir [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
-  implicit libs: [c++]
-  implicit dirs: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib]
-  implicit fwks: [/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks]
+    arg [cmTC_fdd99.exe] ==> ignore
+    arg [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> ignore
+    arg [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/crtbegin.o] ==> ignore
+    arg [-LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0] ==> dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0]
+    arg [-LC:/mingw64/bin/../lib/gcc] ==> dir [C:/mingw64/bin/../lib/gcc]
+    arg [-LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib]
+    arg [-LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib] ==> dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib]
+    arg [-LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib] ==> dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib]
+    arg [-LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../..] ==> dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../..]
+    arg [--whole-archive] ==> ignore
+    arg [CMakeFiles\cmTC_fdd99.dir/objects.a] ==> ignore
+    arg [--no-whole-archive] ==> ignore
+    arg [--out-implib] ==> ignore
+    arg [libcmTC_fdd99.dll.a] ==> ignore
+    arg [--major-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [--minor-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [-lpthread] ==> lib [pthread]
+    arg [-ladvapi32] ==> lib [advapi32]
+    arg [-lshell32] ==> lib [shell32]
+    arg [-luser32] ==> lib [user32]
+    arg [-lkernel32] ==> lib [kernel32]
+    arg [-liconv] ==> lib [iconv]
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/crtend.o] ==> ignore
+  remove lib [msvcrt]
+  remove lib [msvcrt]
+  collapse library dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0]
+  collapse library dir [C:/mingw64/bin/../lib/gcc] ==> [C:/mingw64/lib/gcc]
+  collapse library dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> [C:/mingw64/x86_64-w64-mingw32/lib]
+  collapse library dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../lib] ==> [C:/mingw64/lib]
+  collapse library dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/lib] ==> [C:/mingw64/x86_64-w64-mingw32/lib]
+  collapse library dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../..] ==> [C:/mingw64/lib]
+  implicit libs: [stdc++;mingw32;gcc_s;gcc;moldname;mingwex;pthread;advapi32;shell32;user32;kernel32;iconv;mingw32;gcc_s;gcc;moldname;mingwex]
+  implicit dirs: [C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0;C:/mingw64/lib/gcc;C:/mingw64/x86_64-w64-mingw32/lib;C:/mingw64/lib]
+  implicit fwks: []
 
 
