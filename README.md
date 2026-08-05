@@ -2,6 +2,10 @@
 Simple pseudo-3d shooter implementation. 
 You can make two dimensional map, add enemy's, shoot and draw pseudo 3D image using Ray-Cast.
 
+[Blog post past 1](https://ivanilin.org/ilinblog/articles/pishem-shuter-ot-pervogo-litsa-v-konsoli-kak-rabotaet-psevdo-3d-grafika-v-igrah-1/)
+[Blog post past 2](https://ivanilin.org/ilinblog/articles/kak-ya-napisal-onlain-shuter-na-c-za-nedelyu/)
+
+
 <h4>Installation:</h4>
 
 1) Download and install OpenAL library for SFML sound support (in current version you can't setup this engine without OpenAL)
