@@ -2,9 +2,9 @@
 Simple pseudo-3d shooter implementation. 
 You can make two dimensional map, add enemy's, shoot and draw pseudo 3D image using Ray-Cast.
 
-[Blog post #1](https://ivanilin.org/ilinblog/articles/pishem-shuter-ot-pervogo-litsa-v-konsoli-kak-rabotaet-psevdo-3d-grafika-v-igrah-1/)
+[Blog post #1](https://ilinblog.ru/articles/pishem-shuter-ot-pervogo-litsa-v-konsoli-kak-rabotaet-psevdo-3d-grafika-v-igrah-1/)
 
-[Blog post #2](https://ivanilin.org/ilinblog/articles/kak-ya-napisal-onlain-shuter-na-c-za-nedelyu/)
+[Blog post #2](https://ilinblog.ru/articles/kak-ya-napisal-onlain-shuter-na-c-za-nedelyu/)
 
 
 <h4>Installation:</h4>
